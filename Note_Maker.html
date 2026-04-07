@@ -1,0 +1,2921 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>N846 — RARC Intelligence Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=DM+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+/* ══════════════════════════════════════════
+   DESIGN TOKENS
+══════════════════════════════════════════ */
+:root {
+  --bg:        #f2f5fb;
+  --surface:   #ffffff;
+  --surface2:  #f7f9ff;
+  --border:    #dde5f2;
+  --border2:   #c4d1ea;
+  --text:      #0d1830;
+  --muted:     #566080;
+  --muted2:    #8896b5;
+  --accent:    #1847cc;
+  --accent-h:  #0d34a8;
+  --accent-lt: #eef2ff;
+  --teal:      #0a8572;
+  --teal-bg:   #e6f6f3;
+  --teal-bd:   #9ed3cb;
+  --amber:     #b87010;
+  --amber-bg:  #fef5e4;
+  --amber-bd:  #f0ca78;
+  --rose:      #be2a2a;
+  --rose-bg:   #fdf0f0;
+  --rose-bd:   #f4bcbc;
+  --navy:      #081b46;
+  --navy2:     #0c2460;
+  --sh-xs: 0 1px 3px rgba(10,20,60,.05);
+  --sh-sm: 0 2px 8px rgba(10,20,60,.07);
+  --sh:    0 5px 22px rgba(10,20,60,.10);
+  --sh-lg: 0 14px 44px rgba(10,20,60,.14);
+  --r:     14px;
+  --r-sm:  9px;
+  --r-xs:  6px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.65;
+  opacity: 0;
+  animation: pageFade 0.5s ease-out forwards;
+}
+@keyframes pageFade { from { opacity:0; } to { opacity:1; } }
+
+body::before {
+  content: '';
+  position: fixed; inset: 0; z-index: 0;
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 52px 52px;
+  opacity: .32;
+  pointer-events: none;
+}
+
+.page {
+  position: relative; z-index: 1;
+  max-width: 1660px;
+  margin: 0 auto;
+  padding: 28px 24px 88px;
+}
+
+/* ══ HEADER ══ */
+.header {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy2) 100%);
+  border-radius: 20px;
+  padding: 38px 44px 34px;
+  margin-bottom: 26px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--sh-lg);
+}
+.header::before,
+.header::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+.header::before {
+  width: 380px; height: 380px;
+  top: -120px; right: -80px;
+  background: radial-gradient(circle, rgba(80,140,255,.18) 0%, transparent 68%);
+}
+.header::after {
+  width: 220px; height: 220px;
+  bottom: -80px; left: 60px;
+  background: radial-gradient(circle, rgba(60,200,180,.12) 0%, transparent 70%);
+}
+.header-inner { position: relative; z-index: 1; }
+.top-pills { display: flex; gap: .45rem; flex-wrap: wrap; margin-bottom: 16px; }
+.pill {
+  font: 600 10.5px/1 'DM Mono', monospace;
+  letter-spacing: .15em; text-transform: uppercase;
+  color: rgba(175,210,255,.82);
+  border: 1px solid rgba(175,210,255,.22);
+  background: rgba(255,255,255,.07);
+  padding: 5px 11px; border-radius: 999px;
+}
+h1 {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: clamp(28px, 3.8vw, 48px);
+  font-weight: 400;
+  color: #fff;
+  line-height: 1.1;
+  margin-bottom: 10px;
+  letter-spacing: -.015em;
+}
+h1 em {
+  font-style: italic;
+  background: linear-gradient(95deg, #79bbff 0%, #a8d4ff 100%);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.sub {
+  color: rgba(195,215,248,.72);
+  font-size: clamp(13px, 1.6vw, 15px);
+  font-weight: 300;
+  max-width: 720px;
+  line-height: 1.65;
+}
+
+/* ══ PAGE LAYOUT ══ */
+.layout {
+  display: grid;
+  gap: 16px;
+  align-items: start;
+  grid-template-columns: minmax(0, 1fr) 420px;
+}
+@media (max-width: 1200px) { .layout { grid-template-columns: 1fr; } }
+
+/* ══ CARDS ══ */
+.card {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: var(--r);
+  padding: 22px 24px;
+  box-shadow: var(--sh-xs);
+  transition: transform .25s ease, box-shadow .25s ease;
+  animation: fadeUp .32s ease both;
+}
+.card:nth-child(2) { animation-delay: .04s; }
+.card:nth-child(3) { animation-delay: .08s; }
+.card:nth-child(4) { animation-delay: .10s; }
+.card:nth-child(5) { animation-delay: .12s; }
+.card:nth-child(6) { animation-delay: .15s; }
+.card:nth-child(7) { animation-delay: .17s; }
+.card:nth-child(8) { animation-delay: .19s; }
+.card:hover { transform: translateY(-4px); box-shadow: 0 10px 28px rgba(24,71,204,.15); }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ══ RESULT HEADER CARD ══ */
+.result-header {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: var(--r);
+  padding: 22px 24px;
+  margin-bottom: 14px;
+  box-shadow: var(--sh-sm);
+  display: flex; gap: 18px; flex-wrap: wrap; align-items: flex-start;
+  animation: fadeUp .3s ease both;
+}
+.result-code-block { display: flex; flex-direction: column; gap: 8px; flex-shrink: 0; }
+.codebox {
+  font: 800 28px/1 'DM Mono', monospace;
+  color: var(--navy);
+  background: var(--accent-lt);
+  border: 1.5px solid #c4d3f9;
+  border-radius: var(--r-sm);
+  padding: 10px 20px;
+  display: inline-block;
+  letter-spacing: .06em;
+}
+.type-badge {
+  display: inline-block;
+  font: 700 10px/1 'DM Mono', monospace;
+  letter-spacing: .16em; text-transform: uppercase;
+  padding: 5px 10px; border-radius: 999px;
+}
+.type-badge.supp { background: var(--accent-lt); color: var(--accent); border: 1px solid #c4d3f9; }
+.type-badge.warn { background: var(--amber-bg); color: var(--amber); border: 1px solid var(--amber-bd); }
+.result-desc { flex: 1; }
+.result-desc p { font-weight: 600; font-size: 16px; color: var(--text); line-height: 1.55; margin-bottom: 10px; }
+.ctx-pill {
+  display: inline-block;
+  font: 500 11px/1 'DM Mono', monospace;
+  color: var(--teal); background: var(--teal-bg);
+  border: 1px solid var(--teal-bd);
+  border-radius: 999px; padding: 4px 11px;
+}
+
+/* ══ SECTION LABEL ══ */
+.label {
+  display: flex; align-items: center; gap: 7px;
+  font: 700 10.5px/1 'DM Mono', monospace;
+  letter-spacing: .16em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 10px;
+}
+.label::before {
+  content: '';
+  display: inline-block;
+  width: 3px; height: 13px;
+  background: var(--accent);
+  border-radius: 2px; flex-shrink: 0;
+}
+
+/* ══ GRID ══ */
+.grid { display: grid; gap: 14px; grid-template-columns: repeat(12, 1fr); margin-top: 14px; }
+.span-4  { grid-column: span 4; }
+.span-6  { grid-column: span 6; }
+.span-8  { grid-column: span 8; }
+.span-12 { grid-column: span 12; }
+@media (max-width: 900px) { .span-4, .span-6, .span-8 { grid-column: span 12; } }
+
+/* ══ TEXT UTILITIES ══ */
+.muted { color: var(--muted); font-size: 14.5px; line-height: 1.75; }
+.proc {
+  font: 400 13px/1.65 'DM Mono', monospace;
+  color: var(--navy2);
+  background: var(--surface2);
+  border: 1.5px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: var(--r-sm);
+  padding: 14px 16px;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.sep { height: 1px; background: var(--border); border: none; margin: 18px 0; }
+.pairs { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.pair {
+  font: 600 12px/1 'DM Mono', monospace;
+  color: var(--navy);
+  background: #f0f4ff;
+  border: 1.5px solid #c4d3f9;
+  border-radius: var(--r-xs);
+  padding: 5px 9px;
+}
+
+ul.info-list { list-style: none; }
+ul.info-list li {
+  position: relative; padding-left: 20px;
+  color: var(--muted); font-size: 14px; margin: 8px 0;
+  line-height: 1.65;
+}
+ul.info-list li::before {
+  content: '';
+  position: absolute; left: 0; top: 9px;
+  width: 7px; height: 7px;
+  background: var(--accent);
+  border-radius: 50%; opacity: .5;
+}
+
+/* Numbered step list */
+.step-list { list-style: none; padding: 0; margin: 0; }
+.step-list li {
+  display: flex; gap: 11px; margin: 8px 0; padding: 11px 14px;
+  background: var(--surface2); border: 1.5px solid var(--border);
+  border-radius: var(--r-sm); font-size: 13.5px; color: var(--text); line-height: 1.55;
+}
+.step-list li .sn {
+  width: 24px; height: 24px; border-radius: 50%; flex-shrink: 0;
+  background: var(--accent); color: #fff;
+  font: 700 11px/24px 'DM Mono', monospace; text-align: center;
+}
+
+/* Alert / callout */
+.alert {
+  border-radius: var(--r-sm); padding: 13px 16px; margin-bottom: 14px;
+  display: flex; gap: 11px; align-items: flex-start;
+}
+.alert.warn  { background: var(--amber-bg); border: 1.5px solid var(--amber-bd); border-left: 4px solid var(--amber); }
+.alert.info  { background: var(--accent-lt); border: 1.5px solid #c4d3f9; border-left: 4px solid var(--accent); }
+.alert.ok    { background: var(--teal-bg); border: 1.5px solid var(--teal-bd); border-left: 4px solid var(--teal); }
+.alert.err   { background: var(--rose-bg); border: 1.5px solid var(--rose-bd); border-left: 4px solid var(--rose); }
+.alert-icon  { font-size: 18px; flex-shrink: 0; margin-top: 2px; }
+.alert-title { font-weight: 700; font-size: 13.5px; margin-bottom: 3px; }
+.alert.warn  .alert-title { color: var(--amber); }
+.alert.info  .alert-title { color: var(--accent); }
+.alert.ok    .alert-title { color: var(--teal); }
+.alert.err   .alert-title { color: var(--rose); }
+.alert-text  { font-size: 13px; color: var(--muted); line-height: 1.55; }
+
+/* Checklist */
+.checklist { list-style: none; }
+.checklist li {
+  display: flex; align-items: flex-start; gap: 9px;
+  padding: 8px 10px; margin: 6px 0;
+  background: var(--surface2); border: 1.5px solid var(--border);
+  border-radius: var(--r-xs); font-size: 13.5px; color: var(--text); line-height: 1.5;
+}
+.checklist li .ck-icon { color: var(--teal); font-size: 15px; flex-shrink: 0; margin-top: 1px; }
+.checklist li.req .ck-icon { color: var(--rose); }
+
+/* Modifier table */
+.mod-table { width: 100%; border-collapse: collapse; font-size: 13.5px; margin-top: 8px; }
+.mod-table th {
+  background: var(--navy); color: rgba(195,218,255,.9);
+  font: 700 11px/1 'DM Mono', monospace; letter-spacing: .1em; text-transform: uppercase;
+  padding: 10px 13px; text-align: left;
+}
+.mod-table th:first-child { border-radius: var(--r-xs) 0 0 0; }
+.mod-table th:last-child  { border-radius: 0 var(--r-xs) 0 0; }
+.mod-table td { padding: 10px 13px; border-bottom: 1px solid var(--border); color: var(--text); vertical-align: top; }
+.mod-table tr:last-child td { border-bottom: none; }
+.mod-table tr:nth-child(even) td { background: var(--surface2); }
+.mod-code { font: 700 13px/1 'DM Mono', monospace; color: var(--accent); background: var(--accent-lt); border: 1px solid #c4d3f9; border-radius: 4px; padding: 2px 8px; }
+
+/* Payer table */
+.payer-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 8px; }
+.payer-table th { background: var(--navy2); color: rgba(200,220,255,.88); font: 700 11px/1 'DM Mono', monospace; letter-spacing: .08em; text-transform: uppercase; padding: 9px 12px; text-align: left; }
+.payer-table td { padding: 10px 12px; border-bottom: 1px solid var(--border); color: var(--muted); vertical-align: top; line-height: 1.55; }
+.payer-table tr:last-child td { border-bottom: none; }
+.payer-table tr:nth-child(even) td { background: var(--surface2); }
+.payer-name { font-weight: 700; color: var(--navy); font-size: 13px; }
+
+/* UOM reference table */
+.uom-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 8px; }
+.uom-table th { background: #1847cc; color: #fff; font: 700 10.5px/1 'DM Mono', monospace; letter-spacing: .1em; text-transform: uppercase; padding: 9px 12px; text-align: left; }
+.uom-table td { padding: 9px 12px; border-bottom: 1px solid var(--border); color: var(--muted); vertical-align: top; line-height: 1.55; }
+.uom-table tr:last-child td { border-bottom: none; }
+.uom-table tr:nth-child(even) td { background: var(--surface2); }
+.uom-code { font: 700 12px 'DM Mono', monospace; color: var(--teal); background: var(--teal-bg); border: 1px solid var(--teal-bd); border-radius: 4px; padding: 2px 7px; }
+
+/* Appeal decision box */
+.decision-box {
+  background: linear-gradient(135deg, var(--teal-bg) 0%, #d4f2ed 100%);
+  border: 1.5px solid var(--teal-bd);
+  border-radius: var(--r);
+  padding: 18px 20px;
+  margin-top: 10px;
+}
+.decision-box h4 { color: var(--teal); font: 700 12px/1 'DM Mono', monospace; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 10px; }
+
+.deny-box {
+  background: var(--rose-bg);
+  border: 1.5px solid var(--rose-bd);
+  border-radius: var(--r);
+  padding: 18px 20px;
+  margin-top: 10px;
+}
+.deny-box h4 { color: var(--rose); font: 700 12px/1 'DM Mono', monospace; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 10px; }
+
+/* Tag chips */
+.tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 8px; }
+.tag-teal {
+  font: 600 12px/1 'DM Mono', monospace;
+  color: var(--teal); background: var(--teal-bg);
+  border: 1.5px solid var(--teal-bd);
+  border-radius: var(--r-xs); padding: 6px 11px;
+}
+.tag-rose {
+  font: 600 12px/1 'DM Mono', monospace;
+  color: var(--rose); background: var(--rose-bg);
+  border: 1.5px solid var(--rose-bd);
+  border-radius: var(--r-xs); padding: 6px 11px;
+}
+.tag-amber {
+  font: 600 12px/1 'DM Mono', monospace;
+  color: var(--amber); background: var(--amber-bg);
+  border: 1.5px solid var(--amber-bd);
+  border-radius: var(--r-xs); padding: 6px 11px;
+}
+
+/* NDC format example */
+.ndc-example {
+  background: var(--surface2);
+  border: 1.5px solid var(--border);
+  border-left: 4px solid var(--teal);
+  border-radius: var(--r-sm);
+  padding: 14px 16px;
+  font-family: 'DM Mono', monospace;
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--navy2);
+  margin-top: 10px;
+  white-space: pre-wrap;
+}
+.ndc-ok  { color: var(--teal); font-weight: 700; }
+.ndc-bad { color: var(--rose); font-weight: 700; }
+
+/* Image thumbnails */
+.thumb-wrap { margin-top: 10px; }
+.thumb-btn  { display: inline-flex; align-items: center; gap: 8px; background: none; border: none; padding: 0; cursor: zoom-in; text-align: left; }
+.thumb-img  { display: block; width: 100%; max-width: 280px; height: auto; max-height: 100px; object-fit: cover; object-position: top left; border: 1.5px solid var(--border); border-radius: var(--r-sm); box-shadow: var(--sh-sm); transition: box-shadow .18s, transform .15s, border-color .18s; }
+.thumb-btn:hover .thumb-img { border-color: var(--accent); box-shadow: 0 4px 16px rgba(24,71,204,.18); transform: scale(1.015); }
+.thumb-hint { display: flex; align-items: center; gap: 5px; font: 600 11px/1 'DM Mono', monospace; color: var(--accent); letter-spacing: .06em; margin-top: 5px; opacity: .75; }
+.thumb-hint::before { content: '🔍'; font-size: 11px; }
+
+/* Lightbox */
+.lb-overlay { position: fixed; inset: 0; z-index: 9999; display: flex; align-items: center; justify-content: center; padding: 24px; }
+.lb-backdrop { position: absolute; inset: 0; background: rgba(8,18,46,.78); backdrop-filter: blur(6px); cursor: zoom-out; }
+.lb-box { position: relative; z-index: 1; background: var(--surface); border: 1.5px solid var(--border2); border-radius: 16px; box-shadow: 0 24px 64px rgba(8,18,46,.45); overflow: hidden; max-width: min(92vw, 1100px); max-height: 90vh; display: flex; flex-direction: column; animation: lbIn .22s cubic-bezier(.22,1,.36,1) both; }
+@keyframes lbIn { from { opacity:0; transform: scale(.94) translateY(16px); } to { opacity:1; transform: scale(1) translateY(0); } }
+.lb-toolbar { display: flex; align-items: center; justify-content: space-between; padding: 12px 18px; background: var(--surface2); border-bottom: 1.5px solid var(--border); gap: 12px; }
+.lb-caption { font: 600 13px/1.4 'DM Sans', sans-serif; color: var(--navy); flex: 1; }
+.lb-close { display: inline-flex; align-items: center; gap: 5px; background: var(--rose-bg); border: 1.5px solid var(--rose-bd); color: var(--rose); border-radius: var(--r-sm); padding: 6px 13px; font: 700 12px 'DM Sans', sans-serif; cursor: pointer; transition: background .14s; }
+.lb-close:hover { background: #f9d9d9; }
+.lb-img-wrap { overflow: auto; display: flex; align-items: center; justify-content: center; padding: 20px; flex: 1; }
+.lb-img { display: block; max-width: 100%; max-height: calc(90vh - 90px); height: auto; border-radius: var(--r-sm); box-shadow: var(--sh); object-fit: contain; }
+
+/* ══ SIDEBAR ══ */
+.sidebar-card { background: var(--surface); border: 1.5px solid var(--border); border-radius: var(--r); padding: 22px; box-shadow: var(--sh-sm); position: sticky; top: 22px; }
+.sidebar-title { font-family: 'DM Serif Display', Georgia, serif; font-size: 20px; font-weight: 400; color: var(--navy); margin-bottom: 4px; letter-spacing: -.01em; }
+.sidebar-sub { font-size: 12.5px; color: var(--muted2); margin-bottom: 18px; line-height: 1.55; }
+.res-list { display: flex; flex-direction: column; gap: 7px; }
+.res-link { display: flex; align-items: center; gap: 11px; padding: 11px 13px; background: var(--surface2); border: 1.5px solid var(--border); border-radius: var(--r-sm); text-decoration: none; color: inherit; transition: border-color .16s, background .16s, box-shadow .16s, transform .12s; cursor: pointer; width: 100%; text-align: left; }
+.res-link:hover { border-color: var(--accent); background: #f0f5ff; box-shadow: 0 4px 18px rgba(24,71,204,.22); transform: translateY(-2px); }
+.res-icon { width: 36px; height: 36px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; border-radius: 9px; font-size: 17px; }
+.res-body { flex: 1; display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.res-name { font-weight: 700; font-size: 13px; color: var(--navy); line-height: 1.35; }
+.res-desc { font-size: 11.5px; color: var(--muted2); line-height: 1.4; }
+.res-arrow { font-size: 14px; color: var(--accent); opacity: .55; flex-shrink: 0; font-weight: 700; transition: opacity .14s, transform .14s; }
+.res-link:hover .res-arrow { opacity: 1; transform: translate(2px, -2px); }
+
+/* ══ NOTES MAKER — TRIGGER CARD ══ */
+.nm-trigger-card {
+  background: linear-gradient(135deg, #eef4ff 0%, #e6f0ff 100%);
+  border: 1.5px solid #b8ccff;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 14px;
+}
+.nm-trigger-card .sub-desc { color: var(--muted); font-size: 13px; margin-top: 4px; line-height: 1.5; }
+.btn-notes-open {
+  display: inline-flex; align-items: center; gap: 8px;
+  height: 44px; padding: 0 22px; border: none; border-radius: var(--r-sm);
+  background: linear-gradient(135deg, var(--accent), var(--accent-h));
+  color: #fff; font: 700 13.5px 'DM Sans', sans-serif; cursor: pointer;
+  box-shadow: 0 4px 14px rgba(24,71,204,.28);
+  transition: transform .12s, box-shadow .18s;
+  white-space: nowrap;
+}
+.btn-notes-open:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(24,71,204,.38); }
+
+/* ══ NOTES MAKER — OVERLAY ══ */
+.nm-overlay {
+  position: fixed; inset: 0; z-index: 99998;
+  background: rgba(8,18,46,.74);
+  backdrop-filter: blur(6px);
+  display: none; padding: 16px; overflow-y: auto;
+  align-items: flex-start; justify-content: center;
+}
+.nm-overlay.open { display: flex; }
+.nm-panel {
+  background: var(--surface); border-radius: 18px;
+  width: 100%; max-width: 1120px; margin: auto;
+  box-shadow: 0 24px 64px rgba(8,18,46,.45);
+  display: flex; flex-direction: column; overflow: hidden;
+  animation: nmIn .24s cubic-bezier(.22,1,.36,1) both;
+}
+@keyframes nmIn { from { opacity:0; transform: scale(.95) translateY(20px); } to { opacity:1; transform: scale(1) translateY(0); } }
+
+.nm-header { background: linear-gradient(135deg, var(--navy), var(--navy2)); padding: 16px 22px; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.nm-header-title { font-family: 'DM Serif Display', serif; font-size: 20px; color: #fff; display: flex; align-items: center; gap: 10px; }
+.nm-header-sub { font-size: 12px; color: rgba(200,220,255,.65); font-weight: 300; }
+.nm-close-btn { background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.22); color: #fff; border-radius: 8px; padding: 7px 14px; cursor: pointer; font: 700 12px 'DM Sans', sans-serif; transition: background .15s; }
+.nm-close-btn:hover { background: rgba(255,255,255,.22); }
+
+.nm-stepper { display: flex; align-items: center; padding: 12px 20px; background: var(--surface2); border-bottom: 1.5px solid var(--border); overflow-x: auto; gap: 0; white-space: nowrap; }
+.nm-step { display: inline-flex; align-items: center; gap: 6px; flex-shrink: 0; }
+.nm-step-dot { width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font: 700 11px/1 'DM Mono', monospace; border: 2px solid var(--border2); background: var(--surface); color: var(--muted2); transition: all .2s; }
+.nm-step.active .nm-step-dot { background: var(--accent); border-color: var(--accent); color: #fff; }
+.nm-step.done   .nm-step-dot { background: var(--teal); border-color: var(--teal); color: #fff; }
+.nm-step-lbl { font: 600 10px/1 'DM Mono', monospace; letter-spacing: .08em; text-transform: uppercase; color: var(--muted2); transition: color .2s; }
+.nm-step.active .nm-step-lbl { color: var(--accent); }
+.nm-step.done   .nm-step-lbl { color: var(--teal); }
+.nm-step-line { flex: 1; height: 2px; min-width: 16px; background: var(--border); margin: 0 4px; transition: background .2s; }
+.nm-step-line.done { background: var(--teal); }
+
+.nm-body { display: flex; min-height: 0; max-height: 62vh; }
+.nm-main { flex: 1; padding: 22px 24px; overflow-y: auto; }
+.nm-form-panel { width: 310px; flex-shrink: 0; background: var(--surface2); border-left: 1.5px solid var(--border); padding: 18px; overflow-y: auto; }
+@media (max-width: 820px) { .nm-body { flex-direction: column; max-height: none; } .nm-form-panel { width: 100%; border-left: none; border-top: 1.5px solid var(--border); } .nm-main { max-height: 50vh; } }
+
+.nm-step-content { display: none; }
+.nm-step-content.active { display: block; }
+
+.nm-h2 { font-family: 'DM Serif Display', serif; font-size: 18px; color: var(--navy); margin-bottom: 12px; line-height: 1.25; }
+.nm-h3 { font: 700 10.5px/1 'DM Mono', monospace; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); margin: 18px 0 8px; display: flex; align-items: center; gap: 6px; }
+.nm-h3::before { content: ''; display: inline-block; width: 3px; height: 12px; background: var(--accent); border-radius: 2px; }
+
+.nm-alert { border-radius: var(--r-sm); padding: 13px 15px; margin-bottom: 16px; display: flex; gap: 10px; align-items: flex-start; }
+.nm-alert.warn { background: var(--amber-bg); border: 1.5px solid var(--amber-bd); border-left: 4px solid var(--amber); }
+.nm-alert.info { background: var(--accent-lt); border: 1.5px solid #c4d3f9; border-left: 4px solid var(--accent); }
+.nm-alert.ok   { background: var(--teal-bg); border: 1.5px solid var(--teal-bd); border-left: 4px solid var(--teal); }
+.nm-alert.err  { background: var(--rose-bg); border: 1.5px solid var(--rose-bd); border-left: 4px solid var(--rose); }
+.nm-alert-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+.nm-alert-title { font-weight: 700; font-size: 13.5px; margin-bottom: 3px; }
+.nm-alert.warn .nm-alert-title { color: var(--amber); }
+.nm-alert.info .nm-alert-title { color: var(--accent); }
+.nm-alert.ok   .nm-alert-title { color: var(--teal); }
+.nm-alert.err  .nm-alert-title { color: var(--rose); }
+.nm-alert-text { font-size: 13px; color: var(--muted); line-height: 1.55; }
+
+.nm-options { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 16px; }
+.nm-opt-btn { flex: 1; min-width: 130px; padding: 16px 12px; border-radius: var(--r); border: 2px solid var(--border2); background: var(--surface2); cursor: pointer; text-align: center; transition: all .18s; font-family: 'DM Sans', sans-serif; }
+.nm-opt-btn:hover { border-color: var(--accent); background: var(--accent-lt); }
+.nm-opt-btn.selected { border-color: var(--accent); background: var(--accent-lt); box-shadow: 0 0 0 3px rgba(24,71,204,.10); }
+.nm-opt-icon  { font-size: 26px; margin-bottom: 6px; display: block; }
+.nm-opt-label { font-weight: 700; font-size: 14px; color: var(--navy); }
+.nm-opt-sub   { font-size: 11px; color: var(--muted); margin-top: 3px; }
+
+.nm-fg { margin-bottom: 12px; }
+.nm-fl { display: block; font: 600 11px/1 'DM Mono', monospace; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-bottom: 5px; }
+.nm-fi { width: 100%; background: var(--surface); border: 1.5px solid var(--border); border-radius: var(--r-xs); padding: 8px 11px; font: 15px 'DM Sans', sans-serif; color: var(--text); outline: none; transition: border-color .16s; }
+.nm-fi:focus { border-color: var(--accent); }
+.nm-fta { width: 100%; background: var(--surface); border: 1.5px solid var(--border); border-radius: var(--r-xs); padding: 8px 11px; font: 14px 'DM Sans', sans-serif; color: var(--text); outline: none; resize: vertical; min-height: 64px; transition: border-color .16s; }
+.nm-fta:focus { border-color: var(--accent); }
+.nm-radios { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+.nm-rl { display: flex; align-items: center; gap: 5px; font-size: 13px; cursor: pointer; padding: 5px 9px; background: var(--surface); border: 1.5px solid var(--border); border-radius: var(--r-xs); transition: border-color .14s; }
+.nm-rl:hover { border-color: var(--accent); }
+.nm-rl.selected { border-color: var(--accent); background: var(--accent-lt); }
+
+.nm-checklist { list-style: none; margin-top: 8px; }
+.nm-checklist li { display: flex; align-items: flex-start; gap: 9px; padding: 8px 10px; margin: 5px 0; background: var(--surface); border: 1.5px solid var(--border); border-radius: var(--r-xs); font-size: 13px; color: var(--text); line-height: 1.5; }
+.nm-checklist li.req { border-left: 3px solid var(--rose); }
+.nm-checklist li input[type=checkbox] { margin-top: 2px; flex-shrink: 0; }
+
+.nm-steps { list-style: none; }
+.nm-steps li { display: flex; gap: 11px; margin: 7px 0; padding: 11px 13px; background: var(--surface2); border: 1.5px solid var(--border); border-radius: var(--r-sm); font-size: 13.5px; color: var(--text); line-height: 1.55; }
+.nm-steps li .sn { width: 24px; height: 24px; border-radius: 50%; flex-shrink: 0; background: var(--accent); color: #fff; font: 700 11px/24px 'DM Mono', monospace; text-align: center; }
+
+.nm-btn-next { height: 42px; padding: 0 20px; border: none; border-radius: var(--r-sm); background: var(--accent); color: #fff; font: 700 13.5px 'DM Sans', sans-serif; cursor: pointer; transition: background .16s, transform .12s; }
+.nm-btn-next:hover { background: var(--accent-h); transform: translateY(-1px); }
+.nm-btn-back { height: 42px; padding: 0 18px; border: 1.5px solid var(--border2); border-radius: var(--r-sm); background: var(--surface); color: var(--muted); font: 700 13px 'DM Sans', sans-serif; cursor: pointer; transition: border-color .16s, background .16s; }
+.nm-btn-back:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-lt); }
+
+.nm-notes-out { background: var(--surface2); border: 1.5px solid var(--border); border-radius: var(--r-sm); padding: 16px; font: 13.5px/1.75 'DM Mono', monospace; color: var(--navy2); white-space: pre-wrap; word-break: break-word; min-height: 160px; }
+.nm-footer { display: flex; align-items: center; justify-content: space-between; padding: 14px 22px; background: var(--surface2); border-top: 1.5px solid var(--border); flex-wrap: wrap; gap: 10px; }
+.nm-step-ind { font: 600 12px/1 'DM Mono', monospace; color: var(--muted2); }
+.nm-footer-btns { display: flex; gap: 9px; }
+.nm-fp-title { font: 700 11px/1 'DM Mono', monospace; letter-spacing: .12em; text-transform: uppercase; color: var(--navy); background: var(--accent-lt); border: 1px solid #c4d3f9; border-radius: var(--r-xs); padding: 5px 10px; display: inline-block; margin-bottom: 14px; }
+
+/* ══ FOOTER ══ */
+footer { margin-top: 60px; text-align: center; color: var(--muted2); font-size: 12.5px; line-height: 1.75; }
+
+/* ══ RARC SEARCH CHIPS ══ */
+.rarc-chip {
+  display:inline-flex; align-items:center;
+  font:600 11px/1 'DM Mono',monospace; letter-spacing:.1em;
+  padding:5px 12px; border-radius:999px; cursor:pointer;
+  background:rgba(255,255,255,.09); border:1px solid rgba(255,255,255,.18);
+  color:rgba(175,210,255,.75); transition:all .15s;
+}
+.rarc-chip:hover { background:rgba(24,71,204,.55); border-color:rgba(121,187,255,.5); color:#fff; }
+.rarc-chip.active { background:rgba(24,71,204,.7); border-color:#79bbff; color:#fff; }
+
+/* ══ SEARCH HIGHLIGHT ══ */
+.search-hl { background:#fff3a0; color:#0d1830; border-radius:3px; padding:0 2px; }
+
+/* ══ STATUS BADGE ROWS (Note Maker Step 6) ══ */
+.nm-status-row {
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:12px; margin-top:16px;
+}
+@media(max-width:600px){ .nm-status-row { grid-template-columns:1fr; } }
+
+.nm-status-field {
+  background:var(--surface2); border:1.5px solid var(--border);
+  border-radius:var(--r-sm); padding:10px 13px;
+  cursor:pointer; position:relative; transition:border-color .16s, box-shadow .16s;
+  user-select:none;
+}
+.nm-status-field:hover { border-color:var(--accent); box-shadow:0 0 0 3px rgba(24,71,204,.07); }
+.nm-status-field.dbl-copied {
+  border-color:var(--teal); background:var(--teal-bg);
+  animation:copyFlash .5s ease;
+}
+@keyframes copyFlash { 0%,100%{opacity:1} 50%{opacity:.6} }
+
+.nm-sf-label {
+  font:700 10px/1 'DM Mono',monospace; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--muted2); margin-bottom:6px; display:flex; align-items:center; gap:6px;
+}
+.nm-sf-label .sf-copy-hint {
+  font:400 9.5px/1 'DM Mono',monospace; letter-spacing:.06em;
+  color:var(--muted2); opacity:.55; text-transform:none;
+}
+.nm-sf-select {
+  width:100%; border:1.5px solid var(--border); border-radius:var(--r-xs);
+  background:var(--surface); color:var(--text);
+  font:14px 'DM Sans',sans-serif; padding:7px 10px; outline:none;
+  transition:border-color .16s; cursor:pointer;
+  -webkit-appearance:none; appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238896b5' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat; background-position:right 10px center;
+  padding-right:32px;
+}
+.nm-sf-select:focus { border-color:var(--accent); }
+.nm-sf-value-display {
+  font:600 13.5px/1.4 'DM Mono',monospace; color:var(--navy);
+  margin-top:6px; min-height:20px; word-break:break-word;
+}
+.nm-sf-copied-badge {
+  position:absolute; top:8px; right:10px;
+  background:var(--teal); color:#fff;
+  font:700 10px/1 'DM Mono',monospace; letter-spacing:.08em;
+  padding:3px 8px; border-radius:999px;
+  opacity:0; transition:opacity .2s; pointer-events:none;
+}
+.nm-status-field.dbl-copied .nm-sf-copied-badge { opacity:1; }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════ PAGE ═══════════════════════════════════════ -->
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-inner">
+      <div class="top-pills">
+        <span class="pill">RARC</span>
+        <span class="pill">Drug Billing</span>
+        <span class="pill">CPT | HCPCS</span>
+        <span class="pill">CARC</span>
+        <span class="pill">CMS-1500 • UB-04</span>
+      </div>
+      <h1>RARC & CARC — <em>Intelligence</em> Hub</h1>
+      <p class="sub">Complete reference guide for RARC & CARC denials: root causes, step-by-step correction workflow, modifier usage, payer-specific rules, and the built-in Note Maker for billing teams and AR automation.</p>
+
+      <!-- RARC Search Bar -->
+      <div id="rarcSearchBar" style="margin-top:22px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+        <div style="display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.10);border:1.5px solid rgba(255,255,255,0.18);border-radius:10px;padding:6px 14px;flex-shrink:0;">
+          <span style="font:700 10px/1 'DM Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:rgba(175,210,255,.75)">RARC</span>
+          <span id="rarcCurrentBadge" style="font:800 13px/1 'DM Mono',monospace;color:#79bbff;background:rgba(120,180,255,0.15);border:1px solid rgba(120,180,255,0.3);border-radius:6px;padding:3px 10px;">N846</span>
+        </div>
+        <input id="rarcSearchInput" type="text" placeholder="Search RARC code or keyword in any column…"
+          style="flex:1;min-width:280px;max-width:560px;height:42px;padding:0 16px;background:rgba(255,255,255,0.11);border:1.5px solid rgba(255,255,255,0.22);border-radius:9px;color:#fff;font:15px 'DM Sans',sans-serif;outline:none;transition:border-color .18s;caret-color:#79bbff;"
+          oninput="rarcSearch(this.value)"
+          onfocus="this.style.borderColor='rgba(121,187,255,0.7)'"
+          onblur="this.style.borderColor='rgba(255,255,255,0.22)'"
+        />
+        <input id="rarcContextInput" type="text" placeholder="Optional context — e.g., Medicare FFS, Oncology, OPD"
+          style="flex:1;min-width:220px;max-width:380px;height:42px;padding:0 16px;background:rgba(255,255,255,0.07);border:1.5px solid rgba(255,255,255,0.14);border-radius:9px;color:rgba(255,255,255,0.8);font:14px 'DM Sans',sans-serif;outline:none;transition:border-color .18s;caret-color:#79bbff;"
+          onfocus="this.style.borderColor='rgba(121,187,255,0.5)'"
+          onblur="this.style.borderColor='rgba(255,255,255,0.14)'"
+        />
+        <button onclick="runRarcAnalyze()" style="height:42px;padding:0 22px;background:#1847cc;color:#fff;border:none;border-radius:9px;font:700 13.5px 'DM Sans',sans-serif;cursor:pointer;display:flex;align-items:center;gap:7px;white-space:nowrap;transition:background .16s,transform .12s;box-shadow:0 4px 14px rgba(24,71,204,.35);" onmouseover="this.style.background='#0d34a8'" onmouseout="this.style.background='#1847cc'">
+          Analyze Code →
+        </button>
+      </div>
+      <!-- Recent RARC chips -->
+      <div id="rarcChips" style="margin-top:10px;display:flex;gap:6px;flex-wrap:wrap;">
+        <span style="font:600 10px/1 'DM Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:rgba(175,210,255,.5);align-self:center;margin-right:2px;">Recent:</span>
+        <span class="rarc-chip" onclick="rarcChipClick('N620')">N620</span>
+        <span class="rarc-chip" onclick="rarcChipClick('MA130')">MA130</span>
+        <span class="rarc-chip" onclick="rarcChipClick('M51')">M51</span>
+        <span class="rarc-chip" onclick="rarcChipClick('N816')">N816</span>
+        <span class="rarc-chip active" onclick="rarcChipClick('N846')">N846</span>
+        <span class="rarc-chip" onclick="rarcChipClick('N335')">N335</span>
+        <span class="rarc-chip" onclick="rarcChipClick('MA01')">MA01</span>
+        <span class="rarc-chip" onclick="rarcChipClick('N130')">N130</span>
+
+      </div>
+      <!-- Search results toast -->
+      <div id="rarcSearchResults" style="display:none;margin-top:8px;background:rgba(255,255,255,0.10);border:1px solid rgba(255,255,255,0.2);border-radius:8px;padding:8px 14px;font:13px 'DM Sans',sans-serif;color:rgba(255,255,255,0.85);"></div>
+    </div>
+  </div>
+
+  <!-- TWO-COLUMN LAYOUT -->
+  <div class="layout">
+
+    <!-- ════ LEFT COLUMN ════ -->
+    <div>
+
+      <!-- ── RESULT HEADER ── -->
+      <div class="result-header">
+        <div class="result-code-block">
+          <span class="codebox">N846</span>
+          <span class="type-badge supp">SUPPLEMENTAL</span>
+          <span class="type-badge warn" style="margin-top:2px">CO-16</span>
+        </div>
+        <div class="result-desc">
+          <p>NDC Does Not Correspond to HCPCS/CPT Billed — Drug Billing / Data Mismatch</p>
+          <span class="ctx-pill">Drug Billing · Professional &amp; Facility Claims</span>
+          <div style="margin-top:14px">
+            <div class="label">Common CARC Pairing</div>
+            <div class="pairs">
+              <span class="pair" title="Claim/service lacks information or has submission/billing error">CO-16</span>
+              <span class="pair" title="Drug claim, NDC mismatch">CMS-1500</span>
+              <span class="pair" title="Facility drug claim">UB-04</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid">
+
+
+
+
+
+        <!-- ── WHAT THIS MEANS ── -->
+        <div class="card span-12">
+          <div class="label">What This Means</div>
+          <p class="muted">The National Drug Code (NDC) reported on the claim does not match the HCPCS/CPT drug code (typically a J-code) billed on the same service line. </p>
+          <div class="alert info" style="margin-top:14px">
+            <div class="alert-icon">ℹ️</div>
+            <div>
+              <div class="alert-title">Important Distinction</div>
+
+              <div class="alert-text">N846 does not automatically mean the drug is not covered or the claim is permanently denied. It means the supplied drug and the billed code don't align.</div> 
+ <button class="thumb-btn" onclick="openLB('https://raw.githubusercontent.com/kunalvaish49-cpu/VisualCode_UB-04/main/NDC%20Code%20Format%20%26%20Image.jpg')">
+
+                  <img class="thumb-img" src="https://raw.githubusercontent.com/kunalvaish49-cpu/VisualCode_UB-04/main/NDC%20Code%20Format%20%26%20Image.jpg" />
+
+                </button>
+            </div>
+          </div>
+        </div>
+
+
+
+        <!-- ── WHERE TO REPORT ── -->
+        <div class="card span-12">
+          <div class="label">Where to Report This Information</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:6px">
+            <div>
+              <div class="nm-h3" style="margin-top:0">CMS-1500 (Professional)</div>
+              <ul class="info-list">
+                <li><strong>Box 24D:</strong> HCPCS/CPT drug code (J-code)</li>
+                <li><strong>Shaded area 24A–24G:</strong> N4 qualifier + 11-digit NDC + UOM + quantity</li>
+              </ul>
+              <div class="ndc-example"><span class="ndc-ok">✅ Correct:</span>  N4<strong>12345678901</strong> UN1
+<span class="ndc-bad">❌ Incorrect:</span> N4 12345678901 UN1  <span style="color:var(--muted);font-size:11px">(space after N4)</span></div>
+              <div class="thumb-wrap" style="margin-top:12px">
+                <button class="thumb-btn" onclick="openLB('https://raw.githubusercontent.com/kunalvaish49-cpu/VisualCode_UB-04/main/NDC%20-%20CMS%201500%20-%2024.jpg','CMS‑1500 Box 24 — NDC Placement')">
+                  <img class="thumb-img" src="https://raw.githubusercontent.com/kunalvaish49-cpu/VisualCode_UB-04/main/NDC%20-%20CMS%201500%20-%2024.jpg" alt="CMS-1500 Box 24" />
+                </button>
+                <div class="thumb-hint">CMS-1500 Box 24 — click to enlarge</div>
+              </div>
+            </div>
+
+
+            <div>
+              <div class="nm-h3" style="margin-top:0">UB-04 (Facility)</div>
+              <ul class="info-list">
+                <li><strong>FL44:</strong> HCPCS/CPT code (J-code)</li>
+                <li><strong>FL43:</strong> N4 qualifier + 11-digit NDC + UOM + Quantity</li>
+              </ul>
+              <div class="ndc-example">Format: N4 + 11-digit NDC + UOM + Qty
+Example: <span class="ndc-ok">N412345678901 UN1</span></div>
+              <div class="thumb-wrap" style="margin-top:12px">
+                <button class="thumb-btn" onclick="openLB('https://raw.githubusercontent.com/kunalvaish49-cpu/VisualCode_UB-04/9054e7d1b9703347c37a8187be298fd19b9b1385/NDC%20-%20UB-04%20-%2043.jpg','UB‑04 FL 43 — NDC Placement')">
+                  <img class="thumb-img" src="https://raw.githubusercontent.com/kunalvaish49-cpu/VisualCode_UB-04/9054e7d1b9703347c37a8187be298fd19b9b1385/NDC%20-%20UB-04%20-%2043.jpg" alt="UB-04 FL43" />
+                </button>
+                <div class="thumb-hint">UB-04 FL 43 — click to enlarge</div>
+              </div>
+            </div>
+          </div>
+          <hr class="sep">
+          <div class="alert warn" style="margin-bottom:0">
+            <div class="alert-icon">⚠️</div>
+            <div>
+              <div class="alert-title">N4 Qualifier Format — Common Sub-Error</div>
+              <div class="alert-text">The N4 qualifier must appear as a single unspaced prefix directly before the 11-digit NDC. A space between N4 and the NDC number will cause a format rejection <em>even if the NDC itself is correct</em>.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── WHY THIS HAPPENS ── -->
+        <div class="card span-6">
+          <div class="label">Why This Happens</div>
+          <div class="nm-h3" style="margin-top:4px">Data Entry & Selection Issues</div>
+          <ul class="info-list">
+            <li>Wrong NDC selected for the drug actually administered</li>
+            <li>NDC from a different manufacturer was used</li>
+            <li>NDC taken from the outer carton instead of the actual vial or syringe</li>
+            <li>A 10-digit NDC was not converted to the required 11-digit (5-4-2) format</li>
+            <li>The HCPCS/J-code does not align with the NDC submitted</li>
+            <li>NDC is expired, discontinued, or no longer active in the payer's drug file</li>
+          </ul>
+          <div class="nm-h3">Unit of Measure (UOM) Misalignment</div>
+          <table class="uom-table">
+            <thead><tr><th>UOM Code</th><th>When to Use</th></tr></thead>
+            <tbody>
+              <tr><td><span class="uom-code">UN</span></td><td>Powder-form drugs in a vial that must be reconstituted. Bill one unit per vial used.</td></tr>
+              <tr><td><span class="uom-code">ML</span></td><td>Liquid-form drugs supplied in a vial. Bill actual milliliters administered.</td></tr>
+              <tr><td><span class="uom-code">GR</span></td><td>Ointments, creams, inhalers, or bulk powder. Primarily retail pharmacy — rare in physician billing.</td></tr>
+              <tr><td><span class="uom-code">F2</span></td><td>Primarily for Factor VIII Antihemophilic Factor billing.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- ── HOW TO FIX IT ── -->
+        <div class="card span-6">
+          <div class="label">How to Fix It</div>
+          <div class="nm-h3" style="margin-top:4px">4a. Standard Correction Process</div>
+          <ol class="step-list">
+            <li><span class="sn">1</span><span>Pull the MAR or vial label and confirm exactly what drug was administered</span></li>
+            <li><span class="sn">2</span><span>Find the correct 11-digit NDC from the manufacturer of the drug actually given</span></li>
+            <li><span class="sn">3</span><span>Convert any 10-digit NDC to 11-digit (5-4-2) format if needed</span></li>
+            <li><span class="sn">4</span><span>Confirm the N4 qualifier is formatted correctly with no spaces</span></li>
+            <li><span class="sn">5</span><span>Double-check UOM and quantity match what was documented in the MAR</span></li>
+            <li><span class="sn">6</span><span>Validate the NDC aligns with the billed J-code using a current NDC-to-J-code crosswalk</span></li>
+            <li><span class="sn">7</span><span>Submit a corrected claim with <strong>Resubmission Code 7</strong></span></li>
+          </ol>
+          <div class="nm-h3">4b. Discontinued or Inactive NDC</div>
+          <ul class="info-list">
+            <li>Check the FDA NDC database or drug wholesaler records for a valid replacement NDC from the same manufacturer for the same drug</li>
+            <li>If the drug has been reformulated or the manufacturer has changed, identify the NDC that was active on the date of service</li>
+            <li>If no valid NDC can be confirmed for the DOS, escalate to coding — a NOC (not otherwise classified) code may be required with supporting documentation</li>
+          </ul>
+        </div>
+
+        <!-- ── MODIFIERS TO KNOW ── -->
+        <div class="card span-12">
+          <div class="label">Modifiers to Know</div>
+          <table class="mod-table">
+            <thead><tr><th>Modifier</th><th>Description</th><th>Usage Notes</th></tr></thead>
+            <tbody>
+              <tr><td><span class="mod-code">KO</span></td><td>Single drug unit dose formulation</td><td>Use for single-drug unit-dose packaging.</td></tr>
+              <tr><td><span class="mod-code">KP</span></td><td>First drug in a multiple drug unit dose formulation</td><td>First drug when multiple drugs are in one unit-dose.</td></tr>
+              <tr><td><span class="mod-code">KQ</span></td><td>Second or subsequent drug in a multiple drug unit dose formulation</td><td>Each additional drug after KP in multi-drug unit-dose.</td></tr>
+              <tr><td><span class="mod-code">JW</span></td><td>Drug amount discarded or not administered to the patient</td><td>Requires a separate line on the same claim. Primary line must show &gt;0 units administered. JW line shows wasted/discarded quantity. Both lines must reflect the same NDC and J-code.</td></tr>
+              <tr><td><span class="mod-code">JZ</span></td><td>Zero wastage — no drug was discarded</td><td>Use when no drug was discarded. Required by some payers when JW is not applicable.</td></tr>
+            </tbody>
+          </table>
+          <div class="alert info" style="margin-top:14px">
+            <div class="alert-icon">💊</div>
+            <div>
+              <div class="alert-title">JW Modifier — Correct Billing Structure Example</div>
+              <div class="alert-text">
+                <strong>Line 1:</strong> J-code | 2 ML administered | same NDC | same DOS<br>
+                <strong>Line 2:</strong> J-code + JW | 0.5 ML discarded | same NDC | same DOS<br>
+                <em>If the JW line is the only line, or if the administered line shows zero units, the claim will deny.</em>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── PAYER-SPECIFIC NDC RULES ── -->
+        <div class="card span-12">
+          <div class="label">Payer-Specific NDC Reporting Requirements</div>
+          <p class="muted" style="margin-bottom:12px">NDC reporting rules vary by payer. Verify requirements before submitting corrected claims:</p>
+          <table class="payer-table">
+            <thead><tr><th>Payer Type</th><th>Key Requirements</th></tr></thead>
+            <tbody>
+              <tr><td><span class="payer-name">Medicare (Part B)</span></td><td>NDC required on most drug claims via clearinghouse loop 2410. Format: N4 + 11-digit NDC + UOM + quantity. Refer to MAC LCD and CMS transmittals for drug-specific guidance.</td></tr>
+              <tr><td><span class="payer-name">Medicaid</span></td><td>State-by-state variation. Many states require NDC on all drug lines including vaccines. Check state Medicaid billing manual.</td></tr>
+              <tr><td><span class="payer-name">Commercial / Managed Care</span></td><td>Requirements vary by contract. Some payers require NDC in addition to J-code; others accept J-code only. Confirm payer-specific EDI companion guide.</td></tr>
+              <tr><td><span class="payer-name">Medicare Advantage</span></td><td>Follows Medicare Part B NDC rules in most cases but confirm with plan-specific requirements.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- ── WHAT NOT TO DO ── -->
+        <div class="card span-6">
+          <div class="label">What NOT to Do</div>
+          <ul class="info-list">
+            <li>Do <strong>not</strong> appeal before correcting the NDC/J-code mismatch</li>
+            <li>Do <strong>not</strong> reuse old, default, or copied NDCs from previous claims without verification</li>
+            <li>Do <strong>not</strong> guess at the manufacturer, quantity, or drug lot</li>
+            <li>Do <strong>not</strong> submit a corrected claim with the same incorrect NDC</li>
+            <li>Do <strong>not</strong> appeal a N846 denial if you have not yet submitted a corrected claim first</li>
+          </ul>
+          <div class="alert err" style="margin-top:14px">
+            <div class="alert-icon">🚫</div>
+            <div class="alert-text">Appealing before correcting the underlying NDC error wastes timely filing days and may forfeit your right to correct the claim. Always correct first, then appeal only if the corrected claim is also denied.</div>
+          </div>
+        </div>
+
+        <!-- ── PREVENTION CHECKLIST ── -->
+        <div class="card span-6">
+          <div class="label">Prevention Checklist</div>
+          <p class="muted" style="margin-bottom:10px;font-size:13px">Before submitting any drug claim, confirm:</p>
+          <ul class="checklist">
+            <li><span class="ck-icon">✅</span><span>NDC captured directly from the administered vial or package label</span></li>
+            <li><span class="ck-icon">✅</span><span>J-code validated against NDC using a current, reliable crosswalk</span></li>
+            <li><span class="ck-icon">✅</span><span>10-digit NDC converted to 11-digit format (5-4-2) if applicable</span></li>
+            <li><span class="ck-icon">✅</span><span>N4 qualifier formatted with no space before the NDC number</span></li>
+            <li><span class="ck-icon">✅</span><span>Manufacturer-specific NDC confirmed (not from a different lot or supplier)</span></li>
+            <li><span class="ck-icon">✅</span><span>UOM and quantity accurate per MAR documentation</span></li>
+            <li><span class="ck-icon">✅</span><span>JW modifier applied on a separate line with administered quantity on primary line (if wastage applies)</span></li>
+            <li><span class="ck-icon">✅</span><span>NDC confirmed as active on the date of service</span></li>
+            <li><span class="ck-icon">✅</span><span>Claim run through edits before submission</span></li>
+          </ul>
+        </div>
+
+        <!-- ── WHEN TO APPEAL vs CORRECT ── -->
+        <div class="card span-12">
+          <div class="label">Best Practice — When to Appeal vs. When to Correct</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px">
+            <div class="decision-box">
+              <h4>✅ Appeal Only When ALL of These Are True</h4>
+              <ul class="info-list" style="margin-top:0">
+                <li>A corrected claim has already been submitted and denied again</li>
+                <li>All billing data (NDC, J-code, UOM, quantity, manufacturer) has been confirmed correct against the MAR and vial label</li>
+                <li>The denial reason after correction still cites N846 — indicating a payer-side processing error</li>
+              </ul>
+            </div>
+            <div class="deny-box">
+              <h4>🔄 Correct &amp; Resubmit First (Most Cases)</h4>
+              <ul class="info-list" style="margin-top:0">
+                <li>Most N846 denials resolve by correcting and resubmitting the claim</li>
+                <li>Do not appeal as a first step</li>
+                <li>Verify NDC ↔ J-code crosswalk, 11-digit format, N4 qualifier, UOM, and quantity before resubmission</li>
+                <li>Use Resubmission Code 7 on the corrected claim</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── ACTION CODE TEMPLATES ── -->
+        <div class="card span-12">
+          <div class="label">Action Code Templates — Quick Reference</div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px">
+            <span class="tag-teal">Corrected Claim</span>
+            <span class="tag-teal">Reprocessing</span>
+            <span class="tag-amber">Coding Escalation</span>
+            <span class="tag-rose">First Level Appeal</span>
+            <span class="tag-teal">Adjustment / Closed</span>
+            <span class="tag-teal">Secondary / Tertiary</span>
+          </div>
+          <div class="alert ok">
+            <div class="alert-icon">📋</div>
+            <div>
+              <div class="alert-title">Use the Note Maker Tool for Structured Documentation</div>
+              <div class="alert-text">The built-in Note Maker below guides you step-by-step through each action type and auto-generates copy-ready notes for your Practice Management System or AR workflow.</div>
+            </div>
+          </div>
+
+          <!-- NOTE MAKER TRIGGER -->
+          <div class="card nm-trigger-card" style="margin-top:14px;box-shadow:none">
+            <div>
+              <div class="label" style="margin-bottom:4px">Note Maker Tool</div>
+              <p class="sub-desc">Step-by-step guided documentation for N846 claim actions. Generates structured notes ready for copy-paste into your PMS, AR system, or Python/AI pipeline.</p>
+            </div>
+            <button class="btn-notes-open" onclick="openNM()">
+              📝 Open Note Maker
+            </button>
+          </div>
+        </div>
+
+      </div><!-- end .grid -->
+    </div><!-- end left column -->
+
+    <!-- ════ RIGHT SIDEBAR ════ -->
+   <aside>
+      <div class="sidebar-card">
+        <p class="sidebar-title">Quick‑Access Tools</p>
+        <p class="sidebar-sub">Official CMS &amp; NLM billing resources — click any link to open in a new tab.</p>
+
+        <div class="res-list">
+<a class="res-link" href="https://kunalvaish49-cpu.github.io/NDC-Lookup-Tool/" target="_blank" rel="noopener" style="width:100%;text-align:left;cursor:pointer;">
+    <span class="res-icon" style="background:#e8f0ff;color:#1847cc">💊</span>
+    <span class="res-body">
+        <span class="res-name">NDC / HCPCS Drug Lookup Tool</span>
+        <span class="res-desc">Search NDC, J-Code, Drug Name — GitHub Tool</span>
+    </span>
+    <span class="res-arrow">↗</span>
+</a>
+
+          <a class="res-link" href="https://dailymed.nlm.nih.gov/dailymed/" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#e8f0ff;color:#1847cc">💊</span>
+            <span class="res-body">
+              <span class="res-name">DailyMed NDC Lookup</span>
+              <span class="res-desc">Search drug labels &amp; National Drug Codes via NLM DailyMed</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+          <a class="res-link" href="https://medicare.fcso.com/lcd-interactive-index" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#e8f6f0;color:#0a7a50">🔗</span>
+            <span class="res-body">
+              <span class="res-name">LCD & Article Lookup Tool</span>
+              <span class="res-desc">Search Article & LCD By Procedure Code</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+ <a class="res-link" href="https://npiregistry.cms.hhs.gov/search" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#e8f6f0;color:#0a7a50">🔗</span>
+            <span class="res-body">
+              <span class="res-name">NPPES NPI Registry Lookup</span>
+              <span class="res-desc">Provider Speciality & Activation</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+
+  <a class="res-link" href="https://www.cgsmedicare.com/medicare_dynamic/j15/partb/ptpb/ptp.aspx
+" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#e8f6f0;color:#0a7a50">🔗</span>
+            <span class="res-body">
+              <span class="res-name">Part B NCCI Procedure‑to‑Procedure Lookup</span>
+              <span class="res-desc">Check Part B PTP edits &amp; bundling conflicts</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+
+          <a class="res-link" href="https://www.cgsmedicare.com/medicare_dynamic/j15/partb/mue/mue_tool.aspx
+" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#fff7e6;color:#b87010">📋</span>
+            <span class="res-body">
+              <span class="res-name">MUE Lookup Part B</span>
+              <span class="res-desc">Medically Unlikely Edits Part B — max units per claim line</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+<a class="res-link" href="https://www.cgsmedicare.com/medicare_dynamic/j15/parta/mue/mue_tool.aspx
+" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#fff7e6;color:#b87010">📋</span>
+            <span class="res-body">
+              <span class="res-name">MUE Lookup Part A</span>
+              <span class="res-desc">Medically Unlikely Edits Part A — max units per claim line</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+          <a class="res-link" href="https://www.cgsmedicare.com/medicare_dynamic/j15/partb/claimcalc/claimcalc.aspx
+" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#fdf0f0;color:#be2a2a">📅</span>
+            <span class="res-body">
+              <span class="res-name">Claim Timely Filing Calculator</span>
+              <span class="res-desc">Verify filing deadlines by payer &amp; claim type</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+          <a class="res-link" href="https://www.cgsmedicare.com/medicare_dynamic/j15/parta/modifiers/search.aspx
+" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#f0eaff;color:#6d28d9">🏥</span>
+            <span class="res-body">
+              <span class="res-name">Part A Modifier Finder Tool</span>
+              <span class="res-desc">Identify applicable modifiers for Part A facility claims</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+          <a class="res-link" href="https://www.cgsmedicare.com/medicare_dynamic/j15/partb/modifiers/search.aspx
+	" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#e8f6f0;color:#0a6b58">🩺</span>
+            <span class="res-body">
+              <span class="res-name">Part B Modifier Finder Tool</span>
+              <span class="res-desc">Look up Part B professional claim modifiers</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+          <a class="res-link" href="https://www.cgsmedicare.com/medicare_dynamic/j15/parta/ptpa/ptp.aspx
+" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#e8f0ff;color:#1847cc">🔍</span>
+            <span class="res-body">
+              <span class="res-name">Part A NCCI Procedure‑to‑Procedure Lookup</span>
+              <span class="res-desc">Check Part A PTP edits for facility/outpatient claims</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+<a class="res-link" href="https://www.cgsmedicare.com/medicare_dynamic/j15/partb/ptpb/ptp.aspx" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#e8f0ff;color:#1847cc">🔍</span>
+            <span class="res-body">
+              <span class="res-name">Part B NCCI Procedure‑to‑Procedure Lookup</span>
+              <span class="res-desc">Check Part B PTP edits for facility/outpatient claims</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+
+          <a class="res-link" href="https://www.cgsmedicare.com/partb/tools/ivr_converter.html
+" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#fef5e4;color:#b87010">🪪</span>
+            <span class="res-body">
+              <span class="res-name">MBI &amp; Name‑to‑Number Converter</span>
+              <span class="res-desc">Medicare Beneficiary Identifier lookup &amp; conversion tool</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+          <a class="res-link" href="https://qcor.cms.gov/Basic_Search
+" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#f0eaff;color:#6d28d9">🔬</span>
+            <span class="res-body">
+              <span class="res-name">CLIA Lookup Tool — S&amp;C QCOR</span>
+              <span class="res-desc">Search Clinical Laboratory Improvement Amendments data</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+        </div>
+      </div>
+    </aside>
+
+  </div>
+
+    </aside>
+
+  </div><!-- end .layout -->
+
+  <footer>
+    <hr class="sep">
+    Powered by RARC N846 Reference Library · Verify all field placements against the NUCC CMS‑1500 (02/12) manual and CMS/NUBC UB‑04 specifications before submitting claims.<br>
+    <span style="font-size:11px;opacity:.7">This page is structured for AI &amp; Python automation — see the embedded <code>data-rarc</code> JSON block at the bottom of this file.</span>
+  </footer>
+
+</div><!-- end .page -->
+
+<!-- ═══════════════ NDC DRUG LOOKUP TOOL MODAL ═══════════════ -->
+<style>
+/* ── Drug Modal Styles ── */
+#drugModal {
+  display: none;
+  position: fixed; inset: 0;
+  background: rgba(8,27,70,0.62);
+  backdrop-filter: blur(6px);
+  z-index: 99999;
+  padding: 24px 20px;
+  overflow: auto;
+  align-items: flex-start;
+  justify-content: center;
+}
+#drugModal.open { display: flex; }
+.drug-panel {
+  background: #fff;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 1260px;
+  box-shadow: 0 24px 64px rgba(8,27,70,.28);
+  animation: nmIn .22s ease-out both;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  max-height: 92vh;
+}
+.drug-header {
+  background: linear-gradient(135deg, #081b46 0%, #0c2460 100%);
+  padding: 20px 26px 18px;
+  display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap;
+  flex-shrink: 0;
+}
+.drug-header-left { display: flex; align-items: center; gap: 13px; }
+.drug-header-icon { font-size: 28px; background: rgba(255,255,255,.12); border-radius: 12px; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; }
+.drug-header-title { font-family: 'DM Serif Display', serif; font-size: 22px; color: #fff; line-height: 1.15; }
+.drug-header-sub { font-size: 12px; color: rgba(200,220,255,.65); font-weight: 300; margin-top: 2px; }
+.drug-close-btn { background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.22); color: #fff; border-radius: 8px; padding: 8px 16px; cursor: pointer; font: 700 12.5px 'DM Sans', sans-serif; transition: background .15s; white-space: nowrap; }
+.drug-close-btn:hover { background: rgba(190,42,42,.65); }
+
+.drug-search-bar {
+  padding: 18px 26px 14px;
+  background: #f7f9ff;
+  border-bottom: 1.5px solid #dde5f2;
+  flex-shrink: 0;
+}
+.drug-search-row { display: flex; gap: 10px; flex-wrap: wrap; align-items: flex-end; }
+.drug-search-group { display: flex; flex-direction: column; gap: 4px; flex: 1; min-width: 180px; }
+.drug-search-label { font: 700 10.5px/1 'DM Mono', monospace; letter-spacing: .12em; text-transform: uppercase; color: #566080; }
+.drug-search-input {
+  height: 42px; padding: 0 14px;
+  border: 2px solid #c4d1ea; border-radius: 8px;
+  font: 15px 'DM Sans', sans-serif; color: #0d1830; background: #fff;
+  outline: none; transition: border-color .16s;
+}
+.drug-search-input:focus { border-color: #1847cc; }
+.drug-search-btn {
+  height: 42px; padding: 0 22px;
+  background: #1847cc; color: #fff;
+  border: none; border-radius: 8px;
+  font: 700 14px 'DM Sans', sans-serif; cursor: pointer;
+  transition: background .16s, transform .12s;
+  white-space: nowrap; display: flex; align-items: center; gap: 6px;
+}
+.drug-search-btn:hover { background: #0d34a8; transform: translateY(-1px); }
+.drug-search-btn:disabled { background: #8896b5; cursor: not-allowed; transform: none; }
+.drug-search-tabs { display: flex; gap: 6px; margin-top: 12px; flex-wrap: wrap; }
+.drug-tab {
+  padding: 6px 14px; border-radius: 999px; font: 600 12px/1 'DM Mono', monospace; cursor: pointer;
+  border: 1.5px solid #c4d1ea; background: #fff; color: #566080; transition: all .14s;
+}
+.drug-tab.active { background: #1847cc; border-color: #1847cc; color: #fff; }
+.drug-tab:hover:not(.active) { border-color: #1847cc; color: #1847cc; }
+
+.drug-body { flex: 1; overflow-y: auto; padding: 20px 26px 24px; }
+
+.drug-status {
+  text-align: center; padding: 24px 16px; color: #566080; font-size: 14px;
+}
+.drug-spinner {
+  width: 36px; height: 36px; border: 3px solid #dde5f2;
+  border-top-color: #1847cc; border-radius: 50%;
+  animation: spin .7s linear infinite; margin: 0 auto 12px;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.drug-source-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  font: 600 11px/1 'DM Mono', monospace; letter-spacing: .08em;
+  padding: 4px 10px; border-radius: 999px; margin-bottom: 14px;
+}
+.drug-source-badge.github { background: #e6f6f3; color: #0a8572; border: 1px solid #9ed3cb; }
+.drug-source-badge.fda { background: #eef2ff; color: #1847cc; border: 1px solid #c4d3f9; }
+.drug-source-badge.rxnav { background: #fef5e4; color: #b87010; border: 1px solid #f0ca78; }
+
+/* Results table */
+.drug-table-wrap { overflow-x: auto; border-radius: 10px; border: 1.5px solid #dde5f2; }
+.drug-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.drug-table thead tr { background: #081b46; }
+.drug-table th {
+  padding: 11px 13px; text-align: left;
+  font: 700 10.5px/1 'DM Mono', monospace; letter-spacing: .1em; text-transform: uppercase;
+  color: rgba(195,218,255,.9); white-space: nowrap;
+}
+.drug-table th:first-child { border-radius: 8px 0 0 0; }
+.drug-table th:last-child { border-radius: 0 8px 0 0; }
+.drug-table td { padding: 10px 13px; border-bottom: 1px solid #eef1f8; color: #0d1830; vertical-align: top; }
+.drug-table tr:last-child td { border-bottom: none; }
+.drug-table tr:nth-child(even) td { background: #f7f9ff; }
+.drug-table tr:hover td { background: #eef2ff; }
+.drug-ndc-cell { font: 600 13px/1 'DM Mono', monospace; color: #1847cc; white-space: nowrap; }
+.drug-code-cell { font: 700 13px/1 'DM Mono', monospace; color: #081b46; }
+.drug-name-cell { font-weight: 600; color: #0d1830; }
+.drug-copy-btn {
+  padding: 3px 8px; border-radius: 4px;
+  background: #eef2ff; border: 1px solid #c4d3f9; color: #1847cc;
+  font: 600 10px 'DM Mono', monospace; cursor: pointer; transition: all .12s;
+}
+.drug-copy-btn:hover { background: #1847cc; color: #fff; }
+.drug-status-pill {
+  display: inline-block; padding: 2px 8px; border-radius: 999px;
+  font: 700 10px/1.4 'DM Mono', monospace;
+}
+.drug-status-pill.active { background: #e6f6f3; color: #0a8572; border: 1px solid #9ed3cb; }
+.drug-status-pill.inactive { background: #fdf0f0; color: #be2a2a; border: 1px solid #f4bcbc; }
+
+/* NDC detail card */
+.drug-detail-card {
+  background: #f7f9ff; border: 1.5px solid #dde5f2; border-radius: 12px; padding: 18px 20px; margin-bottom: 14px;
+}
+.drug-detail-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px,1fr)); gap: 12px; margin-top: 12px; }
+.drug-detail-item { display: flex; flex-direction: column; gap: 3px; }
+.drug-detail-lbl { font: 700 10px/1 'DM Mono', monospace; letter-spacing: .1em; text-transform: uppercase; color: #8896b5; }
+.drug-detail-val { font: 500 14px/1.4 'DM Sans', sans-serif; color: #0d1830; }
+.drug-detail-val.mono { font-family: 'DM Mono', monospace; font-size: 13px; color: #1847cc; font-weight: 700; }
+
+.drug-error { background: #fdf0f0; border: 1.5px solid #f4bcbc; border-left: 4px solid #be2a2a; border-radius: 10px; padding: 14px 16px; color: #be2a2a; font-size: 13.5px; }
+.drug-empty { text-align: center; padding: 36px 16px; color: #8896b5; }
+.drug-empty-icon { font-size: 38px; margin-bottom: 10px; }
+.drug-count { font: 600 12px 'DM Mono', monospace; color: #8896b5; margin-bottom: 10px; }
+
+.drug-footer {
+  padding: 12px 26px; background: #f7f9ff; border-top: 1.5px solid #dde5f2;
+  font: 12px 'DM Sans', sans-serif; color: #8896b5; flex-shrink: 0; line-height: 1.55;
+}
+</style>
+
+<div id="drugModal">
+  <div class="drug-panel">
+
+    <!-- Header -->
+    <div class="drug-header">
+      <div class="drug-header-left">
+        <div class="drug-header-icon">💊</div>
+        <div>
+          <div class="drug-header-title">NDC Drug Lookup Tool</div>
+          <div class="drug-header-sub">Search by J-Code / HCPCS, NDC number, or drug name — live database lookup</div>
+        </div>
+      </div>
+      <button class="drug-close-btn" onclick="closeDrugToolModal()">✕ Close</button>
+    </div>
+
+    <!-- Search Bar -->
+    <div class="drug-search-bar">
+      <div class="drug-search-row">
+        <div class="drug-search-group" style="max-width:260px">
+          <span class="drug-search-label">Search Type</span>
+          <select id="drugSearchType" class="drug-search-input" style="height:42px;padding:0 10px">
+            <option value="jcode">J-Code / HCPCS</option>
+            <option value="ndc">NDC Number</option>
+            <option value="name">Drug Name</option>
+          </select>
+        </div>
+        <div class="drug-search-group">
+          <span class="drug-search-label">Search Query</span>
+          <input id="drugSearchBox" class="drug-search-input" placeholder="e.g., J7327  or  12345678901  or  Ketorolac" onkeydown="if(event.key==='Enter')searchDrug()"/>
+        </div>
+        <button class="drug-search-btn" id="drugSearchBtn" onclick="searchDrug()">
+          🔍 Search
+        </button>
+      </div>
+      <div class="drug-search-tabs">
+        <span class="drug-tab active" onclick="setDrugTab('jcode',this)">J-Code / HCPCS</span>
+        <span class="drug-tab" onclick="setDrugTab('ndc',this)">By NDC</span>
+        <span class="drug-tab" onclick="setDrugTab('name',this)">By Drug Name</span>
+        <span class="drug-tab" onclick="setDrugTab('github',this)">📁 GitHub DB</span>
+      </div>
+    </div>
+
+    <!-- Body -->
+    <div class="drug-body" id="drugBody">
+      <div class="drug-status">
+        <div style="font-size:38px;margin-bottom:10px">💊</div>
+        <div style="font-weight:600;color:#0d1830;margin-bottom:6px">NDC Drug Lookup Tool</div>
+        <div>Search by J-Code, NDC number, or drug name.<br>Data sourced from FDA OpenFDA API, NLM RxNav, and your GitHub billing database.</div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="drug-footer">
+      🔗 Data sources: <strong>FDA OpenFDA API</strong> (open.fda.gov) · <strong>NLM RxNav HCPCS</strong> (rxnav.nlm.nih.gov) · <strong>GitHub Medical-Billing-Documents</strong> (kunalvaish49-cpu) &nbsp;|&nbsp; Always verify NDC against the actual administered vial before billing.
+    </div>
+
+  </div>
+</div>
+<!-- ══ LIGHTBOX MODAL ══ -->
+<div id="lightbox" class="lb-overlay" role="dialog" aria-modal="true" aria-label="Image preview" style="display:none">
+  <div class="lb-backdrop"></div>
+  <div class="lb-box">
+    <div class="lb-toolbar">
+      <span class="lb-caption" id="lbCaption"></span>
+      <button class="lb-close" id="lbClose" title="Close (Esc)"</button>
+
+    </div>
+    <div class="lb-img-wrap">
+      <img id="lbImg" src="" alt="" class="lb-img" />
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════ LIGHTBOX ═══════════════════════════════════ -->
+<div id="lightbox" class="lb-overlay" role="dialog" aria-modal="true" style="display:none">
+  <div class="lb-backdrop" onclick="closeLB()"></div>
+  <div class="lb-box">
+    <div class="lb-toolbar">
+      <span class="lb-caption" id="lbCaption"></span>
+      <button class="lb-close" onclick="closeLB()">✕ Close</button>
+    </div>
+    <div class="lb-img-wrap">
+      <img class="lb-img" id="lbImg" src="" alt="" />
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════ NOTE MAKER MODAL ═══════════════════════════ -->
+<div class="nm-overlay" id="notesMakerModal">
+  <div class="nm-panel">
+
+    <!-- Header -->
+    <div class="nm-header">
+      <div>
+        <div class="nm-header-title">📝 Note Maker</div>
+        <div class="nm-header-sub">Guided documentation tool — generates structured, copy-ready claim notes</div>
+      </div>
+      <button class="nm-close-btn" onclick="closeNM()">✕ Close</button>
+    </div>
+
+    <!-- Stepper -->
+    <div class="nm-stepper" id="nmStepper">
+      <div class="nm-step active" id="nmStepTab1"><div class="nm-step-dot">1</div><span class="nm-step-lbl">Action Type</span></div>
+      <div class="nm-step-line" id="nmLine1"></div>
+      <div class="nm-step" id="nmStepTab2"><div class="nm-step-dot">2</div><span class="nm-step-lbl">Claim Status</span></div>
+      <div class="nm-step-line" id="nmLine2"></div>
+      <div class="nm-step" id="nmStepTab3"><div class="nm-step-dot">3</div><span class="nm-step-lbl">NDC Details</span></div>
+      <div class="nm-step-line" id="nmLine3"></div>
+      <div class="nm-step" id="nmStepTab4"><div class="nm-step-dot">4</div><span class="nm-step-lbl">Contact Info</span></div>
+      <div class="nm-step-line" id="nmLine4"></div>
+      <div class="nm-step" id="nmStepTab5"><div class="nm-step-dot">5</div><span class="nm-step-lbl">Appeal / Docs</span></div>
+      <div class="nm-step-line" id="nmLine5"></div>
+      <div class="nm-step" id="nmStepTab6"><div class="nm-step-dot">6</div><span class="nm-step-lbl">Generated Notes</span></div>
+    </div>
+
+    <!-- Body -->
+    <div class="nm-body">
+      <div class="nm-main">
+
+        <!-- STEP 1: Action Type -->
+        <div class="nm-step-content active" id="nmStep1">
+          <div class="nm-h2">Select Action Type</div>
+          <div class="nm-alert info">
+            <div class="nm-alert-icon">ℹ️</div>
+            <div class="nm-alert-text">Choose the action that best describes what happened with this N846 claim. This determines the note template generated.</div>
+          </div>
+          <div class="nm-options" style="gap:10px">
+            <button class="nm-opt-btn" id="nmActBtn1" onclick="nmSelectAction('corrected')">
+              <span class="nm-opt-icon">📤</span>
+              <div class="nm-opt-label">Corrected Claim</div>
+              <div class="nm-opt-sub">NDC/J-code mismatch found &amp; corrected</div>
+            </button>
+            <button class="nm-opt-btn" id="nmActBtn2" onclick="nmSelectAction('reprocessing')">
+              <span class="nm-opt-icon">📞</span>
+              <div class="nm-opt-label">Reprocessing</div>
+              <div class="nm-opt-sub">Payer agreed to reprocess after call</div>
+            </button>
+            <button class="nm-opt-btn" id="nmActBtn3" onclick="nmSelectAction('escalation')">
+              <span class="nm-opt-icon">🔬</span>
+              <div class="nm-opt-label">Coding Escalation</div>
+              <div class="nm-opt-sub">NDC complexity requires coder validation</div>
+            </button>
+            <button class="nm-opt-btn" id="nmActBtn4" onclick="nmSelectAction('appeal')">
+              <span class="nm-opt-icon">⚖️</span>
+              <div class="nm-opt-label">First Level Appeal</div>
+              <div class="nm-opt-sub">Corrected claim denied again — payer error</div>
+            </button>
+            <button class="nm-opt-btn" id="nmActBtn5" onclick="nmSelectAction('closed')">
+              <span class="nm-opt-icon">✅</span>
+              <div class="nm-opt-label">Adjustment / Closed</div>
+              <div class="nm-opt-sub">Claim fully resolved &amp; closed</div>
+            </button>
+
+	    <button class="nm-opt-btn" id="nmActBtn5" onclick="nmSelectAction('closed')">
+              <span class="nm-opt-icon">✅</span>
+              <div class="nm-opt-label">ABN/Appeal Upheld / Bill Patient</div>
+              <div class="nm-opt-sub">Non Covered Pt Plan & ABN on file &amp; Bill Paitent</div>
+            </button>
+
+            <button class="nm-opt-btn" id="nmActBtn6" onclick="nmSelectAction('secondary')">
+              <span class="nm-opt-icon">🔁</span>
+              <div class="nm-opt-label">Secondary / Tertiary</div>
+              <div class="nm-opt-sub">Primary resolved; COB to secondary payer</div>
+            </button>
+          </div>
+        </div>
+
+
+        <!-- STEP 2: Claim Status -->
+        <div class="nm-step-content" id="nmStep2">
+          <div class="nm-h2">Claim Status Information</div>
+          <div class="nm-alert info">
+            <div class="nm-alert-icon">📋</div>
+            <div class="nm-alert-text">Enter the claim status details from your clearinghouse or payer portal. Fill in the right panel with the claim identifiers.</div>
+          </div>
+          <div class="nm-h3">Claim Status from Clearinghouse / Portal</div>
+          <div class="nm-fg">
+            <label class="nm-fl">Claim Payment Status</label>
+            <div class="nm-radios" id="nmStatusGroup">
+              <label class="nm-rl" id="nmStsLblPaid"><input type="radio" name="nmStatus" value="Paid" onchange="nmUpdateForm()"> Paid</label>
+              <label class="nm-rl" id="nmStsLblPartial"><input type="radio" name="nmStatus" value="Partially Paid" onchange="nmUpdateForm()"> Partially Paid</label>
+              <label class="nm-rl" id="nmStsLblDenied"><input type="radio" name="nmStatus" value="Denied" onchange="nmUpdateForm()"> Denied</label>
+            </div>
+          </div>
+          <div class="nm-fg">
+            <label class="nm-fl">Denial / Process Date</label>
+            <input class="nm-fi" type="date" id="nmProcDate" />
+          </div>
+          <div class="nm-h3">N846 Specific Issue Identified</div>
+          <div class="nm-fg">
+            <label class="nm-fl">NDC Error Type (select all that apply)</label>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:4px" id="nmErrTypes">
+              <label style="display:flex;align-items:center;gap:6px;font-size:13px;cursor:pointer;padding:6px 10px;background:var(--surface);border:1.5px solid var(--border);border-radius:var(--r-xs)"><input type="checkbox" value="wrong_ndc" /> Wrong NDC selected</label>
+              <label style="display:flex;align-items:center;gap:6px;font-size:13px;cursor:pointer;padding:6px 10px;background:var(--surface);border:1.5px solid var(--border);border-radius:var(--r-xs)"><input type="checkbox" value="wrong_manufacturer" /> Different manufacturer</label>
+              <label style="display:flex;align-items:center;gap:6px;font-size:13px;cursor:pointer;padding:6px 10px;background:var(--surface);border:1.5px solid var(--border);border-radius:var(--r-xs)"><input type="checkbox" value="format_10digit" /> 10-digit not converted</label>
+              <label style="display:flex;align-items:center;gap:6px;font-size:13px;cursor:pointer;padding:6px 10px;background:var(--surface);border:1.5px solid var(--border);border-radius:var(--r-xs)"><input type="checkbox" value="n4_space" /> N4 qualifier space error</label>
+              <label style="display:flex;align-items:center;gap:6px;font-size:13px;cursor:pointer;padding:6px 10px;background:var(--surface);border:1.5px solid var(--border);border-radius:var(--r-xs)"><input type="checkbox" value="discontinued" /> Discontinued / inactive NDC</label>
+              <label style="display:flex;align-items:center;gap:6px;font-size:13px;cursor:pointer;padding:6px 10px;background:var(--surface);border:1.5px solid var(--border);border-radius:var(--r-xs)"><input type="checkbox" value="uom_mismatch" /> UOM mismatch</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 3: NDC Details -->
+        <div class="nm-step-content" id="nmStep3">
+          <div class="nm-h2">NDC Verification Details</div>
+          <div class="nm-alert warn">
+            <div class="nm-alert-icon">⚠️</div>
+            <div>
+              <div class="nm-alert-title">Verify from the actual vial or package label</div>
+              <div class="nm-alert-text">Always pull the NDC directly from the administered vial or syringe — not from the outer box, billing system default, or previous claims.</div>
+            </div>
+          </div>
+          <div class="nm-h3">NDC Correction Information</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+            <div class="nm-fg">
+              <label class="nm-fl">Prior (Incorrect) NDC</label>
+              <input class="nm-fi" id="nmPriorNDC" placeholder="e.g., 12345-6789-01 or 10-digit" />
+            </div>
+            <div class="nm-fg">
+              <label class="nm-fl">Corrected 11-Digit NDC</label>
+              <input class="nm-fi" id="nmCorrNDC" placeholder="e.g., 12345678901 (11 digits)" />
+            </div>
+            <div class="nm-fg">
+              <label class="nm-fl">J-Code Billed</label>
+              <input class="nm-fi" id="nmJCode" placeholder="e.g., J1100" />
+            </div>
+            <div class="nm-fg">
+              <label class="nm-fl">Unit of Measure (UOM)</label>
+              <select class="nm-fi" id="nmUOM">
+                <option value="">Select UOM…</option>
+                <option value="ML">ML — Milliliter (liquid vial)</option>
+                <option value="UN">UN — Unit (powder/vial reconstituted)</option>
+                <option value="GR">GR — Gram (ointments/creams)</option>
+                <option value="F2">F2 — International Unit</option>
+              </select>
+            </div>
+            <div class="nm-fg">
+              <label class="nm-fl">Quantity Administered</label>
+              <input class="nm-fi" id="nmQty" placeholder="e.g., 2" />
+            </div>
+            <div class="nm-fg">
+              <label class="nm-fl">Manufacturer</label>
+              <input class="nm-fi" id="nmMfr" placeholder="e.g., Pfizer, Fresenius" />
+            </div>
+          </div>
+          <div class="nm-h3">Wastage / JW Modifier</div>
+          <div class="nm-fg">
+            <label class="nm-fl">Was drug wasted / discarded?</label>
+            <div class="nm-radios">
+              <label class="nm-rl"><input type="radio" name="nmJW" value="No" onchange="nmUpdateJW()"> No wastage</label>
+              <label class="nm-rl"><input type="radio" name="nmJW" value="JW" onchange="nmUpdateJW()"> Yes — JW applied</label>
+              <label class="nm-rl"><input type="radio" name="nmJW" value="JZ" onchange="nmUpdateJW()"> JZ (zero wastage)</label>
+            </div>
+          </div>
+          <div class="nm-fg" id="nmJWQtyFg" style="display:none">
+            <label class="nm-fl">Discarded Quantity (JW)</label>
+            <input class="nm-fi" id="nmJWQty" placeholder="e.g., 0.5 ML discarded" />
+          </div>
+        </div>
+
+        <!-- STEP 4: Contact / Call Info -->
+        <div class="nm-step-content" id="nmStep4">
+          <div class="nm-h2">Contact &amp; Source Information</div>
+          <div class="nm-h3">Source of Status</div>
+          <div class="nm-options" style="gap:8px">
+            <button class="nm-opt-btn" id="nmSrcBtnCalling" onclick="nmSelectSrc('Calling')" style="padding:12px">
+              <span class="nm-opt-icon" style="font-size:22px">📞</span>
+              <div class="nm-opt-label" style="font-size:13px">Calling</div>
+            </button>
+            <button class="nm-opt-btn" id="nmSrcBtnWebsite" onclick="nmSelectSrc('Website')" style="padding:12px">
+              <span class="nm-opt-icon" style="font-size:22px">🌐</span>
+              <div class="nm-opt-label" style="font-size:13px">Website</div>
+            </button>
+            <button class="nm-opt-btn" id="nmSrcBtnAnalyse" onclick="nmSelectSrc('Analyse')" style="padding:12px">
+              <span class="nm-opt-icon" style="font-size:22px">🔍</span>
+              <div class="nm-opt-label" style="font-size:13px">Internal Review</div>
+            </button>
+          </div>
+
+          <div id="nmCallingSection" style="display:none">
+            <div class="nm-h3">Call Details</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+              <div class="nm-fg">
+                <label class="nm-fl">Rep Name / ID</label>
+                <input class="nm-fi" id="nmRepName" placeholder="Rep's first name or ID" />
+              </div>
+              <div class="nm-fg">
+                <label class="nm-fl">Call Reference #</label>
+                <input class="nm-fi" id="nmCallRef" placeholder="Reference / Conf #" />
+              </div>
+              <div class="nm-fg">
+                <label class="nm-fl">TAT for Reprocessing</label>
+                <input class="nm-fi" id="nmTAT" placeholder="e.g., 30–45 business days" />
+              </div>
+              <div class="nm-fg">
+                <label class="nm-fl">Payer Outcome</label>
+                <input class="nm-fi" id="nmPayerOutcome" placeholder="e.g., Will reprocess, Review NDC" />
+              </div>
+            </div>
+          </div>
+
+          <div id="nmWebsiteSection" style="display:none">
+            <div class="nm-h3">Website / Portal Details</div>
+            <div class="nm-fg">
+              <label class="nm-fl">Portal / Website Name</label>
+              <input class="nm-fi" id="nmWebName" placeholder="e.g., Availity, Navicure" />
+            </div>
+          </div>
+
+          <div id="nmAnalyseSection" style="display:none">
+            <div class="nm-alert info" style="margin-top:4px">
+              <div class="nm-alert-icon">🔍</div>
+              <div class="nm-alert-text">Internal review — complete the NDC details in the previous step. Document the findings in the notes section below.</div>
+            </div>
+          </div>
+
+          <div class="nm-fg" style="margin-top:8px">
+            <label class="nm-fl">Additional Notes (optional)</label>
+            <textarea class="nm-fta" id="nmExtraNotes" placeholder="Any additional details from call or review…"></textarea>
+          </div>
+        </div>
+
+        <!-- STEP 5: Appeal / Documents -->
+        <div class="nm-step-content" id="nmStep5">
+          <div class="nm-h2" id="nmStep5Title">Appeal Process &amp; Documentation</div>
+
+          <!-- Escalation path -->
+          <div id="nmEscalationSec" style="display:none">
+            <div class="nm-alert warn">
+              <div class="nm-alert-icon">⚠️</div>
+              <div>
+                <div class="nm-alert-title">Coding Escalation — When to Escalate</div>
+                <div class="nm-alert-text">Escalate when: multiple NDCs could legitimately map to the same J-code; drug wastage/JW is involved; compound drugs are billed; NOC codes are used; NDC is discontinued; or documentation conflicts between MAR, vial label, and charge entry.</div>
+              </div>
+            </div>
+            <div class="nm-fg">
+              <label class="nm-fl">Expected Coder Response Date</label>
+              <input class="nm-fi" type="date" id="nmCoderDate" />
+            </div>
+            <div class="nm-fg">
+              <label class="nm-fl">Corrected Claim TFL</label>
+              <input class="nm-fi" id="nmEscTFL" placeholder="e.g., MM/DD/YYYY" />
+            </div>
+          </div>
+
+          <!-- Appeal path -->
+          <div id="nmAppealSec">
+            <div class="nm-h3">Mode of Appeal</div>
+            <div class="nm-options" style="gap:8px">
+              <button class="nm-opt-btn" id="nmAppOptFax" onclick="nmSelectAppeal('Fax')" style="padding:12px">
+                <span class="nm-opt-icon" style="font-size:20px">📠</span>
+                <div class="nm-opt-label" style="font-size:13px">Fax</div>
+              </button>
+              <button class="nm-opt-btn" id="nmAppOptMail" onclick="nmSelectAppeal('Mailing')" style="padding:12px">
+                <span class="nm-opt-icon" style="font-size:20px">📬</span>
+                <div class="nm-opt-label" style="font-size:13px">Mailing</div>
+              </button>
+              <button class="nm-opt-btn" id="nmAppOptWeb" onclick="nmSelectAppeal('Website')" style="padding:12px">
+                <span class="nm-opt-icon" style="font-size:20px">🌐</span>
+                <div class="nm-opt-label" style="font-size:13px">Website</div>
+              </button>
+            </div>
+            <div id="nmAppFaxSec" style="display:none">
+              <div class="nm-alert warn" style="margin-top:4px">
+                <div class="nm-alert-icon">⚠️</div>
+                <div><div class="nm-alert-title">Fax — Attention To Required</div><div class="nm-alert-text">Always include "Attention To:" on the cover sheet when submitting by fax.</div></div>
+              </div>
+              <div class="nm-fg"><label class="nm-fl">Attention To (Fax Cover)</label><input class="nm-fi" id="nmFaxAttn" placeholder="e.g., Appeals Department" /></div>
+              <div class="nm-fg"><label class="nm-fl">Fax Number</label><input class="nm-fi" id="nmFaxNum" placeholder="Fax number provided by rep" /></div>
+            </div>
+            <div id="nmAppMailSec" style="display:none">
+              <div class="nm-fg" style="margin-top:8px"><label class="nm-fl">Appeal Mailing Address</label><textarea class="nm-fta" id="nmMailAddr" placeholder="Full mailing address from rep or payer website" style="min-height:74px"></textarea></div>
+            </div>
+            <div id="nmAppWebSec" style="display:none">
+              <div class="nm-fg" style="margin-top:8px"><label class="nm-fl">Portal / Website URL</label><input class="nm-fi" id="nmWebUrl" placeholder="e.g., Provider portal or payer website URL" /></div>
+            </div>
+
+            <div class="nm-h3">Required Documents Checklist</div>
+            <ul class="nm-checklist">
+              <li class="req"><input type="checkbox" checked disabled /><span><strong>Denied EOB / ERA</strong> — Always required (mandatory, no exceptions)</span></li>
+              <li><input type="checkbox" id="chkMAR" /><span>MAR (Medication Administration Record) from date of service</span></li>
+              <li><input type="checkbox" id="chkVial" /><span>Vial or package label confirming administered drug &amp; NDC</span></li>
+              <li><input type="checkbox" id="chkClaim" /><span>Corrected Claim with verified NDC in proper 11-digit format</span></li>
+              <li><input type="checkbox" id="chkCrosswalk" /><span>NDC ↔ J-code crosswalk / coding validation documentation</span></li>
+              <li><input type="checkbox" id="chkInvoice" /><span>Drug Invoice (if applicable)</span></li>
+              <li><input type="checkbox" id="chkLetter" /><span>Appeal Cover Letter</span></li>
+            </ul>
+
+            <div class="nm-h3">Appeal Timely Filing</div>
+            <div class="nm-alert info">
+              <div class="nm-alert-icon">⏰</div>
+              <div class="nm-alert-text"><strong>Confirm the Appeal TFL Limit</strong> with the rep or payer policy guide. Enter it in the "Appeal TFL Limit" field on the right panel. Submit before the deadline — late submissions are typically forfeited.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 6: Generated Notes -->
+        <div class="nm-step-content" id="nmStep6">
+          <div class="nm-h2">Generated Claim Notes</div>
+          <p style="color:var(--muted);font-size:13.5px;margin-bottom:10px">Review your complete notes below, then copy and paste into your Practice Management System or AR workflow.</p>
+          <pre class="nm-notes-out" id="nmNotesOut">[Notes will be generated here]</pre>
+          <div style="display:flex;gap:10px;margin-top:14px;flex-wrap:wrap">
+            <button class="nm-btn-next" onclick="nmCopyNotes()" style="display:inline-flex;align-items:center;gap:7px">📋 Copy Notes to Clipboard</button>
+            <button class="nm-btn-back" onclick="nmReset()" style="display:inline-flex;align-items:center;gap:7px">🔄 Start Over</button>
+          </div>
+          <div id="nmCopiedMsg" style="display:none;color:var(--teal);font-weight:700;font-size:13px;margin-top:8px">✅ Notes copied to clipboard!</div>
+
+          <!-- ── STATUS / ACTION TRACKING FIELDS ── -->
+          <div style="margin-top:22px">
+            <div class="nm-h3" style="margin-top:0">Claim Tracking Fields <span style="font:400 11px/1 'DM Sans',sans-serif;color:var(--muted2);letter-spacing:0;text-transform:none;margin-left:4px">— Double-click any field to copy its value</span></div>
+            <div class="nm-alert info" style="margin-bottom:12px;padding:9px 13px">
+              <div class="nm-alert-icon" style="font-size:15px">💡</div>
+              <div class="nm-alert-text" style="font-size:12px">Select values from the dropdowns below, then <strong>double-click</strong> any field card to instantly copy it to clipboard.</div>
+            </div>
+
+            <div class="nm-status-row">
+
+              <!-- Status Code -->
+              <div class="nm-status-field" id="sfStatusCode" ondblclick="nmCopyField('sfStatusCode','nmSCSelect')">
+                <div class="nm-sf-label">
+                  Status Code
+                  <span class="sf-copy-hint">· double-click to copy</span>
+                </div>
+                <select class="nm-sf-select" id="nmSCSelect" onchange="updateSFDisplay('sfStatusCode','nmSCSelect')">
+                  <option value="">— Select Status Code —</option>
+                  <optgroup label="NDC / Drug Billing">
+                    <option value="NDC Does Not Correspond to HCPCS/CPT Billed">NDC Does Not Correspond to HCPCS/CPT Billed</option>
+                    <option value="NDC Format Error — N4 Qualifier Issue">NDC Format Error — N4 Qualifier Issue</option>
+                    <option value="NDC Discontinued / Inactive">NDC Discontinued / Inactive</option>
+                    <option value="NDC / J-Code Crosswalk Mismatch">NDC / J-Code Crosswalk Mismatch</option>
+                    <option value="UOM or Quantity Mismatch">UOM or Quantity Mismatch</option>
+                  </optgroup>
+                  <optgroup label="Authorization / Eligibility">
+                    <option value="Prior Authorization Required">Prior Authorization Required</option>
+                    <option value="Auth Expired or Does Not Match Billed Service">Auth Expired or Does Not Match Billed Service</option>
+                    <option value="Patient Not Eligible on Date of Service">Patient Not Eligible on Date of Service</option>
+                    <option value="Insurance Mismatch / COB Issue">Insurance Mismatch / COB Issue</option>
+                  </optgroup>
+                  <optgroup label="Coding / Billing">
+                    <option value="Claim Lacks Required Information (CO-16)">Claim Lacks Required Information (CO-16)</option>
+                    <option value="Duplicate Claim Submission">Duplicate Claim Submission</option>
+                    <option value="Invalid Modifier / Modifier Missing">Invalid Modifier / Modifier Missing</option>
+                    <option value="Bundling — Service Included in Primary Procedure">Bundling — Service Included in Primary Procedure</option>
+                    <option value="Medical Necessity Not Established">Medical Necessity Not Established</option>
+                    <option value="Timely Filing Limit Exceeded">Timely Filing Limit Exceeded</option>
+                  </optgroup>
+                  <optgroup label="Provider / Facility">
+                    <option value="Provider Not Authorized / Out of Network">Provider Not Authorized / Out of Network</option>
+                    <option value="Facility Not Authorized for This Service">Facility Not Authorized for This Service</option>
+                    <option value="Referral Not Authorized by Attending Physician">Referral Not Authorized by Attending Physician</option>
+                  </optgroup>
+                  <optgroup label="Payment Adjustments">
+                    <option value="Contractual Adjustment — Fee Schedule Applied">Contractual Adjustment — Fee Schedule Applied</option>
+                    <option value="Patient Responsibility — Deductible Applied">Patient Responsibility — Deductible Applied</option>
+                    <option value="Patient Responsibility — Coinsurance">Patient Responsibility — Coinsurance</option>
+                    <option value="Coordination of Benefits — Primary Paid">Coordination of Benefits — Primary Paid</option>
+                  </optgroup>
+                </select>
+                <div class="nm-sf-value-display" id="sfStatusCode-val">—</div>
+                <div class="nm-sf-copied-badge">✓ Copied!</div>
+              </div>
+
+              <!-- Action Code -->
+              <div class="nm-status-field" id="sfActionCode" ondblclick="nmCopyField('sfActionCode','nmACSelect')">
+                <div class="nm-sf-label">
+                  Action Code
+                  <span class="sf-copy-hint">· double-click to copy</span>
+                </div>
+                <select class="nm-sf-select" id="nmACSelect" onchange="updateSFDisplay('sfActionCode','nmACSelect')">
+                  <option value="">— Select Action Code —</option>
+                  <optgroup label="Claim Correction">
+                    <option value="Corrected Claim Resubmitted">Corrected Claim Resubmitted</option>
+                    <option value="Corrected Claim Resubmitted — Resubmission Code 7">Corrected Claim Resubmitted — Resubmission Code 7</option>
+                    <option value="Claim Voided and Resubmitted">Claim Voided and Resubmitted</option>
+                    <option value="NDC Corrected and Resubmitted">NDC Corrected and Resubmitted</option>
+                  </optgroup>
+                  <optgroup label="Appeal / Escalation">
+                    <option value="First Level Appeal Submitted">First Level Appeal Submitted</option>
+                    <option value="Second Level Appeal Submitted">Second Level Appeal Submitted</option>
+                    <option value="Peer-to-Peer Review Requested">Peer-to-Peer Review Requested</option>
+                    <option value="Escalated to Coding Team">Escalated to Coding Team</option>
+                    <option value="Escalated to Supervisor / Manager">Escalated to Supervisor / Manager</option>
+                  </optgroup>
+                  <optgroup label="Reprocessing">
+                    <option value="Claim Sent for Reprocessing">Claim Sent for Reprocessing</option>
+                    <option value="Reprocessing Confirmed by Payer Rep">Reprocessing Confirmed by Payer Rep</option>
+                    <option value="Payer Initiated Reprocessing — Awaiting ERA">Payer Initiated Reprocessing — Awaiting ERA</option>
+                  </optgroup>
+                  <optgroup label="Patient / Provider Actions">
+                    <option value="Patient Notified — Patient Responsibility">Patient Notified — Patient Responsibility</option>
+                    <option value="Authorization Obtained — Claim Resubmitted">Authorization Obtained — Claim Resubmitted</option>
+                    <option value="Provider Credentialing Initiated">Provider Credentialing Initiated</option>
+                    <option value="COB Established — Secondary Billed">COB Established — Secondary Billed</option>
+                  </optgroup>
+                  <optgroup label="Close Out">
+                    <option value="Claim Closed — Paid in Full">Claim Closed — Paid in Full</option>
+                    <option value="Claim Closed — Contractual Write-off Applied">Claim Closed — Contractual Write-off Applied</option>
+                    <option value="Claim Closed — Timely Filing Write-off">Claim Closed — Timely Filing Write-off</option>
+                    <option value="Claim Closed — No Adjustment Required">Claim Closed — No Adjustment Required</option>
+                    <option value="Claim Closed — Balance Billed to Patient">Claim Closed — Balance Billed to Patient</option>
+                  </optgroup>
+                </select>
+                <div class="nm-sf-value-display" id="sfActionCode-val">—</div>
+                <div class="nm-sf-copied-badge">✓ Copied!</div>
+              </div>
+
+              <!-- Source -->
+              <div class="nm-status-field" id="sfSource" ondblclick="nmCopyField('sfSource','nmSrcSelect')">
+                <div class="nm-sf-label">
+                  Source
+                  <span class="sf-copy-hint">· double-click to copy</span>
+                </div>
+                <select class="nm-sf-select" id="nmSrcSelect" onchange="updateSFDisplay('sfSource','nmSrcSelect')">
+                  <option value="">— Select Source —</option>
+                  <option value="Website">Website</option>
+                  <option value="Calling">Calling</option>
+                  <option value="Internal Review">Internal Review</option>
+                  <option value="Clearinghouse Portal">Clearinghouse Portal</option>
+                  <option value="ERA / 835 Transaction">ERA / 835 Transaction</option>
+                  <option value="Payer Portal">Payer Portal</option>
+                  <option value="Eligibility Check (270/271)">Eligibility Check (270/271)</option>
+                  <option value="Email from Payer">Email from Payer</option>
+                  <option value="Fax from Payer">Fax from Payer</option>
+                  <option value="EOB (Explanation of Benefits)">EOB (Explanation of Benefits)</option>
+                  <option value="Supervisor Review">Supervisor Review</option>
+                  <option value="Coding Team">Coding Team</option>
+                </select>
+                <div class="nm-sf-value-display" id="sfSource-val">—</div>
+                <div class="nm-sf-copied-badge">✓ Copied!</div>
+              </div>
+
+              <!-- Sub Category -->
+              <div class="nm-status-field" id="sfSubCat" ondblclick="nmCopyField('sfSubCat','nmSubCatSelect')">
+                <div class="nm-sf-label">
+                  Sub Category
+                  <span class="sf-copy-hint">· double-click to copy</span>
+                </div>
+                <select class="nm-sf-select" id="nmSubCatSelect" onchange="updateSFDisplay('sfSubCat','nmSubCatSelect')">
+                  <option value="">— Select Sub Category —</option>
+                  <optgroup label="Drug Billing">
+                    <option value="Drug Billing / Data Mismatch">Drug Billing / Data Mismatch</option>
+                    <option value="Drug Billing / NDC Format Error">Drug Billing / NDC Format Error</option>
+                    <option value="Drug Billing / J-Code NDC Crosswalk Error">Drug Billing / J-Code NDC Crosswalk Error</option>
+                    <option value="Drug Billing / Discontinued NDC">Drug Billing / Discontinued NDC</option>
+                    <option value="Drug Billing / UOM or Qty Error">Drug Billing / UOM or Qty Error</option>
+                    <option value="Drug Billing / JW Modifier Error">Drug Billing / JW Modifier Error</option>
+                  </optgroup>
+                  <optgroup label="Authorization">
+                    <option value="Authorization / Missing Pre-auth">Authorization / Missing Pre-auth</option>
+                    <option value="Authorization / Expired Auth">Authorization / Expired Auth</option>
+                    <option value="Authorization / Auth Mismatch">Authorization / Auth Mismatch</option>
+                    <option value="Authorization / Referral Missing">Authorization / Referral Missing</option>
+                  </optgroup>
+                  <optgroup label="Coding / Billing Errors">
+                    <option value="Coding / Modifier Error">Coding / Modifier Error</option>
+                    <option value="Coding / Diagnosis Mismatch">Coding / Diagnosis Mismatch</option>
+                    <option value="Coding / Bundling Issue">Coding / Bundling Issue</option>
+                    <option value="Coding / Procedure Code Error">Coding / Procedure Code Error</option>
+                    <option value="Billing / Timely Filing">Billing / Timely Filing</option>
+                    <option value="Billing / Duplicate Claim">Billing / Duplicate Claim</option>
+                    <option value="Billing / Place of Service Error">Billing / Place of Service Error</option>
+                  </optgroup>
+                  <optgroup label="Eligibility / Coverage">
+                    <option value="Eligibility / Patient Not Active">Eligibility / Patient Not Active</option>
+                    <option value="Eligibility / COB / Primary Not Billed First">Eligibility / COB / Primary Not Billed First</option>
+                    <option value="Eligibility / Non-covered Benefit">Eligibility / Non-covered Benefit</option>
+                    <option value="Eligibility / Patient Responsibility">Eligibility / Patient Responsibility</option>
+                  </optgroup>
+                  <optgroup label="Provider / Facility">
+                    <option value="Provider / Not Credentialed">Provider / Not Credentialed</option>
+                    <option value="Provider / Out of Network">Provider / Out of Network</option>
+                    <option value="Provider / Specialty Mismatch">Provider / Specialty Mismatch</option>
+                    <option value="Facility / Not Authorized">Facility / Not Authorized</option>
+                  </optgroup>
+                  <optgroup label="Medical Necessity">
+                    <option value="Medical Necessity / LCD Criteria Not Met">Medical Necessity / LCD Criteria Not Met</option>
+                    <option value="Medical Necessity / Documentation Insufficient">Medical Necessity / Documentation Insufficient</option>
+                    <option value="Medical Necessity / Experimental / Excluded">Medical Necessity / Experimental / Excluded</option>
+                  </optgroup>
+                </select>
+                <div class="nm-sf-value-display" id="sfSubCat-val">—</div>
+                <div class="nm-sf-copied-badge">✓ Copied!</div>
+              </div>
+
+            </div><!-- end nm-status-row -->
+          </div><!-- end tracking fields -->
+
+        </div>
+
+      </div><!-- end nm-main -->
+
+      <!-- Always-visible form panel -->
+      <div class="nm-form-panel">
+        <p class="nm-fp-title">📋 Claim Details</p>
+
+        <div class="nm-fg">
+          <label class="nm-fl">Date of Service (DOS)</label>
+          <input class="nm-fi" type="date" id="nmDOS" />
+        </div>
+        <div class="nm-fg">
+          <label class="nm-fl">Claim Number</label>
+          <input class="nm-fi" id="nmClaimNo" placeholder="Claim #" />
+        </div>
+        <div class="nm-fg">
+          <label class="nm-fl">Insurance Name</label>
+          <input class="nm-fi" id="nmInsName" placeholder="e.g., Aetna, BCBS" />
+        </div>
+        <div class="nm-fg">
+          <label class="nm-fl">Clearing House Name</label>
+          <input class="nm-fi" id="nmCH" placeholder="e.g., Waystar, Availity" />
+        </div>
+        <div class="nm-fg">
+          <label class="nm-fl">Procedure / J-Code</label>
+          <input class="nm-fi" id="nmProc" placeholder="e.g., J1100" />
+        </div>
+        <div class="nm-fg">
+          <label class="nm-fl">Submitted Date</label>
+          <input class="nm-fi" type="date" id="nmSubmDate" />
+        </div>
+        <div class="nm-fg">
+          <label class="nm-fl">Claim TFL Limit</label>
+          <input class="nm-fi" id="nmClaimTFL" placeholder="e.g., 365 days from DOS" />
+        </div>
+        <div class="nm-fg" id="nmAppTFLFg" style="display:none">
+          <label class="nm-fl">Appeal TFL Limit</label>
+          <input class="nm-fi" id="nmAplTFL" placeholder="e.g., 180 days from DOS" />
+        </div>
+        <div class="nm-fg" id="nmFaxFPFg" style="display:none">
+          <label class="nm-fl">⚠️ Fax — Attention To</label>
+          <input class="nm-fi" id="nmFaxAttnFP" placeholder="Attention: [Dept / Name]" />
+        </div>
+        <div class="nm-fg" id="nmMailFPFg" style="display:none">
+          <label class="nm-fl">Appeal Mailing Address</label>
+          <textarea class="nm-fta" id="nmMailFP" placeholder="Full appeal mailing address"></textarea>
+        </div>
+      </div>
+
+    </div><!-- end nm-body -->
+
+    <!-- Footer nav -->
+    <div class="nm-footer">
+      <span class="nm-step-ind" id="nmStepInd">Step 1 of 6</span>
+      <div class="nm-footer-btns">
+        <button class="nm-btn-back" id="nmBtnBack" onclick="nmBack()" style="display:none">← Back</button>
+        <button class="nm-btn-next" id="nmBtnNext" onclick="nmNext()">I Have Reviewed — Continue →</button>
+      </div>
+    </div>
+
+  </div><!-- end nm-panel -->
+</div><!-- end notesMakerModal -->
+
+<!-- ════════════════════════ MACHINE-READABLE JSON BLOCK ════════════════════════
+     Structured data for AI / Python automation — parse with json.loads()
+     data-rarc attribute enables automated RARC lookup pipelines
+════════════════════════════════════════════════════════════════════════════════ -->
+<script type="application/json" id="rarcData" data-rarc="N846">
+{
+  "rarc": "N846",
+  "category": "Drug Billing / Data Mismatch",
+  "common_carc": "CO-16",
+  "claim_types": ["CMS-1500", "UB-04"],
+  "official_description": "NDC Does Not Correspond to HCPCS/CPT Billed",
+  "type": "supplemental",
+  "cms1500_boxes": ["24D", "24A-shaded", "24E"],
+  "ub04_fls": ["FL42", "FL43", "FL44", "FL67"],
+  "ndc_format": {
+    "required_digits": 11,
+    "format_segments": "5-4-2",
+    "qualifier": "N4",
+    "qualifier_rule": "No space between N4 and NDC digits",
+    "correct_example": "N412345678901",
+    "incorrect_example": "N4 12345678901"
+  },
+  "uom_codes": [
+    {"code": "UN", "use": "Powder-form drugs in a vial"},
+    {"code": "ML", "use": "Liquid-form drugs in a vial"},
+    {"code": "GR", "use": "Ointments, creams, inhalers"},
+    {"code": "F2", "use": "Factor VIII Antihemophilic Factor"}
+  ],
+  "modifiers": [
+    {"code": "KO", "desc": "Single drug unit dose formulation"},
+    {"code": "KP", "desc": "First drug in multiple drug unit dose formulation"},
+    {"code": "KQ", "desc": "Second or subsequent drug in multiple drug unit dose formulation"},
+    {"code": "JW", "desc": "Drug amount discarded or not administered"},
+    {"code": "JZ", "desc": "Zero wastage — no drug discarded"}
+  ],
+  "root_causes": [
+    "Wrong NDC selected for the drug actually administered",
+    "NDC from a different manufacturer was used",
+    "NDC taken from outer carton instead of actual vial",
+    "10-digit NDC not converted to required 11-digit (5-4-2) format",
+    "HCPCS/J-code does not align with NDC submitted",
+    "NDC is expired, discontinued, or no longer active in payer drug file"
+  ],
+  "resolution_steps": [
+    "Pull the MAR or vial label and confirm exactly what drug was administered",
+    "Find the correct 11-digit NDC from the manufacturer of the drug actually given",
+    "Convert any 10-digit NDC to 11-digit (5-4-2) format if needed",
+    "Confirm N4 qualifier is formatted correctly with no spaces",
+    "Double-check UOM and quantity match what was documented in the MAR",
+    "Validate the NDC aligns with the billed J-code using a current NDC-to-J-code crosswalk",
+    "Submit a corrected claim with Resubmission Code 7"
+  ],
+  "prevention_checklist": [
+    "NDC captured directly from the administered vial or package label",
+    "J-code validated against NDC using a current reliable crosswalk",
+    "10-digit NDC converted to 11-digit format (5-4-2) if applicable",
+    "N4 qualifier formatted with no space before the NDC number",
+    "Manufacturer-specific NDC confirmed",
+    "UOM and quantity accurate per MAR documentation",
+    "JW modifier applied on separate line if wastage applies",
+    "NDC confirmed as active on the date of service",
+    "Claim run through edits before submission"
+  ],
+  "appeal_rule": "Appeal only when corrected claim has been submitted and denied again with continued N846, and all billing data has been confirmed correct",
+  "action_templates": {
+    "corrected_claim": "Resubmission Code 7 — use when NDC/J-code mismatch found and corrected",
+    "reprocessing": "Claim Sent Back for Reprocessing — payer agreed to reprocess after phone clarification",
+    "coding_escalation": "Escalate to coding when NDC/J-code complexity requires coder validation",
+    "first_level_appeal": "Appeal only after corrected claim denied again with all data verified correct",
+    "adjustment_closed": "Claim fully resolved — document final outcome and close",
+    "secondary_tertiary": "COB submission — attach primary EOB with corrected NDC data"
+  }
+}
+</script>
+
+<!-- ═══════════════════════════════════ JAVASCRIPT ═══════════════════════════════════ -->
+<script>
+/* ── LIGHTBOX ── */
+function openLB(url, cap) {
+  document.getElementById('lbImg').src = url;
+  document.getElementById('lbCaption').textContent = cap;
+  document.getElementById('lightbox').style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+function closeLB() {
+  document.getElementById('lightbox').style.display = 'none';
+  document.body.style.overflow = '';
+}
+
+/* ── NOTE MAKER ── */
+let nmCurrentStep = 1;
+const NM_TOTAL = 6;
+let nmAction = '';
+let nmSource = '';
+let nmAppealMode = '';
+
+function openNM()  { document.getElementById('notesMakerModal').classList.add('open'); document.body.style.overflow = 'hidden'; nmGoTo(1); }
+function closeNM() { document.getElementById('notesMakerModal').classList.remove('open'); document.body.style.overflow = ''; }
+
+function nmSelectAction(act) {
+  nmAction = act;
+  document.querySelectorAll('[id^="nmActBtn"]').forEach(b => b.classList.remove('selected'));
+  const map = {corrected:'1',reprocessing:'2',escalation:'3',appeal:'4',closed:'5',secondary:'6'};
+  const btn = document.getElementById('nmActBtn' + map[act]);
+  if (btn) btn.classList.add('selected');
+  // Show/hide appeal TFL in panel
+  document.getElementById('nmAppTFLFg').style.display = (act === 'appeal') ? 'block' : 'none';
+}
+
+function nmSelectSrc(src) {
+  nmSource = src;
+  document.querySelectorAll('[id^="nmSrcBtn"]').forEach(b => b.classList.remove('selected'));
+  const btn = document.getElementById('nmSrcBtn' + src);
+  if (btn) btn.classList.add('selected');
+  document.getElementById('nmCallingSection').style.display  = (src === 'Calling')  ? 'block' : 'none';
+  document.getElementById('nmWebsiteSection').style.display  = (src === 'Website')  ? 'block' : 'none';
+  document.getElementById('nmAnalyseSection').style.display  = (src === 'Analyse')  ? 'block' : 'none';
+}
+
+function nmSelectAppeal(mode) {
+  nmAppealMode = mode;
+  document.querySelectorAll('[id^="nmAppOpt"]').forEach(b => b.classList.remove('selected'));
+  document.getElementById('nmAppOpt' + mode).classList.add('selected');
+  document.getElementById('nmAppFaxSec').style.display  = (mode === 'Fax')     ? 'block' : 'none';
+  document.getElementById('nmAppMailSec').style.display = (mode === 'Mailing') ? 'block' : 'none';
+  document.getElementById('nmAppWebSec').style.display  = (mode === 'Website') ? 'block' : 'none';
+  document.getElementById('nmFaxFPFg').style.display    = (mode === 'Fax')     ? 'block' : 'none';
+  document.getElementById('nmMailFPFg').style.display   = (mode === 'Mailing') ? 'block' : 'none';
+}
+
+function nmUpdateJW() {
+  const val = document.querySelector('input[name="nmJW"]:checked');
+  document.getElementById('nmJWQtyFg').style.display = (val && val.value === 'JW') ? 'block' : 'none';
+}
+
+function nmUpdateForm() {}
+
+function nmGoTo(step) {
+  // Update step content
+  for (let i = 1; i <= NM_TOTAL; i++) {
+    const sc = document.getElementById('nmStep' + i);
+    const st = document.getElementById('nmStepTab' + i);
+    const ln = document.getElementById('nmLine' + i);
+    if (sc) sc.classList.toggle('active', i === step);
+    if (st) {
+      st.classList.remove('active', 'done');
+      if (i === step) st.classList.add('active');
+      else if (i < step) st.classList.add('done');
+    }
+    if (ln) ln.classList.toggle('done', i < step);
+  }
+  nmCurrentStep = step;
+  document.getElementById('nmStepInd').textContent = 'Step ' + step + ' of ' + NM_TOTAL;
+  document.getElementById('nmBtnBack').style.display = step > 1 ? 'inline-flex' : 'none';
+  document.getElementById('nmBtnNext').textContent = step < NM_TOTAL ? 'I Have Reviewed — Continue →' : '✅ Generate Notes';
+  // Adjust step 5 view
+  if (step === 5) {
+    document.getElementById('nmEscalationSec').style.display = (nmAction === 'escalation') ? 'block' : 'none';
+    document.getElementById('nmAppealSec').style.display = (nmAction !== 'escalation') ? 'block' : 'none';
+  }
+}
+
+function nmNext() {
+  if (nmCurrentStep === NM_TOTAL) { nmGenerateNotes(); return; }
+  nmGoTo(nmCurrentStep + 1);
+}
+function nmBack() {
+  if (nmCurrentStep > 1) nmGoTo(nmCurrentStep - 1);
+}
+
+function fv(id) { const el = document.getElementById(id); return el ? (el.value || '').trim() : ''; }
+function fd(id) {
+  const el = document.getElementById(id);
+  if (!el || !el.value) return '[MM/DD/YYYY]';
+  const d = new Date(el.value + 'T00:00:00');
+  return (d.getMonth()+1).toString().padStart(2,'0') + '/' + d.getDate().toString().padStart(2,'0') + '/' + d.getFullYear();
+}
+function getErrTypes() {
+  const checks = document.querySelectorAll('#nmErrTypes input[type=checkbox]:checked');
+  const labels = { wrong_ndc:'incorrect NDC', wrong_manufacturer:'NDC from a different manufacturer', format_10digit:'NDC not in 11-digit format', n4_space:'N4 qualifier incorrectly formatted', discontinued:'discontinued/inactive NDC', uom_mismatch:'UOM mismatch' };
+  return Array.from(checks).map(c => labels[c.value] || c.value).join(', ') || 'incorrect NDC';
+}
+
+function nmGenerateNotes() {
+  const dos     = fd('nmDOS');
+  const claimNo = fv('nmClaimNo') || '[Claim #]';
+  const ins     = fv('nmInsName') || '[Insurance]';
+  const ch      = fv('nmCH')      || 'clearinghouse';
+  const proc    = fv('nmProc') || fv('nmJCode') || '[J-Code]';
+  const status  = document.querySelector('input[name="nmStatus"]:checked');
+  const claimStatus = status ? status.value : '[Paid / Partially Paid / Denied]';
+  const procDate = fd('nmProcDate');
+  const submDate = fd('nmSubmDate');
+  const tfl      = fv('nmClaimTFL') || '[TFL Date]';
+  const aplTFL   = fv('nmAplTFL')   || '[Appeal TFL Date]';
+  const errTypes = getErrTypes();
+  const corrNDC  = fv('nmCorrNDC')  || '[Corrected NDC]';
+  const priorNDC = fv('nmPriorNDC') || '[Prior NDC]';
+  const uom      = fv('nmUOM')      || '[UOM]';
+  const qty      = fv('nmQty')      || '[Qty]';
+  const mfr      = fv('nmMfr')      || '[Manufacturer]';
+  const repName  = fv('nmRepName')  || '[Rep Name/ID]';
+  const callRef  = fv('nmCallRef')  || '[Reference #]';
+  const tat      = fv('nmTAT')      || '30–45 days';
+  const webName  = fv('nmWebName')  || '[Portal/Website]';
+  const extNotes = fv('nmExtraNotes');
+  const jwVal    = document.querySelector('input[name="nmJW"]:checked');
+  const jwNote   = jwVal && jwVal.value === 'JW' ? ` JW modifier applied — discarded quantity: ${fv('nmJWQty') || '[JW Qty]'}.` : (jwVal && jwVal.value === 'JZ') ? ' JZ modifier applied (zero wastage).' : '';
+
+  let sourceStr = '';
+  if (nmSource === 'Calling') sourceStr = `Per ${ins} rep ${repName}, Ref #: ${callRef}.`;
+  else if (nmSource === 'Website') sourceStr = `Per ${webName || ins + ' portal'}.`;
+  else sourceStr = `Per internal review / clearinghouse analysis.`;
+
+  let notes = '';
+
+  if (nmAction === 'corrected') {
+    notes = `DOS: ${dos} | Claim #: ${claimNo} | Proc: ${proc}
+Status: Per ${ch}, the original claim was ${claimStatus} on ${procDate} due to NDC/J-code mismatch (RARC N846 — NDC Does Not Correspond to HCPCS/CPT Billed).
+Action: Manual review — verified drug administered via MAR and vial label. Prior NDC was ${errTypes} (${priorNDC}).
+Correction: Confirmed correct 11-digit NDC (${corrNDC}) matches billed J-code (${proc}). UOM: ${uom}, Qty: ${qty}. Manufacturer: ${mfr}. Validated against current NDC↔J-code crosswalk.${jwNote}
+Submission: Corrected claim submitted with Resubmission Code 7 on ${submDate}. TFL: ${tfl}. Awaiting payer reprocessing — allow ${tat}.`;
+
+  } else if (nmAction === 'reprocessing') {
+    notes = `DOS: ${dos} | Claim #: ${claimNo} | Proc: ${proc}
+Status: Per ${ch}, the original claim was ${claimStatus} on ${procDate} due to NDC/J-code mismatch (RARC N846).
+Action: Manual review identified ambiguity in NDC↔J-code alignment. Contacted ${ins} — ${sourceStr}
+Verified corrected 11-digit NDC (${corrNDC}) matches billed J-code (${proc}). UOM: ${uom}, Qty: ${qty}.${jwNote}
+Outcome: Payer representative confirmed they will review the NDC/J-code mismatch and send the claim back for reprocessing.
+Timeline: Allow ${tat} for reprocessing.${extNotes ? '\nNotes: ' + extNotes : ''}`;
+
+  } else if (nmAction === 'escalation') {
+    const coderDate = fd('nmCoderDate');
+    const escTFL    = fv('nmEscTFL') || '[TFL Date]';
+    notes = `DOS: ${dos} | Claim #: ${claimNo} | Proc: ${proc}
+Status: Per ${ch}, the original claim was ${claimStatus} on ${procDate} due to NDC mismatch (RARC N846).
+Action: Manual review identified complexity in NDC↔J-code alignment. Escalated to coding team for validation.
+Sent to coding: MAR, vial label, current charge entry data.
+NDC under review: ${priorNDC} → potential correction to ${corrNDC}. J-code: ${proc}. ${errTypes}.${jwNote}
+Coding will: Validate correct HCPCS/J-code and corresponding NDC from all documentation.
+Expected response: Awaiting coder confirmation by ${coderDate}. Corrected claim TFL: ${escTFL}.${extNotes ? '\nNotes: ' + extNotes : ''}`;
+
+  } else if (nmAction === 'appeal') {
+    const modeStr = nmAppealMode || '[Fax/Mailing/Website]';
+    const faxAttn = fv('nmFaxAttn') || fv('nmFaxAttnFP') || '';
+    const mailAddr = fv('nmMailAddr') || fv('nmMailFP') || '';
+    const webUrl  = fv('nmWebUrl') || '';
+    let subDetails = '';
+    if (nmAppealMode === 'Fax') subDetails = `Fax — Attention To: ${faxAttn || '[Appeal Dept]'}. Fax #: ${fv('nmFaxNum') || '[Fax #]'}.`;
+    else if (nmAppealMode === 'Mailing') subDetails = `Mailing Address: ${mailAddr || '[Address]'}.`;
+    else if (nmAppealMode === 'Website') subDetails = `Portal/Website: ${webUrl || '[URL]'}.`;
+
+    notes = `DOS: ${dos} | Claim #: ${claimNo} | Proc: ${proc}
+Status: Per ${ch}, the corrected claim was Denied on ${procDate} due to continued N846 flag despite correction.
+Why Appealing: Manual review confirmed 11-digit NDC (${corrNDC}) is valid and matches billed J-code (${proc}). Manufacturer: ${mfr}. UOM: ${uom}, Qty: ${qty}. UOM and quantity verified against MAR and vial label. Issue is payer-side.${jwNote}
+Documentation Attached: MAR, vial label, NDC↔J-code crosswalk, denied EOB/ERA.
+Submission Mode: ${modeStr}. ${subDetails}
+Submission: First-level appeal submitted on ${submDate}. Appeal TFL: ${aplTFL}.${extNotes ? '\nNotes: ' + extNotes : ''}`;
+
+  } else if (nmAction === 'closed') {
+    const finalOut = extNotes || '[Paid in full / Denial upheld / Partial payment accepted]';
+    notes = `DOS: ${dos} | Claim #: ${claimNo} | Proc: ${proc}
+Status: Per ${ch}, the claim was ${claimStatus} on ${procDate} following correction/appeal process (RARC N846).
+Final Outcome: ${finalOut}.
+NDC Used: ${corrNDC} | J-code: ${proc} | UOM: ${uom} | Qty: ${qty}.
+Account Action: Per client guidelines, remaining balance was adjusted per contract/write-off policy.
+Claim Status: CLOSED.`;
+
+  } else if (nmAction === 'secondary') {
+    notes = `DOS: ${dos} | Claim #: ${claimNo} | Proc: ${proc}
+Status: Primary claim ${claimStatus} on ${procDate} after N846 correction.
+Corrected NDC: ${corrNDC} | J-code: ${proc} | UOM: ${uom} | Qty: ${qty}.${jwNote}
+COB Data: Primary EOB/ERA attached with correct paid/denied amounts and adjustment codes for coordination of benefits.
+Next Step: Secondary/tertiary claim submitted on ${submDate} with corrected NDC data and primary EOB attached.
+Note: Confirmed secondary payer also accepts the corrected NDC on file — original incorrect NDC (${priorNDC}) was NOT carried forward to the secondary claim.
+Monitoring: Tracking remittance. Expected processing: ${tat}.${extNotes ? '\nNotes: ' + extNotes : ''}`;
+  }
+
+  document.getElementById('nmNotesOut').textContent = notes || '[No notes generated — please complete all fields]';
+  nmGoTo(NM_TOTAL);
+  // Auto-fill tracking fields based on action
+  nmAutoFillStatusFields(nmAction);
+}
+
+function nmCopyNotes() {
+  const txt = document.getElementById('nmNotesOut').textContent;
+  navigator.clipboard.writeText(txt).then(() => {
+    document.getElementById('nmCopiedMsg').style.display = 'block';
+    setTimeout(() => { document.getElementById('nmCopiedMsg').style.display = 'none'; }, 3000);
+  });
+}
+
+function nmReset() {
+  nmAction = ''; nmSource = ''; nmAppealMode = '';
+  document.querySelectorAll('.nm-opt-btn').forEach(b => b.classList.remove('selected'));
+  document.querySelectorAll('.nm-fi, .nm-fta').forEach(el => el.value = '');
+  document.querySelectorAll('input[type=checkbox]:not([disabled])').forEach(el => el.checked = false);
+  document.querySelectorAll('input[type=radio]').forEach(el => el.checked = false);
+  document.getElementById('nmCallingSection').style.display  = 'none';
+  document.getElementById('nmWebsiteSection').style.display  = 'none';
+  document.getElementById('nmAnalyseSection').style.display  = 'none';
+  document.getElementById('nmAppFaxSec').style.display       = 'none';
+  document.getElementById('nmAppMailSec').style.display      = 'none';
+  document.getElementById('nmAppWebSec').style.display       = 'none';
+  document.getElementById('nmJWQtyFg').style.display         = 'none';
+  document.getElementById('nmAppTFLFg').style.display        = 'none';
+  document.getElementById('nmFaxFPFg').style.display         = 'none';
+  document.getElementById('nmMailFPFg').style.display        = 'none';
+  document.getElementById('nmNotesOut').textContent = '[Notes will be generated here]';
+  // Reset status fields
+  ['nmSCSelect','nmACSelect','nmSrcSelect','nmSubCatSelect'].forEach(id => {
+    const el = document.getElementById(id); if(el) el.value = '';
+  });
+  ['sfStatusCode','sfActionCode','sfSource','sfSubCat'].forEach(id => {
+    const v = document.getElementById(id+'-val'); if(v) v.textContent = '—';
+  });
+  nmGoTo(1);
+}
+
+/* ── Keyboard close ── */
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    closeLB();
+    closeNM();
+    closeDrugToolModal();
+  }
+});
+
+/* ══════════════════════════════════════════
+   RARC SEARCH BAR
+══════════════════════════════════════════ */
+// Page content map — all searchable sections in this document
+const RARC_CONTENT_SECTIONS = [
+  { id: 'rarcResult',    label: 'Code Info',       selector: '.result-header' },
+  { id: 'rarcMeaning',  label: 'What This Means',  selector: '.card.span-12:nth-of-type(1)' },
+  { id: 'rarcFix',      label: 'How to Fix',       selector: '.card.span-6:nth-of-type(2)' },
+  { id: 'rarcMod',      label: 'Modifiers',        selector: '.card.span-12:nth-of-type(3)' },
+  { id: 'rarcPayer',    label: 'Payer Rules',       selector: '.card.span-12:nth-of-type(4)' },
+];
+
+function rarcSearch(query) {
+  const q = (query || '').trim().toLowerCase();
+  const resultsEl = document.getElementById('rarcSearchResults');
+
+  if (!q) { resultsEl.style.display = 'none'; return; }
+
+  // Search all text content in page cards
+  const cards = document.querySelectorAll('.card, .result-header, .proc, .mod-table, .step-list li, .checklist li, .info-list li');
+  let matches = [];
+
+  cards.forEach(card => {
+    const text = card.innerText || '';
+    if (text.toLowerCase().includes(q)) {
+      // Get the nearest label
+      const labelEl = card.querySelector('.label');
+      const label = labelEl ? labelEl.innerText.trim() : 'Section';
+      if (!matches.find(m => m.label === label)) {
+        matches.push({ label, text: text.substring(0, 120).trim() + '…' });
+      }
+    }
+  });
+
+  if (matches.length === 0) {
+    resultsEl.innerHTML = `<span style="color:rgba(255,255,255,0.5)">No matches for "<strong>${query}</strong>" in this page.</span>`;
+  } else {
+    resultsEl.innerHTML = `<span style="opacity:.6;font-size:12px;margin-right:8px">${matches.length} section(s) match:</span>` +
+      matches.slice(0, 6).map(m =>
+        `<span style="display:inline-flex;align-items:center;gap:5px;margin-right:8px;margin-bottom:4px;background:rgba(24,71,204,.35);border:1px solid rgba(121,187,255,.3);border-radius:999px;padding:3px 10px;font:600 11px 'DM Mono',monospace;color:#79bbff">✓ ${m.label}</span>`
+      ).join('')
+  }
+  resultsEl.style.display = 'block';
+
+  // Highlight matches in page
+  clearSearchHighlights();
+  if (q.length >= 3) highlightSearchTerm(q);
+}
+
+function highlightSearchTerm(q) {
+  const walker = document.createTreeWalker(
+    document.querySelector('.page'), NodeFilter.SHOW_TEXT, null
+  );
+  const nodesToProcess = [];
+  while (walker.nextNode()) {
+    const node = walker.currentNode;
+    // Skip script/style/pre nodes and header
+    if (['SCRIPT','STYLE','PRE','INPUT','TEXTAREA','SELECT'].includes(node.parentElement.tagName)) continue;
+    if (node.parentElement.closest('.header-inner')) continue;
+    if (node.textContent.toLowerCase().includes(q)) nodesToProcess.push(node);
+  }
+  nodesToProcess.slice(0, 80).forEach(node => {
+    const re = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&') + ')', 'gi');
+    const newHtml = node.textContent.replace(re, '<mark class="search-hl">$1</mark>');
+    if (newHtml !== node.textContent) {
+      const span = document.createElement('span');
+      span.innerHTML = newHtml;
+      node.parentNode.replaceChild(span, node);
+    }
+  });
+}
+
+function clearSearchHighlights() {
+  document.querySelectorAll('mark.search-hl').forEach(m => {
+    const parent = m.parentNode;
+    parent.replaceChild(document.createTextNode(m.textContent), m);
+    parent.normalize();
+  });
+}
+
+function runRarcAnalyze() {
+  const code = document.getElementById('rarcSearchInput').value.trim().toUpperCase() || 'N846';
+  const ctx  = document.getElementById('rarcContextInput').value.trim();
+  // Update badge
+  document.getElementById('rarcCurrentBadge').textContent = code;
+  // Update chip highlights
+  document.querySelectorAll('.rarc-chip').forEach(c => {
+    c.classList.toggle('active', c.textContent.trim() === code);
+  });
+  // If same page code (N846), scroll to top
+  if (code === 'N846') {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (ctx) rarcSearch(ctx);
+    return;
+  }
+  // Show toast for different codes
+  const msg = document.getElementById('rarcSearchResults');
+  msg.innerHTML = `<span>🔍 Analyzing <strong>${code}</strong>${ctx ? ' — Context: ' + ctx : ''}</span><span style="margin-left:10px;opacity:.6;font-size:12px">Currently loaded: N846. Switch to the AR Denial Hub to search all RARC codes.</span>`;
+  msg.style.display = 'block';
+}
+
+function rarcChipClick(code) {
+  document.getElementById('rarcSearchInput').value = code;
+  document.querySelectorAll('.rarc-chip').forEach(c => c.classList.toggle('active', c.textContent.trim() === code));
+  document.getElementById('rarcCurrentBadge').textContent = code;
+  runRarcAnalyze();
+}
+
+// Search on Enter
+document.getElementById('rarcSearchInput').addEventListener('keydown', e => {
+  if (e.key === 'Enter') runRarcAnalyze();
+});
+document.getElementById('rarcContextInput').addEventListener('keydown', e => {
+  if (e.key === 'Enter') runRarcAnalyze();
+});
+
+/* ══════════════════════════════════════════
+   STATUS FIELD DISPLAY + COPY
+══════════════════════════════════════════ */
+function updateSFDisplay(fieldId, selectId) {
+  const val = document.getElementById(selectId).value;
+  document.getElementById(fieldId + '-val').textContent = val || '—';
+}
+
+function nmCopyField(fieldId, selectId) {
+  const val = document.getElementById(selectId).value;
+  if (!val) return;
+  navigator.clipboard.writeText(val).then(() => {
+    const field = document.getElementById(fieldId);
+    field.classList.add('dbl-copied');
+    setTimeout(() => field.classList.remove('dbl-copied'), 1800);
+  }).catch(() => {
+    // Fallback
+    const ta = document.createElement('textarea');
+    ta.value = val; ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta); ta.select();
+    document.execCommand('copy'); document.body.removeChild(ta);
+    const field = document.getElementById(fieldId);
+    field.classList.add('dbl-copied');
+    setTimeout(() => field.classList.remove('dbl-copied'), 1800);
+  });
+}
+
+// Auto-fill status fields based on selected action
+const NM_ACTION_DEFAULTS = {
+  corrected:     { sc: 'NDC Does Not Correspond to HCPCS/CPT Billed', ac: 'Corrected Claim Resubmitted — Resubmission Code 7', src: 'Internal Review', sub: 'Drug Billing / Data Mismatch' },
+  reprocessing:  { sc: 'NDC Does Not Correspond to HCPCS/CPT Billed', ac: 'Claim Sent for Reprocessing',                      src: 'Calling',          sub: 'Drug Billing / Data Mismatch' },
+  escalation:    { sc: 'NDC Does Not Correspond to HCPCS/CPT Billed', ac: 'Escalated to Coding Team',                         src: 'Internal Review',  sub: 'Drug Billing / J-Code NDC Crosswalk Error' },
+  appeal:        { sc: 'Claim Lacks Required Information (CO-16)',     ac: 'First Level Appeal Submitted',                     src: 'Calling',          sub: 'Drug Billing / Data Mismatch' },
+  closed:        { sc: 'NDC Does Not Correspond to HCPCS/CPT Billed', ac: 'Claim Closed — Paid in Full',                      src: 'Internal Review',  sub: 'Drug Billing / Data Mismatch' },
+  secondary:     { sc: 'Coordination of Benefits — Primary Paid',      ac: 'COB Established — Secondary Billed',               src: 'ERA / 835 Transaction', sub: 'Eligibility / COB / Primary Not Billed First' },
+};
+
+function nmAutoFillStatusFields(action) {
+  const def = NM_ACTION_DEFAULTS[action];
+  if (!def) return;
+  const setSelect = (id, val, dispId) => {
+    const sel = document.getElementById(id);
+    if (!sel) return;
+    // Find option matching val
+    let found = false;
+    for (let o of sel.options) { if (o.value === val) { sel.value = val; found = true; break; } }
+    if (!found) sel.value = '';
+    const disp = document.getElementById(dispId + '-val');
+    if (disp) disp.textContent = sel.value || '—';
+  };
+  setSelect('nmSCSelect',       def.sc,  'sfStatusCode');
+  setSelect('nmACSelect',       def.ac,  'sfActionCode');
+  setSelect('nmSrcSelect',      def.src, 'sfSource');
+  setSelect('nmSubCatSelect',   def.sub, 'sfSubCat');
+}
+
+// Hook into nmSelectAction to auto-fill
+const _origNmSelectAction = nmSelectAction;
+nmSelectAction = function(act) {
+  _origNmSelectAction(act);
+};
+
+/* ══════════════════════════════════════════
+   NDC DRUG LOOKUP TOOL
+══════════════════════════════════════════ */
+let drugCurrentTab = 'jcode';
+let githubNDCData  = null; // cached CSV parse
+
+function openDrugToolModal() {
+  document.getElementById('drugModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  document.getElementById('drugSearchBox').focus();
+}
+function closeDrugToolModal() {
+  document.getElementById('drugModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function setDrugTab(tab, el) {
+  drugCurrentTab = tab;
+  document.querySelectorAll('.drug-tab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  const typeSelect = document.getElementById('drugSearchType');
+  const box = document.getElementById('drugSearchBox');
+  if (tab === 'jcode') { typeSelect.value = 'jcode'; box.placeholder = 'e.g., J7327 or J0696'; }
+  else if (tab === 'ndc') { typeSelect.value = 'ndc'; box.placeholder = 'e.g., 00143988801 (11-digit)'; }
+  else if (tab === 'name') { typeSelect.value = 'name'; box.placeholder = 'e.g., Ketorolac or Vancomycin'; }
+  else if (tab === 'github') { typeSelect.value = 'jcode'; box.placeholder = 'Search GitHub DB (J-code or drug name)'; }
+  box.value = '';
+  setDrugBody('<div class="drug-status"><div style="font-size:32px;margin-bottom:8px">' +
+    (tab==='github'?'📁':'🔍') + '</div><div>Enter a search term and click Search.</div></div>');
+}
+
+function setDrugBody(html) {
+  document.getElementById('drugBody').innerHTML = html;
+}
+
+function showDrugSpinner(msg) {
+  setDrugBody('<div class="drug-status"><div class="drug-spinner"></div><div>' + msg + '</div></div>');
+}
+
+function copyToClipboard(text, btn) {
+  navigator.clipboard.writeText(text).then(() => {
+    const orig = btn.textContent;
+    btn.textContent = '✓ Copied';
+    setTimeout(() => btn.textContent = orig, 1800);
+  });
+}
+
+/* ── Format 11-digit NDC with dashes ── */
+function formatNDC11(ndc) {
+  const n = (ndc || '').replace(/\D/g,'').padStart(11,'0');
+  if (n.length >= 11) return n.slice(0,5)+'-'+n.slice(5,9)+'-'+n.slice(9,11);
+  return ndc;
+}
+
+/* ── Main search dispatcher ── */
+async function searchDrug() {
+  const query = (document.getElementById('drugSearchBox').value || '').trim();
+  const type  = drugCurrentTab === 'github' ? 'github' : document.getElementById('drugSearchType').value;
+  if (!query) { setDrugBody('<div class="drug-error">⚠️ Please enter a search term.</div>'); return; }
+
+  const btn = document.getElementById('drugSearchBtn');
+  btn.disabled = true; btn.textContent = '⏳ Searching…';
+
+  try {
+    if (type === 'github') {
+      await searchGitHubDB(query);
+    } else if (type === 'jcode') {
+      await searchByJCode(query.toUpperCase());
+    } else if (type === 'ndc') {
+      await searchByNDC(query.replace(/\D/g,''));
+    } else if (type === 'name') {
+      await searchByName(query);
+    }
+  } catch(e) {
+    setDrugBody('<div class="drug-error">❌ Search error: ' + e.message + '<br><small>Check your internet connection and try again.</small></div>');
+  }
+
+  btn.disabled = false; btn.innerHTML = '🔍 Search';
+}
+
+/* ════════════════════════════════════════
+   SEARCH BY J-CODE: RxNav + OpenFDA
+════════════════════════════════════════ */
+async function searchByJCode(jcode) {
+  showDrugSpinner('Looking up ' + jcode + ' via NLM RxNav & FDA…');
+
+  let results = [];
+  let source  = 'rxnav';
+
+  // Step 1: RxNav HCPCS → NDC crosswalk
+  try {
+    const rxResp = await fetch('https://rxnav.nlm.nih.gov/REST/rxcui.json?idtype=HCPCS&id=' + encodeURIComponent(jcode));
+    const rxData = await rxResp.json();
+    const rxcuis = rxData?.idGroup?.rxnormId || [];
+
+    for (const rxcui of rxcuis.slice(0,4)) {
+      // get NDC list
+      const ndcResp = await fetch('https://rxnav.nlm.nih.gov/REST/rxcui/' + rxcui + '/ndcs.json');
+      const ndcData = await ndcResp.json();
+      const ndcs = ndcData?.ndcGroup?.ndcList?.ndc || [];
+
+      // get drug name
+      const propResp = await fetch('https://rxnav.nlm.nih.gov/REST/rxcui/' + rxcui + '/properties.json');
+      const propData = await propResp.json();
+      const drugName = propData?.properties?.name || '';
+
+      for (const ndc of ndcs.slice(0,20)) {
+        results.push({ jcode, drugName, ndc: ndc.replace(/\D/g,''), source: 'RxNav' });
+      }
+    }
+  } catch(e) { console.warn('RxNav HCPCS lookup failed', e); }
+
+  // Step 2: OpenFDA NDC product search by HCPCS
+  if (results.length === 0) {
+    source = 'fda';
+    try {
+      const fdaResp = await fetch('https://api.fda.gov/drug/ndc.json?search=pharm_class:' + encodeURIComponent(jcode) + '&limit=20');
+      if (fdaResp.ok) {
+        const fdaData = await fdaResp.json();
+        (fdaData.results || []).forEach(r => {
+          (r.packaging || []).forEach(pkg => {
+            results.push({
+              jcode, drugName: r.brand_name || r.generic_name || '',
+              ndc: (pkg.package_ndc||'').replace(/-/g,''),
+              labeler: r.labeler_name, dosageForm: r.dosage_form,
+              strength: (r.active_ingredients||[]).map(i=>i.strength).join(', '),
+              pkgDesc: pkg.description, source: 'FDA'
+            });
+          });
+        });
+      }
+    } catch(e) { console.warn('FDA HCPCS search failed', e); }
+  }
+
+  // Step 3: Fallback — search OpenFDA by the J-code keyword directly
+  if (results.length === 0) {
+    source = 'fda';
+    try {
+      const fdaResp = await fetch('https://api.fda.gov/drug/ndc.json?search=product_ndc:*&limit=1');
+      // Just verify FDA is up
+      if (!fdaResp.ok) throw new Error('FDA API unavailable');
+    } catch(e) {}
+    // Show message guiding user
+    await renderRxNavJCodeInfo(jcode);
+    return;
+  }
+
+  renderJCodeResults(jcode, results, source);
+}
+
+async function renderRxNavJCodeInfo(jcode) {
+  // Try to get at least class info from RxNav
+  let classInfo = '';
+  try {
+    const r = await fetch('https://rxnav.nlm.nih.gov/REST/rxclass/class/byDrugName.json?drugName=' + encodeURIComponent(jcode) + '&relaSource=MESH');
+    const d = await r.json();
+    classInfo = d?.rxclassDrugInfoList?.rxclassDrugInfo?.[0]?.rxclassMinConceptItem?.className || '';
+  } catch(e){}
+
+  setDrugBody(`
+    <div class="drug-error" style="background:#fef5e4;border-color:#f0ca78;border-left-color:#b87010;color:#b87010">
+      <strong>⚠️ No direct NDC crosswalk found for ${jcode}</strong><br>
+      <small>This J-code may require a manual NDC lookup. Try searching by Drug Name instead, or check the FDA NDC directory directly.</small>
+      ${classInfo ? '<br><br><strong>Drug Class:</strong> ' + classInfo : ''}
+    </div>
+    <div class="drug-detail-card" style="margin-top:14px">
+      <div style="font-weight:700;color:#0d1830;margin-bottom:8px">🔗 Recommended Manual Lookup Steps</div>
+      <ol style="color:#566080;font-size:13.5px;line-height:1.9;padding-left:18px">
+        <li>Search <a href="https://dailymed.nlm.nih.gov/dailymed/" target="_blank" style="color:#1847cc">DailyMed</a> by drug name to find active NDCs</li>
+        <li>Use <a href="https://www.accessdata.fda.gov/scripts/cder/ndc/" target="_blank" style="color:#1847cc">FDA NDC Directory</a> to validate format</li>
+        <li>Cross-reference with CMS HCPCS J-code descriptor for the correct drug</li>
+        <li>Try searching by <strong>Drug Name</strong> in the tab above for FDA results</li>
+      </ol>
+    </div>`);
+}
+
+function renderJCodeResults(jcode, results, source) {
+  if (!results.length) { renderRxNavJCodeInfo(jcode); return; }
+
+  const srcLabel = source === 'rxnav'
+    ? '<span class="drug-source-badge rxnav">📡 NLM RxNav HCPCS Crosswalk</span>'
+    : '<span class="drug-source-badge fda">🏥 FDA OpenFDA API</span>';
+
+  let rows = '';
+  results.slice(0,50).forEach(r => {
+    const ndc11 = r.ndc ? r.ndc.padStart(11,'0') : '';
+    const ndcFmt = ndc11 ? formatNDC11(ndc11) : '—';
+    rows += `<tr>
+      <td class="drug-code-cell">${r.jcode || '—'}</td>
+      <td class="drug-name-cell">${r.drugName || '—'}</td>
+      <td>${r.labeler || '—'}</td>
+      <td class="drug-ndc-cell">${ndcFmt}
+        ${ndc11 ? '<br><button class="drug-copy-btn" onclick="copyToClipboard(\''+ndc11+'\',this)">Copy 11-digit</button>' : ''}
+      </td>
+      <td>${r.strength || r.dosageForm || '—'}</td>
+      <td>${r.pkgDesc || '—'}</td>
+      <td>${r.source || '—'}</td>
+    </tr>`;
+  });
+
+  setDrugBody(`
+    ${srcLabel}
+    <div class="drug-count">${results.length} result(s) found for <strong>${jcode}</strong></div>
+    <div class="drug-table-wrap">
+      <table class="drug-table">
+        <thead><tr>
+          <th>J-Code</th><th>Drug Name</th><th>Labeler</th>
+          <th>NDC (11-digit)</th><th>Strength / Form</th><th>Package</th><th>Source</th>
+        </tr></thead>
+        <tbody>${rows}</tbody>
+      </table>
+    </div>
+    <div style="margin-top:12px;font-size:12px;color:#8896b5">
+      💡 Click "Copy 11-digit" to copy the NDC for claim entry. Always verify against the actual administered vial label.
+    </div>`);
+}
+
+/* ════════════════════════════════════════
+   SEARCH BY NDC via OpenFDA
+════════════════════════════════════════ */
+async function searchByNDC(ndcRaw) {
+  showDrugSpinner('Looking up NDC ' + ndcRaw + ' in FDA database…');
+
+  // Normalize to 11 digits
+  const ndc11 = ndcRaw.padStart(11,'0');
+  // FDA uses 10-digit hyphenated format — try multiple formats
+  const fmt1 = ndc11.slice(0,5)+'-'+ndc11.slice(5,9)+'-'+ndc11.slice(9,11);
+  const fmt2 = ndc11.slice(1,6)+'-'+ndc11.slice(6,9)+'-'+ndc11.slice(9,11); // strip leading zero labeler
+  const fmt3 = ndc11.slice(0,5)+'-'+ndc11.slice(5,8)+'-'+ndc11.slice(8,11); // 5-3-2
+
+  let fdaResult = null;
+  for (const fmt of [fmt1, fmt2, fmt3]) {
+    try {
+      const resp = await fetch('https://api.fda.gov/drug/ndc.json?search=packaging.package_ndc:"' + fmt + '"&limit=5');
+      if (resp.ok) {
+        const d = await resp.json();
+        if (d.results && d.results.length) { fdaResult = d.results; break; }
+      }
+    } catch(e) {}
+  }
+
+  // Also try product_ndc (without package segment)
+  if (!fdaResult) {
+    const prodNDC = ndc11.slice(0,5)+'-'+ndc11.slice(5,9);
+    try {
+      const resp = await fetch('https://api.fda.gov/drug/ndc.json?search=product_ndc:"' + prodNDC + '"&limit=5');
+      if (resp.ok) { const d = await resp.json(); if (d.results && d.results.length) fdaResult = d.results; }
+    } catch(e) {}
+  }
+
+  if (!fdaResult || !fdaResult.length) {
+    setDrugBody(`
+      <div class="drug-error">❌ No FDA record found for NDC <strong>${formatNDC11(ndc11)}</strong>.
+      <br><small>This NDC may be discontinued, not in the FDA directory, or formatted differently. Try searching by Drug Name.</small></div>
+      <div style="margin-top:12px;text-align:center">
+        <a href="https://www.accessdata.fda.gov/scripts/cder/ndc/index.cfm" target="_blank" 
+           style="display:inline-flex;align-items:center;gap:6px;padding:10px 18px;background:#1847cc;color:#fff;border-radius:8px;text-decoration:none;font:700 13px 'DM Sans',sans-serif">
+           🔗 Search FDA NDC Directory
+        </a>
+      </div>`);
+    return;
+  }
+
+  let cards = '';
+  fdaResult.forEach(r => {
+    const pkgs = (r.packaging || []).map(p =>
+      `<tr><td class="drug-ndc-cell">${p.package_ndc || '—'}
+        <br><button class="drug-copy-btn" onclick="copyToClipboard('${(p.package_ndc||'').replace(/-/g,'').padStart(11,'0')}',this)">Copy 11-digit</button>
+       </td><td>${p.description||'—'}</td><td>${p.sample?'Yes':'No'}</td></tr>`
+    ).join('');
+
+    const ingredients = (r.active_ingredients||[]).map(i=>`<span style="background:#eef2ff;border:1px solid #c4d3f9;color:#1847cc;padding:2px 8px;border-radius:4px;font:600 12px 'DM Mono',monospace">${i.name} ${i.strength}</span>`).join(' ');
+
+    cards += `
+    <div class="drug-detail-card">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap">
+        <div>
+          <div style="font:700 17px 'DM Serif Display',serif;color:#081b46">${r.brand_name||r.generic_name||'Unknown Drug'}</div>
+          <div style="font:500 13px 'DM Sans',sans-serif;color:#566080;margin-top:2px">${r.generic_name||''}</div>
+        </div>
+        <span class="drug-status-pill ${r.marketing_status==='Discontinued'?'inactive':'active'}">${r.marketing_status||'Active'}</span>
+      </div>
+      <div class="drug-detail-grid">
+        <div class="drug-detail-item"><span class="drug-detail-lbl">Labeler</span><span class="drug-detail-val">${r.labeler_name||'—'}</span></div>
+        <div class="drug-detail-item"><span class="drug-detail-lbl">Dosage Form</span><span class="drug-detail-val">${r.dosage_form||'—'}</span></div>
+        <div class="drug-detail-item"><span class="drug-detail-lbl">Route</span><span class="drug-detail-val">${(r.route||[]).join(', ')||'—'}</span></div>
+        <div class="drug-detail-item"><span class="drug-detail-lbl">Product Type</span><span class="drug-detail-val">${r.product_type||'—'}</span></div>
+        <div class="drug-detail-item"><span class="drug-detail-lbl">Marketing Start</span><span class="drug-detail-val">${r.marketing_start_date||'—'}</span></div>
+      </div>
+      ${ingredients ? '<div style="margin-top:12px"><div style="font:700 10px \'DM Mono\',monospace;letter-spacing:.1em;text-transform:uppercase;color:#8896b5;margin-bottom:6px">Active Ingredients</div><div style="display:flex;flex-wrap:wrap;gap:5px">' + ingredients + '</div></div>' : ''}
+      ${pkgs ? `<div style="margin-top:14px">
+        <div style="font:700 10px 'DM Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:#8896b5;margin-bottom:8px">Package NDCs</div>
+        <div class="drug-table-wrap"><table class="drug-table" style="font-size:12.5px">
+          <thead><tr><th>Package NDC</th><th>Description</th><th>Sample</th></tr></thead>
+          <tbody>${pkgs}</tbody>
+        </table></div>
+      </div>` : ''}
+    </div>`;
+  });
+
+  setDrugBody(`
+    <span class="drug-source-badge fda">🏥 FDA OpenFDA Drug NDC API</span>
+    <div class="drug-count">${fdaResult.length} product(s) found for NDC <strong>${formatNDC11(ndc11)}</strong></div>
+    ${cards}
+    <div style="margin-top:10px;font-size:12px;color:#8896b5">
+      💡 Use the 11-digit NDC (without dashes) in Box 24 (CMS-1500) or FL43 (UB-04) prefixed with N4.
+    </div>`);
+}
+
+/* ════════════════════════════════════════
+   SEARCH BY DRUG NAME via OpenFDA
+════════════════════════════════════════ */
+async function searchByName(name) {
+  showDrugSpinner('Searching FDA for "' + name + '"…');
+
+  let results = [];
+  try {
+    const resp = await fetch('https://api.fda.gov/drug/ndc.json?search=(brand_name:"' + encodeURIComponent(name) + '"+generic_name:"' + encodeURIComponent(name) + '")&limit=25');
+    if (resp.ok) {
+      const d = await resp.json();
+      results = d.results || [];
+    }
+  } catch(e) {}
+
+  // Try broader search if no results
+  if (!results.length) {
+    try {
+      const resp = await fetch('https://api.fda.gov/drug/ndc.json?search=generic_name:' + encodeURIComponent(name) + '*&limit=25');
+      if (resp.ok) { const d = await resp.json(); results = d.results || []; }
+    } catch(e) {}
+  }
+
+  if (!results.length) {
+    setDrugBody(`<div class="drug-error">❌ No FDA results found for "<strong>${name}</strong>".<br><small>Try a partial name, generic name, or brand name. Example: "Ketorolac" instead of "Ketorolac Tromethamine".</small></div>`);
+    return;
+  }
+
+  let rows = '';
+  results.forEach(r => {
+    (r.packaging || [{}]).slice(0,3).forEach(pkg => {
+      const ndc11 = ((pkg.package_ndc||'').replace(/-/g,'')).padStart(11,'0');
+      rows += `<tr>
+        <td class="drug-name-cell">${r.brand_name||'—'}</td>
+        <td>${r.generic_name||'—'}</td>
+        <td>${r.labeler_name||'—'}</td>
+        <td class="drug-ndc-cell">${pkg.package_ndc||'—'}
+          ${ndc11.length===11?'<br><button class="drug-copy-btn" onclick="copyToClipboard(\''+ndc11+'\',this)">Copy 11-digit</button>':''}
+        </td>
+        <td>${r.dosage_form||'—'}</td>
+        <td>${(r.route||[]).join(', ')||'—'}</td>
+        <td>${(r.active_ingredients||[]).map(i=>i.strength).join(', ')||'—'}</td>
+        <td><span class="drug-status-pill ${r.marketing_status==='Discontinued'?'inactive':'active'}">${r.marketing_status||'Active'}</span></td>
+      </tr>`;
+    });
+  });
+
+  setDrugBody(`
+    <span class="drug-source-badge fda">🏥 FDA OpenFDA API</span>
+    <div class="drug-count">${results.length} product(s) found for "<strong>${name}</strong>"</div>
+    <div class="drug-table-wrap">
+      <table class="drug-table">
+        <thead><tr>
+          <th>Brand Name</th><th>Generic Name</th><th>Labeler</th>
+          <th>Package NDC</th><th>Dosage Form</th><th>Route</th><th>Strength</th><th>Status</th>
+        </tr></thead>
+        <tbody>${rows}</tbody>
+      </table>
+    </div>
+    <div style="margin-top:12px;font-size:12px;color:#8896b5">
+      💡 Click "Copy 11-digit" to copy the NDC for billing. Verify against the actual vial administered.
+    </div>`);
+}
+
+/* ════════════════════════════════════════
+   SEARCH GITHUB DATABASE CSV
+════════════════════════════════════════ */
+async function searchGitHubDB(query) {
+  showDrugSpinner('Fetching GitHub Medical-Billing-Documents database…');
+
+  // Try to load GitHub CSV (raw) - attempt multiple common file names
+  const BASE = 'https://raw.githubusercontent.com/kunalvaish49-cpu/Medical-Billing-Documents/main/';
+  const CSV_CANDIDATES = [
+    'NDC_Database.csv', 'ndc_database.csv', 'NDC.csv', 'ndc.csv',
+    'J_Code_NDC.csv', 'jcode_ndc.csv', 'Drug_NDC.csv', 'drug_ndc.csv',
+    'HCPCS_NDC.csv', 'hcpcs_ndc.csv', 'Medical_Billing.csv',
+    'NDC_JCode_Crosswalk.csv', 'ndc_jcode_crosswalk.csv'
+  ];
+
+  if (!githubNDCData) {
+    let loaded = false;
+    for (const fname of CSV_CANDIDATES) {
+      try {
+        const resp = await fetch(BASE + fname);
+        if (resp.ok) {
+          const text = await resp.text();
+          githubNDCData = parseCSV(text);
+          githubNDCData._filename = fname;
+          loaded = true;
+          break;
+        }
+      } catch(e) {}
+    }
+
+    if (!loaded) {
+      // Try to list repo files via GitHub API (public repos only)
+      setDrugBody(`
+        <div class="drug-error">
+          ⚠️ <strong>Could not automatically find CSV file in your GitHub repository.</strong><br><br>
+          Repository: <code>kunalvaish49-cpu/Medical-Billing-Documents</code><br><br>
+          <strong>To connect your database:</strong> Make sure your CSV file is in the <em>main</em> branch with one of these names:<br>
+          <div style="margin:8px 0;display:flex;flex-wrap:wrap;gap:5px">
+            ${CSV_CANDIDATES.map(f=>'<code style="background:#f0f4ff;border:1px solid #c4d3f9;padding:2px 7px;border-radius:4px;font-size:12px">'+f+'</code>').join('')}
+          </div>
+          <br>
+          In the meantime, use the <strong>J-Code</strong>, <strong>By NDC</strong>, or <strong>By Drug Name</strong> tabs to search live FDA data.
+        </div>
+        <div style="margin-top:14px;text-align:center">
+          <a href="https://kunalvaish49-cpu.github.io/NDC-Lookup-Tool/" target="_blank"
+             style="display:inline-flex;align-items:center;gap:6px;padding:10px 20px;background:#1847cc;color:#fff;border-radius:8px;text-decoration:none;font:700 13px 'DM Sans',sans-serif">
+             📁 Open GitHub Repository
+          </a>
+        </div>`);
+      return;
+    }
+  }
+
+  // Search within loaded data
+  const q = query.toLowerCase();
+  const data = githubNDCData;
+  const headers = data.headers || [];
+  const rows = data.rows || [];
+
+  const matches = rows.filter(row =>
+    row.some(cell => (cell||'').toLowerCase().includes(q))
+  );
+
+  if (!matches.length) {
+    setDrugBody(`
+      <span class="drug-source-badge github">📁 GitHub: ${data._filename}</span>
+      <div class="drug-empty">
+        <div class="drug-empty-icon">🔍</div>
+        <div style="font-weight:600;color:#0d1830">No results for "${query}"</div>
+        <div style="font-size:13px;margin-top:4px">Try a partial match, J-code, or drug name.</div>
+      </div>`);
+    return;
+  }
+
+  // Build auto-width table
+  const thCells = headers.map(h => '<th>' + h + '</th>').join('');
+  const trows = matches.slice(0,100).map(row => {
+    const cells = row.map((cell, i) => {
+      // detect NDC column
+      const hdr = (headers[i]||'').toLowerCase();
+      const isNDC = hdr.includes('ndc');
+      const ndc11 = isNDC ? cell.replace(/\D/g,'').padStart(11,'0') : '';
+      if (isNDC && ndc11.length === 11) {
+        return `<td class="drug-ndc-cell">${formatNDC11(ndc11)}
+          <br><button class="drug-copy-btn" onclick="copyToClipboard('${ndc11}',this)">Copy 11-digit</button></td>`;
+      }
+      const isCode = hdr.includes('code') || hdr.includes('hcpcs') || hdr.includes('jcode') || hdr.includes('j-code');
+      return `<td ${isCode?'class="drug-code-cell"':''}>${cell||'—'}</td>`;
+    }).join('');
+    return '<tr>' + cells + '</tr>';
+  }).join('');
+
+  setDrugBody(`
+    <span class="drug-source-badge github">📁 GitHub DB: ${data._filename}</span>
+    <div class="drug-count">${matches.length} match(es) for "<strong>${query}</strong>"${matches.length>100?' (showing first 100)':''}</div>
+    <div class="drug-table-wrap">
+      <table class="drug-table">
+        <thead><tr>${thCells}</tr></thead>
+        <tbody>${trows}</tbody>
+      </table>
+    </div>
+    <div style="margin-top:12px;font-size:12px;color:#8896b5">
+      Source: <a href="https://github.com/kunalvaish49-cpu/Medical-Billing-Documents" target="_blank" style="color:#1847cc">github.com/kunalvaish49-cpu/Medical-Billing-Documents</a>
+    </div>`);
+}
+
+/* ── Simple CSV parser ── */
+function parseCSV(text) {
+  const lines = text.trim().split(/\r?\n/);
+  if (!lines.length) return { headers:[], rows:[] };
+  const parse = line => {
+    const result = []; let cur = ''; let inQ = false;
+    for (let i = 0; i < line.length; i++) {
+      const c = line[i];
+      if (c === '"') { inQ = !inQ; }
+      else if (c === ',' && !inQ) { result.push(cur.trim()); cur = ''; }
+      else { cur += c; }
+    }
+    result.push(cur.trim()); return result;
+  };
+  const headers = parse(lines[0]);
+  const rows = lines.slice(1).filter(l=>l.trim()).map(parse);
+  return { headers, rows };
+}
+</script>
+</body>
+</html>
