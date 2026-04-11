@@ -691,10 +691,7 @@ Per IU administered</td></tr></tbody></table></div>
 <br><strong>Line 2:</strong> J-code + JW | 0.5 ML discarded | same NDC | same DOS
 If the JW line is the only line, or if the administered line shows zero units, the claim will deny.<br><em>If the JW line is the only line, or if the administered line shows zero units, the claim will deny.</em></div></div></div></div>
 
-        <!-- ── PAYER-SPECIFIC NDC RULES ── -->
        
-<div class="card span-12 card-collapsible"><div class="label">Payer-Specific NDC Reporting Requirements</div><p class="muted" style="margin-bottom:12px">NDC reporting rules vary by payer. Verify requirements before submitting corrected claims:</p><table class="payer-table"><thead><tr><th>Payer Type</th><th>Key Requirements</th></tr></thead><tbody><tr><td><span class="payer-name">Medicare (Part B)</span></td><td>NDC required on most drug claims via clearinghouse loop 2410. Format: N4 + 11-digit NDC + UOM + quantity. Refer to MAC LCD and CMS transmittals for drug-specific guidance.</td></tr><tr><td><span class="payer-name">Medicaid</span></td><td>State-by-state variation. Many states require NDC on all drug lines including vaccines. Check state Medicaid billing manual.</td></tr><tr><td><span class="payer-name">Commercial / Managed Care</span></td><td>Requirements vary by contract. Some payers require NDC in addition to J-code; others accept J-code only. Confirm payer-specific EDI companion guide.</td></tr><tr><td><span class="payer-name">Medicare Advantage</span></td><td>Follows Medicare Part B NDC rules in most cases but confirm with plan-specific requirements.</td></tr></tbody></table></div>
-
         <!-- ── WHAT NOT TO DO ── -->
         
 <div class="card span-6 card-collapsible card-collapsible"><div class="label">What NOT to Do</div><ul class="info-list"><li>Do not appeal before correcting the NDC/J-code mismatch</li><li>Do not reuse old, default, or copied NDCs from previous claims without verification</li><li>Do not guess at the manufacturer, quantity, or drug lot always Verify with MR</li><li>Do not submit a corrected claim with the same incorrect NDC</li><li>Do not appeal a N846 denial if you have not yet submitted a corrected claim first</li></ul><div class="alert err" style="margin-top:14px"><div class="alert-icon">🚫</div><div class="alert-text">Appealing before correcting the underlying NDC error wastes timely filing days and may forfeit your right to correct the claim. Always correct first, then appeal only if the corrected claim is also denied.</div></div></div>
@@ -1013,20 +1010,7 @@ If the JW line is the only line, or if the administered line shows zero units, t
           </div>
         </div>
 
-        <!-- Payer-Specific Rules -->
-        <div class="card span-12 card-collapsible"><div class="label">Payer-Specific UOM Requirements</div>
-          <p class="muted" style="margin-bottom:12px">UOM reporting rules vary by payer. Verify requirements before submitting corrected claims:</p>
-          <table class="payer-table">
-            <thead><tr><th>Payer Type</th><th>Key Guidance</th></tr></thead>
-            <tbody>
-              <tr><td><span class="payer-name">Medicare (Part B)</span></td><td>UOM required in loop 2410 of the EDI 837P. Refer to MAC-specific drug billing instructions for NDC-to-UOM mapping requirements.</td></tr>
-              <tr><td><span class="payer-name">Medicaid</span></td><td>State-by-state variation. Most states require UOM on all drug claim lines. Check the applicable state Medicaid billing manual.</td></tr>
-              <tr><td><span class="payer-name">Commercial / Managed Care</span></td><td>Confirm payer EDI companion guide — some payers map UOM to their own internal drug file and will reject submissions that don't match.</td></tr>
-              <tr><td><span class="payer-name">Medicare Advantage</span></td><td>Generally follows Medicare Part B UOM rules; confirm plan-specific requirements before submitting.</td></tr>
-            </tbody>
-          </table>
-        </div>
-
+      
         <!-- What NOT to Do + Prevention Checklist -->
         <div class="card span-6 card-collapsible"><div class="label">What NOT to Do</div>
           <ul class="info-list">
@@ -1444,21 +1428,7 @@ If the JW line is the only line, or if the administered line shows zero units, t
           </table>
         </div>
 
-        <!-- Payer-Specific -->
-        <div class="card span-12 card-collapsible">
-          <div class="label">Payer-Specific NDC Reporting Requirements</div>
-          <p class="muted" style="margin-bottom:12px">NDC requirements and handling of deactivated/withdrawn NDCs vary by payer. Verify before resubmitting:</p>
-          <table class="payer-table">
-            <thead><tr><th>Payer Type</th><th>Key Guidance</th></tr></thead>
-            <tbody>
-              <tr><td><span class="payer-name">Medicare (Part B)</span></td><td>NDC required in loop 2410 of the EDI 837P for most covered drugs. Deactivated NDC claims require contacting the MAC for guidance. Withdrawn NDC claims typically require NOC code with drug description.</td></tr>
-              <tr><td><span class="payer-name">Medicaid</span></td><td>Most states require NDC on all drug lines. For withdrawn or deactivated NDCs, check the state Medicaid drug rebate program guidance — replacement NDC or NOC path varies by state.</td></tr>
-              <tr><td><span class="payer-name">Commercial / Managed Care</span></td><td>Confirm payer EDI companion guide. Some payers auto-crosswalk deactivated NDCs to active replacements; others do not. Call the payer if uncertain.</td></tr>
-              <tr><td><span class="payer-name">Medicare Advantage</span></td><td>Generally follows Medicare Part B rules; confirm plan-specific policies for deactivated or withdrawn NDC handling.</td></tr>
-            </tbody>
-          </table>
-        </div>
-
+       
         <!-- What NOT to Do + Prevention -->
         <div class="card span-6 card-collapsible">
           <div class="label">What NOT to Do</div>
@@ -1852,21 +1822,7 @@ If the JW line is the only line, or if the administered line shows zero units, t
           </table>
         </div>
 
-        <!-- Payer-Specific Rules -->
-        <div class="card span-12 card-collapsible">
-          <div class="label">Payer-Specific NDC Requirements</div>
-          <p class="muted" style="margin-bottom:12px">NDC reporting rules vary by payer. Verify requirements before submitting corrected claims:</p>
-          <table class="payer-table">
-            <thead><tr><th>Payer Type</th><th>Key Guidance</th></tr></thead>
-            <tbody>
-              <tr><td><span class="payer-name">Medicare (Part B)</span></td><td>NDC required in EDI loop 2410 of the 837P for covered drugs. N60 from Medicare MACs typically signals the claim bypassed NDC reporting. Refer to your MAC's NDC billing instructions and MLN Matters articles for drug-specific requirements.</td></tr>
-              <tr><td><span class="payer-name">Medicaid</span></td><td>Most states enforced NDC requirements years before commercial payers. State Medicaid N60 denials often indicate a billing system gap. Check the state Medicaid companion guide for loop and qualifier requirements.</td></tr>
-              <tr><td><span class="payer-name">Commercial / Managed Care</span></td><td>N60 from commercial payers is most commonly seen after a new NDC mandate activation. Confirm the payer's EDI companion guide for loop placement, qualifier, and format rules — these vary by payer.</td></tr>
-              <tr><td><span class="payer-name">Medicare Advantage</span></td><td>Follows Medicare Part B NDC requirements in most cases. Confirm plan-specific EDI requirements as some MA plans have additional validation edits beyond CMS baseline.</td></tr>
-            </tbody>
-          </table>
-        </div>
-
+        
         <!-- What NOT to Do + Prevention Checklist -->
         <div class="card span-6 card-collapsible">
           <div class="label">What NOT to Do</div>
@@ -2273,21 +2229,7 @@ If the JW line is the only line, or if the administered line shows zero units, t
           </div>
         </div>
 
-        <!-- Payer-Specific Rules -->
-        <div class="card span-12 card-collapsible">
-          <div class="label">Payer-Specific NDC Unit Count Requirements</div>
-          <p class="muted" style="margin-bottom:12px">Quantity reporting rules vary by payer. Verify requirements before submitting corrected claims:</p>
-          <table class="payer-table">
-            <thead><tr><th>Payer Type</th><th>Key Guidance</th></tr></thead>
-            <tbody>
-              <tr><td><span class="payer-name">Medicare (Part B)</span></td><td>NDC quantity required in EDI loop 2410 of the 837P. Quantity must reflect actual units administered — not vial size. Refer to MAC-specific drug billing instructions and CMS transmittals for drug-specific quantity rules.</td></tr>
-              <tr><td><span class="payer-name">Medicaid</span></td><td>State-by-state variation. Most states require quantity on all drug lines. Some states validate quantity against dispensing records. Check the applicable state Medicaid billing manual and companion guide.</td></tr>
-              <tr><td><span class="payer-name">Commercial / Managed Care</span></td><td>Confirm payer EDI companion guide — some payers cross-validate quantity against their internal drug file and will reject submissions where the quantity does not align with the NDC packaging or dosing norms.</td></tr>
-              <tr><td><span class="payer-name">Medicare Advantage</span></td><td>Generally follows Medicare Part B quantity rules. Confirm plan-specific EDI requirements — some MA plans apply additional quantity validation edits beyond CMS baseline.</td></tr>
-            </tbody>
-          </table>
-        </div>
-
+       
         <!-- What NOT to Do + Prevention Checklist -->
         <div class="card span-6 card-collapsible">
           <div class="label">What NOT to Do</div>
@@ -2704,21 +2646,7 @@ If the JW line is the only line, or if the administered line shows zero units, t
           </div>
         </div>
 
-        <!-- Payer-Specific Rules -->
-        <div class="card span-12 card-collapsible">
-          <div class="label">Payer-Specific NDC Requirements</div>
-          <p class="muted" style="margin-bottom:12px">NDC obsolescence tracking and drug file update cycles vary by payer. Verify requirements before submitting corrected claims:</p>
-          <table class="payer-table">
-            <thead><tr><th>Payer Type</th><th>Key Guidance</th></tr></thead>
-            <tbody>
-              <tr><td><span class="payer-name">Medicare (Part B)</span></td><td>NDC required in EDI loop 2410 of the 837P. MAC drug files are updated on CMS release cycles. An NDC flagged N847 by a MAC may still pass at another MAC — confirm against your specific MAC's drug file and current MLN guidance for the drug in question.</td></tr>
-              <tr><td><span class="payer-name">Medicaid</span></td><td>State drug files are updated independently. An obsolete NDC at the state level may not match the FDA obsolescence date. Check the state Medicaid companion guide and billing manual — some states require a specific NDC that was active at time of dispensing, per pharmacy records.</td></tr>
-              <tr><td><span class="payer-name">Commercial / Managed Care</span></td><td>Drug file refresh cycles vary widely — some payers update monthly, others quarterly. An N847 from a commercial payer may indicate a file lag rather than a true clinical billing error. Call the payer to confirm before correcting the NDC blindly.</td></tr>
-              <tr><td><span class="payer-name">Medicare Advantage</span></td><td>Follows Medicare Part B NDC rules in most cases but may have plan-specific drug file refresh schedules. Confirm with the MA plan's EDI companion guide and provider relations team before submitting the corrected claim.</td></tr>
-            </tbody>
-          </table>
-        </div>
-
+       
         <!-- What NOT to Do + Prevention Checklist -->
         <div class="card span-6 card-collapsible">
           <div class="label">What NOT to Do</div>
@@ -3129,21 +3057,7 @@ If the JW line is the only line, or if the administered line shows zero units, t
           </div>
         </div>
 
-        <!-- Payer-Specific Rules -->
-        <div class="card span-12 card-collapsible">
-          <div class="label">Payer-Specific NDC Product Association Requirements</div>
-          <p class="muted" style="margin-bottom:12px">Drug file loading and NDC product association vary significantly by payer. Verify before submitting corrected claims:</p>
-          <table class="payer-table">
-            <thead><tr><th>Payer Type</th><th>Key Guidance</th></tr></thead>
-            <tbody>
-              <tr><td><span class="payer-name">Medicare (Part B)</span></td><td>NDC must resolve to a product in the MAC drug pricing file (ASP-based pricing). If the NDC is valid in the FDA database but not in the MAC drug file, contact the MAC for guidance. Some drugs require a specific NDC tied to ASP pricing — refer to MLN Matters articles and MAC bulletins for the drug in question.</td></tr>
-              <tr><td><span class="payer-name">Medicaid</span></td><td>State Medicaid drug files are maintained independently. A valid FDA NDC may still return N848 if the state has not loaded the product. Check the state Medicaid drug rebate file and billing manual. Some states have a drug exclusion list — confirm the drug is covered before correcting.</td></tr>
-              <tr><td><span class="payer-name">Commercial / Managed Care</span></td><td>Commercial payer drug files vary widely in update frequency and product coverage. N848 from a commercial payer frequently indicates a drug file loading lag for a newer or niche product. Call the payer's provider relations or pharmacy team to confirm whether the NDC needs to be loaded before resubmitting.</td></tr>
-              <tr><td><span class="payer-name">Medicare Advantage</span></td><td>Follows Medicare Part B drug file in most cases but MA plans maintain their own formulary and drug pricing files. An NDC that resolves at the MAC level may still return N848 at the MA plan level. Confirm with the MA plan's pharmacy or claims department before resubmitting.</td></tr>
-            </tbody>
-          </table>
-        </div>
-
+       
         <!-- What NOT to Do + Prevention Checklist -->
         <div class="card span-6 card-collapsible">
           <div class="label">What NOT to Do</div>
@@ -4064,23 +3978,7 @@ src="https://raw.githubusercontent.com/kunalvaish49-cpu/VisualCode_UB-04/b39d3af
           </table>
         </div>
 
-        <!-- ── PAYER-SPECIFIC RULES ── -->
-        <div class="card span-12 card-collapsible">
-          <div class="label">Payer-Specific TOB Requirements</div>
-          <p class="muted" style="margin-bottom:12px">TOB rules and edits vary significantly by payer and program. Verify before resubmitting:</p>
-          <table class="payer-table">
-            <thead><tr><th>Payer Type</th><th>Key Guidance</th></tr></thead>
-            <tbody>
-              <tr><td><span class="payer-name">Medicare (FFS — MAC)</span></td><td>CMS publishes the definitive TOB code list in the Medicare Claims Processing Manual (Pub. 100-04). MAC FISS system applies strict TOB edits — an invalid TOB will suspend or reject the claim before it reaches a human reviewer. TOB drives the applicable PRICER (IPPS, OPPS, SNF PDPM, HHA PDGM, Hospice per diem) — the wrong TOB results in the wrong payment system being applied, not just a denial. Condition code D4 is required when resubmitting a corrected claim to replace a previously processed claim.</td></tr>
-              <tr><td><span class="payer-name">Medicare Advantage (MA Plans)</span></td><td>MA plans follow CMS TOB structure but may apply additional plan-specific edits. Some MA plans have narrower accepted TOB lists — confirm with the plan's provider manual before submitting. MA plans may also apply prior authorization requirements that are TOB-specific — a TOB change may trigger a retro-auth review.</td></tr>
-              <tr><td><span class="payer-name">Medicaid (State Programs)</span></td><td>State Medicaid programs follow the UB-04 TOB structure but may have state-specific TOB restrictions. Some states do not accept certain facility type codes from specific provider types. Check the state Medicaid billing manual and companion guide — state edits may be more restrictive than CMS baseline. Some states require a prior authorization number that is linked to the TOB — a TOB change may invalidate the auth.</td></tr>
-              <tr><td><span class="payer-name">Commercial / Managed Care</span></td><td>Commercial payers use the UB-04 TOB but may have plan-specific accepted TOB lists, especially for carved-out benefit categories (behavioral health, substance use, home health). Confirm with the payer's EDI companion guide — some commercial payers do not accept interim billing frequencies (2, 3, 4) and require admit-through-discharge claims only.</td></tr>
-              <tr><td><span class="payer-name">TRICARE / VA</span></td><td>Follows CMS TOB structure for institutional claims but has specific rules for military treatment facility (MTF) coordination. Confirm TOB with the TRICARE regional contractor or VA Fee Basis program before resubmitting.</td></tr>
-              <tr><td><span class="payer-name">Workers Compensation</span></td><td>WC payers vary significantly — many accept UB-04 with standard TOBs but some state WC programs have modified TOB requirements. Confirm with the WC carrier or state program before resubmitting an MA30-denied claim.</td></tr>
-            </tbody>
-          </table>
-        </div>
-
+        
         <!-- ── WHAT NOT TO DO ── -->
         <div class="card span-6 card-collapsible">
           <div class="label">What NOT to Do</div>
