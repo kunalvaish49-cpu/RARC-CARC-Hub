@@ -825,43 +825,6 @@ If the JW line is the only line, or if the administered line shows zero units, t
 <div class="card span-6 card-collapsible card-collapsible"><div class="label">Prevention Checklist</div><p class="muted" style="margin-bottom:10px;font-size:13px">Before submitting any drug claim, confirm:</p><ul class="checklist"><li><span class="ck-icon">✅</span><span>NDC captured directly from the administered vial or package label</span></li><li><span class="ck-icon">✅</span><span>J-code validated against NDC using a current, reliable crosswalk</span></li><li><span class="ck-icon">✅</span><span>10-digit NDC converted to 11-digit format (5-4-2) if applicable</span></li><li><span class="ck-icon">✅</span><span>N4 qualifier formatted with no space before the NDC number</span></li><li><span class="ck-icon">✅</span><span>Manufacturer-specific NDC confirmed (not from a different lot or supplier)</span></li><li><span class="ck-icon">✅</span><span>JW modifier applied on a separate line with administered quantity on primary line (if wastage applies)</span></li><li><span class="ck-icon">✅</span><span>NDC confirmed as active on the date of service</span></li><li><span class="ck-icon">✅</span><span>Claim run through edits before submission</span></li></ul></div>
 
 
-        <!-- ── WHEN TO APPEAL vs CORRECT ── -->
-
-<div class="card span-12 card-collapsible card-collapsible"><div class="label">Best Practice — When to Appeal vs. When to Correct</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px"><div class="decision-box"><h4>✅ Appeal Only When ALL of These Are True</h4><ul class="info-list" style="margin-top:0"><li>A corrected claim has already been submitted and denied again</li><li>All billing data (NDC, J-code, UOM, quantity, manufacturer) has been confirmed correct against the MAR and vial label</li><li>The denial reason after correction still cites N846 — indicating a payer-side processing error</li></ul></div><div class="deny-box"><h4>🔄 Correct &amp; Resubmit First (Most Cases)</h4><ul class="info-list" style="margin-top:0"><li>Most N846 denials resolve by correcting and resubmitting the claim</li><li>Do not appeal as a first step - Verify NDC ↔ J-code crosswalk, 11-digit format, N4 qualifier, UOM, and quantity before resubmission</li><li>Use Resubmission Code 7 on the corrected claim</li><li>Use Resubmission Code 7 on the corrected claim</li></ul></div></div></div>
-
-
-        <!-- ── ACTION CODE TEMPLATES ── -->
-        <div class="card span-12">
-          <div class="label">Action Code Templates — Quick Reference</div>
-          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px">
-            <span class="tag-teal">Corrected Claim</span>
-            <span class="tag-teal">Reprocessing</span>
-            <span class="tag-amber">Coding Escalation</span>
-            <span class="tag-rose">First Level Appeal</span>
-            <span class="tag-teal">Adjustment / Closed</span>
-            <span class="tag-teal">Secondary / Tertiary</span>
-	    <span class="tag-teal">Bill Patient / No Payer Active</span>
-          </div>
-          <div class="alert ok">
-            <div class="alert-icon">📋</div>
-            <div>
-              <div class="alert-title">Use the Note Maker Tool for Structured Documentation</div>
-              <div class="alert-text">The built-in Note Maker below guides you step-by-step through each action type and auto-generates copy-ready notes for your Practice Management System or AR workflow.</div>
-            </div>
-          </div>
-
-          <!-- NOTE MAKER TRIGGER -->
-          <div class="card nm-trigger-card" style="margin-top:14px;box-shadow:none">
-            <div>
-              <div class="label" style="margin-bottom:4px">Note Maker Tool</div>
-              <p class="sub-desc">Step-by-step guided documentation for N846 claim actions. Generates structured notes ready for copy-paste into your PMS, AR system, or Python/AI pipeline.</p>
-            </div>
-            <button class="btn-notes-open" onclick="openNM()">
-              📝 Open Note Maker
-            </button>
-          </div>
-        </div>
-
       </div><!-- end .grid -->
     </div><!-- end left column -->
 
