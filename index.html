@@ -811,10 +811,7 @@ Per IU administered</td></tr></tbody></table></div>
 <br><strong>Line 2:</strong> J-code + JW | 0.5 ML discarded | same NDC | same DOS
 If the JW line is the only line, or if the administered line shows zero units, the claim will deny.<br><em>If the JW line is the only line, or if the administered line shows zero units, the claim will deny.</em></div></div></div></div>
 
-        <!-- ── PAYER-SPECIFIC NDC RULES ── -->
-       
-<div class="card span-12 card-collapsible card-collapsible"><div class="label">Payer-Specific NDC Reporting Requirements</div><p class="muted" style="margin-bottom:12px">NDC reporting rules vary by payer. Verify requirements before submitting corrected claims:</p><table class="payer-table"><thead><tr><th>Payer Type</th><th>Key Requirements</th></tr></thead><tbody><tr><td><span class="payer-name">Medicare (Part B)</span></td><td>NDC required on most drug claims via clearinghouse loop 2410. Format: N4 + 11-digit NDC + UOM + quantity. Refer to MAC LCD and CMS transmittals for drug-specific guidance.</td></tr><tr><td><span class="payer-name">Medicaid</span></td><td>State-by-state variation. Many states require NDC on all drug lines including vaccines. Check state Medicaid billing manual.</td></tr><tr><td><span class="payer-name">Commercial / Managed Care</span></td><td>Requirements vary by contract. Some payers require NDC in addition to J-code; others accept J-code only. Confirm payer-specific EDI companion guide.</td></tr><tr><td><span class="payer-name">Medicare Advantage</span></td><td>Follows Medicare Part B NDC rules in most cases but confirm with plan-specific requirements.</td></tr></tbody></table></div>
-
+      
         <!-- ── WHAT NOT TO DO ── -->
         
 <div class="card span-6 card-collapsible card-collapsible"><div class="label">What NOT to Do</div><ul class="info-list"><li>Do not appeal before correcting the NDC/J-code mismatch</li><li>Do not reuse old, default, or copied NDCs from previous claims without verification</li><li>Do not guess at the manufacturer, quantity, or drug lot always Verify with MR</li><li>Do not submit a corrected claim with the same incorrect NDC</li><li>Do not appeal a N846 denial if you have not yet submitted a corrected claim first</li></ul><div class="alert err" style="margin-top:14px"><div class="alert-icon">🚫</div><div class="alert-text">Appealing before correcting the underlying NDC error wastes timely filing days and may forfeit your right to correct the claim. Always correct first, then appeal only if the corrected claim is also denied.</div></div></div>
@@ -1137,21 +1134,6 @@ If the JW line is the only line, or if the administered line shows zero units, t
             </div>
           </div>
         </div>
-
-        <!-- Payer-Specific Rules -->
-        <div class="card span-12 card-collapsible"><div class="label">Payer-Specific UOM Requirements</div>
-          <p class="muted" style="margin-bottom:12px">UOM reporting rules vary by payer. Verify requirements before submitting corrected claims:</p>
-          <table class="payer-table">
-            <thead><tr><th>Payer Type</th><th>Key Guidance</th></tr></thead>
-            <tbody>
-              <tr><td><span class="payer-name">Medicare (Part B)</span></td><td>UOM required in loop 2410 of the EDI 837P. Refer to MAC-specific drug billing instructions for NDC-to-UOM mapping requirements.</td></tr>
-              <tr><td><span class="payer-name">Medicaid</span></td><td>State-by-state variation. Most states require UOM on all drug claim lines. Check the applicable state Medicaid billing manual.</td></tr>
-              <tr><td><span class="payer-name">Commercial / Managed Care</span></td><td>Confirm payer EDI companion guide — some payers map UOM to their own internal drug file and will reject submissions that don't match.</td></tr>
-              <tr><td><span class="payer-name">Medicare Advantage</span></td><td>Generally follows Medicare Part B UOM rules; confirm plan-specific requirements before submitting.</td></tr>
-            </tbody>
-          </table>
-        </div>
-
         <!-- What NOT to Do + Prevention Checklist -->
         <div class="card span-6 card-collapsible"><div class="label">What NOT to Do</div>
           <ul class="info-list">
@@ -1203,34 +1185,6 @@ If the JW line is the only line, or if the administered line shows zero units, t
           </div>
         </div>
 
-        <!-- Action Code Templates -->
-        <div class="card span-12">
-          <div class="label">Action Code Templates — Quick Reference</div>
-          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px">
-            <span class="tag-teal">Corrected Claim</span>
-            <span class="tag-teal">Reprocessing</span>
-            <span class="tag-amber">Coding Escalation</span>
-            <span class="tag-rose">First Level Appeal</span>
-            <span class="tag-teal">Adjustment / Closed</span>
-            <span class="tag-teal">Secondary / Tertiary</span>
-          </div>
-          <div class="alert ok">
-            <div class="alert-icon">📋</div>
-            <div>
-              <div class="alert-title">Use the Note Maker Tool for Structured Documentation</div>
-              <div class="alert-text">The built-in Note Maker guides you step-by-step through each action type and auto-generates copy-ready notes for your Practice Management System or AR workflow.</div>
-            </div>
-          </div>
-          <div class="card nm-trigger-card" style="margin-top:14px;box-shadow:none">
-            <div>
-              <div class="label" style="margin-bottom:4px">Note Maker Tool</div>
-              <p class="sub-desc">Step-by-step guided documentation for N816 claim actions. Generates structured notes ready for copy-paste into your PMS, AR system, or Python/AI pipeline.</p>
-            </div>
-            <button class="btn-notes-open" onclick="openNM816()">
-              📝 Open Note Maker — N816
-            </button>
-          </div>
-        </div>
 
       </div><!-- end .grid -->
     </div><!-- end left column -->
@@ -1597,20 +1551,6 @@ If the JW line is the only line, or if the administered line shows zero units, t
           </table>
         </div>
 
-        <!-- Payer-Specific -->
-        <div class="card span-12 card-collapsible">
-          <div class="label">Payer-Specific NDC Reporting Requirements</div>
-          <p class="muted" style="margin-bottom:12px">NDC requirements and handling of deactivated/withdrawn NDCs vary by payer. Verify before resubmitting:</p>
-          <table class="payer-table">
-            <thead><tr><th>Payer Type</th><th>Key Guidance</th></tr></thead>
-            <tbody>
-              <tr><td><span class="payer-name">Medicare (Part B)</span></td><td>NDC required in loop 2410 of the EDI 837P for most covered drugs. Deactivated NDC claims require contacting the MAC for guidance. Withdrawn NDC claims typically require NOC code with drug description.</td></tr>
-              <tr><td><span class="payer-name">Medicaid</span></td><td>Most states require NDC on all drug lines. For withdrawn or deactivated NDCs, check the state Medicaid drug rebate program guidance — replacement NDC or NOC path varies by state.</td></tr>
-              <tr><td><span class="payer-name">Commercial / Managed Care</span></td><td>Confirm payer EDI companion guide. Some payers auto-crosswalk deactivated NDCs to active replacements; others do not. Call the payer if uncertain.</td></tr>
-              <tr><td><span class="payer-name">Medicare Advantage</span></td><td>Generally follows Medicare Part B rules; confirm plan-specific policies for deactivated or withdrawn NDC handling.</td></tr>
-            </tbody>
-          </table>
-        </div>
 
         <!-- What NOT to Do + Prevention -->
         <div class="card span-6 card-collapsible">
@@ -1659,35 +1599,6 @@ If the JW line is the only line, or if the administered line shows zero units, t
               <tr><td>Payer drug file doesn't recognize a valid NDC</td><td><span class="tag-rose" style="display:inline-block;padding:3px 10px;border-radius:999px;font:700 11px 'DM Mono',monospace">Call payer first; then appeal</span></td></tr>
             </tbody>
           </table>
-        </div>
-
-        <!-- Action Code Templates -->
-        <div class="card span-12">
-          <div class="label">Action Code Templates — Quick Reference</div>
-          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px">
-            <span class="tag-teal">Corrected Claim</span>
-            <span class="tag-teal">Reprocessing</span>
-            <span class="tag-amber">Coding Escalation / NOC</span>
-            <span class="tag-rose">First Level Appeal</span>
-            <span class="tag-teal">Adjustment / Closed</span>
-            <span class="tag-teal">Secondary / Tertiary</span>
-          </div>
-          <div class="alert ok">
-            <div class="alert-icon">📋</div>
-            <div>
-              <div class="alert-title">Use the Note Maker Tool for Structured Documentation</div>
-              <div class="alert-text">The built-in Note Maker guides you step-by-step through each action type and auto-generates copy-ready notes for your Practice Management System or AR workflow.</div>
-            </div>
-          </div>
-          <div class="card nm-trigger-card" style="margin-top:14px;box-shadow:none">
-            <div>
-              <div class="label" style="margin-bottom:4px">Note Maker Tool</div>
-              <p class="sub-desc">Step-by-step guided documentation for M119 claim actions. Generates structured notes ready for copy-paste into your PMS, AR system, or Python/AI pipeline.</p>
-            </div>
-            <button class="btn-notes-open" onclick="openNM()">
-              📝 Open Note Maker — M119
-            </button>
-          </div>
         </div>
 
       </div><!-- end .grid -->
@@ -2034,20 +1945,6 @@ If the JW line is the only line, or if the administered line shows zero units, t
           </table>
         </div>
 
-        <!-- Payer-Specific Rules -->
-        <div class="card span-12 card-collapsible">
-          <div class="label">Payer-Specific NDC Requirements</div>
-          <p class="muted" style="margin-bottom:12px">NDC reporting rules vary by payer. Verify requirements before submitting corrected claims:</p>
-          <table class="payer-table">
-            <thead><tr><th>Payer Type</th><th>Key Guidance</th></tr></thead>
-            <tbody>
-              <tr><td><span class="payer-name">Medicare (Part B)</span></td><td>NDC required in EDI loop 2410 of the 837P for covered drugs. N60 from Medicare MACs typically signals the claim bypassed NDC reporting. Refer to your MAC's NDC billing instructions and MLN Matters articles for drug-specific requirements.</td></tr>
-              <tr><td><span class="payer-name">Medicaid</span></td><td>Most states enforced NDC requirements years before commercial payers. State Medicaid N60 denials often indicate a billing system gap. Check the state Medicaid companion guide for loop and qualifier requirements.</td></tr>
-              <tr><td><span class="payer-name">Commercial / Managed Care</span></td><td>N60 from commercial payers is most commonly seen after a new NDC mandate activation. Confirm the payer's EDI companion guide for loop placement, qualifier, and format rules — these vary by payer.</td></tr>
-              <tr><td><span class="payer-name">Medicare Advantage</span></td><td>Follows Medicare Part B NDC requirements in most cases. Confirm plan-specific EDI requirements as some MA plans have additional validation edits beyond CMS baseline.</td></tr>
-            </tbody>
-          </table>
-        </div>
 
         <!-- What NOT to Do + Prevention Checklist -->
         <div class="card span-6 card-collapsible">
@@ -2103,35 +2000,6 @@ If the JW line is the only line, or if the administered line shows zero units, t
                 <li>Use Resubmission Code 7 on the corrected claim</li>
               </ul>
             </div>
-          </div>
-        </div>
-
-        <!-- Action Code Templates -->
-        <div class="card span-12">
-          <div class="label">Action Code Templates — Quick Reference</div>
-          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px">
-            <span class="tag-teal">Corrected Claim</span>
-            <span class="tag-teal">Reprocessing</span>
-            <span class="tag-amber">Coding Escalation</span>
-            <span class="tag-rose">First Level Appeal</span>
-            <span class="tag-teal">Adjustment / Closed</span>
-            <span class="tag-teal">Secondary / Tertiary</span>
-          </div>
-          <div class="alert ok">
-            <div class="alert-icon">📋</div>
-            <div>
-              <div class="alert-title">Use the Note Maker Tool for Structured Documentation</div>
-              <div class="alert-text">The built-in Note Maker below guides you step-by-step through each action type and auto-generates copy-ready notes for your Practice Management System or AR workflow.</div>
-            </div>
-          </div>
-          <div class="card nm-trigger-card" style="margin-top:14px;box-shadow:none">
-            <div>
-              <div class="label" style="margin-bottom:4px">Note Maker Tool</div>
-              <p class="sub-desc">Step-by-step guided documentation for N60 claim actions. Generates structured notes ready for copy-paste into your PMS, AR system, or Python/AI pipeline.</p>
-            </div>
-            <button class="btn-notes-open" onclick="openNM()">
-              📝 Open Note Maker
-            </button>
           </div>
         </div>
 
@@ -2483,21 +2351,6 @@ If the JW line is the only line, or if the administered line shows zero units, t
           </div>
         </div>
 
-        <!-- Payer-Specific Rules -->
-        <div class="card span-12 card-collapsible">
-          <div class="label">Payer-Specific NDC Unit Count Requirements</div>
-          <p class="muted" style="margin-bottom:12px">Quantity reporting rules vary by payer. Verify requirements before submitting corrected claims:</p>
-          <table class="payer-table">
-            <thead><tr><th>Payer Type</th><th>Key Guidance</th></tr></thead>
-            <tbody>
-              <tr><td><span class="payer-name">Medicare (Part B)</span></td><td>NDC quantity required in EDI loop 2410 of the 837P. Quantity must reflect actual units administered — not vial size. Refer to MAC-specific drug billing instructions and CMS transmittals for drug-specific quantity rules.</td></tr>
-              <tr><td><span class="payer-name">Medicaid</span></td><td>State-by-state variation. Most states require quantity on all drug lines. Some states validate quantity against dispensing records. Check the applicable state Medicaid billing manual and companion guide.</td></tr>
-              <tr><td><span class="payer-name">Commercial / Managed Care</span></td><td>Confirm payer EDI companion guide — some payers cross-validate quantity against their internal drug file and will reject submissions where the quantity does not align with the NDC packaging or dosing norms.</td></tr>
-              <tr><td><span class="payer-name">Medicare Advantage</span></td><td>Generally follows Medicare Part B quantity rules. Confirm plan-specific EDI requirements — some MA plans apply additional quantity validation edits beyond CMS baseline.</td></tr>
-            </tbody>
-          </table>
-        </div>
-
         <!-- What NOT to Do + Prevention Checklist -->
         <div class="card span-6 card-collapsible">
           <div class="label">What NOT to Do</div>
@@ -2551,35 +2404,6 @@ If the JW line is the only line, or if the administered line shows zero units, t
                 <li>Use Resubmission Code 7 on the corrected claim</li>
               </ul>
             </div>
-          </div>
-        </div>
-
-        <!-- Action Code Templates -->
-        <div class="card span-12">
-          <div class="label">Action Code Templates — Quick Reference</div>
-          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px">
-            <span class="tag-teal">Corrected Claim</span>
-            <span class="tag-teal">Reprocessing</span>
-            <span class="tag-amber">Coding Escalation</span>
-            <span class="tag-rose">First Level Appeal</span>
-            <span class="tag-teal">Adjustment / Closed</span>
-            <span class="tag-teal">Secondary / Tertiary</span>
-          </div>
-          <div class="alert ok">
-            <div class="alert-icon">📋</div>
-            <div>
-              <div class="alert-title">Use the Note Maker Tool for Structured Documentation</div>
-              <div class="alert-text">The built-in Note Maker below guides you step-by-step through each action type and auto-generates copy-ready notes for your Practice Management System or AR workflow.</div>
-            </div>
-          </div>
-          <div class="card nm-trigger-card" style="margin-top:14px;box-shadow:none">
-            <div>
-              <div class="label" style="margin-bottom:4px">Note Maker Tool</div>
-              <p class="sub-desc">Step-by-step guided documentation for N815 claim actions. Generates structured notes ready for copy-paste into your PMS, AR system, or Python/AI pipeline.</p>
-            </div>
-            <button class="btn-notes-open" onclick="openNM()">
-              📝 Open Note Maker
-            </button>
           </div>
         </div>
 
@@ -2942,21 +2766,7 @@ If the JW line is the only line, or if the administered line shows zero units, t
           </div>
         </div>
 
-        <!-- Payer-Specific Rules -->
-        <div class="card span-12 card-collapsible">
-          <div class="label">Payer-Specific NDC Requirements</div>
-          <p class="muted" style="margin-bottom:12px">NDC obsolescence tracking and drug file update cycles vary by payer. Verify requirements before submitting corrected claims:</p>
-          <table class="payer-table">
-            <thead><tr><th>Payer Type</th><th>Key Guidance</th></tr></thead>
-            <tbody>
-              <tr><td><span class="payer-name">Medicare (Part B)</span></td><td>NDC required in EDI loop 2410 of the 837P. MAC drug files are updated on CMS release cycles. An NDC flagged N847 by a MAC may still pass at another MAC — confirm against your specific MAC's drug file and current MLN guidance for the drug in question.</td></tr>
-              <tr><td><span class="payer-name">Medicaid</span></td><td>State drug files are updated independently. An obsolete NDC at the state level may not match the FDA obsolescence date. Check the state Medicaid companion guide and billing manual — some states require a specific NDC that was active at time of dispensing, per pharmacy records.</td></tr>
-              <tr><td><span class="payer-name">Commercial / Managed Care</span></td><td>Drug file refresh cycles vary widely — some payers update monthly, others quarterly. An N847 from a commercial payer may indicate a file lag rather than a true clinical billing error. Call the payer to confirm before correcting the NDC blindly.</td></tr>
-              <tr><td><span class="payer-name">Medicare Advantage</span></td><td>Follows Medicare Part B NDC rules in most cases but may have plan-specific drug file refresh schedules. Confirm with the MA plan's EDI companion guide and provider relations team before submitting the corrected claim.</td></tr>
-            </tbody>
-          </table>
-        </div>
-
+        
         <!-- What NOT to Do + Prevention Checklist -->
         <div class="card span-6 card-collapsible">
           <div class="label">What NOT to Do</div>
@@ -3010,35 +2820,6 @@ If the JW line is the only line, or if the administered line shows zero units, t
                 <li>Use Resubmission Code 7 on the corrected claim</li>
               </ul>
             </div>
-          </div>
-        </div>
-
-        <!-- Action Code Templates -->
-        <div class="card span-12">
-          <div class="label">Action Code Templates — Quick Reference</div>
-          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px">
-            <span class="tag-teal">Corrected Claim</span>
-            <span class="tag-teal">Reprocessing</span>
-            <span class="tag-amber">Coding Escalation</span>
-            <span class="tag-rose">First Level Appeal</span>
-            <span class="tag-teal">Adjustment / Closed</span>
-            <span class="tag-teal">Secondary / Tertiary</span>
-          </div>
-          <div class="alert ok">
-            <div class="alert-icon">📋</div>
-            <div>
-              <div class="alert-title">Use the Note Maker Tool for Structured Documentation</div>
-              <div class="alert-text">The built-in Note Maker below guides you step-by-step through each action type and auto-generates copy-ready notes for your Practice Management System or AR workflow.</div>
-            </div>
-          </div>
-          <div class="card nm-trigger-card" style="margin-top:14px;box-shadow:none">
-            <div>
-              <div class="label" style="margin-bottom:4px">Note Maker Tool</div>
-              <p class="sub-desc">Step-by-step guided documentation for N847 claim actions. Generates structured notes ready for copy-paste into your PMS, AR system, or Python/AI pipeline.</p>
-            </div>
-            <button class="btn-notes-open" onclick="openNM()">
-              📝 Open Note Maker
-            </button>
           </div>
         </div>
 
@@ -3396,21 +3177,6 @@ If the JW line is the only line, or if the administered line shows zero units, t
           </div>
         </div>
 
-        <!-- Payer-Specific Rules -->
-        <div class="card span-12 card-collapsible">
-          <div class="label">Payer-Specific NDC Product Association Requirements</div>
-          <p class="muted" style="margin-bottom:12px">Drug file loading and NDC product association vary significantly by payer. Verify before submitting corrected claims:</p>
-          <table class="payer-table">
-            <thead><tr><th>Payer Type</th><th>Key Guidance</th></tr></thead>
-            <tbody>
-              <tr><td><span class="payer-name">Medicare (Part B)</span></td><td>NDC must resolve to a product in the MAC drug pricing file (ASP-based pricing). If the NDC is valid in the FDA database but not in the MAC drug file, contact the MAC for guidance. Some drugs require a specific NDC tied to ASP pricing — refer to MLN Matters articles and MAC bulletins for the drug in question.</td></tr>
-              <tr><td><span class="payer-name">Medicaid</span></td><td>State Medicaid drug files are maintained independently. A valid FDA NDC may still return N848 if the state has not loaded the product. Check the state Medicaid drug rebate file and billing manual. Some states have a drug exclusion list — confirm the drug is covered before correcting.</td></tr>
-              <tr><td><span class="payer-name">Commercial / Managed Care</span></td><td>Commercial payer drug files vary widely in update frequency and product coverage. N848 from a commercial payer frequently indicates a drug file loading lag for a newer or niche product. Call the payer's provider relations or pharmacy team to confirm whether the NDC needs to be loaded before resubmitting.</td></tr>
-              <tr><td><span class="payer-name">Medicare Advantage</span></td><td>Follows Medicare Part B drug file in most cases but MA plans maintain their own formulary and drug pricing files. An NDC that resolves at the MAC level may still return N848 at the MA plan level. Confirm with the MA plan's pharmacy or claims department before resubmitting.</td></tr>
-            </tbody>
-          </table>
-        </div>
-
         <!-- What NOT to Do + Prevention Checklist -->
         <div class="card span-6 card-collapsible">
           <div class="label">What NOT to Do</div>
@@ -3470,35 +3236,7 @@ If the JW line is the only line, or if the administered line shows zero units, t
           </div>
         </div>
 
-        <!-- Action Code Templates -->
-        <div class="card span-12">
-          <div class="label">Action Code Templates — Quick Reference</div>
-          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px">
-            <span class="tag-teal">Corrected Claim</span>
-            <span class="tag-teal">Reprocessing</span>
-            <span class="tag-amber">Coding Escalation</span>
-            <span class="tag-rose">First Level Appeal</span>
-            <span class="tag-teal">Adjustment / Closed</span>
-            <span class="tag-teal">Secondary / Tertiary</span>
-          </div>
-          <div class="alert ok">
-            <div class="alert-icon">📋</div>
-            <div>
-              <div class="alert-title">Use the Note Maker Tool for Structured Documentation</div>
-              <div class="alert-text">The built-in Note Maker below guides you step-by-step through each action type and auto-generates copy-ready notes for your Practice Management System or AR workflow.</div>
-            </div>
-          </div>
-          <div class="card nm-trigger-card" style="margin-top:14px;box-shadow:none">
-            <div>
-              <div class="label" style="margin-bottom:4px">Note Maker Tool</div>
-              <p class="sub-desc">Step-by-step guided documentation for N848 claim actions. Generates structured notes ready for copy-paste into your PMS, AR system, or Python/AI pipeline.</p>
-            </div>
-            <button class="btn-notes-open" onclick="openNM()">
-              📝 Open Note Maker
-            </button>
-          </div>
-        </div>
-
+        
       </div><!-- end .grid -->
     </div><!-- end left column -->
 
@@ -4441,35 +4179,7 @@ src="https://raw.githubusercontent.com/kunalvaish49-cpu/VisualCode_UB-04/b39d3af
 </div>
 </div>
  
-      <!-- Action Code Templates -->
-<div class="card span-12">
-<div class="label">Action Code Templates — Quick Reference</div>
-<div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px">
-<span class="tag-teal">Corrected Claim</span>
-<span class="tag-teal">Reprocessing</span>
-<span class="tag-amber">Coding Escalation</span>
-<span class="tag-rose">First Level Appeal</span>
-<span class="tag-teal">Adjustment / Closed</span>
-<span class="tag-teal">Secondary / Tertiary</span>
-</div>
-<div class="alert ok">
-<div class="alert-icon">📋</div>
-<div>
-<div class="alert-title">Use the Note Maker Tool for Structured Documentation</div>
-<div class="alert-text">The built-in Note Maker guides you step-by-step through each action type and auto-generates copy-ready notes for your Practice Management System or AR workflow.</div>
-</div>
-</div>
-<div class="card nm-trigger-card" style="margin-top:14px;box-shadow:none">
-<div>
-<div class="label" style="margin-bottom:4px">Note Maker Tool</div>
-<p class="sub-desc">Step-by-step guided documentation for MA30 claim actions. Generates structured notes ready for copy-paste into your PMS, AR system, or Python/AI pipeline.</p>
-</div>
-<button class="btn-notes-open" onclick="openNM()">
-            📝 Open Note Maker — MA30
-</button>
-</div>
-</div>
- 
+     
     </div><!-- end .grid -->
 </div><!-- end left column -->
  
@@ -4883,570 +4593,6 @@ src="https://raw.githubusercontent.com/kunalvaish49-cpu/VisualCode_UB-04/b39d3af
     </div>
   </div>
 </div>
-
-<!-- ═══════════════════════════════════ NOTE MAKER MODAL ═══════════════════════════ -->
-<div class="nm-overlay" id="notesMakerModal">
-  <div class="nm-panel">
-
-    <!-- Header -->
-    <div class="nm-header">
-      <div>
-        <div class="nm-header-title">📝 Note Maker</div>
-        <div class="nm-header-sub">Guided documentation tool — generates structured, copy-ready claim notes</div>
-      </div>
-      <button class="nm-close-btn" onclick="closeNM()">✕ Close</button>
-    </div>
-
-    <!-- Stepper -->
-    <div class="nm-stepper" id="nmStepper">
-      <div class="nm-step active" id="nmStepTab1"><div class="nm-step-dot">1</div><span class="nm-step-lbl">Action Type</span></div>
-      <div class="nm-step-line" id="nmLine1"></div>
-      <div class="nm-step" id="nmStepTab2"><div class="nm-step-dot">2</div><span class="nm-step-lbl">Claim Status</span></div>
-      <div class="nm-step-line" id="nmLine2"></div>
-      <div class="nm-step" id="nmStepTab3"><div class="nm-step-dot">3</div><span class="nm-step-lbl">Denied Details</span></div>
-      <div class="nm-step-line" id="nmLine3"></div>
-      <div class="nm-step" id="nmStepTab4"><div class="nm-step-dot">4</div><span class="nm-step-lbl">Contact Info</span></div>
-      <div class="nm-step-line" id="nmLine4"></div>
-      <div class="nm-step" id="nmStepTab5"><div class="nm-step-dot">5</div><span class="nm-step-lbl">Appeal / Docs</span></div>
-      <div class="nm-step-line" id="nmLine5"></div>
-      <div class="nm-step" id="nmStepTab6"><div class="nm-step-dot">6</div><span class="nm-step-lbl">Generated Notes</span></div>
-    </div>
-
-    <!-- Body -->
-    <div class="nm-body">
-      <div class="nm-main">
-
-        <!-- STEP 1: Action Type -->
-        <div class="nm-step-content active" id="nmStep1">
-          <div class="nm-h2">Select Action Type</div>
-          <div class="nm-alert info">
-            <div class="nm-alert-icon">ℹ️</div>
-            <div class="nm-alert-text">Choose the action that best describes what happened with your claim. This determines the note template generated.</div>
-          </div>
-          <div class="nm-options" style="gap:10px">
-            <button class="nm-opt-btn" id="nmActBtn1" onclick="nmSelectAction('corrected')">
-              <span class="nm-opt-icon">📤</span>
-              <div class="nm-opt-label">Corrected Claim</div>
-              <div class="nm-opt-sub">NDC/J-code mismatch found &amp; corrected</div>
-            </button>
-            <button class="nm-opt-btn" id="nmActBtn2" onclick="nmSelectAction('reprocessing')">
-              <span class="nm-opt-icon">📞</span>
-              <div class="nm-opt-label">Reprocessing</div>
-              <div class="nm-opt-sub">Payer agreed to reprocess after call</div>
-            </button>
-            <button class="nm-opt-btn" id="nmActBtn3" onclick="nmSelectAction('escalation')">
-              <span class="nm-opt-icon">🔬</span>
-              <div class="nm-opt-label">Coding Escalation</div>
-              <div class="nm-opt-sub">NDC complexity requires coder validation</div>
-            </button>
-            <button class="nm-opt-btn" id="nmActBtn4" onclick="nmSelectAction('appeal')">
-              <span class="nm-opt-icon">⚖️</span>
-              <div class="nm-opt-label">First Level Appeal</div>
-              <div class="nm-opt-sub">Corrected claim denied again — payer error</div>
-            </button>
-            <button class="nm-opt-btn" id="nmActBtn5" onclick="nmSelectAction('closed')">
-              <span class="nm-opt-icon">✅</span>
-              <div class="nm-opt-label">Adjustment / Closed</div>
-              <div class="nm-opt-sub">Claim fully resolved &amp; closed</div>
-            </button>
-
-	    <button class="nm-opt-btn" id="nmActBtn5" onclick="nmSelectAction('closed')">
-              <span class="nm-opt-icon">✅</span>
-              <div class="nm-opt-label">ABN/Appeal Upheld / Bill Patient</div>
-              <div class="nm-opt-sub">Non Covered Pt Plan & ABN on file &amp; Bill Paitent</div>
-            </button>
-
-            <button class="nm-opt-btn" id="nmActBtn6" onclick="nmSelectAction('secondary')">
-              <span class="nm-opt-icon">🔁</span>
-              <div class="nm-opt-label">Secondary / Tertiary</div>
-              <div class="nm-opt-sub">Primary resolved; COB to secondary payer</div>
-            </button>
-          </div>
-        </div>
-
-
-        <!-- STEP 2: Claim Status -->
-        <div class="nm-step-content" id="nmStep2">
-          <div class="nm-h2">Claim Status Information</div>
-          <div class="nm-alert info">
-            <div class="nm-alert-icon">📋</div>
-            <div class="nm-alert-text">Enter the claim status details from your clearinghouse or payer portal. Fill in the right panel with the claim identifiers.</div>
-          </div>
-          <div class="nm-h3">Claim Status from Clearinghouse / Portal</div>
-          <div class="nm-fg">
-            <label class="nm-fl">Claim Payment Status</label>
-            <div class="nm-radios" id="nmStatusGroup">
-              <label class="nm-rl" id="nmStsLblPaid"><input type="radio" name="nmStatus" value="Paid" onchange="nmUpdateForm()"> Paid</label>
-              <label class="nm-rl" id="nmStsLblPartial"><input type="radio" name="nmStatus" value="Partially Paid" onchange="nmUpdateForm()"> Partially Paid</label>
-              <label class="nm-rl" id="nmStsLblDenied"><input type="radio" name="nmStatus" value="Fully Denied" onchange="nmUpdateForm()">Fully Denied</label>
-            </div>
-          </div>
-          <div class="nm-fg">
-            <label class="nm-fl">Denial | Check Date | Process Date or Received Date</label>
-            <input class="nm-fi" type="date" id="nmProcDate" />
-          </div>
-          <div class="nm-h3">Denial Specific Issue Identified</div>
-          <div class="nm-fg">
-            <label class="nm-fl">NDC Error Type (select all that apply)</label>
-            <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:4px" id="nmErrTypes">
-              <label style="display:flex;align-items:center;gap:6px;font-size:13px;cursor:pointer;padding:6px 10px;background:var(--surface);border:1.5px solid var(--border);border-radius:var(--r-xs)"><input type="checkbox" value="wrong_ndc" /> Wrong NDC selected</label>
-              <label style="display:flex;align-items:center;gap:6px;font-size:13px;cursor:pointer;padding:6px 10px;background:var(--surface);border:1.5px solid var(--border);border-radius:var(--r-xs)"><input type="checkbox" value="wrong_manufacturer" /> Different manufacturer</label>
-              <label style="display:flex;align-items:center;gap:6px;font-size:13px;cursor:pointer;padding:6px 10px;background:var(--surface);border:1.5px solid var(--border);border-radius:var(--r-xs)"><input type="checkbox" value="format_10digit" /> 10-digit not converted</label>
-              <label style="display:flex;align-items:center;gap:6px;font-size:13px;cursor:pointer;padding:6px 10px;background:var(--surface);border:1.5px solid var(--border);border-radius:var(--r-xs)"><input type="checkbox" value="n4_space" /> N4 qualifier space error</label>
-              <label style="display:flex;align-items:center;gap:6px;font-size:13px;cursor:pointer;padding:6px 10px;background:var(--surface);border:1.5px solid var(--border);border-radius:var(--r-xs)"><input type="checkbox" value="discontinued" /> Discontinued / inactive NDC</label>
-              <label style="display:flex;align-items:center;gap:6px;font-size:13px;cursor:pointer;padding:6px 10px;background:var(--surface);border:1.5px solid var(--border);border-radius:var(--r-xs)"><input type="checkbox" value="uom_mismatch" /> UOM mismatch</label>
-            </div>
-          </div>
-        </div>
-
-        <!-- STEP 3: NDC Details -->
-        <div class="nm-step-content" id="nmStep3">
-          <div class="nm-h2">NDC Verification Details</div>
-          <div class="nm-alert warn">
-            <div class="nm-alert-icon">⚠️</div>
-            <div>
-              <div class="nm-alert-title">Verify from the actual vial or package label</div>
-              <div class="nm-alert-text">Always pull the NDC directly from the administered vial or syringe — not from the outer box, billing system default, or previous claims.</div>
-            </div>
-          </div>
-          <div class="nm-h3">NDC Correction Information</div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-            <div class="nm-fg">
-              <label class="nm-fl">Prior (Incorrect) NDC</label>
-              <input class="nm-fi" id="nmPriorNDC" placeholder="e.g., 12345-6789-01 or 10-digit" />
-            </div>
-            <div class="nm-fg">
-              <label class="nm-fl">Corrected 11-Digit NDC</label>
-              <input class="nm-fi" id="nmCorrNDC" placeholder="e.g., 12345678901 (11 digits)" />
-            </div>
-            <div class="nm-fg">
-              <label class="nm-fl">J-Code Billed</label>
-              <input class="nm-fi" id="nmJCode" placeholder="e.g., J1100" />
-            </div>
-            <div class="nm-fg">
-              <label class="nm-fl">Unit of Measure (UOM)</label>
-              <select class="nm-fi" id="nmUOM">
-                <option value="">Select UOM…</option>
-                <option value="ML">ML — Milliliter (liquid vial)</option>
-                <option value="UN">UN — Unit (powder/vial reconstituted)</option>
-                <option value="GR">GR — Gram (ointments/creams)</option>
-                <option value="F2">F2 — International Unit</option>
-              </select>
-            </div>
-            <div class="nm-fg">
-              <label class="nm-fl">Quantity Administered</label>
-              <input class="nm-fi" id="nmQty" placeholder="e.g., 2" />
-            </div>
-            <div class="nm-fg">
-              <label class="nm-fl">Manufacturer</label>
-              <input class="nm-fi" id="nmMfr" placeholder="e.g., Pfizer, Fresenius" />
-            </div>
-          </div>
-          <div class="nm-h3">Wastage / JW Modifier</div>
-          <div class="nm-fg">
-            <label class="nm-fl">Was drug wasted / discarded?</label>
-            <div class="nm-radios">
-              <label class="nm-rl"><input type="radio" name="nmJW" value="No" onchange="nmUpdateJW()"> No wastage</label>
-              <label class="nm-rl"><input type="radio" name="nmJW" value="JW" onchange="nmUpdateJW()"> Yes — JW applied</label>
-              <label class="nm-rl"><input type="radio" name="nmJW" value="JZ" onchange="nmUpdateJW()"> JZ (zero wastage)</label>
-            </div>
-          </div>
-          <div class="nm-fg" id="nmJWQtyFg" style="display:none">
-            <label class="nm-fl">Discarded Quantity (JW)</label>
-            <input class="nm-fi" id="nmJWQty" placeholder="e.g., 0.5 ML discarded" />
-          </div>
-        </div>
-
-        <!-- STEP 4: Contact / Call Info -->
-        <div class="nm-step-content" id="nmStep4">
-          <div class="nm-h2">Contact &amp; Source Information</div>
-          <div class="nm-h3">Source of Status</div>
-          <div class="nm-options" style="gap:8px">
-            <button class="nm-opt-btn" id="nmSrcBtnCalling" onclick="nmSelectSrc('Calling')" style="padding:12px">
-              <span class="nm-opt-icon" style="font-size:22px">📞</span>
-              <div class="nm-opt-label" style="font-size:13px">Calling</div>
-            </button>
-            <button class="nm-opt-btn" id="nmSrcBtnWebsite" onclick="nmSelectSrc('Website')" style="padding:12px">
-              <span class="nm-opt-icon" style="font-size:22px">🌐</span>
-              <div class="nm-opt-label" style="font-size:13px">Website</div>
-            </button>
-            <button class="nm-opt-btn" id="nmSrcBtnAnalyse" onclick="nmSelectSrc('Analyse')" style="padding:12px">
-              <span class="nm-opt-icon" style="font-size:22px">🔍</span>
-              <div class="nm-opt-label" style="font-size:13px">Internal Review</div>
-            </button>
-          </div>
-
-          <div id="nmCallingSection" style="display:none">
-            <div class="nm-h3">Call Details</div>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-              <div class="nm-fg">
-                <label class="nm-fl">Rep Name / ID</label>
-                <input class="nm-fi" id="nmRepName" placeholder="Rep's first name or ID" />
-              </div>
-              <div class="nm-fg">
-                <label class="nm-fl">Call Reference #</label>
-                <input class="nm-fi" id="nmCallRef" placeholder="Reference / Conf #" />
-              </div>
-              <div class="nm-fg">
-                <label class="nm-fl">TAT for Reprocessing</label>
-                <input class="nm-fi" id="nmTAT" placeholder="e.g., 30–45 business days" />
-              </div>
-              <div class="nm-fg">
-                <label class="nm-fl">Payer Outcome</label>
-                <input class="nm-fi" id="nmPayerOutcome" placeholder="e.g., Will reprocess, Review NDC" />
-              </div>
-            </div>
-          </div>
-
-          <div id="nmWebsiteSection" style="display:none">
-            <div class="nm-h3">Website / Portal Details</div>
-            <div class="nm-fg">
-              <label class="nm-fl">Portal / Website Name</label>
-              <input class="nm-fi" id="nmWebName" placeholder="e.g., Availity, Navicure" />
-            </div>
-          </div>
-
-          <div id="nmAnalyseSection" style="display:none">
-            <div class="nm-alert info" style="margin-top:4px">
-              <div class="nm-alert-icon">🔍</div>
-              <div class="nm-alert-text">Internal review — complete the NDC details in the previous step. Document the findings in the notes section below.</div>
-            </div>
-          </div>
-
-          <div class="nm-fg" style="margin-top:8px">
-            <label class="nm-fl">Additional Notes (optional)</label>
-            <textarea class="nm-fta" id="nmExtraNotes" placeholder="Any additional details from call or review…"></textarea>
-          </div>
-        </div>
-
-        <!-- STEP 5: Appeal / Documents -->
-        <div class="nm-step-content" id="nmStep5">
-          <div class="nm-h2" id="nmStep5Title">Appeal Process &amp; Documentation</div>
-
-          <!-- Escalation path -->
-          <div id="nmEscalationSec" style="display:none">
-            <div class="nm-alert warn">
-              <div class="nm-alert-icon">⚠️</div>
-              <div>
-                <div class="nm-alert-title">Coding Escalation — When to Escalate</div>
-                <div class="nm-alert-text">Escalate when: multiple NDCs could legitimately map to the same J-code; drug wastage/JW is involved; compound drugs are billed; NOC codes are used; NDC is discontinued; or documentation conflicts between MAR, vial label, and charge entry.</div>
-              </div>
-            </div>
-            <div class="nm-fg">
-              <label class="nm-fl">Expected Coder Response Date</label>
-              <input class="nm-fi" type="date" id="nmCoderDate" />
-            </div>
-            <div class="nm-fg">
-              <label class="nm-fl">Corrected Claim TFL</label>
-              <input class="nm-fi" id="nmEscTFL" placeholder="e.g., MM/DD/YYYY" />
-            </div>
-          </div>
-
-          <!-- Appeal path -->
-          <div id="nmAppealSec">
-            <div class="nm-h3">Mode of Appeal</div>
-            <div class="nm-options" style="gap:8px">
-              <button class="nm-opt-btn" id="nmAppOptFax" onclick="nmSelectAppeal('Fax')" style="padding:12px">
-                <span class="nm-opt-icon" style="font-size:20px">📠</span>
-                <div class="nm-opt-label" style="font-size:13px">Fax</div>
-              </button>
-              <button class="nm-opt-btn" id="nmAppOptMail" onclick="nmSelectAppeal('Mailing')" style="padding:12px">
-                <span class="nm-opt-icon" style="font-size:20px">📬</span>
-                <div class="nm-opt-label" style="font-size:13px">Mailing</div>
-              </button>
-              <button class="nm-opt-btn" id="nmAppOptWeb" onclick="nmSelectAppeal('Website')" style="padding:12px">
-                <span class="nm-opt-icon" style="font-size:20px">🌐</span>
-                <div class="nm-opt-label" style="font-size:13px">Website</div>
-              </button>
-            </div>
-            <div id="nmAppFaxSec" style="display:none">
-              <div class="nm-alert warn" style="margin-top:4px">
-                <div class="nm-alert-icon">⚠️</div>
-                <div><div class="nm-alert-title">Fax — Attention To Required</div><div class="nm-alert-text">Always include "Attention To:" on the cover sheet when submitting by fax.</div></div>
-              </div>
-              <div class="nm-fg"><label class="nm-fl">Attention To (Fax Cover)</label><input class="nm-fi" id="nmFaxAttn" placeholder="e.g., Appeals Department" /></div>
-              <div class="nm-fg"><label class="nm-fl">Fax Number</label><input class="nm-fi" id="nmFaxNum" placeholder="Fax number provided by rep" /></div>
-            </div>
-            <div id="nmAppMailSec" style="display:none">
-              <div class="nm-fg" style="margin-top:8px"><label class="nm-fl">Appeal Mailing Address</label><textarea class="nm-fta" id="nmMailAddr" placeholder="Full mailing address from rep or payer website" style="min-height:74px"></textarea></div>
-            </div>
-            <div id="nmAppWebSec" style="display:none">
-              <div class="nm-fg" style="margin-top:8px"><label class="nm-fl">Portal / Website URL</label><input class="nm-fi" id="nmWebUrl" placeholder="e.g., Provider portal or payer website URL" /></div>
-            </div>
-
-            <div class="nm-h3">Required Documents Checklist</div>
-            <ul class="nm-checklist">
-              <li class="req"><input type="checkbox" checked disabled /><span><strong>Denied EOB / ERA</strong> — Always required (mandatory, no exceptions)</span></li>
-              <li><input type="checkbox" id="chkMAR" /><span>MAR (Medication Administration Record) from date of service</span></li>
-              <li><input type="checkbox" id="chkVial" /><span>Vial or package label confirming administered drug &amp; NDC</span></li>
-              <li><input type="checkbox" id="chkClaim" /><span>Corrected Claim with verified NDC in proper 11-digit format</span></li>
-              <li><input type="checkbox" id="chkCrosswalk" /><span>NDC ↔ J-code crosswalk / coding validation documentation</span></li>
-              <li><input type="checkbox" id="chkInvoice" /><span>Drug Invoice (if applicable)</span></li>
-              <li><input type="checkbox" id="chkLetter" /><span>Appeal Cover Letter</span></li>
-            </ul>
-
-            <div class="nm-h3">Appeal Timely Filing</div>
-            <div class="nm-alert info">
-              <div class="nm-alert-icon">⏰</div>
-              <div class="nm-alert-text"><strong>Confirm the Appeal TFL Limit</strong> with the rep or payer policy guide. Enter it in the "Appeal TFL Limit" field on the right panel. Submit before the deadline — late submissions are typically forfeited.</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- STEP 6: Generated Notes -->
-        <div class="nm-step-content" id="nmStep6">
-          <div class="nm-h2">Generated Claim Notes</div>
-          <p style="color:var(--muted);font-size:13.5px;margin-bottom:10px">Review your complete notes below, then copy and paste into your Practice Management System or AR workflow.</p>
-          <pre class="nm-notes-out" id="nmNotesOut">[Notes will be generated here]</pre>
-          <div style="display:flex;gap:10px;margin-top:14px;flex-wrap:wrap">
-            <button class="nm-btn-next" onclick="nmCopyNotes()" style="display:inline-flex;align-items:center;gap:7px">📋 Copy Notes to Clipboard</button>
-            <button class="nm-btn-back" onclick="nmReset()" style="display:inline-flex;align-items:center;gap:7px">🔄 Start Over</button>
-          </div>
-          <div id="nmCopiedMsg" style="display:none;color:var(--teal);font-weight:700;font-size:13px;margin-top:8px">✅ Notes copied to clipboard!</div>
-
-          <!-- ── STATUS / ACTION TRACKING FIELDS ── -->
-          <div style="margin-top:22px">
-            <div class="nm-h3" style="margin-top:0">Claim Tracking Fields <span style="font:400 11px/1 'DM Sans',sans-serif;color:var(--muted2);letter-spacing:0;text-transform:none;margin-left:4px">— Double-click any field to copy its value</span></div>
-            <div class="nm-alert info" style="margin-bottom:12px;padding:9px 13px">
-              <div class="nm-alert-icon" style="font-size:15px">💡</div>
-              <div class="nm-alert-text" style="font-size:12px">Select values from the dropdowns below, then <strong>double-click</strong> any field card to instantly copy it to clipboard.</div>
-            </div>
-
-            <div class="nm-status-row">
-
-              <!-- Status Code -->
-              <div class="nm-status-field" id="sfStatusCode" ondblclick="nmCopyField('sfStatusCode','nmSCSelect')">
-                <div class="nm-sf-label">
-                  Status Code
-                  <span class="sf-copy-hint">· double-click to copy</span>
-                </div>
-                <select class="nm-sf-select" id="nmSCSelect" onchange="updateSFDisplay('sfStatusCode','nmSCSelect')">
-                  <option value="">— Select Status Code —</option>
-                  <optgroup label="NDC / Drug Billing">
-                    <option value="NDC Does Not Correspond to HCPCS/CPT Billed">NDC Does Not Correspond to HCPCS/CPT Billed</option>
-                    <option value="NDC Format Error — N4 Qualifier Issue">NDC Format Error — N4 Qualifier Issue</option>
-                    <option value="NDC Discontinued / Inactive">NDC Discontinued / Inactive</option>
-                    <option value="NDC / J-Code Crosswalk Mismatch">NDC / J-Code Crosswalk Mismatch</option>
-                    <option value="UOM or Quantity Mismatch">UOM or Quantity Mismatch</option>
-                  </optgroup>
-                  <optgroup label="Authorization / Eligibility">
-                    <option value="Prior Authorization Required">Prior Authorization Required</option>
-                    <option value="Auth Expired or Does Not Match Billed Service">Auth Expired or Does Not Match Billed Service</option>
-                    <option value="Patient Not Eligible on Date of Service">Patient Not Eligible on Date of Service</option>
-                    <option value="Insurance Mismatch / COB Issue">Insurance Mismatch / COB Issue</option>
-                  </optgroup>
-                  <optgroup label="Coding / Billing">
-                    <option value="Claim Lacks Required Information (CO-16)">Claim Lacks Required Information (CO-16)</option>
-                    <option value="Duplicate Claim Submission">Duplicate Claim Submission</option>
-                    <option value="Invalid Modifier / Modifier Missing">Invalid Modifier / Modifier Missing</option>
-                    <option value="Bundling — Service Included in Primary Procedure">Bundling — Service Included in Primary Procedure</option>
-                    <option value="Medical Necessity Not Established">Medical Necessity Not Established</option>
-                    <option value="Timely Filing Limit Exceeded">Timely Filing Limit Exceeded</option>
-                  </optgroup>
-                  <optgroup label="Provider / Facility">
-                    <option value="Provider Not Authorized / Out of Network">Provider Not Authorized / Out of Network</option>
-                    <option value="Facility Not Authorized for This Service">Facility Not Authorized for This Service</option>
-                    <option value="Referral Not Authorized by Attending Physician">Referral Not Authorized by Attending Physician</option>
-                  </optgroup>
-                  <optgroup label="Payment Adjustments">
-                    <option value="Contractual Adjustment — Fee Schedule Applied">Contractual Adjustment — Fee Schedule Applied</option>
-                    <option value="Patient Responsibility — Deductible Applied">Patient Responsibility — Deductible Applied</option>
-                    <option value="Patient Responsibility — Coinsurance">Patient Responsibility — Coinsurance</option>
-                    <option value="Coordination of Benefits — Primary Paid">Coordination of Benefits — Primary Paid</option>
-                  </optgroup>
-                </select>
-                <div class="nm-sf-value-display" id="sfStatusCode-val">—</div>
-                <div class="nm-sf-copied-badge">✓ Copied!</div>
-              </div>
-
-              <!-- Action Code -->
-              <div class="nm-status-field" id="sfActionCode" ondblclick="nmCopyField('sfActionCode','nmACSelect')">
-                <div class="nm-sf-label">
-                  Action Code
-                  <span class="sf-copy-hint">· double-click to copy</span>
-                </div>
-                <select class="nm-sf-select" id="nmACSelect" onchange="updateSFDisplay('sfActionCode','nmACSelect')">
-                  <option value="">— Select Action Code —</option>
-                  <optgroup label="Claim Correction">
-                    <option value="Corrected Claim Resubmitted">Corrected Claim Resubmitted</option>
-                    <option value="Corrected Claim Resubmitted — Resubmission Code 7">Corrected Claim Resubmitted — Resubmission Code 7</option>
-                    <option value="Claim Voided and Resubmitted">Claim Voided and Resubmitted</option>
-                    <option value="NDC Corrected and Resubmitted">NDC Corrected and Resubmitted</option>
-                  </optgroup>
-                  <optgroup label="Appeal / Escalation">
-                    <option value="First Level Appeal Submitted">First Level Appeal Submitted</option>
-                    <option value="Second Level Appeal Submitted">Second Level Appeal Submitted</option>
-                    <option value="Peer-to-Peer Review Requested">Peer-to-Peer Review Requested</option>
-                    <option value="Escalated to Coding Team">Escalated to Coding Team</option>
-                    <option value="Escalated to Supervisor / Manager">Escalated to Supervisor / Manager</option>
-                  </optgroup>
-                  <optgroup label="Reprocessing">
-                    <option value="Claim Sent for Reprocessing">Claim Sent for Reprocessing</option>
-                    <option value="Reprocessing Confirmed by Payer Rep">Reprocessing Confirmed by Payer Rep</option>
-                    <option value="Payer Initiated Reprocessing — Awaiting ERA">Payer Initiated Reprocessing — Awaiting ERA</option>
-                  </optgroup>
-                  <optgroup label="Patient / Provider Actions">
-                    <option value="Patient Notified — Patient Responsibility">Patient Notified — Patient Responsibility</option>
-                    <option value="Authorization Obtained — Claim Resubmitted">Authorization Obtained — Claim Resubmitted</option>
-                    <option value="Provider Credentialing Initiated">Provider Credentialing Initiated</option>
-                    <option value="COB Established — Secondary Billed">COB Established — Secondary Billed</option>
-                  </optgroup>
-                  <optgroup label="Close Out">
-                    <option value="Claim Closed — Paid in Full">Claim Closed — Paid in Full</option>
-                    <option value="Claim Closed — Contractual Write-off Applied">Claim Closed — Contractual Write-off Applied</option>
-                    <option value="Claim Closed — Timely Filing Write-off">Claim Closed — Timely Filing Write-off</option>
-                    <option value="Claim Closed — No Adjustment Required">Claim Closed — No Adjustment Required</option>
-                    <option value="Claim Closed — Balance Billed to Patient">Claim Closed — Balance Billed to Patient</option>
-                  </optgroup>
-                </select>
-                <div class="nm-sf-value-display" id="sfActionCode-val">—</div>
-                <div class="nm-sf-copied-badge">✓ Copied!</div>
-              </div>
-
-              <!-- Source -->
-              <div class="nm-status-field" id="sfSource" ondblclick="nmCopyField('sfSource','nmSrcSelect')">
-                <div class="nm-sf-label">
-                  Source
-                  <span class="sf-copy-hint">· double-click to copy</span>
-                </div>
-                <select class="nm-sf-select" id="nmSrcSelect" onchange="updateSFDisplay('sfSource','nmSrcSelect')">
-                  <option value="">— Select Source —</option>
-                  <option value="Website">Website</option>
-                  <option value="Calling">Calling</option>
-                  <option value="Internal Review">Internal Review</option>
-                  <option value="Clearinghouse Portal">Clearinghouse Portal</option>
-                  <option value="ERA / 835 Transaction">ERA / 835 Transaction</option>
-                  <option value="Payer Portal">Payer Portal</option>
-                  <option value="Eligibility Check (270/271)">Eligibility Check (270/271)</option>
-                  <option value="Email from Payer">Email from Payer</option>
-                  <option value="Fax from Payer">Fax from Payer</option>
-                  <option value="EOB (Explanation of Benefits)">EOB (Explanation of Benefits)</option>
-                  <option value="Supervisor Review">Supervisor Review</option>
-                  <option value="Coding Team">Coding Team</option>
-                </select>
-                <div class="nm-sf-value-display" id="sfSource-val">—</div>
-                <div class="nm-sf-copied-badge">✓ Copied!</div>
-              </div>
-
-              <!-- Sub Category -->
-              <div class="nm-status-field" id="sfSubCat" ondblclick="nmCopyField('sfSubCat','nmSubCatSelect')">
-                <div class="nm-sf-label">
-                  Sub Category
-                  <span class="sf-copy-hint">· double-click to copy</span>
-                </div>
-                <select class="nm-sf-select" id="nmSubCatSelect" onchange="updateSFDisplay('sfSubCat','nmSubCatSelect')">
-                  <option value="">— Select Sub Category —</option>
-                  <optgroup label="Drug Billing">
-                    <option value="Drug Billing / Data Mismatch">Drug Billing / Data Mismatch</option>
-                    <option value="Drug Billing / NDC Format Error">Drug Billing / NDC Format Error</option>
-                    <option value="Drug Billing / J-Code NDC Crosswalk Error">Drug Billing / J-Code NDC Crosswalk Error</option>
-                    <option value="Drug Billing / Discontinued NDC">Drug Billing / Discontinued NDC</option>
-                    <option value="Drug Billing / UOM or Qty Error">Drug Billing / UOM or Qty Error</option>
-                    <option value="Drug Billing / JW Modifier Error">Drug Billing / JW Modifier Error</option>
-                  </optgroup>
-                  <optgroup label="Authorization">
-                    <option value="Authorization / Missing Pre-auth">Authorization / Missing Pre-auth</option>
-                    <option value="Authorization / Expired Auth">Authorization / Expired Auth</option>
-                    <option value="Authorization / Auth Mismatch">Authorization / Auth Mismatch</option>
-                    <option value="Authorization / Referral Missing">Authorization / Referral Missing</option>
-                  </optgroup>
-                  <optgroup label="Coding / Billing Errors">
-                    <option value="Coding / Modifier Error">Coding / Modifier Error</option>
-                    <option value="Coding / Diagnosis Mismatch">Coding / Diagnosis Mismatch</option>
-                    <option value="Coding / Bundling Issue">Coding / Bundling Issue</option>
-                    <option value="Coding / Procedure Code Error">Coding / Procedure Code Error</option>
-                    <option value="Billing / Timely Filing">Billing / Timely Filing</option>
-                    <option value="Billing / Duplicate Claim">Billing / Duplicate Claim</option>
-                    <option value="Billing / Place of Service Error">Billing / Place of Service Error</option>
-                  </optgroup>
-                  <optgroup label="Eligibility / Coverage">
-                    <option value="Eligibility / Patient Not Active">Eligibility / Patient Not Active</option>
-                    <option value="Eligibility / COB / Primary Not Billed First">Eligibility / COB / Primary Not Billed First</option>
-                    <option value="Eligibility / Non-covered Benefit">Eligibility / Non-covered Benefit</option>
-                    <option value="Eligibility / Patient Responsibility">Eligibility / Patient Responsibility</option>
-                  </optgroup>
-                  <optgroup label="Provider / Facility">
-                    <option value="Provider / Not Credentialed">Provider / Not Credentialed</option>
-                    <option value="Provider / Out of Network">Provider / Out of Network</option>
-                    <option value="Provider / Specialty Mismatch">Provider / Specialty Mismatch</option>
-                    <option value="Facility / Not Authorized">Facility / Not Authorized</option>
-                  </optgroup>
-                  <optgroup label="Medical Necessity">
-                    <option value="Medical Necessity / LCD Criteria Not Met">Medical Necessity / LCD Criteria Not Met</option>
-                    <option value="Medical Necessity / Documentation Insufficient">Medical Necessity / Documentation Insufficient</option>
-                    <option value="Medical Necessity / Experimental / Excluded">Medical Necessity / Experimental / Excluded</option>
-                  </optgroup>
-                </select>
-                <div class="nm-sf-value-display" id="sfSubCat-val">—</div>
-                <div class="nm-sf-copied-badge">✓ Copied!</div>
-              </div>
-
-            </div><!-- end nm-status-row -->
-          </div><!-- end tracking fields -->
-
-        </div>
-
-      </div><!-- end nm-main -->
-
-      <!-- Always-visible form panel -->
-      <div class="nm-form-panel">
-        <p class="nm-fp-title">📋 Claim Details</p>
-
-        <div class="nm-fg">
-          <label class="nm-fl">Date of Service (DOS)</label>
-          <input class="nm-fi" type="date" id="nmDOS" />
-        </div>
-        <div class="nm-fg">
-          <label class="nm-fl">Claim Number</label>
-          <input class="nm-fi" id="nmClaimNo" placeholder="Claim #" />
-        </div>
-        <div class="nm-fg">
-          <label class="nm-fl">Insurance Name</label>
-          <input class="nm-fi" id="nmInsName" placeholder="e.g., Aetna, BCBS" />
-        </div>
-        <div class="nm-fg">
-          <label class="nm-fl">Clearing House Name</label>
-          <input class="nm-fi" id="nmCH" placeholder="e.g., Waystar, Availity" />
-        </div>
-        <div class="nm-fg">
-          <label class="nm-fl">Procedure / J-Code</label>
-          <input class="nm-fi" id="nmProc" placeholder="e.g., J1100" />
-        </div>
-        <div class="nm-fg">
-          <label class="nm-fl">Submitted Date</label>
-          <input class="nm-fi" type="date" id="nmSubmDate" />
-        </div>
-        <div class="nm-fg">
-          <label class="nm-fl">Claim TFL Limit</label>
-          <input class="nm-fi" id="nmClaimTFL" placeholder="e.g., 365 days from DOS" />
-        </div>
-        <div class="nm-fg" id="nmAppTFLFg" style="display:none">
-          <label class="nm-fl">Appeal TFL Limit</label>
-          <input class="nm-fi" id="nmAplTFL" placeholder="e.g., 180 days from DOS" />
-        </div>
-        <div class="nm-fg" id="nmFaxFPFg" style="display:none">
-          <label class="nm-fl">⚠️ Fax — Attention To</label>
-          <input class="nm-fi" id="nmFaxAttnFP" placeholder="Attention: [Dept / Name]" />
-        </div>
-        <div class="nm-fg" id="nmMailFPFg" style="display:none">
-          <label class="nm-fl">Appeal Mailing Address</label>
-          <textarea class="nm-fta" id="nmMailFP" placeholder="Full appeal mailing address"></textarea>
-        </div>
-      </div>
-
-    </div><!-- end nm-body -->
-
-    <!-- Footer nav -->
-    <div class="nm-footer">
-      <span class="nm-step-ind" id="nmStepInd">Step 1 of 6</span>
-      <div class="nm-footer-btns">
-        <button class="nm-btn-back" id="nmBtnBack" onclick="nmBack()" style="display:none">← Back</button>
-        <button class="nm-btn-next" id="nmBtnNext" onclick="nmNext()">I Have Reviewed — Continue →</button>
-      </div>
-    </div>
-
-  </div><!-- end nm-panel -->
-</div><!-- end notesMakerModal -->
 
 <!-- ════════════════════════ MACHINE-READABLE JSON BLOCK ════════════════════════
      Structured data for AI / Python automation — parse with json.loads()
@@ -6075,249 +5221,11 @@ function closeLB() {
   document.body.style.overflow = '';
 }
 
-/* ── NOTE MAKER ── */
-let nmCurrentStep = 1;
-const NM_TOTAL = 6;
-let nmAction = '';
-let nmSource = '';
-let nmAppealMode = '';
-
-function openNM()  { document.getElementById('notesMakerModal').classList.add('open'); document.body.style.overflow = 'hidden'; nmGoTo(1); }
-function closeNM() { document.getElementById('notesMakerModal').classList.remove('open'); document.body.style.overflow = ''; }
-
-// N816 Note Maker — opens the same Note Maker but pre-labels it for N816
-function openNM816() {
-  openNM();
-  // Update the Note Maker header badge if present
-  const badge = document.querySelector('.nm-fp-title');
-  if (badge) badge.textContent = '📋 Claim Details — N816';
-}
-
-function nmSelectAction(act) {
-  nmAction = act;
-  document.querySelectorAll('[id^="nmActBtn"]').forEach(b => b.classList.remove('selected'));
-  const map = {corrected:'1',reprocessing:'2',escalation:'3',appeal:'4',closed:'5',secondary:'6'};
-  const btn = document.getElementById('nmActBtn' + map[act]);
-  if (btn) btn.classList.add('selected');
-  // Show/hide appeal TFL in panel
-  document.getElementById('nmAppTFLFg').style.display = (act === 'appeal') ? 'block' : 'none';
-}
-
-function nmSelectSrc(src) {
-  nmSource = src;
-  document.querySelectorAll('[id^="nmSrcBtn"]').forEach(b => b.classList.remove('selected'));
-  const btn = document.getElementById('nmSrcBtn' + src);
-  if (btn) btn.classList.add('selected');
-  document.getElementById('nmCallingSection').style.display  = (src === 'Calling')  ? 'block' : 'none';
-  document.getElementById('nmWebsiteSection').style.display  = (src === 'Website')  ? 'block' : 'none';
-  document.getElementById('nmAnalyseSection').style.display  = (src === 'Analyse')  ? 'block' : 'none';
-}
-
-function nmSelectAppeal(mode) {
-  nmAppealMode = mode;
-  document.querySelectorAll('[id^="nmAppOpt"]').forEach(b => b.classList.remove('selected'));
-  document.getElementById('nmAppOpt' + mode).classList.add('selected');
-  document.getElementById('nmAppFaxSec').style.display  = (mode === 'Fax')     ? 'block' : 'none';
-  document.getElementById('nmAppMailSec').style.display = (mode === 'Mailing') ? 'block' : 'none';
-  document.getElementById('nmAppWebSec').style.display  = (mode === 'Website') ? 'block' : 'none';
-  document.getElementById('nmFaxFPFg').style.display    = (mode === 'Fax')     ? 'block' : 'none';
-  document.getElementById('nmMailFPFg').style.display   = (mode === 'Mailing') ? 'block' : 'none';
-}
-
-function nmUpdateJW() {
-  const val = document.querySelector('input[name="nmJW"]:checked');
-  document.getElementById('nmJWQtyFg').style.display = (val && val.value === 'JW') ? 'block' : 'none';
-}
-
-function nmUpdateForm() {}
-
-function nmGoTo(step) {
-  // Update step content
-  for (let i = 1; i <= NM_TOTAL; i++) {
-    const sc = document.getElementById('nmStep' + i);
-    const st = document.getElementById('nmStepTab' + i);
-    const ln = document.getElementById('nmLine' + i);
-    if (sc) sc.classList.toggle('active', i === step);
-    if (st) {
-      st.classList.remove('active', 'done');
-      if (i === step) st.classList.add('active');
-      else if (i < step) st.classList.add('done');
-    }
-    if (ln) ln.classList.toggle('done', i < step);
-  }
-  nmCurrentStep = step;
-  document.getElementById('nmStepInd').textContent = 'Step ' + step + ' of ' + NM_TOTAL;
-  document.getElementById('nmBtnBack').style.display = step > 1 ? 'inline-flex' : 'none';
-  document.getElementById('nmBtnNext').textContent = step < NM_TOTAL ? 'I Have Reviewed — Continue →' : '✅ Generate Notes';
-  // Adjust step 5 view
-  if (step === 5) {
-    document.getElementById('nmEscalationSec').style.display = (nmAction === 'escalation') ? 'block' : 'none';
-    document.getElementById('nmAppealSec').style.display = (nmAction !== 'escalation') ? 'block' : 'none';
-  }
-}
-
-function nmNext() {
-  if (nmCurrentStep === NM_TOTAL) { nmGenerateNotes(); return; }
-  nmGoTo(nmCurrentStep + 1);
-}
-function nmBack() {
-  if (nmCurrentStep > 1) nmGoTo(nmCurrentStep - 1);
-}
-
-function fv(id) { const el = document.getElementById(id); return el ? (el.value || '').trim() : ''; }
-function fd(id) {
-  const el = document.getElementById(id);
-  if (!el || !el.value) return '[MM/DD/YYYY]';
-  const d = new Date(el.value + 'T00:00:00');
-  return (d.getMonth()+1).toString().padStart(2,'0') + '/' + d.getDate().toString().padStart(2,'0') + '/' + d.getFullYear();
-}
-function getErrTypes() {
-  const checks = document.querySelectorAll('#nmErrTypes input[type=checkbox]:checked');
-  const labels = { wrong_ndc:'incorrect NDC', wrong_manufacturer:'NDC from a different manufacturer', format_10digit:'NDC not in 11-digit format', n4_space:'N4 qualifier incorrectly formatted', discontinued:'discontinued/inactive NDC', uom_mismatch:'UOM mismatch' };
-  return Array.from(checks).map(c => labels[c.value] || c.value).join(', ') || 'incorrect NDC';
-}
-
-function nmGenerateNotes() {
-  const dos     = fd('nmDOS');
-  const claimNo = fv('nmClaimNo') || '[Claim #]';
-  const ins     = fv('nmInsName') || '[Insurance]';
-  const ch      = fv('nmCH')      || 'clearinghouse';
-  const proc    = fv('nmProc') || fv('nmJCode') || '[J-Code]';
-  const status  = document.querySelector('input[name="nmStatus"]:checked');
-  const claimStatus = status ? status.value : '[Paid / Partially Paid / Denied]';
-  const procDate = fd('nmProcDate');
-  const submDate = fd('nmSubmDate');
-  const tfl      = fv('nmClaimTFL') || '[TFL Date]';
-  const aplTFL   = fv('nmAplTFL')   || '[Appeal TFL Date]';
-  const errTypes = getErrTypes();
-  const corrNDC  = fv('nmCorrNDC')  || '[Corrected NDC]';
-  const priorNDC = fv('nmPriorNDC') || '[Prior NDC]';
-  const uom      = fv('nmUOM')      || '[UOM]';
-  const qty      = fv('nmQty')      || '[Qty]';
-  const mfr      = fv('nmMfr')      || '[Manufacturer]';
-  const repName  = fv('nmRepName')  || '[Rep Name/ID]';
-  const callRef  = fv('nmCallRef')  || '[Reference #]';
-  const tat      = fv('nmTAT')      || '30–45 days';
-  const webName  = fv('nmWebName')  || '[Portal/Website]';
-  const extNotes = fv('nmExtraNotes');
-  const jwVal    = document.querySelector('input[name="nmJW"]:checked');
-  const jwNote   = jwVal && jwVal.value === 'JW' ? ` JW modifier applied — discarded quantity: ${fv('nmJWQty') || '[JW Qty]'}.` : (jwVal && jwVal.value === 'JZ') ? ' JZ modifier applied (zero wastage).' : '';
-
-  let sourceStr = '';
-  if (nmSource === 'Calling') sourceStr = `Per ${ins} rep ${repName}, Ref #: ${callRef}.`;
-  else if (nmSource === 'Website') sourceStr = `Per ${webName || ins + ' portal'}.`;
-  else sourceStr = `Per internal review / clearinghouse analysis.`;
-
-  let notes = '';
-
-  if (nmAction === 'corrected') {
-    notes = `DOS: ${dos} | Claim #: ${claimNo} | Proc: ${proc}
-Status: Per ${ch}, the original claim was ${claimStatus} on ${procDate} due to NDC/J-code mismatch (RARC N846 — NDC Does Not Correspond to HCPCS/CPT Billed).
-Action: Manual review — verified drug administered via MAR and vial label. Prior NDC was ${errTypes} (${priorNDC}).
-Correction: Confirmed correct 11-digit NDC (${corrNDC}) matches billed J-code (${proc}). UOM: ${uom}, Qty: ${qty}. Manufacturer: ${mfr}. Validated against current NDC↔J-code crosswalk.${jwNote}
-Submission: Corrected claim submitted with Resubmission Code 7 on ${submDate}. TFL: ${tfl}. Awaiting payer reprocessing — allow ${tat}.`;
-
-  } else if (nmAction === 'reprocessing') {
-    notes = `DOS: ${dos} | Claim #: ${claimNo} | Proc: ${proc}
-Status: Per ${ch}, the original claim was ${claimStatus} on ${procDate} due to NDC/J-code mismatch (RARC N846).
-Action: Manual review identified ambiguity in NDC↔J-code alignment. Contacted ${ins} — ${sourceStr}
-Verified corrected 11-digit NDC (${corrNDC}) matches billed J-code (${proc}). UOM: ${uom}, Qty: ${qty}.${jwNote}
-Outcome: Payer representative confirmed they will review the NDC/J-code mismatch and send the claim back for reprocessing.
-Timeline: Allow ${tat} for reprocessing.${extNotes ? '\nNotes: ' + extNotes : ''}`;
-
-  } else if (nmAction === 'escalation') {
-    const coderDate = fd('nmCoderDate');
-    const escTFL    = fv('nmEscTFL') || '[TFL Date]';
-    notes = `DOS: ${dos} | Claim #: ${claimNo} | Proc: ${proc}
-Status: Per ${ch}, the original claim was ${claimStatus} on ${procDate} due to NDC mismatch (RARC N846).
-Action: Manual review identified complexity in NDC↔J-code alignment. Escalated to coding team for validation.
-Sent to coding: MAR, vial label, current charge entry data.
-NDC under review: ${priorNDC} → potential correction to ${corrNDC}. J-code: ${proc}. ${errTypes}.${jwNote}
-Coding will: Validate correct HCPCS/J-code and corresponding NDC from all documentation.
-Expected response: Awaiting coder confirmation by ${coderDate}. Corrected claim TFL: ${escTFL}.${extNotes ? '\nNotes: ' + extNotes : ''}`;
-
-  } else if (nmAction === 'appeal') {
-    const modeStr = nmAppealMode || '[Fax/Mailing/Website]';
-    const faxAttn = fv('nmFaxAttn') || fv('nmFaxAttnFP') || '';
-    const mailAddr = fv('nmMailAddr') || fv('nmMailFP') || '';
-    const webUrl  = fv('nmWebUrl') || '';
-    let subDetails = '';
-    if (nmAppealMode === 'Fax') subDetails = `Fax — Attention To: ${faxAttn || '[Appeal Dept]'}. Fax #: ${fv('nmFaxNum') || '[Fax #]'}.`;
-    else if (nmAppealMode === 'Mailing') subDetails = `Mailing Address: ${mailAddr || '[Address]'}.`;
-    else if (nmAppealMode === 'Website') subDetails = `Portal/Website: ${webUrl || '[URL]'}.`;
-
-    notes = `DOS: ${dos} | Claim #: ${claimNo} | Proc: ${proc}
-Status: Per ${ch}, the corrected claim was Denied on ${procDate} due to continued N846 flag despite correction.
-Why Appealing: Manual review confirmed 11-digit NDC (${corrNDC}) is valid and matches billed J-code (${proc}). Manufacturer: ${mfr}. UOM: ${uom}, Qty: ${qty}. UOM and quantity verified against MAR and vial label. Issue is payer-side.${jwNote}
-Documentation Attached: MAR, vial label, NDC↔J-code crosswalk, denied EOB/ERA.
-Submission Mode: ${modeStr}. ${subDetails}
-Submission: First-level appeal submitted on ${submDate}. Appeal TFL: ${aplTFL}.${extNotes ? '\nNotes: ' + extNotes : ''}`;
-
-  } else if (nmAction === 'closed') {
-    const finalOut = extNotes || '[Paid in full / Denial upheld / Partial payment accepted]';
-    notes = `DOS: ${dos} | Claim #: ${claimNo} | Proc: ${proc}
-Status: Per ${ch}, the claim was ${claimStatus} on ${procDate} following correction/appeal process (RARC N846).
-Final Outcome: ${finalOut}.
-NDC Used: ${corrNDC} | J-code: ${proc} | UOM: ${uom} | Qty: ${qty}.
-Account Action: Per client guidelines, remaining balance was adjusted per contract/write-off policy.
-Claim Status: CLOSED.`;
-
-  } else if (nmAction === 'secondary') {
-    notes = `DOS: ${dos} | Claim #: ${claimNo} | Proc: ${proc}
-Status: Primary claim ${claimStatus} on ${procDate} after N846 correction.
-Corrected NDC: ${corrNDC} | J-code: ${proc} | UOM: ${uom} | Qty: ${qty}.${jwNote}
-COB Data: Primary EOB/ERA attached with correct paid/denied amounts and adjustment codes for coordination of benefits.
-Next Step: Secondary/tertiary claim submitted on ${submDate} with corrected NDC data and primary EOB attached.
-Note: Confirmed secondary payer also accepts the corrected NDC on file — original incorrect NDC (${priorNDC}) was NOT carried forward to the secondary claim.
-Monitoring: Tracking remittance. Expected processing: ${tat}.${extNotes ? '\nNotes: ' + extNotes : ''}`;
-  }
-
-  document.getElementById('nmNotesOut').textContent = notes || '[No notes generated — please complete all fields]';
-  nmGoTo(NM_TOTAL);
-  // Auto-fill tracking fields based on action
-  nmAutoFillStatusFields(nmAction);
-}
-
-function nmCopyNotes() {
-  const txt = document.getElementById('nmNotesOut').textContent;
-  navigator.clipboard.writeText(txt).then(() => {
-    document.getElementById('nmCopiedMsg').style.display = 'block';
-    setTimeout(() => { document.getElementById('nmCopiedMsg').style.display = 'none'; }, 3000);
-  });
-}
-
-function nmReset() {
-  nmAction = ''; nmSource = ''; nmAppealMode = '';
-  document.querySelectorAll('.nm-opt-btn').forEach(b => b.classList.remove('selected'));
-  document.querySelectorAll('.nm-fi, .nm-fta').forEach(el => el.value = '');
-  document.querySelectorAll('input[type=checkbox]:not([disabled])').forEach(el => el.checked = false);
-  document.querySelectorAll('input[type=radio]').forEach(el => el.checked = false);
-  document.getElementById('nmCallingSection').style.display  = 'none';
-  document.getElementById('nmWebsiteSection').style.display  = 'none';
-  document.getElementById('nmAnalyseSection').style.display  = 'none';
-  document.getElementById('nmAppFaxSec').style.display       = 'none';
-  document.getElementById('nmAppMailSec').style.display      = 'none';
-  document.getElementById('nmAppWebSec').style.display       = 'none';
-  document.getElementById('nmJWQtyFg').style.display         = 'none';
-  document.getElementById('nmAppTFLFg').style.display        = 'none';
-  document.getElementById('nmFaxFPFg').style.display         = 'none';
-  document.getElementById('nmMailFPFg').style.display        = 'none';
-  document.getElementById('nmNotesOut').textContent = '[Notes will be generated here]';
-  // Reset status fields
-  ['nmSCSelect','nmACSelect','nmSrcSelect','nmSubCatSelect'].forEach(id => {
-    const el = document.getElementById(id); if(el) el.value = '';
-  });
-  ['sfStatusCode','sfActionCode','sfSource','sfSubCat'].forEach(id => {
-    const v = document.getElementById(id+'-val'); if(v) v.textContent = '—';
-  });
-  nmGoTo(1);
-}
 
 /* ── Keyboard close ── */
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') {
     closeLB();
-    closeNM();
     closeDrugToolModal();
   }
 });
@@ -6449,67 +5357,7 @@ document.getElementById('rarcContextInput').addEventListener('keydown', e => {
   if (e.key === 'Enter') runRarcAnalyze();
 });
 
-/* ══════════════════════════════════════════
-   STATUS FIELD DISPLAY + COPY
-══════════════════════════════════════════ */
-function updateSFDisplay(fieldId, selectId) {
-  const val = document.getElementById(selectId).value;
-  document.getElementById(fieldId + '-val').textContent = val || '—';
-}
 
-function nmCopyField(fieldId, selectId) {
-  const val = document.getElementById(selectId).value;
-  if (!val) return;
-  navigator.clipboard.writeText(val).then(() => {
-    const field = document.getElementById(fieldId);
-    field.classList.add('dbl-copied');
-    setTimeout(() => field.classList.remove('dbl-copied'), 1800);
-  }).catch(() => {
-    // Fallback
-    const ta = document.createElement('textarea');
-    ta.value = val; ta.style.position = 'fixed'; ta.style.opacity = '0';
-    document.body.appendChild(ta); ta.select();
-    document.execCommand('copy'); document.body.removeChild(ta);
-    const field = document.getElementById(fieldId);
-    field.classList.add('dbl-copied');
-    setTimeout(() => field.classList.remove('dbl-copied'), 1800);
-  });
-}
-
-// Auto-fill status fields based on selected action
-const NM_ACTION_DEFAULTS = {
-  corrected:     { sc: 'NDC Does Not Correspond to HCPCS/CPT Billed', ac: 'Corrected Claim Resubmitted — Resubmission Code 7', src: 'Internal Review', sub: 'Drug Billing / Data Mismatch' },
-  reprocessing:  { sc: 'NDC Does Not Correspond to HCPCS/CPT Billed', ac: 'Claim Sent for Reprocessing',                      src: 'Calling',          sub: 'Drug Billing / Data Mismatch' },
-  escalation:    { sc: 'NDC Does Not Correspond to HCPCS/CPT Billed', ac: 'Escalated to Coding Team',                         src: 'Internal Review',  sub: 'Drug Billing / J-Code NDC Crosswalk Error' },
-  appeal:        { sc: 'Claim Lacks Required Information (CO-16)',     ac: 'First Level Appeal Submitted',                     src: 'Calling',          sub: 'Drug Billing / Data Mismatch' },
-  closed:        { sc: 'NDC Does Not Correspond to HCPCS/CPT Billed', ac: 'Claim Closed — Paid in Full',                      src: 'Internal Review',  sub: 'Drug Billing / Data Mismatch' },
-  secondary:     { sc: 'Coordination of Benefits — Primary Paid',      ac: 'COB Established — Secondary Billed',               src: 'ERA / 835 Transaction', sub: 'Eligibility / COB / Primary Not Billed First' },
-};
-
-function nmAutoFillStatusFields(action) {
-  const def = NM_ACTION_DEFAULTS[action];
-  if (!def) return;
-  const setSelect = (id, val, dispId) => {
-    const sel = document.getElementById(id);
-    if (!sel) return;
-    // Find option matching val
-    let found = false;
-    for (let o of sel.options) { if (o.value === val) { sel.value = val; found = true; break; } }
-    if (!found) sel.value = '';
-    const disp = document.getElementById(dispId + '-val');
-    if (disp) disp.textContent = sel.value || '—';
-  };
-  setSelect('nmSCSelect',       def.sc,  'sfStatusCode');
-  setSelect('nmACSelect',       def.ac,  'sfActionCode');
-  setSelect('nmSrcSelect',      def.src, 'sfSource');
-  setSelect('nmSubCatSelect',   def.sub, 'sfSubCat');
-}
-
-// Hook into nmSelectAction to auto-fill
-const _origNmSelectAction = nmSelectAction;
-nmSelectAction = function(act) {
-  _origNmSelectAction(act);
-};
 
 /* ══════════════════════════════════════════
    NDC DRUG LOOKUP TOOL
