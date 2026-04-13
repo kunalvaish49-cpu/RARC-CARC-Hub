@@ -1017,17 +1017,17 @@ body.dark-mode .toast {
   </div>
   <div class="ftb-right">
     <!-- Expand All -->
-    <button class="ftb-btn" onclick="expandAllCards()" title="Expand all sections">
-      ⊞ <span>Expand</span>
-    </button>
+   <button class="ftb-btn" onclick="expandAllCards()" title="Expand all sections (Shift+E)">
+  ⊞ <span>Expand</span>
+</button>
     <!-- Collapse All -->
-    <button class="ftb-btn" onclick="collapseAllCards()" title="Collapse all sections">
-      ⊟ <span>Collapse</span>
-    </button>
+   <button class="ftb-btn" onclick="collapseAllCards()" title="Collapse all sections (Shift+C)">
+  ⊟ <span>Collapse</span>
+</button>
     <!-- Dark Mode -->
     <button class="ftb-btn" id="darkModeBtn" onclick="toggleDarkMode()" title="Toggle dark mode (D)">
-      🌙 <span>Dark</span>
-    </button>
+  🌙 <span>Dark</span>
+</button>
   </div>
 </div>
 
@@ -3696,7 +3696,7 @@ If the JW line is the only line, or if the administered line shows zero units, t
       </div><!-- end .grid -->
     </div><!-- end left column -->
 
-  <!-- ════ RIGHT SIDEBAR ════ -->
+    <!-- ════ RIGHT SIDEBAR ════ -->
    <aside>
       <div class="sidebar-card">
         <p class="sidebar-title">Quick‑Access Tools</p>
@@ -3712,20 +3712,10 @@ If the JW line is the only line, or if the administered line shows zero units, t
     <span class="res-arrow">↗</span>
 </a>
 
-<a class="res-link" href="https://kunalvaish49-cpu.github.io/Status-Code-Data/" target="_blank" rel="noopener">
-            <span class="res-icon" style="background:#e8f0ff;color:#1847cc">💊</span>
-            <span class="res-body">
-              <span class="res-name">AR RCM STATUS | ACTION | SUB-CATEGORY Tool</span>
-              <span class="res-desc">Search Denial Name</span>
-            </span>
-            <span class="res-arrow">↗</span>
-          </a>
-
-
 <a class="res-link" href="https://kunalvaish49-cpu.github.io/CMS-1500-UB-04/" target="_blank" rel="noopener">
             <span class="res-icon" style="background:#e8f0ff;color:#1847cc">💊</span>
             <span class="res-body">
-              <span class="res-name">CMS & UB-04 Box or FL Knowledge Tool</span>
+              <span class="res-name">CMS & UB-04 Box or FL Tool</span>
               <span class="res-desc">Search FL or Box#</span>
             </span>
             <span class="res-arrow">↗</span>
@@ -3863,7 +3853,6 @@ If the JW line is the only line, or if the administered line shows zero units, t
         </div>
       </div>
     </aside>
-
 
   </div><!-- end .layout -->
   </div><!-- end #rarc-section-N848 -->
@@ -7655,17 +7644,16 @@ function collapseAllCards() {
 ══════════════════════════════════════════ */
 const SM_SECTIONS = [
   { icon:'📋', label:'N846 — NDC/HCPCS Mismatch',  code:'N846' },
-  { icon:'📋', label:'N816 — Claim Frequency Error', code:'N816' },
-  { icon:'📋', label:'M119 — NPI Missing',           code:'M119' },
-  { icon:'📋', label:'N60  — Procedure Not Covered', code:'N60'  },
-  { icon:'📋', label:'N815 — Referring Provider',    code:'N815' },
-  { icon:'📋', label:'N847 — UOM/Quantity Error',    code:'N847' },
-  { icon:'📋', label:'N848 — Drug Administration',   code:'N848' },
+  { icon:'📋', label:'N816 — NDC/HCPCS Mismatch', code:'N816' },
+  { icon:'📋', label:'M119 — NDC/HCPCS Mismatch',           code:'M119' },
+  { icon:'📋', label:'N60  — NDC/HCPCS Mismatch', code:'N60'  },
+  { icon:'📋', label:'N815 — NDC/HCPCS Mismatch',    code:'N815' },
+  { icon:'📋', label:'N847 — NDC/HCPCS Mismatch',    code:'N847' },
+  { icon:'📋', label:'N848 — NDC/HCPCS Mismatch',   code:'N848' },
   { icon:'📋', label:'MA30 — TOB Error',             code:'MA30' },
      { icon:'📋', label:'MA40 — Admission Date Error',  code:'MA40' },
      { icon:'📋', label:'M44  — Condition Code Error',  code:'M44'  },
-  { icon:'💊', label:'NDC Drug Lookup Tool',         action:'drug' },
-  { icon:'📝', label:'Note Maker — AR Workflow',     action:'notes' },
+
 ];
 let smFocusIdx = -1;
 
@@ -7741,12 +7729,67 @@ function smSelect(el) {
   }
 }
 
+document.addEventListener('keydown', e => {
+  const modal = document.getElementById('searchModal');
+
+  // Close on Escape
+  if (e.key === 'Escape' && modal.classList.contains('open')) {
+    closeSearchModal();
+  }
+
+  // Open on Ctrl+K
+  if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+    e.preventDefault();
+    if (!modal.classList.contains('open')) {
+      openSearchModal();
+    }
+  }
+});
+
 /* ══ Patch copyToClipboard to show toast ══ */
 const _origCopy = window.copyToClipboard;
 window.copyToClipboard = function(text, btn) {
   _origCopy && _origCopy(text, btn);
   showToast('📋', `NDC <strong>${text}</strong> copied to clipboard`);
 };	
+
+document.addEventListener('keydown', e => {
+  const modal = document.getElementById('searchModal');
+
+  // Escape closes search modal
+  if (e.key === 'Escape' && modal.classList.contains('open')) {
+    closeSearchModal();
+  }
+
+  // Ctrl+K / Cmd+K opens search
+  if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+    e.preventDefault();
+    if (!modal.classList.contains('open')) {
+      openSearchModal();
+    }
+  }
+
+  // Expand All → Shift + E
+  if (e.shiftKey && e.key.toLowerCase() === 'e') {
+    e.preventDefault();
+    expandAllCards();
+  }
+
+  // Collapse All → Shift + C
+  if (e.shiftKey && e.key.toLowerCase() === 'c') {
+    e.preventDefault();
+    collapseAllCards();
+  }
+
+  // Dark Mode Toggle → D
+  if (
+    e.key.toLowerCase() === 'd' &&
+    !['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)
+  ) {
+    e.preventDefault();
+    toggleDarkMode();
+  }
+});
 
 </script>
 </body>
