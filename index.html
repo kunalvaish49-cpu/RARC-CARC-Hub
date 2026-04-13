@@ -4487,23 +4487,6 @@ src="https://raw.githubusercontent.com/kunalvaish49-cpu/VisualCode_UB-04/b39d3af
           </table>
         </div>
 
-        <!-- ── PAYER-SPECIFIC RULES ── -->
-        <div class="card span-12 card-collapsible">
-          <div class="label">Payer-Specific TOB Requirements</div>
-          <p class="muted" style="margin-bottom:12px">TOB rules and edits vary significantly by payer and program. Verify before resubmitting:</p>
-          <table class="payer-table">
-            <thead><tr><th>Payer Type</th><th>Key Guidance</th></tr></thead>
-            <tbody>
-              <tr><td><span class="payer-name">Medicare (FFS — MAC)</span></td><td>CMS publishes the definitive TOB code list in the Medicare Claims Processing Manual (Pub. 100-04). MAC FISS system applies strict TOB edits — an invalid TOB will suspend or reject the claim before it reaches a human reviewer. TOB drives the applicable PRICER (IPPS, OPPS, SNF PDPM, HHA PDGM, Hospice per diem) — the wrong TOB results in the wrong payment system being applied, not just a denial. Condition code D4 is required when resubmitting a corrected claim to replace a previously processed claim.</td></tr>
-              <tr><td><span class="payer-name">Medicare Advantage (MA Plans)</span></td><td>MA plans follow CMS TOB structure but may apply additional plan-specific edits. Some MA plans have narrower accepted TOB lists — confirm with the plan's provider manual before submitting. MA plans may also apply prior authorization requirements that are TOB-specific — a TOB change may trigger a retro-auth review.</td></tr>
-              <tr><td><span class="payer-name">Medicaid (State Programs)</span></td><td>State Medicaid programs follow the UB-04 TOB structure but may have state-specific TOB restrictions. Some states do not accept certain facility type codes from specific provider types. Check the state Medicaid billing manual and companion guide — state edits may be more restrictive than CMS baseline. Some states require a prior authorization number that is linked to the TOB — a TOB change may invalidate the auth.</td></tr>
-              <tr><td><span class="payer-name">Commercial / Managed Care</span></td><td>Commercial payers use the UB-04 TOB but may have plan-specific accepted TOB lists, especially for carved-out benefit categories (behavioral health, substance use, home health). Confirm with the payer's EDI companion guide — some commercial payers do not accept interim billing frequencies (2, 3, 4) and require admit-through-discharge claims only.</td></tr>
-              <tr><td><span class="payer-name">TRICARE / VA</span></td><td>Follows CMS TOB structure for institutional claims but has specific rules for military treatment facility (MTF) coordination. Confirm TOB with the TRICARE regional contractor or VA Fee Basis program before resubmitting.</td></tr>
-              <tr><td><span class="payer-name">Workers Compensation</span></td><td>WC payers vary significantly — many accept UB-04 with standard TOBs but some state WC programs have modified TOB requirements. Confirm with the WC carrier or state program before resubmitting an MA30-denied claim.</td></tr>
-            </tbody>
-          </table>
-        </div>
-
         <!-- ── WHAT NOT TO DO ── -->
         <div class="card span-6 card-collapsible">
           <div class="label">What NOT to Do</div>
