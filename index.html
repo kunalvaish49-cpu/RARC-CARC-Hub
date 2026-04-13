@@ -1114,6 +1114,7 @@ body.dark-mode .toast {
 <span class="rarc-chip" onclick="rarcChipClick('MA30')">MA30</span>
 <span class="rarc-chip" onclick="rarcChipClick('MA40')">MA40</span>
 <span class="rarc-chip" onclick="rarcChipClick('M44')">M44</span>
+<span class="rarc-chip" onclick="rarcChipClick('M34')">M34</span>
 
       </div>
       <!-- Search results toast -->
@@ -5808,6 +5809,717 @@ src="https://raw.githubusercontent.com/kunalvaish49-cpu/VisualCode_UB-04/b39d3af
 </div><!-- end .layout -->
 </div><!-- end #rarc-section-M44 -->
 
+<!-- ═══════════════════════════════════ M34 SECTION ═══════════════════════════════════ -->
+<div id="rarc-section-M34" class="rarc-section" style="display:none">
+<div class="layout">
+
+<!-- ════ LEFT COLUMN ════ -->
+<div>
+
+  <!-- Result Header -->
+  <div class="result-header">
+    <div class="result-code-block">
+      <span class="codebox">M34</span>
+      <span class="type-badge supp">REMARK</span>
+      <span class="type-badge warn" style="margin-top:2px">CO-16</span>
+    </div>
+    <div class="result-desc">
+      <p>Claim Lacks the CLIA Certification Number</p>
+      <span class="ctx-pill">Laboratory Billing · CMS-1500 Box 23 / UB-04 FL81 · Professional &amp; Facility Lab Claims</span>
+      <div style="margin-top:14px">
+        <div class="label">Common CARC Pairing</div>
+        <div class="pairs">
+      <span class="pair">CO-16</span>
+            <span class="pair">CMS-1500</span>
+            <span class="pair">UB-04</span>
+            <span class="pair">Box 23</span>
+            <span class="pair">Lab Claims</span>
+            <span class="pair">CPT 80000–89999</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid">
+
+    <!-- What This Means -->
+    <div class="card span-12 card-collapsible">
+      <div class="label">What This Means</div>
+      <p class="muted">
+       Clinical Laboratory Improvement Amendments</strong>. Any facility — independent lab, physician office lab, hospital outreach lab, or clinic — that performs testing on human specimens for health assessment, diagnosis, treatment, or prevention of disease is required by federal law to hold a current CLIA certificate. When a claim includes laboratory procedure codes (typically CPT 80000–89999) and the CLIA certification number is missing, incomplete, or invalid, the payer will deny with M34. The claim cannot process until a valid CLIA number is present on the claim.
+      </p>
+      <div class="alert info" style="margin-top:14px">
+        <div class="alert-icon">ℹ️</div>
+        <div>
+          <div class="alert-title">Important Distinction</div>
+          <div class="alert-text">
+           M34 does not mean the lab tests are not covered or medically unnecessary. It is a regulatory compliance and data integrity error — the payer cannot confirm that the performing laboratory is federally certified to conduct the tests billed. This is almost always resolved with a corrected claim supplying the valid CLIA number. Do not appeal before correcting the claim.
+          </div>
+
+          <br>
+
+          <button class="thumb-btn" onclick="openLB('https://raw.githubusercontent.com/kunalvaish49-cpu/VisualCode_UB-04/b39d3afe093b6896ed72d28928d7932e541acc92/FL-81%20UB-04.jpg')">
+            <img class="thumb-img"
+              src="https://raw.githubusercontent.com/kunalvaish49-cpu/VisualCode_UB-04/b39d3afe093b6896ed72d28928d7932e541acc92/FL-81%20UB-04.jpg" />
+          </button>
+        </div>
+      </div>
+    </div>
+
+
+
+      <!-- What Is a CLIA Number -->
+      <div class="card span-12 card-collapsible">
+        <div class="label">What Is a CLIA Number &amp; What Does It Look Like</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:8px">
+          <div>
+            <div class="nm-h3" style="margin-top:0">CLIA Number Format</div>
+            <ul class="info-list">
+              <li>CLIA numbers are exactly <strong>10 characters</strong> — no more, no fewer</li>
+              <li>Format: <strong>2-letter state code + D + 7 numeric digits</strong></li>
+              <li>Example: <strong>14D0000001</strong> — where <strong>14</strong> = state code, <strong>D</strong> = laboratory type designator, <strong>0000001</strong> = sequential number</li>
+              <li>The letter <strong>D</strong> in position 3 is the standard lab designator — some specialty labs use different letters (e.g., H for HHS/reference labs)</li>
+              <li>No dashes, spaces, or special characters — entered as a continuous 10-character string</li>
+              <li>CLIA numbers are issued and maintained by CMS — searchable in the <strong>CLIA Online Database (QCOR)</strong></li>
+            </ul>
+            <div class="proc" style="margin-top:12px">
+CLIA Number Format:
+  ✅ Correct:   14D0000001   (10 chars, no spaces)
+  ❌ Wrong:     14D-000-0001 (dashes not allowed)
+  ❌ Wrong:     14D00001     (too short — must be 10)
+  ❌ Wrong:     14D00000001X (too long — must be 10)
+  ❌ Wrong:     14D0000000   (invalid check digit)
+            </div>
+          </div>
+          <div>
+            <div class="nm-h3" style="margin-top:0">Types of CLIA Certificates</div>
+            <ul class="info-list">
+              <li><strong>Certificate of Waiver (CoW):</strong> Labs performing only CLIA-waived simple tests (e.g., dipstick UA, fingerstick glucose, rapid strep). Limited test menu — waived tests only</li>
+              <li><strong>Certificate for Provider-Performed Microscopy (PPM):</strong> Physician or mid-level providers who perform microscopy procedures during the patient visit (e.g., wet mounts, KOH preps)</li>
+              <li><strong>Certificate of Compliance (CoC):</strong> Labs performing moderate or high-complexity testing that pass a standard CLIA inspection</li>
+              <li><strong>Certificate of Accreditation (CoA):</strong> Labs accredited by a CMS-approved accreditation organization (CAP, Joint Commission, COLA, AABB, etc.) — deemed to meet CLIA requirements</li>
+              <li><strong>Certificate of Registration:</strong> Temporary certificate issued to new labs while awaiting inspection — allows billing during the initial certification period</li>
+            </ul>
+            <div class="alert warn" style="margin-top:12px;margin-bottom:0">
+              <div class="alert-icon">⚠️</div>
+              <div>
+                <div class="alert-title">Certificate Type Must Match Tests Billed</div>
+                <div class="alert-text">A Certificate of Waiver only covers waived tests. Billing high-complexity CPT codes under a CoW CLIA number is a compliance violation and will result in M34 or a medical necessity/compliance denial. Always confirm the certificate type covers the complexity level of the tests being billed.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Where the CLIA Number Goes on the Claim -->
+      <div class="card span-12 card-collapsible">
+        <div class="label">Where the CLIA Number Goes on the Claim</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:8px">
+          <div>
+            <div class="nm-h3" style="margin-top:0">CMS-1500 (Professional Claims)</div>
+            <ul class="info-list">
+              <li><strong>Box 23 — Prior Authorization Number:</strong> The CLIA certification number is entered in Box 23 when billing laboratory services on the CMS-1500</li>
+              <li>Enter the 10-character CLIA number with no spaces, dashes, or qualifiers in the printed Box 23 field</li>
+              <li>EDI 837P equivalent: <strong>Loop 2300 REF*X4</strong> — qualifier X4 with the 10-digit CLIA number as the reference identification</li>
+              <li>The CLIA number in Box 23 identifies the <strong>performing laboratory</strong> — even if the ordering physician is billing</li>
+              <li>If the performing lab is a reference lab (send-out), the reference lab's CLIA number goes in Box 23, not the ordering provider's CLIA</li>
+            </ul>
+            <div class="proc" style="margin-top:10px">
+CMS-1500 Box 23:
+  Field Label:  Prior Authorization Number
+  CLIA Entry:   14D0000001  (no spaces/dashes)
+  EDI 837P:     Loop 2300 REF*X4*14D0000001~
+            </div>
+          </div>
+          <div>
+            <div class="nm-h3" style="margin-top:0">UB-04 (Facility / Hospital Lab Claims)</div>
+            <ul class="info-list">
+              <li><strong>FL81 — Attestation / Code-Code Field:</strong> On the UB-04, the CLIA number is typically reported in FL81 using the qualifier <strong>X4</strong> followed by the 10-character CLIA number</li>
+              <li>Some MACs and payers require the CLIA number in <strong>FL67 (Other Diagnosis Codes)</strong> or a payer-specific remark field — always check the payer companion guide</li>
+              <li>EDI 837I equivalent: <strong>Loop 2300 REF*X4</strong> — same qualifier and format as the 837P</li>
+              <li>For hospital outpatient lab claims billed under the hospital's CLIA, use the hospital's CLIA number</li>
+              <li>For reference lab send-outs billed on a UB-04, use the reference lab's CLIA number</li>
+            </ul>
+            <div class="proc" style="margin-top:10px">
+UB-04 FL81 Entry:
+  Qualifier:    X4
+  CLIA Number:  14D0000001
+  EDI 837I:     Loop 2300 REF*X4*14D0000001~
+            </div>
+          </div>
+        </div>
+        <div class="alert warn" style="margin-top:14px;margin-bottom:0">
+          <div class="alert-icon">⚠️</div>
+          <div>
+            <div class="alert-title">Box 23 Conflict — Prior Authorization vs. CLIA Number</div>
+            <div class="alert-text">Box 23 on the CMS-1500 is a shared field used for both prior authorization numbers and CLIA numbers depending on the service type. On laboratory claims, Box 23 must carry the CLIA number — not a prior auth number. If a prior auth is also required for the lab test, check the payer's companion guide for how to submit both — some payers use a separate loop or note field.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Who Is Required to Have a CLIA Number -->
+      <div class="card span-12 card-collapsible">
+        <div class="label">Who Is Required to Have a CLIA Number — Billing Scenarios</div>
+        <table class="mod-table">
+          <thead>
+            <tr>
+              <th>Lab Setting</th>
+              <th>CLIA Required?</th>
+              <th>Whose CLIA Goes on the Claim</th>
+              <th>Common M34 Trap</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Independent / Commercial Lab</strong><br><span style="font-size:12px;color:var(--muted)">(Quest, LabCorp, regional labs)</span></td>
+              <td><span class="tag-teal" style="font-size:11px">Yes — Always</span></td>
+              <td>The independent lab's own CLIA number — they bill directly under it</td>
+              <td>Lab bills under a satellite location CLIA instead of the main performing site CLIA</td>
+            </tr>
+            <tr>
+              <td><strong>Physician Office Lab (POL)</strong><br><span style="font-size:12px;color:var(--muted)">(In-office testing)</span></td>
+              <td><span class="tag-teal" style="font-size:11px">Yes — Always</span></td>
+              <td>The physician practice's own CLIA number — entered in Box 23</td>
+              <td>Billing system default does not auto-populate CLIA in Box 23; or practice has an expired certificate</td>
+            </tr>
+            <tr>
+              <td><strong>Hospital Outreach Lab</strong><br><span style="font-size:12px;color:var(--muted)">(Hospital lab performing outreach testing)</span></td>
+              <td><span class="tag-teal" style="font-size:11px">Yes — Always</span></td>
+              <td>The hospital's CLIA number — entered in FL81 on UB-04 or Box 23 on CMS-1500 depending on claim type</td>
+              <td>Outreach lab billed on CMS-1500 under physician NPI but physician's CLIA used instead of hospital CLIA</td>
+            </tr>
+            <tr>
+              <td><strong>Reference Lab (Send-Out)</strong><br><span style="font-size:12px;color:var(--muted)">(Ordering lab sends specimen to another lab)</span></td>
+              <td><span class="tag-teal" style="font-size:11px">Yes — Reference lab's CLIA</span></td>
+              <td>The <strong>performing</strong> reference lab's CLIA number — not the ordering provider's CLIA</td>
+              <td>Ordering physician's CLIA mistakenly entered instead of the reference lab's CLIA that actually performed the test</td>
+            </tr>
+            <tr>
+              <td><strong>Clinic / Urgent Care with In-House Lab</strong></td>
+              <td><span class="tag-teal" style="font-size:11px">Yes — Always</span></td>
+              <td>The clinic's own CLIA number — must match the physical location performing the test</td>
+              <td>Multi-site clinic uses corporate CLIA instead of the site-specific CLIA for the performing location</td>
+            </tr>
+            <tr>
+              <td><strong>Mobile / Traveling Lab</strong></td>
+              <td><span class="tag-teal" style="font-size:11px">Yes — Special rules</span></td>
+              <td>Must have a CLIA certificate covering the testing type; mobile labs typically obtain certificates tied to their home base address</td>
+              <td>Performing tests at patient locations not covered by their CLIA certificate address — potential compliance issue</td>
+            </tr>
+            <tr>
+              <td><strong>Tests Performed at Point-of-Care (POC)</strong><br><span style="font-size:12px;color:var(--muted)">(ED, ICU, bedside)</span></td>
+              <td><span class="tag-amber" style="font-size:11px">Waived Tests: CoW required</span></td>
+              <td>The hospital's or clinic's CLIA number — Certificate of Waiver for waived tests</td>
+              <td>POC tests billed without CLIA because staff assumed hospital global billing covers it — CLIA still required on the individual claim line</td>
+            </tr>
+            <tr>
+              <td><strong>Ordering Physician (Does NOT perform the test)</strong></td>
+              <td><span class="tag-rose" style="font-size:11px">No — Do Not Bill CLIA</span></td>
+              <td>The ordering physician does not enter their own CLIA (or lack thereof) — they bill for the interpretation only; the performing lab's CLIA goes on the claim</td>
+              <td>Ordering provider accidentally enters their own NPI or Tax ID in Box 23 instead of the performing lab's CLIA</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- CPT Codes That Require CLIA -->
+      <div class="card span-12 card-collapsible">
+        <div class="label">CPT Code Ranges That Require CLIA on the Claim</div>
+        <p class="muted" style="margin-bottom:12px;font-size:13px">These are the CPT code ranges most commonly associated with M34 denials — any claim line containing one of these codes must include a valid CLIA number.</p>
+        <table class="mod-table">
+          <thead>
+            <tr><th>CPT Range</th><th>Category</th><th>Examples</th><th>CLIA Certificate Level Typically Required</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="mod-code">80047–80081</span></td>
+              <td>Metabolic Panels</td>
+              <td>BMP, CMP, Lipid panel, Hepatic function panel</td>
+              <td>Moderate Complexity — CoC or CoA</td>
+            </tr>
+            <tr>
+              <td><span class="mod-code">80150–80377</span></td>
+              <td>Drug Assay / Therapeutic Drug Monitoring</td>
+              <td>Digoxin, Lithium, Phenytoin, drug screen panels</td>
+              <td>Moderate to High Complexity — CoC or CoA</td>
+            </tr>
+            <tr>
+              <td><span class="mod-code">81000–81099</span></td>
+              <td>Urinalysis</td>
+              <td>Dipstick UA (waived), microscopic UA, urine culture</td>
+              <td>Waived (dipstick) — CoW; Microscopic and culture — Moderate Complexity</td>
+            </tr>
+            <tr>
+              <td><span class="mod-code">81200–81479</span></td>
+              <td>Molecular Pathology / Genetic Testing</td>
+              <td>BRCA, Factor V Leiden, KRAS, microsatellite instability</td>
+              <td>High Complexity — CoC or CoA</td>
+            </tr>
+            <tr>
+              <td><span class="mod-code">82000–84999</span></td>
+              <td>Chemistry / Blood Tests</td>
+              <td>CBC, HbA1c, TSH, PSA, glucose, electrolytes, troponin</td>
+              <td>Moderate to High Complexity — CoC or CoA; some waived (e.g., fingerstick glucose — CoW)</td>
+            </tr>
+            <tr>
+              <td><span class="mod-code">85000–85999</span></td>
+              <td>Hematology</td>
+              <td>CBC with differential, coagulation studies (PT/INR, aPTT), platelet count</td>
+              <td>Moderate Complexity — CoC or CoA</td>
+            </tr>
+            <tr>
+              <td><span class="mod-code">86000–86849</span></td>
+              <td>Immunology / Serology</td>
+              <td>ANA, HIV antibody, hepatitis panels, RPR, rheumatoid factor</td>
+              <td>Moderate to High Complexity — CoC or CoA</td>
+            </tr>
+            <tr>
+              <td><span class="mod-code">86850–86999</span></td>
+              <td>Transfusion Medicine</td>
+              <td>Blood type and crossmatch, antibody identification, compatibility testing</td>
+              <td>High Complexity — CoC or CoA</td>
+            </tr>
+            <tr>
+              <td><span class="mod-code">87001–87999</span></td>
+              <td>Microbiology / Infectious Disease</td>
+              <td>Rapid strep (waived), blood cultures, respiratory panels, COVID-19 PCR, flu/RSV</td>
+              <td>Waived (rapid antigen) — CoW; PCR/culture — Moderate to High Complexity</td>
+            </tr>
+            <tr>
+              <td><span class="mod-code">88000–88299</span></td>
+              <td>Cytopathology</td>
+              <td>Pap smear, fine needle aspiration, cytology review</td>
+              <td>High Complexity — CoC or CoA</td>
+            </tr>
+            <tr>
+              <td><span class="mod-code">88300–88399</span></td>
+              <td>Surgical Pathology</td>
+              <td>Tissue biopsy review, surgical specimen examination</td>
+              <td>High Complexity — CoC or CoA</td>
+            </tr>
+            <tr>
+              <td><span class="mod-code">89049–89240</span></td>
+              <td>Other Laboratory / Miscellaneous</td>
+              <td>Semen analysis, body fluid analysis, calculus analysis</td>
+              <td>Moderate to High Complexity — CoC or CoA</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="alert warn" style="margin-top:14px;margin-bottom:0">
+          <div class="alert-icon">📌</div>
+          <div>
+            <div class="alert-title">Waived vs. Non-Waived Tests — Key Rule</div>
+            <div class="alert-text">A Certificate of Waiver only covers the specific waived tests on the FDA's waived test list. If a POL or clinic has a CoW but bills CPT codes for moderate or high-complexity tests, those tests require a CoC or CoA — and billing under a CoW CLIA for non-waived tests is both a billing error and a compliance violation. Always verify the CLIA certificate type covers the complexity level of every CPT code being billed.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Why This Happens -->
+      <div class="card span-6 card-collapsible">
+        <div class="label">Why This Happens — Most Common Causes</div>
+        <ul class="info-list">
+          <li>Box 23 (CMS-1500) or FL81 (UB-04) left blank during claim entry — most common cause</li>
+          <li>Billing system not configured to auto-populate the CLIA number on lab claim lines</li>
+          <li>CLIA number expired — laboratory's certificate lapsed and was not renewed before the date of service</li>
+          <li>Wrong CLIA number submitted — number belongs to a different location, a different lab, or contains a typo</li>
+          <li>CLIA number entered with incorrect format — dashes, spaces, or wrong character count</li>
+          <li>Reference lab's CLIA not included — ordering provider billed for a send-out test but did not populate the performing reference lab's CLIA number</li>
+          <li>Multi-site practice used the corporate or headquarters CLIA instead of the site-specific CLIA for the location that actually performed the test</li>
+          <li>New lab or new physician office lab — CLIA application submitted but certificate not yet issued; billing started before CLIA was in hand</li>
+          <li>EHR-to-billing interface does not map the CLIA number to Box 23 or FL81 in the claim export</li>
+          <li>Provider billed a prior auth number in Box 23 (overwriting the CLIA field) without realizing the field serves dual purpose</li>
+          <li>Claim template carries a CLIA number for a different provider or expired certificate and was not updated</li>
+          <li>Payer updated their CLIA validation rules and now requires the number on claim types where it was previously optional</li>
+        </ul>
+      </div>
+
+      <!-- How to Fix It -->
+      <div class="card span-6 card-collapsible">
+        <div class="label">How to Fix It — Step by Step</div>
+        <div class="nm-h3" style="margin-top:4px">Standard Correction Process</div>
+        <ol class="step-list">
+          <li><span class="sn">1</span><span>Identify which lab performed the testing on the date of service — the CLIA number must belong to the <strong>performing</strong> lab, not the ordering provider</span></li>
+          <li><span class="sn">2</span><span>Locate the performing lab's CLIA certificate — check the physical certificate on file, the practice management system's provider setup, or look up the CLIA number in the <strong>CMS CLIA Online Database (QCOR)</strong> at qcor.cms.gov</span></li>
+          <li><span class="sn">3</span><span>Verify the CLIA certificate was <strong>active and not expired</strong> on the date of service — an expired CLIA will deny even if the number format is correct</span></li>
+          <li><span class="sn">4</span><span>Verify the CLIA certificate type covers the complexity level of the CPT codes being billed (waived vs. moderate vs. high complexity)</span></li>
+          <li><span class="sn">5</span><span>Confirm the CLIA number format — exactly 10 characters, no dashes or spaces</span></li>
+          <li><span class="sn">6</span><span>Enter the CLIA number in the correct claim field: <strong>Box 23 on CMS-1500</strong> or <strong>FL81 with X4 qualifier on UB-04</strong></span></li>
+          <li><span class="sn">7</span><span>Verify no other data is conflicting with Box 23 — if a prior auth is also needed, check the payer companion guide for how to handle both</span></li>
+          <li><span class="sn">8</span><span>Run the corrected claim through the scrubber to confirm the CLIA field validates before submission</span></li>
+          <li><span class="sn">9</span><span>Submit the corrected claim with Resubmission Code 7 (replacement claim)</span></li>
+        </ol>
+        <div class="alert ok" style="margin-top:14px;margin-bottom:0">
+          <div class="alert-icon">🔍</div>
+          <div>
+            <div class="alert-title">How to Look Up a CLIA Number</div>
+            <div class="alert-text">Go to <strong>qcor.cms.gov</strong> → Basic Search → search by provider name, address, or NPI. The result will show the CLIA number, certificate type, effective date, expiration date, and certificate status. Always confirm the certificate was active on the date of service before billing.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CLIA Expiration & Renewal -->
+      <div class="card span-12 card-collapsible">
+        <div class="label">CLIA Expiration, Renewal &amp; What To Do If the Certificate Lapsed</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:10px">
+          <div>
+            <div class="nm-h3" style="margin-top:0">CLIA Certificate Validity</div>
+            <ul class="info-list">
+              <li>Most CLIA certificates are valid for <strong>2 years</strong> from the date of issue</li>
+              <li>Certificate of Waiver — renewed every 2 years</li>
+              <li>Certificate of Compliance and Accreditation — renewed every 2 years following successful inspection or accreditation renewal</li>
+              <li>CMS sends renewal notices approximately 6 months before expiration — do not wait for the notice; track the expiration date proactively</li>
+              <li>Billing for lab services after the CLIA expiration date is a federal compliance violation — claims will deny and may trigger an audit</li>
+            </ul>
+          </div>
+          <div>
+            <div class="nm-h3" style="margin-top:0">If the Certificate Expired Before DOS</div>
+            <ul class="info-list">
+              <li>Do <strong>not</strong> submit a corrected claim with the expired CLIA number — the payer will deny again</li>
+              <li>Contact your CMS Regional Office or CLIA program contractor immediately to determine if retroactive reinstatement is possible</li>
+              <li>In some cases, CMS will issue a Certificate of Registration while the renewal inspection is scheduled — confirm if this covers the DOS</li>
+              <li>If services were billed under an expired CLIA, escalate to compliance before resubmitting — this may require a refund or repayment to Medicare</li>
+              <li>Document all steps taken and keep correspondence with CMS on file</li>
+            </ul>
+          </div>
+          <div>
+            <div class="nm-h3" style="margin-top:0">If the Certificate Was Valid But Payer Still Denies</div>
+            <ul class="info-list">
+              <li>Call the payer's provider services and confirm the CLIA number is loaded in their provider file</li>
+              <li>Some payers maintain their own internal CLIA validation database — if the lab's CLIA is not in their system, provide the CLIA certificate as supporting documentation</li>
+              <li>Request that the payer update their provider file with the current CLIA number before resubmitting the corrected claim</li>
+              <li>If the payer confirms the CLIA is valid but the claim still denies, escalate to a first-level appeal with a copy of the CLIA certificate attached</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modifiers to Know -->
+      <div class="card span-12 card-collapsible">
+        <div class="label">Modifiers Relevant to Laboratory Claims &amp; M34</div>
+        <table class="mod-table">
+          <thead>
+            <tr><th>Modifier</th><th>Description</th><th>How It Relates to M34 / CLIA</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="mod-code">QW</span></td>
+              <td>CLIA-Waived Test</td>
+              <td><strong>Most important modifier for M34.</strong> Modifier QW must be appended to CPT codes for tests performed under a Certificate of Waiver. Without QW, the payer may expect a CoC/CoA CLIA number. With QW, the payer knows to validate against a CoW CLIA. Missing QW on a waived test can trigger M34 even when the CLIA number is present</td>
+            </tr>
+            <tr>
+              <td><span class="mod-code">90</span></td>
+              <td>Reference (Outside) Laboratory</td>
+              <td>Required when a provider bills for lab tests performed by a reference (send-out) laboratory. When modifier 90 is present, the CLIA number in Box 23 must belong to the reference lab — not the ordering provider. Forgetting to update the CLIA to the reference lab's number while using modifier 90 is a top M34 cause</td>
+            </tr>
+            <tr>
+              <td><span class="mod-code">91</span></td>
+              <td>Repeat Clinical Diagnostic Laboratory Test</td>
+              <td>Used when the same lab test is repeated on the same day. Each repeated test line still requires the same CLIA number in Box 23 — modifier 91 does not waive the CLIA requirement</td>
+            </tr>
+            <tr>
+              <td><span class="mod-code">GZ</span></td>
+              <td>Item or Service Expected to Be Denied as Not Reasonable and Necessary</td>
+              <td>Used when submitting a lab claim without an ABN but the provider believes it may be denied for medical necessity. CLIA must still be present even on GZ-modified claims</td>
+            </tr>
+            <tr>
+              <td><span class="mod-code">LR</span></td>
+              <td>Laboratory Round Trip</td>
+              <td>Used for specimen transport claims. The lab performing the test still requires a valid CLIA number on the associated service lines</td>
+            </tr>
+            <tr>
+              <td><span class="mod-code">59</span></td>
+              <td>Distinct Procedural Service</td>
+              <td>Used to unbundle lab services when separately performed. CLIA is required on each unbundled lab service line — modifier 59 does not override the CLIA requirement</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="alert info" style="margin-top:14px;margin-bottom:0">
+          <div class="alert-icon">🔬</div>
+          <div>
+            <div class="alert-title">QW Modifier + CLIA Certificate of Waiver — Paired Requirement</div>
+            <div class="alert-text">For waived tests, modifier QW and a valid Certificate of Waiver CLIA number must <em>both</em> be present. If either is missing, the claim will deny. QW without a CoW CLIA number triggers M34. A CoW CLIA without QW may cause the payer's system to expect a higher-complexity certificate and deny for the wrong certificate type. Always submit both together on every waived test line.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Payer-Specific Rules -->
+      <div class="card span-12 card-collapsible">
+        <div class="label">Payer-Specific CLIA Rules — What to Check by Payer Type</div>
+        <table class="payer-table">
+          <thead>
+            <tr><th>Payer Type</th><th>CLIA Requirements</th><th>Key Watch Points</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="payer-name">Medicare (Part B)</span></td>
+              <td>Strictly enforced — CLIA number required in Box 23 on all lab claims (CPT 80000–89999). CWF validates CLIA against CMS's own CLIA database in real time</td>
+              <td>Medicare will cross-reference the CLIA number against their CLIA database at time of adjudication. Expired CLIA = hard denial. Modifier QW required for all waived tests. Reference lab billing requires modifier 90 + reference lab's CLIA</td>
+            </tr>
+            <tr>
+              <td><span class="payer-name">Medicare Advantage (MA Plans)</span></td>
+              <td>Follow Medicare FFS CLIA rules as a baseline; individual MA plans may have additional or stricter requirements</td>
+              <td>Check each MA plan's companion guide — some require the CLIA number to be pre-loaded in their provider portal before claims will process. Call provider services if M34 appears despite a valid CLIA</td>
+            </tr>
+            <tr>
+              <td><span class="payer-name">Medicaid (State Programs)</span></td>
+              <td>Most state Medicaid programs require CLIA on lab claims following federal CMS guidelines; state-specific rules vary</td>
+              <td>Some states require the CLIA number be enrolled with the state Medicaid program separately from CMS. Check state Medicaid billing manual. Medicaid managed care plans may have their own requirements beyond the state FFS rules</td>
+            </tr>
+            <tr>
+              <td><span class="payer-name">Commercial / Private Payers</span></td>
+              <td>Most commercial payers follow Medicare CLIA reporting rules; enforcement varies by payer</td>
+              <td>Some commercial payers require the CLIA to be in the provider's credentialing file before claims will process. Others validate Box 23 on submission. Review each payer's lab billing companion guide or call provider services if M34 appears unexpectedly</td>
+            </tr>
+            <tr>
+              <td><span class="payer-name">TRICARE / VA</span></td>
+              <td>Federal payers follow CMS CLIA rules — CLIA required on all laboratory claims</td>
+              <td>TRICARE follows DoD billing guidelines which align with Medicare CLIA requirements. Ensure the lab's CLIA is enrolled with the TRICARE contractor before submitting</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- What NOT to Do -->
+      <div class="card span-6 card-collapsible">
+        <div class="label">What NOT to Do</div>
+        <ul class="info-list">
+          <li>Do not appeal before correcting the CLIA number on the claim — M34 is almost always a data correction, not a coverage dispute</li>
+          <li>Do not submit a corrected claim with the same blank, invalid, or expired CLIA number</li>
+          <li>Do not use the ordering physician's CLIA number on a reference lab send-out — the performing lab's CLIA must be used</li>
+          <li>Do not use a corporate or headquarters CLIA number for a satellite testing location that has its own site-specific CLIA</li>
+          <li>Do not begin billing laboratory services before the CLIA certificate is issued — a CLIA application in process is not a valid CLIA number</li>
+          <li>Do not enter dashes, spaces, or extra characters in the CLIA number field — exactly 10 characters, no formatting</li>
+          <li>Do not assume the billing system auto-populates Box 23 correctly — verify the CLIA number in the claim preview before submitting</li>
+          <li>Do not submit a Certificate of Waiver CLIA number for tests that require moderate or high-complexity certification</li>
+          <li>Do not put a prior authorization number in Box 23 without confirming that it does not overwrite the CLIA number requirement for lab claims</li>
+        </ul>
+        <div class="alert err" style="margin-top:14px">
+          <div class="alert-icon">🚫</div>
+          <div class="alert-text">Billing laboratory services without a valid, active CLIA number is not only a claim denial — it is a federal regulatory violation under CLIA (42 CFR Part 493). Repeated billing under an expired or invalid CLIA can trigger a CMS audit, civil monetary penalties, and exclusion from Medicare and Medicaid. Always verify CLIA status before billing.</div>
+        </div>
+      </div>
+
+      <!-- Prevention Checklist -->
+      <div class="card span-6 card-collapsible">
+        <div class="label">Prevention Checklist</div>
+        <p class="muted" style="margin-bottom:10px;font-size:13px">Before submitting any laboratory claim, confirm:</p>
+        <ul class="checklist">
+          <li><span class="ck-icon">✅</span><span>CLIA number is populated in Box 23 (CMS-1500) or FL81 with X4 qualifier (UB-04) — not blank</span></li>
+          <li><span class="ck-icon">✅</span><span>CLIA number belongs to the <strong>performing</strong> laboratory — not the ordering provider</span></li>
+          <li><span class="ck-icon">✅</span><span>CLIA number is exactly 10 characters with no dashes, spaces, or special characters</span></li>
+          <li><span class="ck-icon">✅</span><span>CLIA certificate was active and not expired on the date of service — verified in QCOR</span></li>
+          <li><span class="ck-icon">✅</span><span>CLIA certificate type (CoW, CoC, CoA) covers the complexity level of the CPT codes being billed</span></li>
+          <li><span class="ck-icon">✅</span><span>For waived tests — Modifier QW appended to each waived CPT code AND a CoW CLIA number is in Box 23</span></li>
+          <li><span class="ck-icon">✅</span><span>For reference lab send-outs — Modifier 90 is on the claim line AND the reference lab's CLIA is in Box 23</span></li>
+          <li><span class="ck-icon">✅</span><span>For multi-site practices — site-specific CLIA used for the location that actually performed the test</span></li>
+          <li><span class="ck-icon">✅</span><span>Billing system configured to auto-populate the correct CLIA number — verified in claim preview before submission</span></li>
+          <li><span class="ck-icon">✅</span><span>CLIA expiration date tracked — renewal initiated well before expiration; no billing gap during renewal period</span></li>
+          <li><span class="ck-icon">✅</span><span>Payer companion guide reviewed — payer does not require CLIA to be pre-loaded in their provider portal</span></li>
+          <li><span class="ck-icon">✅</span><span>Claim run through scrubber with CLIA field validation before submission</span></li>
+        </ul>
+      </div>
+
+      <!-- When to Appeal vs Correct -->
+      <div class="card span-12 card-collapsible">
+        <div class="label">Best Practice — When to Appeal vs. When to Correct</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px">
+          <div class="decision-box">
+            <h4>✅ Appeal Only When ALL of These Are True</h4>
+            <ul class="info-list" style="margin-top:0">
+              <li>A corrected claim with the valid, active CLIA number has already been submitted and denied again</li>
+              <li>The CLIA number is confirmed active on the date of service via QCOR lookup</li>
+              <li>The CLIA certificate type covers the complexity of the tests billed</li>
+              <li>The payer has confirmed via provider services that the denial is a system-side validation or provider file issue — not a problem with the claim data</li>
+              <li>A copy of the CLIA certificate is available to attach to the appeal as supporting documentation</li>
+            </ul>
+          </div>
+          <div class="deny-box">
+            <h4>🔄 Correct &amp; Resubmit First (Most Cases)</h4>
+            <ul class="info-list" style="margin-top:0">
+              <li>The vast majority of M34 denials resolve by populating or correcting the CLIA number in Box 23 or FL81 and resubmitting</li>
+              <li>Do not appeal as a first step — verify the CLIA number via QCOR and correct the claim first</li>
+              <li>Use Resubmission Code 7 on the corrected claim</li>
+              <li>If the CLIA was expired on the DOS — do not resubmit without escalating to compliance first</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- end .grid -->
+  </div><!-- end left column -->
+
+<!-- ════ RIGHT SIDEBAR ════ -->
+   <aside>
+      <div class="sidebar-card">
+        <p class="sidebar-title">Quick‑Access Tools</p>
+        <p class="sidebar-sub">Official CMS &amp; NLM billing resources — click any link to open in a new tab.</p>
+
+        <div class="res-list">
+<a class="res-link" href="https://kunalvaish49-cpu.github.io/NDC-Lookup-Tool/" target="_blank" rel="noopener" style="width:100%;text-align:left;cursor:pointer;">
+    <span class="res-icon" style="background:#e8f0ff;color:#1847cc">💊</span>
+    <span class="res-body">
+        <span class="res-name">NDC / HCPCS Drug Lookup Tool</span>
+        <span class="res-desc">Search NDC, J-Code, Drug Name — GitHub Tool</span>
+    </span>
+    <span class="res-arrow">↗</span>
+</a>
+
+<a class="res-link" href="https://kunalvaish49-cpu.github.io/Status-Code-Data/" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#e8f0ff;color:#1847cc">💊</span>
+            <span class="res-body">
+              <span class="res-name">AR RCM STATUS | ACTION | SUB-CATEGORY Tool</span>
+              <span class="res-desc">Search Denial Name</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+
+<a class="res-link" href="https://kunalvaish49-cpu.github.io/CMS-1500-UB-04/" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#e8f0ff;color:#1847cc">💊</span>
+            <span class="res-body">
+              <span class="res-name">CMS & UB-04 Box or FL Knowledge Tool</span>
+              <span class="res-desc">Search FL or Box#</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+          <a class="res-link" href="https://dailymed.nlm.nih.gov/dailymed/" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#e8f0ff;color:#1847cc">💊</span>
+            <span class="res-body">
+              <span class="res-name">DailyMed NDC Lookup</span>
+              <span class="res-desc">Search drug labels &amp; National Drug Codes via NLM DailyMed</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+          <a class="res-link" href="https://medicare.fcso.com/lcd-interactive-index" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#e8f6f0;color:#0a7a50">🔗</span>
+            <span class="res-body">
+              <span class="res-name">LCD & Article Lookup Tool</span>
+              <span class="res-desc">Search Article & LCD By Procedure Code</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+ <a class="res-link" href="https://npiregistry.cms.hhs.gov/search" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#e8f6f0;color:#0a7a50">🔗</span>
+            <span class="res-body">
+              <span class="res-name">NPPES NPI Registry Lookup</span>
+              <span class="res-desc">Provider Speciality & Activation</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+
+  <a class="res-link" href="https://www.cgsmedicare.com/medicare_dynamic/j15/partb/ptpb/ptp.aspx
+" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#e8f6f0;color:#0a7a50">🔗</span>
+            <span class="res-body">
+              <span class="res-name">Part B NCCI Procedure‑to‑Procedure Lookup</span>
+              <span class="res-desc">Check Part B PTP edits &amp; bundling conflicts</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+
+          <a class="res-link" href="https://www.cgsmedicare.com/medicare_dynamic/j15/partb/mue/mue_tool.aspx
+" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#fff7e6;color:#b87010">📋</span>
+            <span class="res-body">
+              <span class="res-name">MUE Lookup Part B</span>
+              <span class="res-desc">Medically Unlikely Edits Part B — max units per claim line</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+<a class="res-link" href="https://www.cgsmedicare.com/medicare_dynamic/j15/parta/mue/mue_tool.aspx
+" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#fff7e6;color:#b87010">📋</span>
+            <span class="res-body">
+              <span class="res-name">MUE Lookup Part A</span>
+              <span class="res-desc">Medically Unlikely Edits Part A — max units per claim line</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+          <a class="res-link" href="https://www.cgsmedicare.com/medicare_dynamic/j15/partb/claimcalc/claimcalc.aspx
+" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#fdf0f0;color:#be2a2a">📅</span>
+            <span class="res-body">
+              <span class="res-name">Claim Timely Filing Calculator</span>
+              <span class="res-desc">Verify filing deadlines by payer &amp; claim type</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+          <a class="res-link" href="https://www.cgsmedicare.com/medicare_dynamic/j15/parta/modifiers/search.aspx
+" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#f0eaff;color:#6d28d9">🏥</span>
+            <span class="res-body">
+              <span class="res-name">Part A Modifier Finder Tool</span>
+              <span class="res-desc">Identify applicable modifiers for Part A facility claims</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+          <a class="res-link" href="https://www.cgsmedicare.com/medicare_dynamic/j15/partb/modifiers/search.aspx
+	" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#e8f6f0;color:#0a6b58">🩺</span>
+            <span class="res-body">
+              <span class="res-name">Part B Modifier Finder Tool</span>
+              <span class="res-desc">Look up Part B professional claim modifiers</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+          <a class="res-link" href="https://www.cgsmedicare.com/medicare_dynamic/j15/parta/ptpa/ptp.aspx
+" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#e8f0ff;color:#1847cc">🔍</span>
+            <span class="res-body">
+              <span class="res-name">Part A NCCI Procedure‑to‑Procedure Lookup</span>
+              <span class="res-desc">Check Part A PTP edits for facility/outpatient claims</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+<a class="res-link" href="https://www.cgsmedicare.com/medicare_dynamic/j15/partb/ptpb/ptp.aspx" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#e8f0ff;color:#1847cc">🔍</span>
+            <span class="res-body">
+              <span class="res-name">Part B NCCI Procedure‑to‑Procedure Lookup</span>
+              <span class="res-desc">Check Part B PTP edits for facility/outpatient claims</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+
+          <a class="res-link" href="https://www.cgsmedicare.com/partb/tools/ivr_converter.html
+" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#fef5e4;color:#b87010">🪪</span>
+            <span class="res-body">
+              <span class="res-name">MBI &amp; Name‑to‑Number Converter</span>
+              <span class="res-desc">Medicare Beneficiary Identifier lookup &amp; conversion tool</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+          <a class="res-link" href="https://qcor.cms.gov/Basic_Search
+" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#f0eaff;color:#6d28d9">🔬</span>
+            <span class="res-body">
+              <span class="res-name">CLIA Lookup Tool — S&amp;C QCOR</span>
+              <span class="res-desc">Search Clinical Laboratory Improvement Amendments data</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+        </div>
+      </div>
+    </aside>
+
+
+
+</div><!-- end .layout -->
+</div><!-- end #rarc-section-M34 -->
 
 
 	
@@ -6837,7 +7549,111 @@ src="https://raw.githubusercontent.com/kunalvaish49-cpu/VisualCode_UB-04/b39d3af
   }
 }
 
+<script type="application/json" id="rarcDataM34" data-rarc="M34">
+{
+  "rarc": "M34",
+  "type": "remark_code",
+  "category": "Laboratory Billing / Regulatory Compliance",
+  "common_carc": "CO-16",
+  "claim_types": ["CMS-1500", "UB-04"],
+  "official_description": "Claim Lacks the CLIA Certification Number",
+  "cms1500_field": "Box 23 — Prior Authorization Number (used for CLIA on lab claims)",
+  "ub04_field": "FL81 — Attestation / Code-Code Field with qualifier X4",
+  "edi_837p_element": "Loop 2300 REF*X4 (CLIA Number)",
+  "edi_837i_element": "Loop 2300 REF*X4 (CLIA Number)",
+  "clia_number_format": {
+    "length": "Exactly 10 characters",
+    "structure": "2-letter state code + D + 7 numeric digits",
+    "example": "14D0000001",
+    "rules": "No dashes, spaces, or special characters — continuous 10-character string"
+  },
+  "certificate_types": {
+    "CoW": "Certificate of Waiver — covers waived tests only; requires QW modifier on all claim lines",
+    "PPM": "Provider-Performed Microscopy — physician performs microscopy during patient visit",
+    "CoC": "Certificate of Compliance — moderate and high complexity testing; requires CLIA inspection",
+    "CoA": "Certificate of Accreditation — accredited by CMS-approved body (CAP, Joint Commission, COLA, AABB)",
+    "Registration": "Certificate of Registration — temporary during initial certification process"
+  },
+  "cpt_ranges_requiring_clia": [
+    "80047–80081 Metabolic Panels",
+    "80150–80377 Drug Assay / Therapeutic Drug Monitoring",
+    "81000–81099 Urinalysis",
+    "81200–81479 Molecular Pathology / Genetic Testing",
+    "82000–84999 Chemistry / Blood Tests",
+    "85000–85999 Hematology",
+    "86000–86849 Immunology / Serology",
+    "86850–86999 Transfusion Medicine",
+    "87001–87999 Microbiology / Infectious Disease",
+    "88000–88299 Cytopathology",
+    "88300–88399 Surgical Pathology",
+    "89049–89240 Other Laboratory"
+  ],
+  "key_modifiers": {
+    "QW": "CLIA-Waived test — required with Certificate of Waiver CLIA on every waived test line",
+    "90": "Reference Laboratory — required when ordering provider bills for a reference lab send-out; reference lab CLIA must be in Box 23",
+    "91": "Repeat Clinical Diagnostic Laboratory Test — CLIA still required on each repeat line",
+    "59": "Distinct Procedural Service — CLIA required on each unbundled lab service line"
+  },
+  "whose_clia_on_claim": {
+    "rule": "Always the PERFORMING laboratory's CLIA number — not the ordering provider's",
+    "physician_office_lab": "Practice's own CLIA in Box 23",
+    "independent_lab": "Lab's own CLIA in Box 23",
+    "reference_lab_sendout": "Reference lab's CLIA in Box 23 with modifier 90",
+    "hospital_outreach_lab": "Hospital's CLIA in FL81 or Box 23 depending on claim type",
+    "ordering_physician_no_lab": "Do not enter CLIA — ordering physician does not perform the test"
+  },
+  "root_causes": [
+    "Box 23 or FL81 left blank — most common cause",
+    "Billing system not configured to auto-populate CLIA on lab claim lines",
+    "CLIA certificate expired on date of service",
+    "Wrong CLIA number — belongs to different location or contains typo",
+    "Incorrect format — dashes, spaces, or wrong character count",
+    "Reference lab CLIA not used — ordering provider CLIA entered instead",
+    "Multi-site practice used headquarters CLIA instead of site-specific CLIA",
+    "New lab billing before CLIA certificate issued",
+    "EHR-to-billing interface does not map CLIA to Box 23 or FL81",
+    "Prior auth number entered in Box 23 overwriting CLIA",
+    "Stale CLIA from billing template not updated"
+  ],
+  "resolution_steps": [
+    "Identify which lab performed the testing on the date of service",
+    "Locate the performing lab's CLIA number — check certificate on file or look up in QCOR at qcor.cms.gov",
+    "Verify CLIA certificate was active and not expired on the date of service",
+    "Verify certificate type covers the complexity level of CPT codes billed",
+    "Confirm CLIA number is exactly 10 characters with no dashes or spaces",
+    "Enter CLIA number in Box 23 (CMS-1500) or FL81 with X4 qualifier (UB-04)",
+    "For waived tests — add QW modifier to each waived CPT code line",
+    "For reference lab send-outs — add modifier 90 and use reference lab's CLIA",
+    "Run corrected claim through scrubber before resubmission",
+    "Submit corrected claim with Resubmission Code 7"
+  ],
+  "prevention_checklist": [
+    "CLIA number populated in Box 23 (CMS-1500) or FL81 with X4 qualifier (UB-04)",
+    "CLIA belongs to the performing laboratory — not the ordering provider",
+    "CLIA is exactly 10 characters — no dashes or spaces",
+    "CLIA certificate active on date of service — confirmed via QCOR",
+    "Certificate type covers complexity of CPT codes billed",
+    "QW modifier on every waived test line with CoW CLIA",
+    "Modifier 90 on reference lab send-out lines with reference lab CLIA in Box 23",
+    "Site-specific CLIA used for the performing location in multi-site practices",
+    "Billing system auto-populates correct CLIA — verified in claim preview",
+    "CLIA expiration tracked proactively — renewal initiated before expiration",
+    "Payer companion guide reviewed for CLIA pre-loading requirements",
+    "Claim run through scrubber with CLIA validation before submission"
+  ],
+  "appeal_rule": "Appeal only when corrected claim with valid active CLIA has been submitted and denied again, CLIA confirmed active via QCOR, and payer has documented the denial as a system-side provider file issue — attach copy of CLIA certificate to appeal",
+  "compliance_warning": "Billing laboratory services without a valid active CLIA number is a federal regulatory violation under 42 CFR Part 493. Repeated billing under expired or invalid CLIA can trigger CMS audit, civil monetary penalties, and exclusion from Medicare and Medicaid",
+  "action_templates": {
+    "corrected_claim": "Resubmission Code 7 — CLIA number [blank/invalid] corrected to [10-digit CLIA] confirmed active via QCOR on DOS; QW modifier added where applicable; corrected claim submitted",
+    "reprocessing": "Payer agreed to reprocess after call confirming M34 was caused by billing system not populating Box 23 with CLIA number — CLIA confirmed active in QCOR",
+    "compliance_escalation": "Escalate to compliance when CLIA was expired on DOS — do not resubmit until compliance review completed; may require repayment to Medicare",
+    "first_level_appeal": "Appeal only after corrected claim with verified CLIA denied again — QCOR printout confirming active CLIA on DOS attached; payer-side provider file issue confirmed by provider services",
+    "adjustment_closed": "Claim fully resolved — document CLIA number used and final outcome",
+    "secondary_tertiary": "Corrected CLIA number must carry through to all secondary and tertiary submissions"
+  }
+}
 </script>
+
  
 
 
@@ -6955,7 +7771,7 @@ function runRarcAnalyze() {
   });
 
   // Switch section visibility
-  const known = ['N846', 'N816', 'M119', 'N60', 'N815', 'N847', 'N848', 'MA30', 'MA40', 'M44'];
+  const known = ['N846', 'N816', 'M119', 'N60', 'N815', 'N847', 'N848', 'MA30', 'MA40', 'M44', 'M34'];
   const msg = document.getElementById('rarcSearchResults');
 
   if (known.includes(code)) {
@@ -7653,6 +8469,7 @@ const SM_SECTIONS = [
   { icon:'📋', label:'MA30 — TOB Error',             code:'MA30' },
      { icon:'📋', label:'MA40 — Admission Date Error',  code:'MA40' },
      { icon:'📋', label:'M44  — Condition Code Error',  code:'M44'  },
+{ icon:'📋', label:'M34  — CLIA Number Missing',   code:'M34'  },
 
 ];
 let smFocusIdx = -1;
