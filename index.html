@@ -987,9 +987,80 @@ body.dark-mode .toast {
 }
 .sm-footer span { display: flex; align-items: center; gap: 5px; }
 
+
+	
 </style>
 </head>
 <body>
+
+	<!-- ═══════════════════ FLOATING TOPBAR ═══════════════════ -->
+<div id="floatingTopbar">
+  <div class="ftb-left">
+    <!-- Brand -->
+    <div style="display:flex;align-items:center;gap:8px;flex-shrink:0">
+      <div style="width:28px;height:28px;background:linear-gradient(135deg,#1847cc,#0d34a8);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:13px">🏥</div>
+      <span style="font:700 12px/1 'DM Mono',monospace;color:rgba(175,210,255,.85);letter-spacing:.08em">RARC HUB</span>
+    </div>
+    <!-- Breadcrumb -->
+    <div class="ftb-breadcrumb">
+      <span>Intelligence Hub</span>
+      <span class="bc-sep">›</span>
+      <span id="ftbBreadcrumb" class="bc-current">N846</span>
+    </div>
+    <!-- Search -->
+    <div class="ftb-search-wrap">
+      <input id="ftbSearchInput" type="text" placeholder="Search… (Ctrl+K)" readonly
+        onclick="openSearchModal()"
+        style="cursor:pointer"
+      />
+    </div>
+  </div>
+  <div class="ftb-right">
+    <!-- Expand All -->
+    <button class="ftb-btn" onclick="expandAllCards()" title="Expand all sections">
+      ⊞ <span>Expand</span>
+    </button>
+    <!-- Collapse All -->
+    <button class="ftb-btn" onclick="collapseAllCards()" title="Collapse all sections">
+      ⊟ <span>Collapse</span>
+    </button>
+    <!-- Dark Mode -->
+    <button class="ftb-btn" id="darkModeBtn" onclick="toggleDarkMode()" title="Toggle dark mode (D)">
+      🌙 <span>Dark</span>
+    </button>
+  </div>
+</div>
+
+<!-- ═══════════════════ TOAST CONTAINER ═══════════════════ -->
+<div id="toastContainer"></div>
+
+<!-- ═══════════════════ BACK TO TOP ═══════════════════ -->
+<button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">↑</button>
+
+<!-- ═══════════════════ SEARCH MODAL (Ctrl+K) ═══════════════════ -->
+<div id="searchModal">
+  <div class="sm-panel">
+    <div class="sm-input-wrap">
+      <span>⌕</span>
+      <input id="smInput" type="text" placeholder="Search RARC codes, sections, keywords…"
+        oninput="smSearch(this.value)"
+        onkeydown="smKeyNav(event)"
+      />
+      <kbd class="sm-kbd">Esc</kbd>
+    </div>
+    <div class="sm-results" id="smResults">
+      <div class="sm-no-results" style="padding:20px;text-align:center;color:var(--muted2)">
+        <div style="font-size:28px;margin-bottom:8px">⌕</div>
+        Start typing to search…
+      </div>
+    </div>
+    <div class="sm-footer">
+      <span><kbd class="sm-kbd">↑↓</kbd> Navigate</span>
+      <span><kbd class="sm-kbd">↵</kbd> Select</span>
+      <span><kbd class="sm-kbd">Esc</kbd> Close</span>
+    </div>
+  </div>
+</div>
 
 <!-- ═══════════════════════════════════════ PAGE ═══════════════════════════════════════ -->
 <div class="page">
@@ -6223,6 +6294,202 @@ document.querySelectorAll('.card-collapsible').forEach(card => {
       label.appendChild(btn);
     }
 });
+
+/* ══════════════════════════════════════════
+   FLOATING TOPBAR — SCROLL VISIBILITY
+══════════════════════════════════════════ */
+(function() {
+  const topbar   = document.getElementById('floatingTopbar');
+  const backTop  = document.getElementById('backToTop');
+  let lastY = 0, ticking = false;
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        const y = window.scrollY;
+        // Show topbar after 80px scroll
+        topbar.classList.toggle('visible', y > 80);
+        // Show back-to-top after 350px
+        backTop.classList.toggle('visible', y > 350);
+        lastY = y;
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+})();
+
+/* ══════════════════════════════════════════
+   BREADCRUMB — Updates on RARC section switch
+══════════════════════════════════════════ */
+function updateBreadcrumb(code) {
+  const el = document.getElementById('ftbBreadcrumb');
+  if (el) el.textContent = code || 'N846';
+}
+
+// Patch rarcChipClick and runRarcAnalyze to also update breadcrumb
+const _origRunRarcAnalyze = window.runRarcAnalyze;
+window.runRarcAnalyze = function() {
+  _origRunRarcAnalyze && _origRunRarcAnalyze();
+  const code = (document.getElementById('rarcSearchInput')?.value || 'N846').trim().toUpperCase();
+  updateBreadcrumb(code);
+  showToast('📍', `Switched to RARC <strong>${code}</strong>`);
+};
+
+/* ══════════════════════════════════════════
+   TOAST NOTIFICATIONS
+══════════════════════════════════════════ */
+function showToast(icon, msg, duration = 3000) {
+  const container = document.getElementById('toastContainer');
+  const toast = document.createElement('div');
+  toast.className = 'toast';
+  toast.innerHTML = `<span class="toast-icon">${icon}</span><span class="toast-msg">${msg}</span>`;
+  container.appendChild(toast);
+  setTimeout(() => {
+    toast.classList.add('hiding');
+    setTimeout(() => toast.remove(), 300);
+  }, duration);
+}
+
+/* ══════════════════════════════════════════
+   DARK MODE TOGGLE
+══════════════════════════════════════════ */
+function toggleDarkMode() {
+  const isDark = document.body.classList.toggle('dark-mode');
+  localStorage.setItem('rarc-dark', isDark ? '1' : '0');
+  const btn = document.getElementById('darkModeBtn');
+  if (btn) {
+    btn.classList.toggle('dark-active', isDark);
+    btn.innerHTML = isDark ? '☀️ <span>Light</span>' : '🌙 <span>Dark</span>';
+  }
+  showToast(isDark ? '🌙' : '☀️', isDark ? 'Dark mode <strong>enabled</strong>' : 'Light mode <strong>enabled</strong>');
+}
+
+// Restore dark mode preference on page load
+(function() {
+  if (localStorage.getItem('rarc-dark') === '1') {
+    document.body.classList.add('dark-mode');
+    const btn = document.getElementById('darkModeBtn');
+    if (btn) { btn.classList.add('dark-active'); btn.innerHTML = '☀️ <span>Light</span>'; }
+  }
+})();
+
+/* ══════════════════════════════════════════
+   EXPAND / COLLAPSE ALL CARDS
+══════════════════════════════════════════ */
+function expandAllCards() {
+  let count = 0;
+  document.querySelectorAll('.card-collapsible.collapsed').forEach(card => {
+    const btn = card.querySelector('.collapse-btn');
+    if (btn) { toggleCard(btn); count++; }
+  });
+  showToast('⊞', `Expanded <strong>${count}</strong> section${count !== 1 ? 's' : ''}`);
+}
+
+function collapseAllCards() {
+  let count = 0;
+  document.querySelectorAll('.card-collapsible:not(.collapsed)').forEach(card => {
+    const btn = card.querySelector('.collapse-btn');
+    if (btn) { toggleCard(btn); count++; }
+  });
+  showToast('⊟', `Collapsed <strong>${count}</strong> section${count !== 1 ? 's' : ''}`);
+}
+
+/* ══════════════════════════════════════════
+   SEARCH MODAL (Ctrl+K)
+══════════════════════════════════════════ */
+const SM_SECTIONS = [
+  { icon:'📋', label:'N846 — NDC/HCPCS Mismatch',  code:'N846' },
+  { icon:'📋', label:'N816 — Claim Frequency Error', code:'N816' },
+  { icon:'📋', label:'M119 — NPI Missing',           code:'M119' },
+  { icon:'📋', label:'N60  — Procedure Not Covered', code:'N60'  },
+  { icon:'📋', label:'N815 — Referring Provider',    code:'N815' },
+  { icon:'📋', label:'N847 — UOM/Quantity Error',    code:'N847' },
+  { icon:'📋', label:'N848 — Drug Administration',   code:'N848' },
+  { icon:'📋', label:'MA30 — TOB Error',             code:'MA30' },
+  { icon:'💊', label:'NDC Drug Lookup Tool',         action:'drug' },
+  { icon:'📝', label:'Note Maker — AR Workflow',     action:'notes' },
+];
+let smFocusIdx = -1;
+
+function openSearchModal() {
+  const modal = document.getElementById('searchModal');
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  setTimeout(() => document.getElementById('smInput').focus(), 50);
+  smSearch('');
+}
+function closeSearchModal() {
+  document.getElementById('searchModal').classList.remove('open');
+  document.body.style.overflow = '';
+  document.getElementById('smInput').value = '';
+  smFocusIdx = -1;
+}
+document.getElementById('searchModal').addEventListener('click', e => {
+  if (e.target === document.getElementById('searchModal')) closeSearchModal();
+});
+
+function smSearch(q) {
+  const results = document.getElementById('smResults');
+  q = (q || '').trim().toLowerCase();
+  const filtered = q
+    ? SM_SECTIONS.filter(s => s.label.toLowerCase().includes(q))
+    : SM_SECTIONS;
+  smFocusIdx = -1;
+
+  if (!filtered.length) {
+    results.innerHTML = `<div class="sm-no-results">No matches for "<strong>${q}</strong>"</div>`;
+    return;
+  }
+  results.innerHTML = filtered.map((s, i) => `
+    <div class="sm-result-item" data-idx="${i}" data-code="${s.code||''}" data-action="${s.action||''}"
+      onclick="smSelect(this)" onmouseover="smSetFocus(${i})">
+      <span class="sm-result-icon">${s.icon}</span>
+      <div style="flex:1;min-width:0">
+        <div class="sm-result-label">${s.label}</div>
+      </div>
+      <kbd class="sm-kbd" style="opacity:.5">↵</kbd>
+    </div>`).join('');
+}
+
+function smSetFocus(idx) {
+  smFocusIdx = idx;
+  document.querySelectorAll('.sm-result-item').forEach((el, i) => {
+    el.classList.toggle('focused', i === idx);
+  });
+}
+
+function smKeyNav(e) {
+  const items = document.querySelectorAll('.sm-result-item');
+  if (!items.length) return;
+  if (e.key === 'ArrowDown') { e.preventDefault(); smSetFocus(Math.min(smFocusIdx + 1, items.length - 1)); }
+  else if (e.key === 'ArrowUp') { e.preventDefault(); smSetFocus(Math.max(smFocusIdx - 1, 0)); }
+  else if (e.key === 'Enter') {
+    const target = items[smFocusIdx >= 0 ? smFocusIdx : 0];
+    if (target) smSelect(target);
+  }
+}
+
+function smSelect(el) {
+  const code   = el.dataset.code;
+  const action = el.dataset.action;
+  closeSearchModal();
+  if (code) {
+    document.getElementById('rarcSearchInput').value = code;
+    runRarcAnalyze();
+  } else if (action === 'drug') {
+    openDrugToolModal();
+  } else if (action === 'notes') {
+    document.querySelector('.btn-notes-open')?.click();
+  }
+}
+
+/* ══ Patch copyToClipboard to show toast ══ */
+const _origCopy = window.copyToClipboard;
+window.copyToClipboard = function(text, btn) {
+  _origCopy && _origCopy(text, btn);
+  showToast('📋', `NDC <strong>${text}</strong> copied to clipboard`);
+};	
 
 </script>
 </body>
