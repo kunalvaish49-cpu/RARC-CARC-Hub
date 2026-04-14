@@ -1107,15 +1107,11 @@ body.dark-mode .toast {
         <span class="rarc-chip active" onclick="rarcChipClick('N846')">N846</span>
         <span class="rarc-chip" onclick="rarcChipClick('N816')">N816</span>
 	<span class="rarc-chip" onclick="rarcChipClick('M119')">M119</span>
-<span class="rarc-chip" onclick="rarcChipClick('N60')">N60</span>
-<span class="rarc-chip" onclick="rarcChipClick('N815')">N815</span>
-<span class="rarc-chip" onclick="rarcChipClick('N847')">N847</span>
-<span class="rarc-chip" onclick="rarcChipClick('N848')">N848</span>
-<span class="rarc-chip" onclick="rarcChipClick('MA30')">MA30</span>
-<span class="rarc-chip" onclick="rarcChipClick('MA40')">MA40</span>
-<span class="rarc-chip" onclick="rarcChipClick('M44')">M44</span>
-<span class="rarc-chip" onclick="rarcChipClick('M34')">M34</span>
-
+	<span class="rarc-chip" onclick="rarcChipClick('MA30')">MA30</span>
+	<span class="rarc-chip" onclick="rarcChipClick('MA40')">MA40</span>
+	<span class="rarc-chip" onclick="rarcChipClick('M44')">M44</span>
+	<span class="rarc-chip" onclick="rarcChipClick('M34')">M34</span>
+	<span class="rarc-chip" onclick="rarcChipClick('M45')">M45</span>
       </div>
       <!-- Search results toast -->
       <div id="rarcSearchResults" style="display:none;margin-top:8px;background:rgba(255,255,255,0.10);border:1px solid rgba(255,255,255,0.2);border-radius:8px;padding:8px 14px;font:13px 'DM Sans',sans-serif;color:rgba(255,255,255,0.85);"></div>
@@ -6152,7 +6148,7 @@ UB-04 FL81 Entry:
           <div class="alert-icon">🔍</div>
           <div>
             <div class="alert-title">How to Look Up a CLIA Number</div>
-            <div class="alert-text">Go to <strong>qcor.cms.gov</strong> → Basic Search → search by provider name, address, or NPI. The result will show the CLIA number, certificate type, effective date, expiration date, and certificate status. Always confirm the certificate was active on the date of service before billing.</div>
+            <div class="alert-text">Go to <strong>qcor.cms.gov - Already have link bottom of Quick Access Tools</strong> → Basic Search → search by provider name, address, or NPI. The result will show the CLIA number, certificate type, effective date, expiration date, and certificate status. Always confirm the certificate was active on the date of service before billing.</div>
           </div>
         </div>
       </div>
@@ -6484,6 +6480,778 @@ UB-04 FL81 Entry:
 
 </div><!-- end .layout -->
 </div><!-- end #rarc-section-M34 -->
+
+
+<!-- ═══════════════════════════════════ M45 SECTION ═══════════════════════════════════ -->
+<div id="rarc-section-M45" class="rarc-section" style="display:none">
+<div class="layout">
+
+  <!-- ════ LEFT COLUMN ════ -->
+  <div>
+
+    <!-- Result Header -->
+    <div class="result-header">
+      <div class="result-code-block">
+        <span class="codebox">M45</span>
+        <span class="type-badge supp">REMARK</span>
+        <span class="type-badge warn" style="margin-top:2px">CO-16</span>
+      </div>
+      <div class="result-desc">
+        <p>Missing / Incomplete / Invalid Occurrence Code(s)</p>
+        <span class="ctx-pill">Facility Billing / UB-04 · Occurrence Codes (FL31–FL34) · Inpatient &amp; Outpatient</span>
+        <div style="margin-top:14px">
+          <div class="label">Common CARC Pairing</div>
+          <div class="pairs">
+            <span class="pair">CO-16</span>
+            <span class="pair">UB-04</span>
+            <span class="pair">FL31–FL34</span>
+            <span class="pair">Inpatient</span>
+            <span class="pair">Outpatient</span>
+            <span class="pair">SNF</span>
+            <span class="pair">HHA</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid">
+
+      <!-- What This Means -->
+      <div class="card span-12 card-collapsible">
+        <div class="label">What This Means</div>
+        <p class="muted">
+          Occurrence Codes on the UB-04 (Form Locators 31–34) are two-digit codes paired with a date that document specific events, accidents, or conditions related to the patient's claim — such as the date of an accident, the onset of symptoms, the date Medicare was notified of a hospice election, or the start of a home health episode. The claim cannot process correctly until the occurrence code issue is resolved.
+        </p>
+        <div class="alert info" style="margin-top:14px">
+          <div class="alert-icon">ℹ️</div>
+          <div>
+            <div class="alert-title">Important Distinction</div>
+            <div class="alert-text">M45 does not mean the services are not covered. It is a data integrity error — the payer's edit system flagged a missing, invalid, or conflicting occurrence code that is required to correctly adjudicate the claim. In nearly all cases this is resolved with a corrected claim. The specific occurrence code required depends entirely on the clinical scenario, payer, and Type of Bill.</div>
+
+ <br>
+          <button class="thumb-btn" onclick="openLB('https://raw.githubusercontent.com/kunalvaish49-cpu/VisualCode_UB-04/b39d3afe093b6896ed72d28928d7932e541acc92/FL-31-34%20%20UB-04.jpg')">
+            <img class="thumb-img"
+              src="https://raw.githubusercontent.com/kunalvaish49-cpu/VisualCode_UB-04/b39d3afe093b6896ed72d28928d7932e541acc92/FL-31-34%20%20UB-04.jpg" />
+          </button>
+     
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Where Occurrence Codes Live on the UB-04 -->
+      <div class="card span-12 card-collapsible">
+        <div class="label">Where Occurrence Codes Live on the UB-04</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:8px">
+          <div>
+            <div class="nm-h3" style="margin-top:0">UB-04 Form Locators FL31–FL34</div>
+            <ul class="info-list">
+              <li><strong>FL31–FL34:</strong> Each field holds one occurrence code + date pair — up to 4 occurrence codes per claim</li>
+              <li>Each occurrence code is exactly <strong>2 characters</strong> (alphanumeric)</li>
+              <li>Each code must be paired with a <strong>date in MM/DD/YY format</strong> — a code without a date, or a date without a code, will trigger M45</li>
+              <li>EDI 837I equivalent: <strong>Loop 2300 HI segment with qualifier BH</strong> (Occurrence Code) — format: HI*BH:code:date~</li>
+              <li>Codes are defined in the <strong>NUBC UB-04 Data Specifications Manual</strong></li>
+              <li>Order of occurrence codes on the claim does not matter — all open FL31–FL34 fields can be used in any sequence</li>
+              <li>If more than 4 occurrence codes are needed, use <strong>FL35–FL36 (Occurrence Span Codes)</strong> for date-range events</li>
+            </ul>
+          </div>
+          <div>
+            <div class="nm-h3" style="margin-top:0">Fields That Cross-Validate With Occurrence Codes</div>
+            <ul class="info-list">
+              <li><strong>FL4 — Type of Bill:</strong> Some occurrence codes are TOB-specific — e.g., accident codes (01–04) required when TOB indicates accident-related billing</li>
+              <li><strong>FL12 — Admission Date:</strong> Occurrence code dates for events that precede admission (e.g., accident date) must be on or before the admission date where clinically appropriate</li>
+              <li><strong>FL6 — Statement Covers Period:</strong> Occurrence dates must fall within or before the statement period unless they document a pre-admission event</li>
+              <li><strong>FL18–FL28 — Condition Codes:</strong> MSP-related occurrence codes (e.g., OC 24 for auto accident) must align with MSP condition codes</li>
+              <li><strong>FL50 — Payer Name / FL38 — Responsible Party:</strong> Accident-related occurrence codes must be consistent with listed primary payer for MSP coordination</li>
+              <li><strong>FL17 — Discharge Status:</strong> Hospice occurrence codes must align with discharge status and hospice TOB</li>
+              <li><strong>FL35–FL36 — Occurrence Span Codes:</strong> Span codes cover date ranges — occurrence codes (FL31–FL34) cover single dates; using the wrong type triggers additional edits</li>
+            </ul>
+          </div>
+        </div>
+        <div class="proc" style="margin-top:14px">
+UB-04 Occurrence Code Entry Format:
+  FL31:  Code | Date       Example: 01 | 03/14/25   (Auto accident date)
+  FL32:  Code | Date       Example: 11 | 03/14/25   (Onset of symptoms)
+  FL33:  Code | Date       Example: 50 | 03/14/25   (Medicare Part A exhausted)
+  FL34:  Code | Date       (Leave blank if no fourth code needed)
+
+EDI 837I Format:
+  HI*BH:01:20250314*BH:11:20250314*BH:50:20250314~
+        </div>
+      </div>
+
+
+
+
+      <!-- Most Commonly Required Occurrence Codes -->
+      <div class="card span-12 card-collapsible">
+        <div class="label">Most Commonly Required Occurrence Codes — M45 Reference Table</div>
+        <p class="muted" style="margin-bottom:12px;font-size:13px">These are the occurrence codes most frequently involved in M45 denials. Paired date is required with every code listed.</p>
+        <table class="mod-table">
+          <thead>
+            <tr>
+              <th>Code</th>
+              <th>Description</th>
+              <th>Date Reported</th>
+              <th>When Required / Common Scenario</th>
+              <th>Claim Types</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="mod-code">01</span></td>
+              <td>Auto Accident</td>
+              <td>Date of accident</td>
+              <td>Required when injury or condition resulted from a motor vehicle accident — triggers MSP / liability coordination; liability or auto insurance is primary payer</td>
+              <td>Inpatient / Outpatient</td>
+            </tr>
+            <tr>
+              <td><span class="mod-code">02</span></td>
+              <td>No-Fault Insurance — including Auto Accident / Other</td>
+              <td>Date of accident</td>
+              <td>Required when no-fault insurance (e.g., PIP — personal injury protection) applies — no-fault insurer is primary payer</td>
+              <td>Inpatient / Outpatient</td>
+            </tr>
+            <tr>
+              <td><span class="mod-code">03</span></td>
+              <td>Accident — Tort Liability</td>
+              <td>Date of accident</td>
+              <td>Required when a third-party tort liability claim exists — liability insurer may be primary payer; Medicare is conditional primary pending settlement</td>
+              <td>Inpatient / Outpatient</td>
+            </tr>
+            <tr>
+              <td><span class="mod-code">04</span></td>
+              <td>Accident — Employment Related</td>
+              <td>Date of accident</td>
+              <td>Required when injury is work-related and Workers' Compensation is involved — WC is primary payer; used alongside condition code 02</td>
+              <td>Inpatient / Outpatient</td>
+            </tr>
+            <tr>
+              <td><span class="mod-code">05</span></td>
+              <td>Other Accident</td>
+              <td>Date of accident</td>
+              <td>Required for accidents not covered by codes 01–04 (e.g., slip and fall not covered by auto or WC) — documents accident-related nature of claim</td>
+              <td>Inpatient / Outpatient</td>
+            </tr>
+            <tr>
+              <td><span class="mod-code">06</span></td>
+              <td>Crime Victim</td>
+              <td>Date of crime / assault</td>
+              <td>Patient's condition resulted from being a victim of a crime — may affect primary payer determination; some states have crime victim assistance programs</td>
+              <td>Inpatient / Outpatient</td>
+            </tr>
+            <tr>
+              <td><span class="mod-code">09</span></td>
+              <td>Start of Infertility Treatment Cycle</td>
+              <td>Date cycle began</td>
+              <td>Required for infertility treatment claims — documents the start of the treatment cycle for benefit period tracking</td>
+              <td>Outpatient</td>
+            </tr>
+            <tr>
+              <td><span class="mod-code">10</span></td>
+              <td>Last Menstrual Period</td>
+              <td>Date of LMP</td>
+              <td>Required on obstetric claims — documents LMP date for pregnancy-related billing and benefit determination</td>
+              <td>Inpatient / Outpatient (OB)</td>
+            </tr>
+            <tr>
+              <td><span class="mod-code">11</span></td>
+              <td>Onset of Symptoms / Illness</td>
+              <td>Date symptoms began</td>
+              <td>Required when the onset of a condition is clinically significant for benefit determination — commonly required on SNF, HHA, and hospice claims</td>
+              <td>Inpatient / Outpatient / SNF / HHA</td>
+            </tr>
+            <tr>
+              <td><span class="mod-code">17</span></td>
+              <td>Outpatient Occupational Therapy Plan Established or Last Reviewed</td>
+              <td>Date plan established or reviewed</td>
+              <td>Required on outpatient OT claims — plan of care must be documented and dated; payer uses this date to validate the therapy plan is current</td>
+              <td>Outpatient OT</td>
+            </tr>
+            <tr>
+              <td><span class="mod-code">18</span></td>
+              <td>Outpatient Physical Therapy Plan Established or Last Reviewed</td>
+              <td>Date plan established or reviewed</td>
+              <td>Required on outpatient PT claims — same plan of care documentation requirement as OC 17</td>
+              <td>Outpatient PT</td>
+            </tr>
+            <tr>
+              <td><span class="mod-code">19</span></td>
+              <td>Outpatient Speech Pathology Plan Established or Last Reviewed</td>
+              <td>Date plan established or reviewed</td>
+              <td>Required on outpatient SLP claims — plan of care date required for speech therapy billing</td>
+              <td>Outpatient SLP</td>
+            </tr>
+            <tr>
+              <td><span class="mod-code">20</span></td>
+              <td>Urological Treatment</td>
+              <td>Date urological treatment started</td>
+              <td>Required on urological supply or treatment claims where Medicare requires documentation of start of treatment for benefit tracking</td>
+              <td>Outpatient</td>
+            </tr>
+            <tr>
+              <td><span class="mod-code">22</span></td>
+              <td>Active Care Ended</td>
+              <td>Date active care ended</td>
+              <td>Used to document when active treatment ended — relevant in SNF and HHA billing for benefit period boundaries</td>
+              <td>SNF / HHA</td>
+            </tr>
+            <tr>
+              <td><span class="mod-code">24</span></td>
+              <td>Date Insurance Denied / Not Primary</td>
+              <td>Date of denial by other insurer</td>
+              <td>Required when a primary payer has denied the claim and Medicare is now being billed as secondary — documents the date of the primary payer's denial</td>
+              <td>All UB-04 (MSP)</td>
+            </tr>
+            <tr>
+              <td><span class="mod-code">25</span></td>
+              <td>Entitlement of Benefit Eligibility</td>
+              <td>Date of Medicare entitlement</td>
+              <td>Documents the date a patient became entitled to Medicare benefits — used in MSP and coordination of benefits scenarios</td>
+              <td>All UB-04</td>
+            </tr>
+            <tr>
+              <td><span class="mod-code">27</span></td>
+              <td>Date of Hospice Certification or Recertification</td>
+              <td>Date of certification</td>
+              <td>Required on hospice claims — documents when the physician certified the patient for hospice care; recertification dates required for continued hospice billing</td>
+              <td>Hospice TOB 081x / 082x</td>
+            </tr>
+            <tr>
+              <td><span class="mod-code">28</span></td>
+              <td>Date Comprehensive Outpatient Rehabilitation Plan Established or Last Reviewed</td>
+              <td>Date plan reviewed</td>
+              <td>Required for CORF (Comprehensive Outpatient Rehabilitation Facility) claims</td>
+              <td>CORF / Outpatient Rehab</td>
+            </tr>
+            <tr>
+              <td><span class="mod-code">32</span></td>
+              <td>Date Beneficiary Notified of Intent to Bill (Accommodations)</td>
+              <td>Date patient was notified</td>
+              <td>Required when a provider intends to bill a patient for non-covered accommodations (e.g., private room) — ABN-equivalent for UB-04 room charges</td>
+              <td>Inpatient</td>
+            </tr>
+            <tr>
+              <td><span class="mod-code">33</span></td>
+              <td>Date Beneficiary Notified of Intent to Bill (Procedures or Treatments)</td>
+              <td>Date patient was notified</td>
+              <td>Required when a provider notifies a patient of intent to bill for a potentially non-covered procedure or treatment — must predate the date of service</td>
+              <td>Inpatient / Outpatient</td>
+            </tr>
+            <tr>
+              <td><span class="mod-code">35</span></td>
+              <td>Date Treatment Started for Physical Therapy</td>
+              <td>Date PT began</td>
+              <td>Required on PT claims when the start of therapy is clinically significant for the benefit period or authorization tracking</td>
+              <td>Outpatient PT / SNF</td>
+            </tr>
+            <tr>
+              <td><span class="mod-code">36</span></td>
+              <td>Date of Inpatient Hospital Discharge for a Covered Transplant Procedure</td>
+              <td>Date of transplant discharge</td>
+              <td>Required when billing for services related to a transplant — documents the discharge date from the transplant admission for post-transplant billing purposes</td>
+              <td>Inpatient / Outpatient</td>
+            </tr>
+            <tr>
+              <td><span class="mod-code">40</span></td>
+              <td>Scheduled Date of Admission</td>
+              <td>Scheduled admission date</td>
+              <td>Used when a patient's admission is pre-scheduled — relevant for pre-authorization and planned admission billing scenarios</td>
+              <td>Inpatient</td>
+            </tr>
+            <tr>
+              <td><span class="mod-code">41</span></td>
+              <td>Date of First Test for Pre-Admission Testing</td>
+              <td>Date first test performed</td>
+              <td>Required on pre-admission testing (PAT) claims — documents the date testing began before the scheduled inpatient admission</td>
+              <td>Outpatient / Pre-Admission</td>
+            </tr>
+            <tr>
+              <td><span class="mod-code">44</span></td>
+              <td>Date Treatment Started for Occupational Therapy</td>
+              <td>Date OT began</td>
+              <td>Required on OT claims when the start of therapy is significant for benefit period tracking or prior authorization validation</td>
+              <td>Outpatient OT / SNF</td>
+            </tr>
+            <tr>
+              <td><span class="mod-code">45</span></td>
+              <td>Date Treatment Started for Speech Therapy</td>
+              <td>Date SLP began</td>
+              <td>Required on speech therapy claims when the start of therapy must be documented for benefit or authorization tracking</td>
+              <td>Outpatient SLP / SNF</td>
+            </tr>
+            <tr>
+              <td><span class="mod-code">46</span></td>
+              <td>Date Treatment Started for Cardiac Rehabilitation</td>
+              <td>Date cardiac rehab began</td>
+              <td>Required on cardiac rehabilitation program claims — documents when the program started for session and benefit limit tracking</td>
+              <td>Outpatient Cardiac Rehab</td>
+            </tr>
+            <tr>
+              <td><span class="mod-code">47</span></td>
+              <td>Date Cost Outlier Status Begins</td>
+              <td>Date outlier status triggered</td>
+              <td>Required when an inpatient claim qualifies for cost outlier payment — documents when costs exceeded the outlier threshold</td>
+              <td>Inpatient</td>
+            </tr>
+            <tr>
+              <td><span class="mod-code">50</span></td>
+              <td>Date Medicare Part A Benefits Exhausted</td>
+              <td>Date Part A exhausted</td>
+              <td>Required when a patient's Medicare Part A inpatient benefit days have been exhausted — used on SNF claims and hospital claims after the benefit period ends; signals transition to Part B or self-pay</td>
+              <td>Inpatient / SNF</td>
+            </tr>
+            <tr>
+              <td><span class="mod-code">51</span></td>
+              <td>Date of Hospice Election / Waiver of Liability</td>
+              <td>Date patient elected hospice</td>
+              <td>Required on all hospice claims — documents when the patient formally elected the hospice benefit; also required when a patient waives liability for services outside the hospice benefit</td>
+              <td>Hospice TOB 081x / 082x</td>
+            </tr>
+            <tr>
+              <td><span class="mod-code">62</span></td>
+              <td>Date Patient Discharged or Transferred to Swing Bed</td>
+              <td>Date of swing bed transfer</td>
+              <td>Required on claims where a patient was transferred to a swing bed from an acute inpatient stay — used for both the acute claim and the swing bed claim</td>
+              <td>Inpatient / SNF Swing Bed</td>
+            </tr>
+            <tr>
+              <td><span class="mod-code">70</span></td>
+              <td>Qualifying Stay Dates — for SNF Use Only</td>
+              <td>Start date of qualifying hospital stay</td>
+              <td>Required on SNF claims — documents the dates of the qualifying 3-day inpatient hospital stay that entitles the patient to the SNF Part A benefit; critical for SNF benefit period validation</td>
+              <td>SNF TOB 021x</td>
+            </tr>
+            <tr>
+              <td><span class="mod-code">71</span></td>
+              <td>Public Health Emergency (PHE) / Waiver Date</td>
+              <td>Date waiver applied</td>
+              <td>Used during declared public health emergencies when CMS has issued billing waivers — documents that the claim was processed under an applicable PHE waiver</td>
+              <td>All UB-04 (PHE-specific)</td>
+            </tr>
+            <tr>
+              <td><span class="mod-code">A1</span></td>
+              <td>Birthdate — Insured A</td>
+              <td>Insured's date of birth</td>
+              <td>Required by some payers for MSP and COB validation — documents the insured party's date of birth for eligibility cross-check</td>
+              <td>All UB-04 (payer-specific)</td>
+            </tr>
+            <tr>
+              <td><span class="mod-code">A2</span></td>
+              <td>Effective Date — Insured A Policy</td>
+              <td>Policy effective date</td>
+              <td>Documents when the insured's primary coverage became effective — used in COB and MSP scenarios to establish which payer was active on the DOS</td>
+              <td>All UB-04 (payer-specific)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Occurrence Span Codes vs Occurrence Codes -->
+      <div class="card span-12 card-collapsible">
+        <div class="label">Occurrence Codes vs. Occurrence Span Codes — Critical Difference</div>
+        <div class="alert warn" style="margin-bottom:14px">
+          <div class="alert-icon">⚠️</div>
+          <div>
+            <div class="alert-title">Using the Wrong Type Triggers M45 or Additional Edits</div>
+            <div class="alert-text">Occurrence codes (FL31–FL34) document a single point-in-time date. Occurrence span codes (FL35–FL36) document a date range with a from-date and a through-date. Submitting a span event as a point-in-time code — or vice versa — will trigger M45 or a separate span code error. Always use the correct type for the event being documented.</div>
+          </div>
+        </div>
+        <table class="mod-table">
+          <thead>
+            <tr><th>Type</th><th>UB-04 Field</th><th>Format</th><th>EDI 837I</th><th>Use For</th><th>Common Examples</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Occurrence Code</strong></td>
+              <td>FL31–FL34</td>
+              <td>Code + Single Date (MM/DD/YY)</td>
+              <td>Loop 2300 HI*BH:code:date~</td>
+              <td>Single-date events — accident date, onset date, hospice election date, Medicare exhaustion date</td>
+              <td>OC 01 (auto accident date), OC 11 (onset of illness), OC 50 (Part A exhausted), OC 51 (hospice election)</td>
+            </tr>
+            <tr>
+              <td><strong>Occurrence Span Code</strong></td>
+              <td>FL35–FL36</td>
+              <td>Code + From Date + Through Date</td>
+              <td>Loop 2300 HI*BI:code:from-date:through-date~</td>
+              <td>Date range events — period of prior stay, non-covered days, qualifying stay period, leave of absence period</td>
+              <td>OSC 74 (Non-covered level of care), OSC 76 (Patient liability), OSC M0 (Prior stay dates for SNF qualifying hospital stay)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Why This Happens -->
+      <div class="card span-6 card-collapsible">
+        <div class="label">Why This Happens — Most Common Causes</div>
+        <ul class="info-list">
+          <li>Required occurrence code completely omitted from FL31–FL34 — most common cause</li>
+          <li>Occurrence code entered without its paired date — code alone is invalid; both code and date are required</li>
+          <li>Date entered without a code — date field populated but no code selected in the paired field</li>
+          <li>Paired date in wrong format — not MM/DD/YY on paper or MMDDYYYY in EDI 837I</li>
+          <li>Occurrence date is outside the valid range — date after the statement period end date or before a plausible clinical event</li>
+          <li>Invalid occurrence code submitted — code does not exist in the current NUBC code set, contains a typo, or is a retired code</li>
+          <li>Wrong occurrence code used for the event — e.g., using an occurrence span code number in the occurrence code field</li>
+          <li>Accident-related codes missing on claims where diagnosis codes indicate injury or trauma (ICD-10 V, W, X, Y codes present)</li>
+          <li>Hospice claims missing OC 27 (date of certification) or OC 51 (date of hospice election)</li>
+          <li>SNF claims missing OC 70 (qualifying stay dates) or occurrence span code for qualifying hospital stay</li>
+          <li>Therapy claims missing plan of care dates (OC 17, 18, 19, 35, 44, 45)</li>
+          <li>EHR-to-billing system interface does not map occurrence codes and dates to FL31–FL34</li>
+          <li>Billing template carries stale or inapplicable default occurrence codes not updated for the current claim</li>
+          <li>Payer updated occurrence code requirements and the billing team was not notified</li>
+        </ul>
+      </div>
+
+      <!-- How to Fix It -->
+      <div class="card span-6 card-collapsible">
+        <div class="label">How to Fix It — Step by Step</div>
+        <div class="nm-h3" style="margin-top:4px">Standard Correction Process</div>
+        <ol class="step-list">
+          <li><span class="sn">1</span><span>Pull the original EOB or remittance — confirm M45 is the denial reason and identify whether the issue is a missing code, invalid code, missing date, or conflicting data</span></li>
+          <li><span class="sn">2</span><span>Review the claim scenario against the M45 reference table above — identify which occurrence code(s) are required for the TOB, clinical situation, and payer</span></li>
+          <li><span class="sn">3</span><span>Confirm the correct date to pair with each code — pull source documentation (face sheet, accident report, therapy plan, hospice certification, discharge summary) to verify the date</span></li>
+          <li><span class="sn">4</span><span>Check whether an occurrence code or an occurrence span code is the correct type for the event — single date = FL31–FL34; date range = FL35–FL36</span></li>
+          <li><span class="sn">5</span><span>Verify the date format — MM/DD/YY on the paper UB-04; MMDDYYYY in the EDI 837I HI*BH segment</span></li>
+          <li><span class="sn">6</span><span>Confirm no conflicting occurrence codes are present — remove or replace any code that is mutually exclusive or contradicts other claim fields</span></li>
+          <li><span class="sn">7</span><span>Check payer-specific companion guide — some payers require occurrence codes beyond the standard NUBC set or have specific date rules</span></li>
+          <li><span class="sn">8</span><span>Add Condition Code D4 to FL18–FL28 and use Frequency Code 7 in the TOB to indicate this is a corrected replacement claim</span></li>
+          <li><span class="sn">9</span><span>Run the corrected claim through the scrubber with occurrence code validation active before resubmission</span></li>
+          <li><span class="sn">10</span><span>Submit the corrected claim with Frequency Code 7 (Replacement) in the Type of Bill</span></li>
+        </ol>
+        <div class="alert warn" style="margin-top:14px;margin-bottom:0">
+          <div class="alert-icon">⚠️</div>
+          <div>
+            <div class="alert-title">Call the Payer If the Required Code Is Unclear</div>
+            <div class="alert-text">If the EOB does not specify which occurrence code is missing or why the submitted code was rejected, call the payer's provider services line before resubmitting. Ask specifically which code and date their system requires for this claim type and scenario — this prevents repeated denials from guessing the wrong code.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scenario-Based Quick Reference -->
+      <div class="card span-12 card-collapsible">
+        <div class="label">Scenario-Based Quick Reference — Which Occurrence Code to Use</div>
+        <p class="muted" style="margin-bottom:12px;font-size:13px">Match your claim scenario to the correct occurrence code before resubmitting.</p>
+        <table class="mod-table">
+          <thead>
+            <tr><th>Claim Scenario</th><th>Required Occurrence Code(s)</th><th>Date to Use</th><th>Additional Notes</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Motor vehicle accident (auto collision)</td>
+              <td><span class="mod-code">01</span></td>
+              <td>Date of the accident</td>
+              <td>Also include condition code 02 (WC) or 03 (other insurance) if applicable; auto insurer is primary payer — Medicare is conditional</td>
+            </tr>
+            <tr>
+              <td>Work-related injury or illness</td>
+              <td><span class="mod-code">04</span></td>
+              <td>Date of work accident or illness onset</td>
+              <td>Use with condition code 02 (employment-related); Workers' Compensation is primary payer</td>
+            </tr>
+            <tr>
+              <td>Slip and fall or other non-auto, non-work accident</td>
+              <td><span class="mod-code">05</span></td>
+              <td>Date of accident</td>
+              <td>If liability insurance is involved, include condition code 03; document the accident nature in the medical record</td>
+            </tr>
+            <tr>
+              <td>Hospice election / admission</td>
+              <td><span class="mod-code">51</span> + <span class="mod-code">27</span></td>
+              <td>OC 51: Date patient elected hospice; OC 27: Date of physician certification</td>
+              <td>Both codes required on hospice claims; recertification claims need updated OC 27 date; TOB must be 081x or 082x</td>
+            </tr>
+            <tr>
+              <td>SNF admission — qualifying hospital stay documentation</td>
+              <td><span class="mod-code">70</span> or Occurrence Span Code M0</td>
+              <td>OC 70: Start date of qualifying hospital stay; OSC M0: From/Through dates of qualifying stay</td>
+              <td>3-day qualifying inpatient hospital stay required for SNF Part A benefit; dates must match actual hospital stay dates in ADT records</td>
+            </tr>
+            <tr>
+              <td>Medicare Part A benefit days exhausted</td>
+              <td><span class="mod-code">50</span></td>
+              <td>Date Part A days were exhausted</td>
+              <td>Required on SNF claims after benefit period ends; signals transition to coinsurance or Part B; obtain exact date from Medicare Summary Notice or CWF</td>
+            </tr>
+            <tr>
+              <td>Outpatient physical therapy — plan of care</td>
+              <td><span class="mod-code">18</span> + <span class="mod-code">35</span></td>
+              <td>OC 18: Date PT plan established or last reviewed; OC 35: Date PT treatment started</td>
+              <td>Both codes frequently required for outpatient PT claims; plan of care date must be on or before first treatment date</td>
+            </tr>
+            <tr>
+              <td>Outpatient occupational therapy — plan of care</td>
+              <td><span class="mod-code">17</span> + <span class="mod-code">44</span></td>
+              <td>OC 17: Date OT plan established or last reviewed; OC 44: Date OT treatment started</td>
+              <td>Same plan-of-care documentation requirement as PT; dates must be sourced from therapy documentation</td>
+            </tr>
+            <tr>
+              <td>Outpatient speech therapy — plan of care</td>
+              <td><span class="mod-code">19</span> + <span class="mod-code">45</span></td>
+              <td>OC 19: Date SLP plan established or last reviewed; OC 45: Date SLP treatment started</td>
+              <td>Same documentation requirements as PT and OT; both codes typically required by Medicare and most commercial payers</td>
+            </tr>
+            <tr>
+              <td>Primary payer denied — billing Medicare as secondary</td>
+              <td><span class="mod-code">24</span></td>
+              <td>Date of primary payer's denial or non-payment determination</td>
+              <td>Required to document MSP sequence; attach primary payer EOB to claim or keep on file; payer name and denial reason must be documented</td>
+            </tr>
+            <tr>
+              <td>Patient notified of potential non-coverage (intent to bill)</td>
+              <td><span class="mod-code">32</span> or <span class="mod-code">33</span></td>
+              <td>Date patient was notified (must predate the date of service)</td>
+              <td>OC 32 for accommodations; OC 33 for procedures or treatments; notification date must be before DOS — if same-day, may not satisfy the requirement</td>
+            </tr>
+            <tr>
+              <td>Obstetric / pregnancy-related billing</td>
+              <td><span class="mod-code">10</span></td>
+              <td>Date of last menstrual period (LMP)</td>
+              <td>Required on OB claims; sourced from the patient's obstetric record; must be clinically plausible given the gestational age on the DOS</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- What NOT to Do -->
+      <div class="card span-6 card-collapsible">
+        <div class="label">What NOT to Do</div>
+        <ul class="info-list">
+          <li>Do not appeal before submitting a corrected claim with the required occurrence code and date added</li>
+          <li>Do not submit the same corrected claim with the same missing or invalid code</li>
+          <li>Do not enter an occurrence code without its paired date — an unpaired code will deny again with M45</li>
+          <li>Do not enter a date without a corresponding occurrence code — an unpaired date is equally invalid</li>
+          <li>Do not use an occurrence span code number in the occurrence code field (FL31–FL34) — span codes belong in FL35–FL36 with a date range, not a single date</li>
+          <li>Do not guess the occurrence code — use the scenario reference table above or the payer companion guide; incorrect codes cause additional edits</li>
+          <li>Do not carry stale or default occurrence codes from a billing template without verifying they apply to the current claim</li>
+          <li>Do not use a retired or invalid NUBC occurrence code — verify any unfamiliar code against the current NUBC data specifications</li>
+          <li>Do not omit Condition Code D4 on the corrected replacement claim</li>
+        </ul>
+        <div class="alert err" style="margin-top:14px">
+          <div class="alert-icon">🚫</div>
+          <div class="alert-text">Appealing before correcting the occurrence code wastes timely filing days and may forfeit your right to correct the claim. M45 is a data integrity error — identify the specific required code and date, correct the claim, and resubmit with Frequency Code 7 and Condition Code D4 before pursuing an appeal.</div>
+        </div>
+      </div>
+
+      <!-- Prevention Checklist -->
+      <div class="card span-6 card-collapsible">
+        <div class="label">Prevention Checklist</div>
+        <p class="muted" style="margin-bottom:10px;font-size:13px">Before submitting any UB-04 claim, confirm:</p>
+        <ul class="checklist">
+          <li><span class="ck-icon">✅</span><span>All required occurrence codes for the TOB, payer, and clinical scenario are identified and entered in FL31–FL34</span></li>
+          <li><span class="ck-icon">✅</span><span>Every occurrence code has its paired date — no unpaired codes or unpaired dates</span></li>
+          <li><span class="ck-icon">✅</span><span>Dates are in MM/DD/YY format (paper) or MMDDYYYY format (EDI 837I)</span></li>
+          <li><span class="ck-icon">✅</span><span>All dates are sourced from supporting documentation — accident reports, face sheets, therapy plans, hospice certifications, discharge summaries</span></li>
+          <li><span class="ck-icon">✅</span><span>Occurrence dates are clinically plausible and fall within the valid range relative to the DOS and admission date</span></li>
+          <li><span class="ck-icon">✅</span><span>Single-date events are in FL31–FL34 (occurrence codes); date-range events are in FL35–FL36 (occurrence span codes) — not mixed</span></li>
+          <li><span class="ck-icon">✅</span><span>Accident-related claims include the correct accident occurrence code (OC 01–06) matching the type of accident</span></li>
+          <li><span class="ck-icon">✅</span><span>Hospice claims include both OC 51 (election date) and OC 27 (certification date)</span></li>
+          <li><span class="ck-icon">✅</span><span>SNF claims include qualifying stay dates (OC 70 or OSC M0) from the prior hospital admission</span></li>
+          <li><span class="ck-icon">✅</span><span>Therapy claims include plan of care dates (OC 17/18/19) and treatment start dates (OC 35/44/45)</span></li>
+          <li><span class="ck-icon">✅</span><span>For corrected claims — Condition Code D4 is in FL18–FL28 and Frequency Code 7 is in the TOB</span></li>
+          <li><span class="ck-icon">✅</span><span>Payer companion guide reviewed for payer-specific occurrence code requirements beyond the NUBC standard</span></li>
+          <li><span class="ck-icon">✅</span><span>Claim run through scrubber with occurrence code and date validation before submission</span></li>
+        </ul>
+      </div>
+
+      <!-- When to Appeal vs Correct -->
+      <div class="card span-12 card-collapsible">
+        <div class="label">Best Practice — When to Appeal vs. When to Correct</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px">
+          <div class="decision-box">
+            <h4>✅ Appeal Only When ALL of These Are True</h4>
+            <ul class="info-list" style="margin-top:0">
+              <li>A corrected claim with the verified occurrence code and paired date has already been submitted and denied again</li>
+              <li>The occurrence code and date are confirmed correct against source documentation</li>
+              <li>The continued denial is due to a payer-side system edit error — not a data problem on the claim</li>
+              <li>Payer contact has confirmed the code is correct and the denial is a system issue on their end</li>
+            </ul>
+          </div>
+          <div class="deny-box">
+            <h4>🔄 Correct &amp; Resubmit First (Most Cases)</h4>
+            <ul class="info-list" style="margin-top:0">
+              <li>The vast majority of M45 denials resolve by identifying the missing or invalid occurrence code and date, correcting the claim, and resubmitting</li>
+              <li>Do not appeal as a first step — identify the required code using the scenario reference table or payer companion guide</li>
+              <li>Use Frequency Code 7 and Condition Code D4 on the corrected claim</li>
+              <li>If the required code is unclear — call the payer's provider services line before resubmitting</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- end .grid -->
+  </div><!-- end left column -->
+
+<!-- ════ RIGHT SIDEBAR ════ -->
+   <aside>
+      <div class="sidebar-card">
+        <p class="sidebar-title">Quick‑Access Tools</p>
+        <p class="sidebar-sub">Official CMS &amp; NLM billing resources — click any link to open in a new tab.</p>
+
+        <div class="res-list">
+<a class="res-link" href="https://kunalvaish49-cpu.github.io/NDC-Lookup-Tool/" target="_blank" rel="noopener" style="width:100%;text-align:left;cursor:pointer;">
+    <span class="res-icon" style="background:#e8f0ff;color:#1847cc">💊</span>
+    <span class="res-body">
+        <span class="res-name">NDC / HCPCS Drug Lookup Tool</span>
+        <span class="res-desc">Search NDC, J-Code, Drug Name — GitHub Tool</span>
+    </span>
+    <span class="res-arrow">↗</span>
+</a>
+
+<a class="res-link" href="https://kunalvaish49-cpu.github.io/Status-Code-Data/index.html" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#e8f0ff;color:#1847cc">💊</span>
+            <span class="res-body">
+              <span class="res-name">AR RCM STATUS | ACTION | SUB-CATEGORY Tool</span>
+              <span class="res-desc">Search Denial Name</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+
+<a class="res-link" href="https://kunalvaish49-cpu.github.io/CMS-1500-UB-04/" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#e8f0ff;color:#1847cc">💊</span>
+            <span class="res-body">
+              <span class="res-name">CMS & UB-04 Box or FL Knowledge Tool</span>
+              <span class="res-desc">Search FL or Box#</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+          <a class="res-link" href="https://dailymed.nlm.nih.gov/dailymed/" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#e8f0ff;color:#1847cc">💊</span>
+            <span class="res-body">
+              <span class="res-name">DailyMed NDC Lookup</span>
+              <span class="res-desc">Search drug labels &amp; National Drug Codes via NLM DailyMed</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+          <a class="res-link" href="https://medicare.fcso.com/lcd-interactive-index" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#e8f6f0;color:#0a7a50">🔗</span>
+            <span class="res-body">
+              <span class="res-name">LCD & Article Lookup Tool</span>
+              <span class="res-desc">Search Article & LCD By Procedure Code</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+ <a class="res-link" href="https://npiregistry.cms.hhs.gov/search" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#e8f6f0;color:#0a7a50">🔗</span>
+            <span class="res-body">
+              <span class="res-name">NPPES NPI Registry Lookup</span>
+              <span class="res-desc">Provider Speciality & Activation</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+
+  <a class="res-link" href="https://www.cgsmedicare.com/medicare_dynamic/j15/partb/ptpb/ptp.aspx
+" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#e8f6f0;color:#0a7a50">🔗</span>
+            <span class="res-body">
+              <span class="res-name">Part B NCCI Procedure‑to‑Procedure Lookup</span>
+              <span class="res-desc">Check Part B PTP edits &amp; bundling conflicts</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+
+          <a class="res-link" href="https://www.cgsmedicare.com/medicare_dynamic/j15/partb/mue/mue_tool.aspx
+" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#fff7e6;color:#b87010">📋</span>
+            <span class="res-body">
+              <span class="res-name">MUE Lookup Part B</span>
+              <span class="res-desc">Medically Unlikely Edits Part B — max units per claim line</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+<a class="res-link" href="https://www.cgsmedicare.com/medicare_dynamic/j15/parta/mue/mue_tool.aspx
+" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#fff7e6;color:#b87010">📋</span>
+            <span class="res-body">
+              <span class="res-name">MUE Lookup Part A</span>
+              <span class="res-desc">Medically Unlikely Edits Part A — max units per claim line</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+          <a class="res-link" href="https://www.cgsmedicare.com/medicare_dynamic/j15/partb/claimcalc/claimcalc.aspx
+" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#fdf0f0;color:#be2a2a">📅</span>
+            <span class="res-body">
+              <span class="res-name">Claim Timely Filing Calculator</span>
+              <span class="res-desc">Verify filing deadlines by payer &amp; claim type</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+          <a class="res-link" href="https://www.cgsmedicare.com/medicare_dynamic/j15/parta/modifiers/search.aspx
+" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#f0eaff;color:#6d28d9">🏥</span>
+            <span class="res-body">
+              <span class="res-name">Part A Modifier Finder Tool</span>
+              <span class="res-desc">Identify applicable modifiers for Part A facility claims</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+          <a class="res-link" href="https://www.cgsmedicare.com/medicare_dynamic/j15/partb/modifiers/search.aspx
+	" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#e8f6f0;color:#0a6b58">🩺</span>
+            <span class="res-body">
+              <span class="res-name">Part B Modifier Finder Tool</span>
+              <span class="res-desc">Look up Part B professional claim modifiers</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+          <a class="res-link" href="https://www.cgsmedicare.com/medicare_dynamic/j15/parta/ptpa/ptp.aspx
+" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#e8f0ff;color:#1847cc">🔍</span>
+            <span class="res-body">
+              <span class="res-name">Part A NCCI Procedure‑to‑Procedure Lookup</span>
+              <span class="res-desc">Check Part A PTP edits for facility/outpatient claims</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+<a class="res-link" href="https://www.cgsmedicare.com/medicare_dynamic/j15/partb/ptpb/ptp.aspx" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#e8f0ff;color:#1847cc">🔍</span>
+            <span class="res-body">
+              <span class="res-name">Part B NCCI Procedure‑to‑Procedure Lookup</span>
+              <span class="res-desc">Check Part B PTP edits for facility/outpatient claims</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+
+          <a class="res-link" href="https://www.cgsmedicare.com/partb/tools/ivr_converter.html
+" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#fef5e4;color:#b87010">🪪</span>
+            <span class="res-body">
+              <span class="res-name">MBI &amp; Name‑to‑Number Converter</span>
+              <span class="res-desc">Medicare Beneficiary Identifier lookup &amp; conversion tool</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+          <a class="res-link" href="https://qcor.cms.gov/Basic_Search
+" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#f0eaff;color:#6d28d9">🔬</span>
+            <span class="res-body">
+              <span class="res-name">CLIA Lookup Tool — S&amp;C QCOR</span>
+              <span class="res-desc">Search Clinical Laboratory Improvement Amendments data</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+        </div>
+      </div>
+    </aside>
+
+</div><!-- end .layout -->
+</div><!-- end #rarc-section-M45 -->
 
 
 	
@@ -7616,6 +8384,117 @@ UB-04 FL81 Entry:
     "secondary_tertiary": "Corrected CLIA number must carry through to all secondary and tertiary submissions"
   }
 }
+
+<script type="application/json" id="rarcDataM45" data-rarc="M45">
+{
+  "rarc": "M45",
+  "type": "remark_code",
+  "category": "Claim Form Compliance / Occurrence Code Error",
+  "common_carc": "CO-16",
+  "claim_types": ["UB-04"],
+  "claim_form_note": "M45 applies exclusively to UB-04 institutional claims — occurrence codes are not a field on the CMS-1500",
+  "official_description": "Missing / Incomplete / Invalid Occurrence Code(s)",
+  "ub04_fields": "FL31–FL34 (up to 4 occurrence code and date pairs)",
+  "ub04_span_fields": "FL35–FL36 (occurrence span codes — date range events — different from FL31–FL34)",
+  "edi_837i_element": "Loop 2300 HI segment with qualifier BH (Occurrence Code) — format: HI*BH:code:MMDDYYYY~",
+  "code_format": "Exactly 2 alphanumeric characters paired with a date in MM/DD/YY (paper) or MMDDYYYY (EDI 837I) — defined by the NUBC UB-04 Data Specifications Manual",
+  "sub_issues": [
+    "Missing occurrence code — required code not in FL31–FL34",
+    "Missing paired date — code present but date field blank",
+    "Date present without code — date populated but no occurrence code in paired field",
+    "Invalid format — date not in MM/DD/YY or MMDDYYYY format",
+    "Invalid code — not in current NUBC occurrence code set or contains typo",
+    "Date out of valid range — occurrence date after statement period or clinically implausible",
+    "Wrong code type — occurrence span code used in occurrence code field",
+    "Conflicting codes — mutually exclusive codes on same claim",
+    "Payer-specific required code missing"
+  ],
+  "most_common_codes": {
+    "01": "Auto accident — date of accident",
+    "02": "No-fault insurance / auto — date of accident",
+    "03": "Accident tort liability — date of accident",
+    "04": "Work-related accident — date of accident",
+    "05": "Other accident — date of accident",
+    "11": "Onset of symptoms / illness — date symptoms began",
+    "17": "OT plan established or last reviewed — date of plan review",
+    "18": "PT plan established or last reviewed — date of plan review",
+    "19": "SLP plan established or last reviewed — date of plan review",
+    "24": "Date insurance denied / not primary — date of primary payer denial",
+    "27": "Date of hospice certification or recertification",
+    "35": "Date PT treatment started",
+    "44": "Date OT treatment started",
+    "45": "Date SLP treatment started",
+    "50": "Date Medicare Part A benefits exhausted",
+    "51": "Date of hospice election",
+    "70": "Qualifying stay dates for SNF — start date of qualifying hospital stay"
+  },
+  "cross_validated_fields": [
+    "FL4 Type of Bill — some occurrence codes are TOB-specific",
+    "FL12 Admission Date — accident dates must be on or before admission where clinically appropriate",
+    "FL6 Statement Covers Period — occurrence dates must fall within or before the statement period unless documenting a pre-admission event",
+    "FL18–FL28 Condition Codes — MSP occurrence codes must align with MSP condition codes",
+    "FL35–FL36 Occurrence Span Codes — span codes cover date ranges; FL31–FL34 covers single dates",
+    "FL50 Payer Name — accident occurrence codes must align with the listed primary payer",
+    "FL17 Discharge Status — hospice occurrence codes must align with discharge status and hospice TOB"
+  ],
+  "occurrence_vs_span": {
+    "occurrence_codes_FL31_FL34": "Single-date events — code + one date — accident dates, onset dates, hospice election, Part A exhaustion, therapy plan dates",
+    "occurrence_span_codes_FL35_FL36": "Date-range events — code + from-date + through-date — non-covered days, qualifying stay periods, leave of absence periods"
+  },
+  "root_causes": [
+    "Required occurrence code omitted from FL31–FL34 — most common",
+    "Code entered without paired date",
+    "Date entered without code",
+    "Date in wrong format",
+    "Occurrence date outside valid range",
+    "Invalid or retired NUBC occurrence code",
+    "Occurrence span code used in occurrence code field",
+    "Accident-related codes missing when ICD-10 injury codes present",
+    "Hospice claims missing OC 51 or OC 27",
+    "SNF claims missing qualifying stay dates",
+    "Therapy claims missing plan of care dates",
+    "EHR-to-billing interface does not map occurrence codes to FL31–FL34",
+    "Stale billing template occurrence codes not updated for current claim"
+  ],
+  "resolution_steps": [
+    "Pull original EOB — confirm M45 denial and identify specific missing, invalid, or conflicting occurrence code",
+    "Review claim scenario against NUBC occurrence code reference — identify required code and date",
+    "Confirm correct date from source documentation — accident report, face sheet, therapy plan, hospice certification",
+    "Verify single-date event uses occurrence code in FL31–FL34, date-range event uses span code in FL35–FL36",
+    "Confirm date format — MM/DD/YY paper; MMDDYYYY in EDI 837I HI*BH segment",
+    "Verify no conflicting codes present — remove or replace as needed",
+    "Check payer companion guide for payer-specific occurrence code requirements",
+    "Add Condition Code D4 to FL18–FL28 and Frequency Code 7 to TOB for corrected claim",
+    "Run corrected claim through scrubber with occurrence code validation",
+    "Submit corrected claim with Frequency Code 7 (Replacement) in Type of Bill"
+  ],
+  "prevention_checklist": [
+    "All required occurrence codes for TOB, payer, and clinical scenario in FL31–FL34",
+    "Every occurrence code has its paired date — no unpaired codes or dates",
+    "Dates in MM/DD/YY (paper) or MMDDYYYY (EDI 837I) format",
+    "Dates sourced from supporting documentation",
+    "Occurrence dates clinically plausible and within valid range",
+    "Single-date events in FL31–FL34; date-range events in FL35–FL36",
+    "Accident claims include correct accident code (OC 01–06)",
+    "Hospice claims include OC 51 (election) and OC 27 (certification)",
+    "SNF claims include qualifying stay dates (OC 70 or OSC M0)",
+    "Therapy claims include plan of care and treatment start dates",
+    "D4 in FL18–FL28 and Frequency Code 7 in TOB on corrected claims",
+    "Payer companion guide reviewed for proprietary occurrence code requirements",
+    "Claim run through scrubber with occurrence code and date validation before submission"
+  ],
+  "appeal_rule": "Appeal only when a corrected claim with the verified occurrence code and paired date has been submitted and denied again, the code and date are confirmed correct against source documentation, and the denial is due to a confirmed payer-side system edit error",
+  "action_templates": {
+    "corrected_claim": "Frequency 7 replacement — Occurrence Code [missing/invalid code] added/corrected with paired date [MM/DD/YY sourced from documentation]; D4 added; cross-validated fields reconciled; corrected claim submitted",
+    "reprocessing": "Payer agreed to reprocess after call confirming M45 was caused by EHR interface not mapping occurrence codes to FL31–FL34 during claim export",
+    "coding_escalation": "Escalate to coding when accident type or clinical event date cannot be confirmed from available documentation before resubmitting",
+    "first_level_appeal": "Appeal only after corrected claim with verified occurrence code and date denied again — payer-side system error confirmed and documented by provider services",
+    "adjustment_closed": "Claim fully resolved — document occurrence code corrected and final outcome",
+    "secondary_tertiary": "Corrected occurrence codes must carry through to all secondary and tertiary submissions"
+  }
+}
+
+
 </script>
 
  
@@ -7735,7 +8614,7 @@ function runRarcAnalyze() {
   });
 
   // Switch section visibility
-  const known = ['N846', 'N816', 'M119', 'N60', 'N815', 'N847', 'N848', 'MA30', 'MA40', 'M44', 'M34'];
+  const known = ['N846', 'N816', 'M119', 'N60', 'N815', 'N847', 'N848', 'MA30', 'MA40', 'M44', 'M34', 'M45'];
   const msg = document.getElementById('rarcSearchResults');
 
   if (known.includes(code)) {
@@ -8423,17 +9302,19 @@ function collapseAllCards() {
    SEARCH MODAL (Ctrl+K)
 ══════════════════════════════════════════ */
 const SM_SECTIONS = [
-  { icon:'📋', label:'N846 — NDC/HCPCS Mismatch',  code:'N846' },
+  { icon:'📋', label:'N846 — NDC/HCPCS Mismatch', code:'N846' },
   { icon:'📋', label:'N816 — NDC/HCPCS Mismatch', code:'N816' },
-  { icon:'📋', label:'M119 — NDC/HCPCS Mismatch',           code:'M119' },
+  { icon:'📋', label:'M119 — NDC/HCPCS Mismatch', code:'M119' },
   { icon:'📋', label:'N60  — NDC/HCPCS Mismatch', code:'N60'  },
-  { icon:'📋', label:'N815 — NDC/HCPCS Mismatch',    code:'N815' },
-  { icon:'📋', label:'N847 — NDC/HCPCS Mismatch',    code:'N847' },
-  { icon:'📋', label:'N848 — NDC/HCPCS Mismatch',   code:'N848' },
-  { icon:'📋', label:'MA30 — TOB Error',             code:'MA30' },
-     { icon:'📋', label:'MA40 — Admission Date Error',  code:'MA40' },
-     { icon:'📋', label:'M44  — Condition Code Error',  code:'M44'  },
-{ icon:'📋', label:'M34  — CLIA Number Missing',   code:'M34'  },
+  { icon:'📋', label:'N815 — NDC/HCPCS Mismatch', code:'N815' },
+  { icon:'📋', label:'N847 — NDC/HCPCS Mismatch', code:'N847' },
+  { icon:'📋', label:'N848 — NDC/HCPCS Mismatch', code:'N848' },
+  { icon:'📋', label:'MA30 — TOB Error',          code:'MA30' },
+  { icon:'📋', label:'MA40 — Admission Date Error',  code:'MA40' },
+  { icon:'📋', label:'M44  — Condition Code Error',  code:'M44'  },
+  { icon:'📋', label:'M34  — CLIA Number Missing',   code:'M34'  },
+  { icon:'📋', label:'M45  — Occurrence Code Error',   code:'M34'  },
+
 
 ];
 let smFocusIdx = -1;
