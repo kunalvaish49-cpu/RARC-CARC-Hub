@@ -1123,6 +1123,7 @@ body.dark-mode .toast {
 	<span class="rarc-chip" onclick="rarcChipClick('M44')">M44</span>
 	<span class="rarc-chip" onclick="rarcChipClick('M34')">M34</span>
 	<span class="rarc-chip" onclick="rarcChipClick('M45')">M45</span>
+	<span class="rarc-chip" onclick="rarcChipClick('M62')">M62</span>
       </div>
       <!-- Search results toast -->
       <div id="rarcSearchResults" style="display:none;margin-top:8px;background:rgba(255,255,255,0.10);border:1px solid rgba(255,255,255,0.2);border-radius:8px;padding:8px 14px;font:13px 'DM Sans',sans-serif;color:rgba(255,255,255,0.85);"></div>
@@ -1169,7 +1170,13 @@ body.dark-mode .toast {
 
 
         <!-- ── WHERE TO REPORT ── -->
-        <div class="card span-12 card-collapsible card-collapsible"><div class="label">Where to Report This Information</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:6px"><div><div class="nm-h3" style="margin-top:0">CMS-1500 (Professional)</div><ul class="info-list"><li><strong>Box 24D:</strong> Box 24D: HCPCS/CPT drug code (J-code)</li><li><strong>Shaded area 24A–24G:</strong> Shaded portion (24A–24G): N4 qualifier + 11-digit NDC + unit of measure + quantity</li></ul><div class="ndc-example"><span class="ndc-ok">✅ Correct:</span> ✅ Correct: N412345678901<br><span class="ndc-bad">❌ Incorrect:</span> ❌ Incorrect: N4 12345678901</div><div class="thumb-wrap" style="margin-top:12px"><button class="thumb-btn" onclick="openLB('https://raw.githubusercontent.com/kunalvaish49-cpu/VisualCode_UB-04/main/NDC%20-%20CMS%201500%20-%2024.jpg','CMS-1500 Box 24 — NDC Placement')"><img class="thumb-img" src="https://raw.githubusercontent.com/kunalvaish49-cpu/VisualCode_UB-04/main/NDC%20-%20CMS%201500%20-%2024.jpg" alt="CMS-1500 Box 24" /></button><div class="thumb-hint">CMS-1500 Box 24 — click to enlarge</div></div></div>
+        <div class="card span-12 card-collapsible card-collapsible"><div class="label">Where to Report This Information</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:6px"><div><div class="nm-h3" style="margin-top:0">CMS-1500 (Professional)</div><ul class="info-list"><li><strong>Box 24D:</strong> Box 24D: HCPCS/CPT drug code (J-code)</li><li><strong>Shaded area 24A–24G:</strong> Shaded portion (24A–24G): N4 qualifier + 11-digit NDC + unit of measure + quantity</li></ul><div class="ndc-example"><span class="ndc-ok">✅ Correct:</span> ✅ Correct: N412345678901<br>
+<span class="ndc-bad">❌ Incorrect:</span> ❌ Incorrect: N4 12345678901</div>
+
+
+<div class="thumb-wrap" style="margin-top:12px">
+
+<button class="thumb-btn" onclick="openLB('https://raw.githubusercontent.com/kunalvaish49-cpu/VisualCode_UB-04/main/NDC%20-%20CMS%201500%20-%2024.jpg','CMS-1500 Box 24 — NDC Placement')"><img class="thumb-img" src="https://raw.githubusercontent.com/kunalvaish49-cpu/VisualCode_UB-04/main/NDC%20-%20CMS%201500%20-%2024.jpg" alt="CMS-1500 Box 24" /></button><div class="thumb-hint">CMS-1500 Box 24 — click to enlarge</div></div></div>
 
 
             <div><div class="nm-h3" style="margin-top:0">UB-04 (Facility Claims)</div><ul class="info-list"><li><strong>FL44:</strong> FL44: HCPCS/CPT code</li><li><strong>FL43:</strong> FL43: N4 + 11-digit NDC + UOM + Quantity</li></ul><div class="ndc-example">Format: N4 + 11-digit NDC + UOM + Qty<br>Example: <span class="ndc-ok">✅ Correct: N412345678901</span></div><div class="thumb-wrap" style="margin-top:12px"><button class="thumb-btn" onclick="openLB('https://raw.githubusercontent.com/kunalvaish49-cpu/VisualCode_UB-04/9054e7d1b9703347c37a8187be298fd19b9b1385/NDC%20-%20UB-04%20-%2043.jpg','UB-04 FL 43 — NDC Placement')"><img class="thumb-img" src="https://raw.githubusercontent.com/kunalvaish49-cpu/VisualCode_UB-04/9054e7d1b9703347c37a8187be298fd19b9b1385/NDC%20-%20UB-04%20-%2043.jpg" alt="UB-04 FL43" /></button><div class="thumb-hint">UB-04 FL 43 Box 24 — click to enlarge</div></div></div></div><hr class="sep"><div class="alert warn" style="margin-bottom:0"><div class="alert-icon">⚠️</div><div><div class="alert-title">N4 Qualifier Format — Common Sub-Error</div><div class="alert-text">The N4 qualifier must appear as a single unspaced prefix directly before the 11-digit NDC. A space between N4 and the NDC number will cause a format rejection even if the NDC itself is correct.</div></div></div></div>
@@ -5939,50 +5946,76 @@ CLIA Number Format:
       </div>
 
       <!-- Where the CLIA Number Goes on the Claim -->
-      <div class="card span-12 card-collapsible">
-        <div class="label">Where the CLIA Number Goes on the Claim</div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:8px">
-          <div>
-            <div class="nm-h3" style="margin-top:0">CMS-1500 (Professional Claims)</div>
-            <ul class="info-list">
-              <li><strong>Box 23 — Prior Authorization Number:</strong> The CLIA certification number is entered in Box 23 when billing laboratory services on the CMS-1500</li>
-              <li>Enter the 10-character CLIA number with no spaces, dashes, or qualifiers in the printed Box 23 field</li>
-              <li>EDI 837P equivalent: <strong>Loop 2300 REF*X4</strong> — qualifier X4 with the 10-digit CLIA number as the reference identification</li>
-              <li>The CLIA number in Box 23 identifies the <strong>performing laboratory</strong> — even if the ordering physician is billing</li>
-              <li>If the performing lab is a reference lab (send-out), the reference lab's CLIA number goes in Box 23, not the ordering provider's CLIA</li>
-            </ul>
-            <div class="proc" style="margin-top:10px">
+<div class="card span-12 card-collapsible">
+  <div class="label">Where the CLIA Number Goes on the Claim</div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:8px">
+    
+    <!-- CMS-1500 -->
+    <div>
+      <div class="nm-h3" style="margin-top:0">CMS-1500 (Professional Claims)</div>
+
+      <ul class="info-list">
+        <li><strong>Box 23 — Prior Authorization Number:</strong> The CLIA certification number is entered in Box 23 when billing laboratory services on the CMS-1500</li>
+        <li>Enter the 10-character CLIA number with no spaces, dashes, or qualifiers in the printed Box 23 field</li>
+        <li>EDI 837P equivalent: <strong>Loop 2300 REF*X4</strong> — qualifier X4 with the 10-digit CLIA number as the reference identification</li>
+        <li>The CLIA number in Box 23 identifies the <strong>performing laboratory</strong> — even if the ordering physician is billing</li>
+        <li>If the performing lab is a reference lab (send-out), the reference lab's CLIA number goes in Box 23, not the ordering provider's CLIA</li>
+      </ul>
+
+      <div class="proc" style="margin-top:10px">
 CMS-1500 Box 23:
   Field Label:  Prior Authorization Number
   CLIA Entry:   14D0000001  (no spaces/dashes)
   EDI 837P:     Loop 2300 REF*X4*14D0000001~
-            </div>
-          </div>
-          <div>
-            <div class="nm-h3" style="margin-top:0">UB-04 (Facility / Hospital Lab Claims)</div>
-            <ul class="info-list">
-              <li><strong>FL81 — Attestation / Code-Code Field:</strong> On the UB-04, the CLIA number is typically reported in FL81 using the qualifier <strong>X4</strong> followed by the 10-character CLIA number</li>
-              <li>Some MACs and payers require the CLIA number in <strong>FL67 (Other Diagnosis Codes)</strong> or a payer-specific remark field — always check the payer companion guide</li>
-              <li>EDI 837I equivalent: <strong>Loop 2300 REF*X4</strong> — same qualifier and format as the 837P</li>
-              <li>For hospital outpatient lab claims billed under the hospital's CLIA, use the hospital's CLIA number</li>
-              <li>For reference lab send-outs billed on a UB-04, use the reference lab's CLIA number</li>
-            </ul>
-            <div class="proc" style="margin-top:10px">
+      </div>
+
+      <div class="thumb-wrap" style="margin-top:12px">
+        <button class="thumb-btn" onclick="openLB('https://raw.githubusercontent.com/kunalvaish49-cpu/VisualCode_UB-04/023c4be2d91a4acf5e8d503559d2fa8880a80c99/Box23.jpg','CMS-1500 Box 23 — CLIA Number Placement')">
+          <img class="thumb-img" src="https://raw.githubusercontent.com/kunalvaish49-cpu/VisualCode_UB-04/023c4be2d91a4acf5e8d503559d2fa8880a80c99/Box23.jpg" alt="CMS-1500 Box 23 CLIA Number" />
+        </button>
+      
+      </div>
+    </div>
+
+    <!-- UB-04 -->
+    <div>
+      <div class="nm-h3" style="margin-top:0">UB-04 (Facility / Hospital Lab Claims)</div>
+
+      <ul class="info-list">
+        <li><strong>FL81 — Attestation / Code-Code Field:</strong> On the UB-04, the CLIA number is typically reported in FL81 using the qualifier <strong>X4</strong> followed by the 10-character CLIA number</li>
+        <li>Some MACs and payers require the CLIA number in <strong>FL67 (Other Diagnosis Codes)</strong> or a payer-specific remark field — always check the payer companion guide</li>
+        <li>EDI 837I equivalent: <strong>Loop 2300 REF*X4</strong> — same qualifier and format as the 837P</li>
+        <li>For hospital outpatient lab claims billed under the hospital's CLIA, use the hospital's CLIA number</li>
+        <li>For reference lab send-outs billed on a UB-04, use the reference lab's CLIA number</li>
+      </ul>
+
+      <div class="proc" style="margin-top:10px">
 UB-04 FL81 Entry:
   Qualifier:    X4
   CLIA Number:  14D0000001
   EDI 837I:     Loop 2300 REF*X4*14D0000001~
-            </div>
-          </div>
-        </div>
-        <div class="alert warn" style="margin-top:14px;margin-bottom:0">
-          <div class="alert-icon">⚠️</div>
-          <div>
-            <div class="alert-title">Box 23 Conflict — Prior Authorization vs. CLIA Number</div>
-            <div class="alert-text">Box 23 on the CMS-1500 is a shared field used for both prior authorization numbers and CLIA numbers depending on the service type. On laboratory claims, Box 23 must carry the CLIA number — not a prior auth number. If a prior auth is also required for the lab test, check the payer's companion guide for how to submit both — some payers use a separate loop or note field.</div>
-          </div>
-        </div>
       </div>
+
+      <div class="thumb-wrap" style="margin-top:12px">
+        <button class="thumb-btn" onclick="openLB('https://raw.githubusercontent.com/kunalvaish49-cpu/VisualCode_UB-04/b39d3afe093b6896ed72d28928d7932e541acc92/FL-63%20UB-04.jpg','UB-04 FL81 — CLIA Number Placement')">
+          <img class="thumb-img" src="https://raw.githubusercontent.com/kunalvaish49-cpu/VisualCode_UB-04/b39d3afe093b6896ed72d28928d7932e541acc92/FL-63%20UB-04.jpg" alt="UB-04 FL81 CLIA Number" />
+        </button>
+ 
+      </div>
+    </div>
+  </div>
+
+  <div class="alert warn" style="margin-top:14px;margin-bottom:0">
+    <div class="alert-icon">⚠️</div>
+    <div>
+      <div class="alert-title">Box 23 Conflict — Prior Authorization vs. CLIA Number</div>
+      <div class="alert-text">
+        Box 23 on the CMS-1500 is a shared field used for both prior authorization numbers and CLIA numbers depending on the service type. On laboratory claims, Box 23 must carry the CLIA number — not a prior auth number. If a prior auth is also required for the lab test, check the payer's companion guide for how to submit both — some payers use a separate loop or note field.
+      </div>
+    </div>
+  </div>
+</div>
 
       <!-- Who Is Required to Have a CLIA Number -->
       <div class="card span-12 card-collapsible">
@@ -6179,7 +6212,7 @@ UB-04 FL81 Entry:
           <div class="alert-icon">🔍</div>
           <div>
             <div class="alert-title">How to Look Up a CLIA Number</div>
-            <div class="alert-text">Go to <strong>qcor.cms.gov - Already have link bottom of Quick Access Tools</strong> → Basic Search → search by provider name, address, or NPI. The result will show the CLIA number, certificate type, effective date, expiration date, and certificate status. Always confirm the certificate was active on the date of service before billing.</div>
+            <div class="alert-text">Go to <strong>qcor.cms.gov - Right Side Quick Access Tools Search CLIA</strong> → Basic Search → search by provider name, address, or NPI. The result will show the CLIA number, certificate type, effective date, expiration date, and certificate status. Always confirm the certificate was active on the date of service before billing.</div>
           </div>
         </div>
       </div>
@@ -7288,6 +7321,464 @@ EDI 837I Format:
 </div><!-- end .layout -->
 </div><!-- end #rarc-section-M45 -->
 
+
+<!-- ═══════════════════════════════════ M62 SECTION ═══════════════════════════════════ -->
+<div id="rarc-section-M62" class="rarc-section" style="display:none">
+<div class="layout">
+
+<!-- ════ LEFT COLUMN ════ -->
+<div>
+
+  <!-- Result Header -->
+  <div class="result-header">
+    <div class="result-code-block">
+      <span class="codebox">M62</span>
+      <span class="type-badge supp">REMARK</span>
+      <span class="type-badge warn" style="margin-top:2px">CO-197</span>
+    </div>
+    <div class="result-desc">
+      <p>Missing / Incomplete / Invalid Treatment Authorization Code</p>
+      <span class="ctx-pill">Prior Authorization / Pre-Certification · Professional &amp; Facility Claims · CMS-1500 &amp; UB-04</span>
+      <div style="margin-top:14px">
+        <div class="label">Common CARC Pairing</div>
+        <div class="pairs">
+          <span class="pair" title="Claim denied because the authorization number is missing or invalid">CO-197</span>
+          <span class="pair" title="Services not authorized by the payer">CO-15</span>
+          <span class="pair" title="CMS-1500 Professional Claim Form">CMS-1500</span>
+          <span class="pair" title="UB-04 Facility Claim Form">UB-04</span>
+          <span class="pair" title="Box 23 on CMS-1500">Box 23</span>
+          <span class="pair" title="Form Locator 63 on UB-04">FL63</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid">
+
+    <!-- ── WHAT THIS MEANS ── -->
+    <div class="card span-12 card-collapsible">
+      <div class="label">What This Means</div>
+      <p class="muted">
+        M62 means the payer's system could not find a valid, matching treatment authorization (also called a Prior Authorization or Pre-Auth) number on the claim. Either the authorization number was not submitted at all, it was entered incorrectly, it belongs to a different patient or service, it has expired, or the service billed does not match what was actually authorized. The payer cannot pay the claim until it can verify that the service was approved in advance.
+      </p>
+      <div class="alert info" style="margin-top:14px">
+        <div class="alert-icon">ℹ️</div>
+        <div>
+          <div class="alert-title">Think of it this way — What is a Prior Authorization?</div>
+          <div class="alert-text">
+            Before certain procedures, tests, or specialist visits happen, the insurance company requires the provider to ask for permission in advance. That "permission" is called a Prior Authorization (PA). The payer gives back an authorization number — a unique code that proves the service was approved. That number <strong>must be reported on the claim</strong> in a specific field. M62 fires when that number is missing, wrong, or does not match what the payer approved.
+          </div>
+        </div>
+      </div>
+      <div class="alert warn" style="margin-top:10px">
+        <div class="alert-icon">⚠️</div>
+        <div>
+          <div class="alert-title">M62 Is NOT Always a Billing Error</div>
+          <div class="alert-text">
+            Sometimes the authorization number is correct but the payer's system has a data entry issue on their end, or the authorization was not properly linked to the claim. Always confirm the auth number before assuming it is a billing mistake.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── WHERE TO REPORT THE AUTH NUMBER ── -->
+<div class="card span-12 card-collapsible">
+  <div class="label">Where the Authorization Number Goes on the Claim Form</div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:8px">
+    
+    <!-- CMS-1500 -->
+    <div>
+      <div class="nm-h3" style="margin-top:0">CMS-1500 (Professional / Office Claims)</div>
+
+      <ul class="info-list">
+        <li><strong>Box 23 — Prior Authorization Number:</strong> This is the dedicated field for the PA number on the CMS-1500. It must contain only the authorization number — no extra text, no spaces at the start or end.</li>
+        <li>The auth number must match <strong>exactly</strong> what the payer issued — including any letters, leading zeros, or dashes.</li>
+        <li>If the service spans multiple dates, confirm whether the payer requires a new auth number per date of service or per authorization period.</li>
+        <li><strong>Box 24B — Place of Service:</strong> The location code (POS) billed must match the setting that was authorized. Example: if auth was approved for outpatient office (POS 11) but you bill inpatient (POS 21), it will not match.</li>
+        <li><strong>Box 24D — Procedure Code:</strong> The CPT/HCPCS code billed must match the procedure that was authorized — billing a different code, even a related one, will cause M62.</li>
+      </ul>
+
+      <div class="thumb-wrap" style="margin-top:12px">
+        <button class="thumb-btn" onclick="openLB('https://raw.githubusercontent.com/kunalvaish49-cpu/VisualCode_UB-04/023c4be2d91a4acf5e8d503559d2fa8880a80c99/Box23.jpg','CMS-1500 Box 23 — Authorization Number Placement')">
+          <img class="thumb-img" src="https://raw.githubusercontent.com/kunalvaish49-cpu/VisualCode_UB-04/023c4be2d91a4acf5e8d503559d2fa8880a80c99/Box23.jpg" alt="CMS-1500 Box 23 Authorization Number" />
+        </button>
+  
+      </div>
+    </div>
+
+    <!-- UB-04 -->
+    <div>
+      <div class="nm-h3" style="margin-top:0">UB-04 (Facility / Hospital Claims)</div>
+
+      <ul class="info-list">
+        <li><strong>FL63 — Treatment Authorization Code:</strong> This is the field for the prior authorization number on the UB-04. Each payer may have slightly different formatting expectations — always check the payer's billing companion guide.</li>
+        <li><strong>FL4 — Type of Bill (TOB):</strong> The TOB must be consistent with the service setting that was authorized. A mismatch between TOB and the authorized setting will trigger M62.</li>
+        <li><strong>FL42/FL44 — Revenue Code / Procedure Code:</strong> The procedure and revenue codes billed must align with what was specifically approved in the authorization.</li>
+        <li><strong>FL67 — Principal Diagnosis:</strong> Some payers tie the authorization to a specific diagnosis — confirm the primary DX on the claim matches the DX used when the auth was obtained.</li>
+      </ul>
+
+      
+      <div class="thumb-wrap" style="margin-top:12px">
+        <button class="thumb-btn" onclick="openLB('https://raw.githubusercontent.com/kunalvaish49-cpu/VisualCode_UB-04/b39d3afe093b6896ed72d28928d7932e541acc92/FL-63%20UB-04.jpg','UB-04 FL63 — Authorization Number Placement')">
+          <img class="thumb-img" src="https://raw.githubusercontent.com/kunalvaish49-cpu/VisualCode_UB-04/b39d3afe093b6896ed72d28928d7932e541acc92/FL-63%20UB-04.jpg" alt="UB-04 FL63 Authorization Number" />
+        </button>
+   
+      </div>
+    </div>
+
+<div class="alert ok" style="margin-top:12px">
+        <div class="alert-icon">✅</div>
+        <div class="alert-text">
+          <strong>Quick tip:</strong> The authorization number is case-sensitive for many payers. If the payer issued <code>AUTH-2024-88341</code> and you entered <code>auth2024-88341</code>, it will not match — copy it exactly.
+        </div>
+      </div>
+
+  </div>
+</div>
+
+    <!-- ── WHY THIS HAPPENS ── -->
+    <div class="card span-6 card-collapsible">
+      <div class="label">Why This Happens — Most Common Root Causes</div>
+      <div class="nm-h3" style="margin-top:4px">Data Entry &amp; Submission Errors</div>
+      <ul class="info-list">
+        <li>Authorization number was never entered in Box 23 (CMS-1500) or FL63 (UB-04) — the field was simply left blank</li>
+        <li>Authorization number was typed incorrectly — a digit transposed, a letter missing, extra spaces, or incorrect capitalization</li>
+        <li>The auth number from a previous claim or a different patient was accidentally copied onto this claim</li>
+        <li>The authorization was obtained but never communicated from the clinical or scheduling team to the billing team before claim submission</li>
+      </ul>
+      <div class="nm-h3">Authorization Validity Issues</div>
+      <ul class="info-list">
+        <li>The authorization number is valid but it has <strong>expired</strong> — the date of service falls outside the authorization's approved date range</li>
+        <li>The authorization was approved for a <strong>different procedure code</strong> than what was billed — even one digit off causes a mismatch</li>
+        <li>The authorization was approved for a <strong>different number of units or visits</strong> than what was billed</li>
+        <li>The authorization was issued under a <strong>different provider NPI</strong> — the rendering or billing provider on the claim does not match the provider on the authorization</li>
+        <li>The authorization was approved for a <strong>different place of service</strong> — e.g., authorized for outpatient but claim billed as inpatient</li>
+        <li>The service was performed by a <strong>different provider</strong> than who obtained the authorization (e.g., covering provider, locum)</li>
+      </ul>
+      <div class="nm-h3">System &amp; Process Errors</div>
+      <ul class="info-list">
+        <li>The payer's system had a processing issue and did not correctly link the authorization to the claim even though it was submitted correctly — this requires a call to the payer</li>
+        <li>Authorization was voided or cancelled by the payer before the date of service without the provider being notified</li>
+      </ul>
+    </div>
+
+    <!-- ── HOW TO FIX IT ── -->
+    <div class="card span-6 card-collapsible">
+      <div class="label">How to Fix It — Step-by-Step</div>
+      <div class="nm-h3" style="margin-top:4px">Step 1 — Pull the Authorization Record</div>
+      <ol class="step-list">
+        <li><span class="sn">1</span><span>Go to the payer's provider portal or call the payer's provider services line and look up the authorization for this patient, date of service, and procedure code</span></li>
+        <li><span class="sn">2</span><span>Confirm the authorization <strong>exists and is active</strong> — check the approved date range, approved procedure code(s), approved units, rendering provider NPI, and place of service</span></li>
+        <li><span class="sn">3</span><span>Compare the authorization record to what was submitted on the claim — note any differences</span></li>
+      </ol>
+      <div class="nm-h3">Step 2 — Identify the Specific Mismatch</div>
+      <ol class="step-list">
+        <li><span class="sn">4</span><span>Check Box 23 (CMS-1500) or FL63 (UB-04) on the original claim — was the auth number present? Was it entered correctly character by character?</span></li>
+        <li><span class="sn">5</span><span>Confirm the procedure code, place of service, provider NPI, and dates of service on the claim all match the authorization exactly</span></li>
+        <li><span class="sn">6</span><span>If the auth number was correct and all fields match, escalate to the payer — this may be a payer-side system issue requiring a reprocessing request</span></li>
+      </ol>
+      <div class="nm-h3">Step 3 — Correct and Resubmit</div>
+      <ol class="step-list">
+        <li><span class="sn">7</span><span>Correct the auth number, procedure code, provider, or place of service as needed — then submit a <strong>corrected claim with Resubmission Code 7</strong></span></li>
+        <li><span class="sn">8</span><span>If the authorization itself was never obtained, contact the clinical or authorization team immediately — a retroactive authorization request may be possible depending on the payer and situation</span></li>
+        <li><span class="sn">9</span><span>If the service date is outside the auth period, request an authorization extension from the payer before resubmitting</span></li>
+      </ol>
+      <div class="alert warn" style="margin-top:14px">
+        <div class="alert-icon">⚠️</div>
+        <div>
+          <div class="alert-title">Timely Filing Warning</div>
+          <div class="alert-text">While resolving an M62 denial, keep an eye on your timely filing deadline. Corrected claims and appeals still need to be submitted within the payer's filing window. Do not let the auth research delay the resubmission past the deadline.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── KEY FIELDS REFERENCE TABLE ── -->
+    <div class="card span-12 card-collapsible">
+      <div class="label">Key Fields — Where Auth Info Lives on Each Claim Form</div>
+      <table class="mod-table">
+        <thead>
+          <tr>
+            <th>Field</th>
+            <th>Claim Form</th>
+            <th>What Goes Here</th>
+            <th>Common M62 Mistake</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="mod-code">Box 23</span></td>
+            <td>CMS-1500</td>
+            <td>Prior Authorization Number issued by the payer</td>
+            <td>Left blank, wrong number, or number from a different patient/auth</td>
+          </tr>
+          <tr>
+            <td><span class="mod-code">FL63</span></td>
+            <td>UB-04</td>
+            <td>Treatment Authorization Code (same as prior auth number)</td>
+            <td>Incorrect format, wrong number, or field left empty</td>
+          </tr>
+          <tr>
+            <td><span class="mod-code">Box 24D / FL44</span></td>
+            <td>Both</td>
+            <td>Procedure code billed must match the authorized procedure</td>
+            <td>Billing a related but different code than what was authorized</td>
+          </tr>
+          <tr>
+            <td><span class="mod-code">Box 24B / FL4</span></td>
+            <td>Both</td>
+            <td>Place of Service / Type of Bill must match authorized setting</td>
+            <td>Auth approved for office visit (POS 11) but billed as outpatient facility (POS 22)</td>
+          </tr>
+          <tr>
+            <td><span class="mod-code">Box 33 / FL56</span></td>
+            <td>Both</td>
+            <td>Billing Provider NPI — must match the provider on the auth</td>
+            <td>Covering or locum provider billed under different NPI than authorized provider</td>
+          </tr>
+          <tr>
+            <td><span class="mod-code">Box 24A / FL45</span></td>
+            <td>Both</td>
+            <td>Date of Service must fall within the authorization's approved date range</td>
+            <td>Service date is outside the auth window — auth expired or not yet active</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ── WHAT NOT TO DO ── -->
+    <div class="card span-6 card-collapsible">
+      <div class="label">What NOT to Do</div>
+      <ul class="info-list">
+        <li>Do not appeal before first confirming the authorization number and correcting the claim — an appeal on a missing auth will still be denied without proof of authorization</li>
+        <li>Do not resubmit the exact same claim with the same blank or incorrect Box 23/FL63 — the denial will repeat</li>
+        <li>Do not assume the payer has the auth on file without verifying — always confirm via portal or phone before resubmitting</li>
+        <li>Do not use an authorization number obtained for a different service, different patient, or different provider</li>
+        <li>Do not let the timely filing deadline pass while waiting for authorization research — take action in parallel</li>
+      </ul>
+      <div class="alert err" style="margin-top:14px">
+        <div class="alert-icon">🚫</div>
+        <div class="alert-text">Submitting an appeal for M62 without attaching a copy of the authorization approval letter or portal screenshot is the most common reason appeals on this denial are rejected. Always include proof of auth when appealing.</div>
+      </div>
+    </div>
+
+    <!-- ── PREVENTION CHECKLIST ── -->
+    <div class="card span-6 card-collapsible">
+      <div class="label">Prevention Checklist — Before Submitting Any Authorized Service</div>
+      <p class="muted" style="margin-bottom:10px;font-size:13px">Run through every item below before the claim goes out:</p>
+      <ul class="checklist">
+        <li class="req"><span class="ck-icon">✅</span><span>Authorization number confirmed on payer portal before claim submission</span></li>
+        <li class="req"><span class="ck-icon">✅</span><span>Auth number entered character-by-character in Box 23 (CMS-1500) or FL63 (UB-04) — no extra spaces, no typos</span></li>
+        <li><span class="ck-icon">✅</span><span>Date of service falls within the authorized date range</span></li>
+        <li><span class="ck-icon">✅</span><span>Procedure code on claim exactly matches the authorized procedure code</span></li>
+        <li><span class="ck-icon">✅</span><span>Place of service / Type of Bill matches the setting that was authorized</span></li>
+        <li><span class="ck-icon">✅</span><span>Rendering provider NPI matches the provider listed on the authorization</span></li>
+        <li><span class="ck-icon">✅</span><span>Number of units billed does not exceed the number of units authorized</span></li>
+        <li><span class="ck-icon">✅</span><span>Authorization was not cancelled or voided before the date of service</span></li>
+        <li><span class="ck-icon">✅</span><span>Authorization team confirmed auth approval and communicated the number to billing before claim submission</span></li>
+      </ul>
+    </div>
+
+    <!-- ── APPEAL vs CORRECT ── -->
+    <div class="card span-12 card-collapsible">
+      <div class="label">Best Practice — When to Appeal vs. When to Correct &amp; Resubmit</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px">
+        <div class="decision-box">
+          <h4>✅ Appeal When ALL of These Are True</h4>
+          <ul class="info-list" style="margin-top:0">
+            <li>A valid authorization was obtained before the date of service and the number was submitted correctly on the original claim</li>
+            <li>You have verified via the payer portal that the auth was active, matched the procedure, provider, and dates — and the claim data was correct</li>
+            <li>The payer denied it anyway — this indicates a payer-side system error and an appeal with the authorization approval documentation should be submitted</li>
+            <li>Always attach the authorization approval letter or portal screenshot to the appeal</li>
+          </ul>
+        </div>
+        <div class="deny-box">
+          <h4>🔄 Correct &amp; Resubmit First (Most M62 Cases)</h4>
+          <ul class="info-list" style="margin-top:0">
+            <li>Most M62 denials are caused by a missing or incorrect auth number in Box 23 or FL63 — fix the field and resubmit with Resubmission Code 7</li>
+            <li>If the service was provided but no auth was ever obtained, work with the clinical team on a retroactive auth request before resubmitting</li>
+            <li>If the auth has expired, request an extension from the payer and resubmit once approved</li>
+            <li>Do not appeal as a first step — correct the root cause first and escalate to appeal only after a corrected claim is also denied</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end .grid -->
+</div><!-- end left column -->
+
+<!-- ════ RIGHT SIDEBAR ════ -->
+   <aside>
+ <div class="sidebar-card">
+        <p class="sidebar-title">Quick‑Access Tools</p>
+        <p class="sidebar-sub">Official CMS &amp; NLM billing resources — click any link to open in a new tab.</p>
+        <div style="margin-bottom:12px;position:relative">
+          <input type="text" class="qa-search-input" placeholder="🔍  Search tools…" oninput="qaFilter(this)" autocomplete="off" />
+        </div>
+        <div class="res-list">
+<a class="res-link" href="https://kunalvaish49-cpu.github.io/NDC-Lookup-Tool/" target="_blank" rel="noopener" style="width:100%;text-align:left;cursor:pointer;">
+    <span class="res-icon" style="background:#e8f0ff;color:#1847cc">💊</span>
+    <span class="res-body">
+        <span class="res-name">NDC / HCPCS Drug Lookup Tool</span>
+        <span class="res-desc">Search NDC, J-Code, Drug Name — GitHub Tool</span>
+    </span>
+    <span class="res-arrow">↗</span>
+</a>
+
+<a class="res-link" href="https://kunalvaish49-cpu.github.io/Status-Code-Data/index.html" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#e8f0ff;color:#1847cc">💊</span>
+            <span class="res-body">
+              <span class="res-name">AR RCM STATUS | ACTION | SUB-CATEGORY Tool</span>
+              <span class="res-desc">Search Denial Name</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+
+<a class="res-link" href="https://kunalvaish49-cpu.github.io/CMS-1500-UB-04/" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#e8f0ff;color:#1847cc">💊</span>
+            <span class="res-body">
+              <span class="res-name">CMS & UB-04 Box or FL Knowledge Tool</span>
+              <span class="res-desc">Search FL or Box#</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+          <a class="res-link" href="https://dailymed.nlm.nih.gov/dailymed/" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#e8f0ff;color:#1847cc">💊</span>
+            <span class="res-body">
+              <span class="res-name">DailyMed NDC Lookup</span>
+              <span class="res-desc">Search drug labels &amp; National Drug Codes via NLM DailyMed</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+          <a class="res-link" href="https://medicare.fcso.com/lcd-interactive-index" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#e8f6f0;color:#0a7a50">🔗</span>
+            <span class="res-body">
+              <span class="res-name">LCD & Article Lookup Tool</span>
+              <span class="res-desc">Search Article & LCD By Procedure Code</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+ <a class="res-link" href="https://npiregistry.cms.hhs.gov/search" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#e8f6f0;color:#0a7a50">🔗</span>
+            <span class="res-body">
+              <span class="res-name">NPPES NPI Registry Lookup</span>
+              <span class="res-desc">Provider Speciality & Activation</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+
+  <a class="res-link" href="https://www.cgsmedicare.com/medicare_dynamic/j15/partb/ptpb/ptp.aspx
+" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#e8f6f0;color:#0a7a50">🔗</span>
+            <span class="res-body">
+              <span class="res-name">Part B NCCI Procedure‑to‑Procedure Lookup</span>
+              <span class="res-desc">Check Part B PTP edits &amp; bundling conflicts</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+
+          <a class="res-link" href="https://www.cgsmedicare.com/medicare_dynamic/j15/partb/mue/mue_tool.aspx
+" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#fff7e6;color:#b87010">📋</span>
+            <span class="res-body">
+              <span class="res-name">MUE Lookup Part B</span>
+              <span class="res-desc">Medically Unlikely Edits Part B — max units per claim line</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+<a class="res-link" href="https://www.cgsmedicare.com/medicare_dynamic/j15/parta/mue/mue_tool.aspx
+" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#fff7e6;color:#b87010">📋</span>
+            <span class="res-body">
+              <span class="res-name">MUE Lookup Part A</span>
+              <span class="res-desc">Medically Unlikely Edits Part A — max units per claim line</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+          <a class="res-link" href="https://www.cgsmedicare.com/medicare_dynamic/j15/partb/claimcalc/claimcalc.aspx
+" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#fdf0f0;color:#be2a2a">📅</span>
+            <span class="res-body">
+              <span class="res-name">Claim Timely Filing Calculator</span>
+              <span class="res-desc">Verify filing deadlines by payer &amp; claim type</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+          <a class="res-link" href="https://www.cgsmedicare.com/medicare_dynamic/j15/parta/modifiers/search.aspx
+" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#f0eaff;color:#6d28d9">🏥</span>
+            <span class="res-body">
+              <span class="res-name">Part A Modifier Finder Tool</span>
+              <span class="res-desc">Identify applicable modifiers for Part A facility claims</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+          <a class="res-link" href="https://www.cgsmedicare.com/medicare_dynamic/j15/partb/modifiers/search.aspx
+	" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#e8f6f0;color:#0a6b58">🩺</span>
+            <span class="res-body">
+              <span class="res-name">Part B Modifier Finder Tool</span>
+              <span class="res-desc">Look up Part B professional claim modifiers</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+          <a class="res-link" href="https://www.cgsmedicare.com/medicare_dynamic/j15/parta/ptpa/ptp.aspx
+" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#e8f0ff;color:#1847cc">🔍</span>
+            <span class="res-body">
+              <span class="res-name">Part A NCCI Procedure‑to‑Procedure Lookup</span>
+              <span class="res-desc">Check Part A PTP edits for facility/outpatient claims</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+<a class="res-link" href="https://www.cgsmedicare.com/medicare_dynamic/j15/partb/ptpb/ptp.aspx" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#e8f0ff;color:#1847cc">🔍</span>
+            <span class="res-body">
+              <span class="res-name">Part B NCCI Procedure‑to‑Procedure Lookup</span>
+              <span class="res-desc">Check Part B PTP edits for facility/outpatient claims</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+
+          <a class="res-link" href="https://www.cgsmedicare.com/partb/tools/ivr_converter.html
+" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#fef5e4;color:#b87010">🪪</span>
+            <span class="res-body">
+              <span class="res-name">MBI &amp; Name‑to‑Number Converter</span>
+              <span class="res-desc">Medicare Beneficiary Identifier lookup &amp; conversion tool</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+          <a class="res-link" href="https://qcor.cms.gov/Basic_Search
+" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#f0eaff;color:#6d28d9">🔬</span>
+            <span class="res-body">
+              <span class="res-name">CLIA Lookup Tool — S&amp;C QCOR</span>
+              <span class="res-desc">Search Clinical Laboratory Improvement Amendments data</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+        </div>
+      </div>
+    </aside>
+
+</div><!-- end .layout -->
+</div><!-- end #rarc-section-M62 -->
 
 	
   <footer>
@@ -8690,7 +9181,7 @@ function runRarcAnalyze() {
   });
 
   // Switch section visibility
-  const known = ['N846', 'N816', 'M119', 'N60', 'N815', 'N847', 'N848', 'MA30', 'MA40', 'M44', 'M34', 'M45'];
+  const known = ['N846', 'N816', 'M119', 'N60', 'N815', 'N847', 'N848', 'MA30', 'MA40', 'M44', 'M34', 'M45', 'M62'];
   const msg = document.getElementById('rarcSearchResults');
 
   if (known.includes(code)) {
@@ -9378,18 +9869,19 @@ function collapseAllCards() {
    SEARCH MODAL (Ctrl+K)
 ══════════════════════════════════════════ */
 const SM_SECTIONS = [
-  { icon:'📋', label:'N846 — NDC/HCPCS Mismatch', code:'N846' },
-  { icon:'📋', label:'N816 — NDC/HCPCS Mismatch', code:'N816' },
-  { icon:'📋', label:'M119 — NDC/HCPCS Mismatch', code:'M119' },
-  { icon:'📋', label:'N60  — NDC/HCPCS Mismatch', code:'N60'  },
-  { icon:'📋', label:'N815 — NDC/HCPCS Mismatch', code:'N815' },
-  { icon:'📋', label:'N847 — NDC/HCPCS Mismatch', code:'N847' },
-  { icon:'📋', label:'N848 — NDC/HCPCS Mismatch', code:'N848' },
-  { icon:'📋', label:'MA30 — TOB Error',          code:'MA30' },
-  { icon:'📋', label:'MA40 — Admission Date Error',  code:'MA40' },
-  { icon:'📋', label:'M44  — Condition Code Error',  code:'M44'  },
-  { icon:'📋', label:'M34  — CLIA Number Missing',   code:'M34'  },
-  { icon:'📋', label:'M45  — Occurrence Code Error',   code:'M34'  },
+  { icon:'📋', label:'N846 — NDC/HCPCS Mismatch', code:'N846'},
+  { icon:'📋', label:'N816 — NDC/HCPCS Mismatch', code:'N816'},
+  { icon:'📋', label:'M119 — NDC/HCPCS Mismatch', code:'M119'},
+  { icon:'📋', label:'N60  — NDC/HCPCS Mismatch', code:'N60'},
+  { icon:'📋', label:'N815 — NDC/HCPCS Mismatch', code:'N815'},
+  { icon:'📋', label:'N847 — NDC/HCPCS Mismatch', code:'N847'},
+  { icon:'📋', label:'N848 — NDC/HCPCS Mismatch', code:'N848'},
+  { icon:'📋', label:'MA30 — TOB Error',          code:'MA30'},
+  { icon:'📋', label:'MA40 — Admission Date Error', code:'MA40'},
+  { icon:'📋', label:'M44  — Condition Code Error', code:'M44'},
+  { icon:'📋', label:'M34  — CLIA Number Missing',  code:'M34'},
+  { icon:'📋', label:'M45  — Occurrence Code Error', code:'M34'},
+  { icon:'🔐', label:'M62  — Missing/Invalid Treatment Authorization Code', code:'M62' },
 
 
 ];
