@@ -413,8 +413,19 @@ ul.info-list li::before {
 .lb-close:hover { background: #f9d9d9; }
 .lb-img-wrap { overflow: auto; display: flex; align-items: center; justify-content: center; padding: 20px; flex: 1; }
 .lb-img { display: block; max-width: 100%; max-height: calc(90vh - 90px); height: auto; border-radius: var(--r-sm); box-shadow: var(--sh); object-fit: contain; }
+.lb-zoom-btn { display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:var(--r-xs);border:1.5px solid var(--border2);background:var(--surface2);color:var(--navy);font:700 16px 'DM Mono',monospace;cursor:pointer;transition:background .14s,border-color .14s; }
+.lb-zoom-btn:hover { background:var(--accent-lt);border-color:var(--accent);color:var(--accent); }
+.lb-esc-hint { font:500 11px/1 'DM Mono',monospace;color:var(--muted2);background:var(--surface2);border:1px solid var(--border);border-radius:999px;padding:5px 11px;white-space:nowrap; }
 
 /* ══ SIDEBAR ══ */
+.qa-search-input {
+  width:100%; padding:8px 12px 8px 34px; border:1.5px solid var(--border2);
+  border-radius:var(--r-sm); background:var(--surface2); color:var(--text);
+  font:14px 'DM Sans',sans-serif; outline:none; transition:border-color .16s;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%238896b5' stroke-width='2.2' stroke-linecap='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E");
+  background-repeat:no-repeat; background-position:10px center;
+}
+.qa-search-input:focus { border-color:var(--accent); background-color:var(--surface); }
 .sidebar-card { background: var(--surface); border: 1.5px solid var(--border); border-radius: var(--r); padding: 22px; box-shadow: var(--sh-sm); position: sticky; top: 22px; }
 .sidebar-title { font-family: 'DM Serif Display', Georgia, serif; font-size: 20px; font-weight: 400; color: var(--navy); margin-bottom: 4px; letter-spacing: -.01em; }
 .sidebar-sub { font-size: 12.5px; color: var(--muted2); margin-bottom: 18px; line-height: 1.55; }
@@ -1018,11 +1029,11 @@ body.dark-mode .toast {
   <div class="ftb-right">
     <!-- Expand All -->
    <button class="ftb-btn" onclick="expandAllCards()" title="Expand all sections (Shift+E)">
-  ⊞ <span>Expand (Shift+E)</span>
+  ⊞ <span>Expand All (Shift+E)</span>
 </button>
     <!-- Collapse All -->
    <button class="ftb-btn" onclick="collapseAllCards()" title="Collapse all sections (Shift+C)">
-  ⊟ <span>Collapse (Shift+C)</span>
+  ⊟ <span>Collapse All (Shift+C)</span>
 </button>
     <!-- Dark Mode -->
     <button class="ftb-btn" id="darkModeBtn" onclick="toggleDarkMode()" title="Toggle dark mode (D)">
@@ -1221,10 +1232,12 @@ If the JW line is the only line, or if the administered line shows zero units, t
 
     <!-- ════ RIGHT SIDEBAR ════ -->
    <aside>
-      <div class="sidebar-card">
+       <div class="sidebar-card">
         <p class="sidebar-title">Quick‑Access Tools</p>
         <p class="sidebar-sub">Official CMS &amp; NLM billing resources — click any link to open in a new tab.</p>
-
+        <div style="margin-bottom:12px;position:relative">
+          <input type="text" class="qa-search-input" placeholder="🔍  Search tools…" oninput="qaFilter(this)" autocomplete="off" />
+        </div>
         <div class="res-list">
 <a class="res-link" href="https://kunalvaish49-cpu.github.io/NDC-Lookup-Tool/" target="_blank" rel="noopener" style="width:100%;text-align:left;cursor:pointer;">
     <span class="res-icon" style="background:#e8f0ff;color:#1847cc">💊</span>
@@ -1590,10 +1603,12 @@ If the JW line is the only line, or if the administered line shows zero units, t
 
    <!-- ════ RIGHT SIDEBAR ════ -->
    <aside>
-      <div class="sidebar-card">
+       <div class="sidebar-card">
         <p class="sidebar-title">Quick‑Access Tools</p>
         <p class="sidebar-sub">Official CMS &amp; NLM billing resources — click any link to open in a new tab.</p>
-
+        <div style="margin-bottom:12px;position:relative">
+          <input type="text" class="qa-search-input" placeholder="🔍  Search tools…" oninput="qaFilter(this)" autocomplete="off" />
+        </div>
         <div class="res-list">
 <a class="res-link" href="https://kunalvaish49-cpu.github.io/NDC-Lookup-Tool/" target="_blank" rel="noopener" style="width:100%;text-align:left;cursor:pointer;">
     <span class="res-icon" style="background:#e8f0ff;color:#1847cc">💊</span>
@@ -2016,10 +2031,12 @@ If the JW line is the only line, or if the administered line shows zero units, t
 
   <!-- ════ RIGHT SIDEBAR ════ -->
    <aside>
-      <div class="sidebar-card">
+       <div class="sidebar-card">
         <p class="sidebar-title">Quick‑Access Tools</p>
         <p class="sidebar-sub">Official CMS &amp; NLM billing resources — click any link to open in a new tab.</p>
-
+        <div style="margin-bottom:12px;position:relative">
+          <input type="text" class="qa-search-input" placeholder="🔍  Search tools…" oninput="qaFilter(this)" autocomplete="off" />
+        </div>
         <div class="res-list">
 <a class="res-link" href="https://kunalvaish49-cpu.github.io/NDC-Lookup-Tool/" target="_blank" rel="noopener" style="width:100%;text-align:left;cursor:pointer;">
     <span class="res-icon" style="background:#e8f0ff;color:#1847cc">💊</span>
@@ -2432,7 +2449,9 @@ If the JW line is the only line, or if the administered line shows zero units, t
       <div class="sidebar-card">
         <p class="sidebar-title">Quick‑Access Tools</p>
         <p class="sidebar-sub">Official CMS &amp; NLM billing resources — click any link to open in a new tab.</p>
-
+        <div style="margin-bottom:12px;position:relative">
+          <input type="text" class="qa-search-input" placeholder="🔍  Search tools…" oninput="qaFilter(this)" autocomplete="off" />
+        </div>
         <div class="res-list">
 <a class="res-link" href="https://kunalvaish49-cpu.github.io/NDC-Lookup-Tool/" target="_blank" rel="noopener" style="width:100%;text-align:left;cursor:pointer;">
     <span class="res-icon" style="background:#e8f0ff;color:#1847cc">💊</span>
@@ -2844,10 +2863,12 @@ If the JW line is the only line, or if the administered line shows zero units, t
 
   <!-- ════ RIGHT SIDEBAR ════ -->
    <aside>
-      <div class="sidebar-card">
+       <div class="sidebar-card">
         <p class="sidebar-title">Quick‑Access Tools</p>
         <p class="sidebar-sub">Official CMS &amp; NLM billing resources — click any link to open in a new tab.</p>
-
+        <div style="margin-bottom:12px;position:relative">
+          <input type="text" class="qa-search-input" placeholder="🔍  Search tools…" oninput="qaFilter(this)" autocomplete="off" />
+        </div>
         <div class="res-list">
 <a class="res-link" href="https://kunalvaish49-cpu.github.io/NDC-Lookup-Tool/" target="_blank" rel="noopener" style="width:100%;text-align:left;cursor:pointer;">
     <span class="res-icon" style="background:#e8f0ff;color:#1847cc">💊</span>
@@ -3270,10 +3291,12 @@ If the JW line is the only line, or if the administered line shows zero units, t
 
   <!-- ════ RIGHT SIDEBAR ════ -->
    <aside>
-      <div class="sidebar-card">
+     <div class="sidebar-card">
         <p class="sidebar-title">Quick‑Access Tools</p>
         <p class="sidebar-sub">Official CMS &amp; NLM billing resources — click any link to open in a new tab.</p>
-
+        <div style="margin-bottom:12px;position:relative">
+          <input type="text" class="qa-search-input" placeholder="🔍  Search tools…" oninput="qaFilter(this)" autocomplete="off" />
+        </div>
         <div class="res-list">
 <a class="res-link" href="https://kunalvaish49-cpu.github.io/NDC-Lookup-Tool/" target="_blank" rel="noopener" style="width:100%;text-align:left;cursor:pointer;">
     <span class="res-icon" style="background:#e8f0ff;color:#1847cc">💊</span>
@@ -3695,10 +3718,12 @@ If the JW line is the only line, or if the administered line shows zero units, t
 
     <!-- ════ RIGHT SIDEBAR ════ -->
    <aside>
-      <div class="sidebar-card">
+       <div class="sidebar-card">
         <p class="sidebar-title">Quick‑Access Tools</p>
         <p class="sidebar-sub">Official CMS &amp; NLM billing resources — click any link to open in a new tab.</p>
-
+        <div style="margin-bottom:12px;position:relative">
+          <input type="text" class="qa-search-input" placeholder="🔍  Search tools…" oninput="qaFilter(this)" autocomplete="off" />
+        </div>
         <div class="res-list">
 <a class="res-link" href="https://kunalvaish49-cpu.github.io/NDC-Lookup-Tool/" target="_blank" rel="noopener" style="width:100%;text-align:left;cursor:pointer;">
     <span class="res-icon" style="background:#e8f0ff;color:#1847cc">💊</span>
@@ -4622,10 +4647,12 @@ src="https://raw.githubusercontent.com/kunalvaish49-cpu/VisualCode_UB-04/b39d3af
   
  <!-- ════ RIGHT SIDEBAR ════ -->
    <aside>
-      <div class="sidebar-card">
+     <div class="sidebar-card">
         <p class="sidebar-title">Quick‑Access Tools</p>
         <p class="sidebar-sub">Official CMS &amp; NLM billing resources — click any link to open in a new tab.</p>
-
+        <div style="margin-bottom:12px;position:relative">
+          <input type="text" class="qa-search-input" placeholder="🔍  Search tools…" oninput="qaFilter(this)" autocomplete="off" />
+        </div>
         <div class="res-list">
 <a class="res-link" href="https://kunalvaish49-cpu.github.io/NDC-Lookup-Tool/" target="_blank" rel="noopener" style="width:100%;text-align:left;cursor:pointer;">
     <span class="res-icon" style="background:#e8f0ff;color:#1847cc">💊</span>
@@ -4984,10 +5011,12 @@ src="https://raw.githubusercontent.com/kunalvaish49-cpu/VisualCode_UB-04/b39d3af
 
    <!-- ════ RIGHT SIDEBAR ════ -->
    <aside>
-      <div class="sidebar-card">
+    <div class="sidebar-card">
         <p class="sidebar-title">Quick‑Access Tools</p>
         <p class="sidebar-sub">Official CMS &amp; NLM billing resources — click any link to open in a new tab.</p>
-
+        <div style="margin-bottom:12px;position:relative">
+          <input type="text" class="qa-search-input" placeholder="🔍  Search tools…" oninput="qaFilter(this)" autocomplete="off" />
+        </div>
         <div class="res-list">
 <a class="res-link" href="https://kunalvaish49-cpu.github.io/NDC-Lookup-Tool/" target="_blank" rel="noopener" style="width:100%;text-align:left;cursor:pointer;">
     <span class="res-icon" style="background:#e8f0ff;color:#1847cc">💊</span>
@@ -5633,10 +5662,12 @@ src="https://raw.githubusercontent.com/kunalvaish49-cpu/VisualCode_UB-04/b39d3af
 
 <!-- ════ RIGHT SIDEBAR ════ -->
    <aside>
-      <div class="sidebar-card">
+     <div class="sidebar-card">
         <p class="sidebar-title">Quick‑Access Tools</p>
         <p class="sidebar-sub">Official CMS &amp; NLM billing resources — click any link to open in a new tab.</p>
-
+        <div style="margin-bottom:12px;position:relative">
+          <input type="text" class="qa-search-input" placeholder="🔍  Search tools…" oninput="qaFilter(this)" autocomplete="off" />
+        </div>
         <div class="res-list">
 <a class="res-link" href="https://kunalvaish49-cpu.github.io/NDC-Lookup-Tool/" target="_blank" rel="noopener" style="width:100%;text-align:left;cursor:pointer;">
     <span class="res-icon" style="background:#e8f0ff;color:#1847cc">💊</span>
@@ -6310,10 +6341,12 @@ UB-04 FL81 Entry:
 
 <!-- ════ RIGHT SIDEBAR ════ -->
    <aside>
-      <div class="sidebar-card">
+    <div class="sidebar-card">
         <p class="sidebar-title">Quick‑Access Tools</p>
         <p class="sidebar-sub">Official CMS &amp; NLM billing resources — click any link to open in a new tab.</p>
-
+        <div style="margin-bottom:12px;position:relative">
+          <input type="text" class="qa-search-input" placeholder="🔍  Search tools…" oninput="qaFilter(this)" autocomplete="off" />
+        </div>
         <div class="res-list">
 <a class="res-link" href="https://kunalvaish49-cpu.github.io/NDC-Lookup-Tool/" target="_blank" rel="noopener" style="width:100%;text-align:left;cursor:pointer;">
     <span class="res-icon" style="background:#e8f0ff;color:#1847cc">💊</span>
@@ -7084,10 +7117,12 @@ EDI 837I Format:
 
 <!-- ════ RIGHT SIDEBAR ════ -->
    <aside>
-      <div class="sidebar-card">
+ <div class="sidebar-card">
         <p class="sidebar-title">Quick‑Access Tools</p>
         <p class="sidebar-sub">Official CMS &amp; NLM billing resources — click any link to open in a new tab.</p>
-
+        <div style="margin-bottom:12px;position:relative">
+          <input type="text" class="qa-search-input" placeholder="🔍  Search tools…" oninput="qaFilter(this)" autocomplete="off" />
+        </div>
         <div class="res-list">
 <a class="res-link" href="https://kunalvaish49-cpu.github.io/NDC-Lookup-Tool/" target="_blank" rel="noopener" style="width:100%;text-align:left;cursor:pointer;">
     <span class="res-icon" style="background:#e8f0ff;color:#1847cc">💊</span>
@@ -7468,35 +7503,27 @@ EDI 837I Format:
 
   </div>
 </div>
-<!-- ══ LIGHTBOX MODAL ══ -->
+
+<!-- ═══════════════════════════════════ LIGHTBOX (UPGRADED) ═══════════════════════════════════ -->
 <div id="lightbox" class="lb-overlay" role="dialog" aria-modal="true" aria-label="Image preview" style="display:none">
-  <div class="lb-backdrop"></div>
-  <div class="lb-box">
-    <div class="lb-toolbar">
-      <span class="lb-caption" id="lbCaption"></span>
-      <button class="lb-close" id="lbClose" title="Close (Esc)"</button>
-
-    </div>
-    <div class="lb-img-wrap">
-      <img id="lbImg" src="" alt="" class="lb-img" />
-    </div>
-  </div>
-</div>
-
-
-<!-- ═══════════════════════════════════ LIGHTBOX ═══════════════════════════════════ -->
-<div id="lightbox" class="lb-overlay" role="dialog" aria-modal="true" style="display:none">
   <div class="lb-backdrop" onclick="closeLB()"></div>
   <div class="lb-box">
     <div class="lb-toolbar">
       <span class="lb-caption" id="lbCaption"></span>
-      <button class="lb-close" onclick="closeLB()">✕ Close</button>
+      <div style="display:flex;align-items:center;gap:7px;flex-shrink:0">
+        <button class="lb-zoom-btn" onclick="lbZoom(-0.2)" title="Zoom Out">−</button>
+        <button class="lb-zoom-btn" onclick="lbZoom(0.2)"  title="Zoom In">+</button>
+        <button class="lb-zoom-btn" onclick="lbZoomReset()" title="Reset Zoom" style="font-size:13px;padding:5px 10px">↺</button>
+        <span class="lb-esc-hint">Scroll to zoom · ESC to close · Drag to pan</span>
+        <button class="lb-close" onclick="closeLB()">✕ Close</button>
+      </div>
     </div>
-    <div class="lb-img-wrap">
-      <img class="lb-img" id="lbImg" src="" alt="" />
+    <div class="lb-img-wrap" id="lbImgWrap">
+      <img class="lb-img" id="lbImg" src="" alt="" style="transform-origin:center center;transition:transform .18s ease;" />
     </div>
   </div>
 </div>
+
 
 <!-- ════════════════════════ MACHINE-READABLE JSON BLOCK ════════════════════════
      Structured data for AI / Python automation — parse with json.loads()
@@ -8502,27 +8529,76 @@ EDI 837I Format:
 
 <!-- ═══════════════════════════════════ JAVASCRIPT ═══════════════════════════════════ -->
 <script>
-/* ── LIGHTBOX ── */
+
+/* ── Quick-Access Tools Search Filter ── */
+function qaFilter(input) {
+  const q = input.value.trim().toLowerCase();
+  const list = input.closest('.sidebar-card').querySelector('.res-list');
+  if (!list) return;
+  list.querySelectorAll('a.res-link').forEach(link => {
+    const text = link.textContent.toLowerCase();
+    link.style.display = (!q || text.includes(q)) ? '' : 'none';
+  });
+}
+
+/* ── LIGHTBOX with Zoom + Drag + Scroll ── */
+let _lbScale = 1, _lbDragging = false, _lbDragStart = {x:0,y:0}, _lbTranslate = {x:0,y:0};
+
 function openLB(url, cap) {
-  document.getElementById('lbImg').src = url;
-  document.getElementById('lbCaption').textContent = cap;
+  _lbScale = 1; _lbTranslate = {x:0,y:0};
+  const img = document.getElementById('lbImg');
+  img.src = url;
+  img.style.transform = 'scale(1) translate(0px,0px)';
+  document.getElementById('lbCaption').textContent = cap || '';
   document.getElementById('lightbox').style.display = 'flex';
   document.body.style.overflow = 'hidden';
 }
 function closeLB() {
   document.getElementById('lightbox').style.display = 'none';
   document.body.style.overflow = '';
+  _lbScale = 1; _lbTranslate = {x:0,y:0};
+}
+function lbZoom(delta) {
+  _lbScale = Math.min(4, Math.max(0.3, _lbScale + delta));
+  _lbApplyTransform();
+}
+function lbZoomReset() {
+  _lbScale = 1; _lbTranslate = {x:0,y:0};
+  _lbApplyTransform();
+}
+function _lbApplyTransform() {
+  document.getElementById('lbImg').style.transform =
+    `scale(${_lbScale}) translate(${_lbTranslate.x/_lbScale}px,${_lbTranslate.y/_lbScale}px)`;
 }
 
+// Scroll to zoom
+document.addEventListener('DOMContentLoaded', () => {
+  const wrap = document.getElementById('lbImgWrap');
+  if (!wrap) return;
+  wrap.addEventListener('wheel', e => {
+    if (document.getElementById('lightbox').style.display === 'none') return;
+    e.preventDefault();
+    lbZoom(e.deltaY < 0 ? 0.15 : -0.15);
+  }, { passive: false });
 
-/* ── Keyboard close ── */
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') {
-    closeLB();
-    closeDrugToolModal();
-  }
+  // Drag to pan
+  const img = document.getElementById('lbImg');
+  img.addEventListener('mousedown', e => {
+    if (_lbScale <= 1) return;
+    _lbDragging = true;
+    _lbDragStart = { x: e.clientX - _lbTranslate.x, y: e.clientY - _lbTranslate.y };
+    img.style.cursor = 'grabbing';
+  });
+  document.addEventListener('mousemove', e => {
+    if (!_lbDragging) return;
+    _lbTranslate = { x: e.clientX - _lbDragStart.x, y: e.clientY - _lbDragStart.y };
+    _lbApplyTransform();
+  });
+  document.addEventListener('mouseup', () => {
+    _lbDragging = false;
+    document.getElementById('lbImg').style.cursor = 'grab';
+  });
 });
-
 /* ══════════════════════════════════════════
    RARC SEARCH BAR
 ══════════════════════════════════════════ */
@@ -9394,33 +9470,14 @@ function smSelect(el) {
 document.addEventListener('keydown', e => {
   const modal = document.getElementById('searchModal');
 
-  // Close on Escape
-  if (e.key === 'Escape' && modal.classList.contains('open')) {
-    closeSearchModal();
-  }
-
-  // Open on Ctrl+K
-  if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
-    e.preventDefault();
-    if (!modal.classList.contains('open')) {
-      openSearchModal();
+  // Escape closes lightbox OR search modal
+  if (e.key === 'Escape') {
+    if (document.getElementById('lightbox').style.display !== 'none') {
+      closeLB();
+    } else if (modal.classList.contains('open')) {
+      closeSearchModal();
     }
-  }
-});
-
-/* ══ Patch copyToClipboard to show toast ══ */
-const _origCopy = window.copyToClipboard;
-window.copyToClipboard = function(text, btn) {
-  _origCopy && _origCopy(text, btn);
-  showToast('📋', `NDC <strong>${text}</strong> copied to clipboard`);
-};	
-
-document.addEventListener('keydown', e => {
-  const modal = document.getElementById('searchModal');
-
-  // Escape closes search modal
-  if (e.key === 'Escape' && modal.classList.contains('open')) {
-    closeSearchModal();
+    closeDrugToolModal();
   }
 
   // Ctrl+K / Cmd+K opens search
