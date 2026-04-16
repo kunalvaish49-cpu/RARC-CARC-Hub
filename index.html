@@ -1124,6 +1124,7 @@ body.dark-mode .toast {
 	<span class="rarc-chip" onclick="rarcChipClick('M34')">M34</span>
 	<span class="rarc-chip" onclick="rarcChipClick('M45')">M45</span>
 	<span class="rarc-chip" onclick="rarcChipClick('M62')">M62</span>
+	<span class="rarc-chip" onclick="rarcChipClick('N4')">N4</span>
       </div>
       <!-- Search results toast -->
       <div id="rarcSearchResults" style="display:none;margin-top:8px;background:rgba(255,255,255,0.10);border:1px solid rgba(255,255,255,0.2);border-radius:8px;padding:8px 14px;font:13px 'DM Sans',sans-serif;color:rgba(255,255,255,0.85);"></div>
@@ -1170,7 +1171,7 @@ body.dark-mode .toast {
 
 
         <!-- ── WHERE TO REPORT ── -->
-        <div class="card span-12 card-collapsible card-collapsible"><div class="label">Where to Report This Information</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:6px"><div><div class="nm-h3" style="margin-top:0">CMS-1500 (Professional)</div><ul class="info-list"><li><strong>Box 24D:</strong> Box 24D: HCPCS/CPT drug code (J-code)</li><li><strong>Shaded area 24A–24G:</strong> Shaded portion (24A–24G): N4 qualifier + 11-digit NDC + unit of measure + quantity</li></ul><div class="ndc-example"><span class="ndc-ok">✅ Correct:</span> ✅ Correct: N412345678901<br>
+        <div class="card span-12 card-collapsible card-collapsible"><div class="label">Where to Report This Information</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:6px"><div><div class="nm-h3" style="margin-top:0">CMS-1500 (Professional)</div><ul class="info-list"><li><strong>Box 24D:</strong> Box 24D: HCPCS/CPT drug code (J-code)</li><li><strong>Shaded area 24A–24G:</strong> Shaded portion (24A–24G): N4 qualifier + 11-digit NDC + unit of measure + quantity</li></ul><div class="ndc-example"><span class="ndc-ok">✅ Correct:</span> ✅ Correct: N412345678901
 <span class="ndc-bad">❌ Incorrect:</span> ❌ Incorrect: N4 12345678901</div>
 
 
@@ -7337,7 +7338,7 @@ EDI 837I Format:
       <span class="type-badge warn" style="margin-top:2px">CO-197</span>
     </div>
     <div class="result-desc">
-      <p>Missing / Incomplete / Invalid Treatment Authorization Code</p>
+      <p>Missing Treatment Authorization Code</p>
       <span class="ctx-pill">Prior Authorization / Pre-Certification · Professional &amp; Facility Claims · CMS-1500 &amp; UB-04</span>
       <div style="margin-top:14px">
         <div class="label">Common CARC Pairing</div>
@@ -7779,6 +7780,483 @@ EDI 837I Format:
 
 </div><!-- end .layout -->
 </div><!-- end #rarc-section-M62 -->
+
+
+<!-- ═══════════════════════════════════ N4 SECTION ═══════════════════════════════════ -->
+<div id="rarc-section-N4" class="rarc-section" style="display:none">
+<div class="layout">
+
+<!-- ════ LEFT COLUMN ════ -->
+<div>
+
+  <!-- Result Header -->
+  <div class="result-header">
+    <div class="result-code-block">
+      <span class="codebox">N4</span>
+      <span class="type-badge supp">REMARK</span>
+      <span class="type-badge warn" style="margin-top:2px">CO-16</span>
+    </div>
+    <div class="result-desc">
+      <p>Missing  Prior Insurance Carrier(s) Explanation of Benefits (EOB)</p>
+      <span class="ctx-pill">Coordination of Benefits (COB) · Secondary &amp; Tertiary Billing · CMS-1500 &amp; UB-04</span>
+      <div style="margin-top:14px">
+        <div class="label">Common CARC Pairing</div>
+        <div class="pairs">
+          <span class="pair" title="Claim denied — required information missing or invalid">CO-16</span>
+          <span class="pair" title="Other insurance paid primary — their EOB is required">CO-22</span>
+          <span class="pair" title="Coordination of Benefits — primary payer must process first">COB</span>
+          <span class="pair" title="CMS-1500 Professional Claim Form">CMS-1500</span>
+          <span class="pair" title="UB-04 Facility Claim Form">UB-04</span>
+          <span class="pair" title="Box 11 on CMS-1500 — Other Health Benefit Plan">Box 11</span>
+          <span class="pair" title="Form Locator 50–65 on UB-04 — Payer Information">FL50–FL65</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid">
+
+    <!-- ── WHAT THIS MEANS ── -->
+    <div class="card span-12 card-collapsible">
+      <div class="label">What This Means</div>
+      <p class="muted">
+        N4 means the secondary or tertiary payer (the insurance company you are currently billing) is saying: <em>"We can see this patient has other insurance. Before we pay our share, we need to see proof of what that other insurance already paid — or decided not to pay — and why."</em> That proof is called an Explanation of Benefits (EOB), also known as a Remittance Advice (RA). The EOB from the primary payer was either missing from the claim, was attached but had incomplete information, or the data entered in the COB fields on the claim did not match what the secondary payer expected to see.
+      </p>
+      <div class="alert info" style="margin-top:14px">
+        <div class="alert-icon">ℹ️</div>
+        <div>
+          <div class="alert-title">Key Concept — What is Coordination of Benefits (COB)?</div>
+          <div class="alert-text">
+            When a patient has more than one insurance plan, the plans have rules about who pays first (primary), who pays second (secondary), and who pays third (tertiary). This process is called <strong>Coordination of Benefits (COB)</strong>. The secondary payer will only process the claim after the primary payer has already made a decision. The EOB from the primary payer is the document that tells the secondary payer: what was billed, what the primary payer allowed, what the primary payer paid, what adjustments were made, and what patient responsibility remains. Without that complete EOB data, the secondary payer cannot calculate their payment obligation — so they deny with N4.
+          </div>
+        </div>
+      </div>
+      <div class="alert warn" style="margin-top:10px">
+        <div class="alert-icon">⚠️</div>
+        <div>
+          <div class="alert-title">N4 Is Almost Always Fixable — It Is a Data Issue, Not a Coverage Issue</div>
+          <div class="alert-text">
+            N4 does not mean the secondary insurance will not pay. It means the claim is on hold because the COB information is missing or does not match. Correct the EOB data on the claim and resubmit — in most cases the secondary will process and pay their portion.
+          </div>
+        </div>
+      </div>
+    </div>
+
+ <!-- ── WHERE TO REPORT COB DATA ON THE CLAIM FORM ── -->
+<div class="card span-12 card-collapsible">
+  <div class="label">Where to Report the Primary EOB Data on the Claim Form</div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:8px">
+    
+    <!-- CMS-1500 -->
+    <div>
+      <div class="nm-h3" style="margin-top:0">CMS-1500 (Professional Claims)</div>
+
+      <ul class="info-list">
+        <li><strong>Box 11 — Insured's Policy Group or FECA Number:</strong> Enter the primary insured's policy/group number — leaving this blank tells the secondary payer nothing about the primary plan</li>
+        <li><strong>Box 11a — Insured's Date of Birth &amp; Sex:</strong> Must match the primary insured's demographics exactly</li>
+        <li><strong>Box 11b — Other Claim ID (Designated by NUCC):</strong> Used to report the primary payer's claim number or reference number from their EOB</li>
+        <li><strong>Box 11c — Insurance Plan Name or Program Name:</strong> Enter the name of the primary insurance plan exactly as it appears on the EOB or insurance card</li>
+        <li><strong>Box 11d — Is There Another Health Benefit Plan?:</strong> Must be checked YES if a secondary plan exists — if checked but COB fields are blank, N4 fires</li>
+        <li><strong>Box 29 — Amount Paid:</strong> Enter the exact dollar amount the primary payer paid — this is the most critical field for COB and the most common source of N4 denials</li>
+      </ul>
+
+      <div class="alert ok" style="margin-top:10px">
+        <div class="alert-icon">✅</div>
+        <div class="alert-text">
+          <strong>Critical:</strong> Box 29 must show the primary's paid amount in dollars — not zero unless the primary truly paid $0.00. A blank Box 29 or an incorrect amount is the single most common cause of N4 on CMS-1500 claims.
+        </div>
+      </div>
+
+      <div class="thumb-wrap" style="margin-top:12px">
+        <button class="thumb-btn" onclick="openLB('https://raw.githubusercontent.com/kunalvaish49-cpu/VisualCode_UB-04/023c4be2d91a4acf5e8d503559d2fa8880a80c99/Box29.jpg','CMS-1500 Box 29 — Primary Paid Amount Placement')">
+          <img class="thumb-img" src="https://raw.githubusercontent.com/kunalvaish49-cpu/VisualCode_UB-04/023c4be2d91a4acf5e8d503559d2fa8880a80c99/Box29.jpg" alt="CMS-1500 Box 29 Primary Paid Amount" />
+        </button>
+
+      </div>
+    </div>
+
+    <!-- UB-04 -->
+    <div>
+      <div class="nm-h3" style="margin-top:0">UB-04 (Facility / Hospital Claims)</div>
+
+      <ul class="info-list">
+        <li><strong>FL50 — Payer Name (Lines A/B/C):</strong> Line A = primary payer, Line B = secondary payer, Line C = tertiary payer — all active payers must be listed in the correct order</li>
+        <li><strong>FL51 — Health Plan ID:</strong> The payer identification number for each payer listed in FL50 — must be a valid payer ID recognized by the clearinghouse</li>
+        <li><strong>FL54 — Prior Payments:</strong> Enter the amount the primary (and any other prior payer) already paid — this is the UB-04 equivalent of CMS-1500 Box 29 and is equally critical</li>
+        <li><strong>FL56 — NPI:</strong> Billing provider NPI must be consistent with the provider recognized by the primary payer</li>
+        <li><strong>FL58–FL63 — Insured Information:</strong> Name, relationship, and insurance ID for each payer must be complete and accurate — mismatches between FL58–63 and the primary EOB trigger N4</li>
+        <li><strong>FL64 — Document Control Number:</strong> Enter the primary payer's claim number or document control number from the EOB — helps the secondary payer cross-reference the primary's payment record</li>
+        <li><strong>FL65 — Employer Name:</strong> If the primary coverage is employer-sponsored, this field must be populated — required for MSP (Medicare Secondary Payer) situations</li>
+      </ul>
+
+      <div class="alert ok" style="margin-top:10px">
+        <div class="alert-icon">✅</div>
+        <div class="alert-text">
+          <strong>Critical:</strong> FL54 (Prior Payments) must reflect the exact dollar amount paid by the primary. A blank FL54 or an amount that does not match the primary EOB is the most frequent source of N4 on UB-04 claims.
+        </div>
+      </div>
+
+      <div class="thumb-wrap" style="margin-top:12px">
+        <button class="thumb-btn" onclick="openLB('https://raw.githubusercontent.com/kunalvaish49-cpu/VisualCode_UB-04/b39d3afe093b6896ed72d28928d7932e541acc92/FL-54%20UB-04.jpg','UB-04 FL54 — Prior Payments Placement')">
+          <img class="thumb-img" src="https://raw.githubusercontent.com/kunalvaish49-cpu/VisualCode_UB-04/b39d3afe093b6896ed72d28928d7932e541acc92/FL-54%20UB-04.jpg" alt="UB-04 FL54 Prior Payments" />
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+       
+
+    <!-- ── WHY THIS HAPPENS ── -->
+    <div class="card span-6 card-collapsible">
+      <div class="label">Why This Happens — Most Common Root Causes</div>
+      <div class="nm-h3" style="margin-top:4px">Missing or Incomplete EOB Data on the Claim</div>
+      <ul class="info-list">
+        <li>Box 29 (CMS-1500) or FL54 (UB-04) was left blank — the primary payer's paid amount was never entered on the claim</li>
+        <li>The primary EOB was received but billing staff did not transfer the COB data into the claim fields before submitting to the secondary</li>
+        <li>The claim was submitted to the secondary before the primary had finished processing — the primary EOB had not yet been received</li>
+        <li>The claim was billed directly to the secondary without first submitting to the primary — always bill primary first unless the primary is known to be non-covered</li>
+      </ul>
+      <div class="nm-h3">Incorrect or Mismatched EOB Data</div>
+      <ul class="info-list">
+        <li>The paid amount entered in Box 29 or FL54 does not match the actual amount shown on the primary EOB — even a one-cent discrepancy can trigger N4</li>
+        <li>The primary payer name or ID entered on the claim does not match what the secondary payer has in their system for that carrier</li>
+        <li>The wrong EOB was attached — a different patient's or different date of service's remittance was used by mistake</li>
+        <li>The primary EOB shows a denial or zero payment but the reason was not communicated correctly on the secondary claim — the secondary needs to know why the primary paid nothing</li>
+      </ul>
+      <div class="nm-h3">COB Order &amp; Coverage Issues</div>
+      <ul class="info-list">
+        <li>The payer order is incorrect — the plan listed as primary should actually be secondary, or vice versa (Birthday Rule, COBRA rules, or MSP rules were not applied correctly)</li>
+        <li>The patient's primary insurance has terminated but the claim was still sent as a COB claim — the secondary needs updated coverage information</li>
+        <li>Medicare is secondary (MSP situation) but the employer or group health plan did not process first — the MSP rules were not followed before billing Medicare</li>
+      </ul>
+    </div>
+
+    <!-- ── HOW TO FIX IT ── -->
+    <div class="card span-6 card-collapsible">
+      <div class="label">How to Fix It — Step-by-Step</div>
+      <div class="nm-h3" style="margin-top:4px">Step 1 — Locate the Primary Payer's EOB</div>
+      <ol class="step-list">
+        <li><span class="sn">1</span><span>Pull the primary payer's EOB or Electronic Remittance Advice (ERA) for this claim — confirm it is for the correct patient, date of service, and service line</span></li>
+        <li><span class="sn">2</span><span>If the primary EOB has not been received yet — <strong>do not submit to the secondary</strong>. Wait until the primary has fully adjudicated the claim before billing secondary</span></li>
+        <li><span class="sn">3</span><span>If the primary denied the claim entirely, obtain the denial EOB — you still need to submit it to the secondary with the denial reason so the secondary can determine their liability</span></li>
+      </ol>
+      <div class="nm-h3">Step 2 — Transfer All EOB Data to the Claim</div>
+      <ol class="step-list">
+        <li><span class="sn">4</span><span>Enter the primary's paid amount exactly as shown on the EOB into <strong>Box 29</strong> (CMS-1500) or <strong>FL54</strong> (UB-04) — verify the dollar figure to the cent</span></li>
+        <li><span class="sn">5</span><span>Confirm the primary payer name (Box 11c / FL50) and payer ID (FL51) are correct and match what the secondary recognizes for that carrier</span></li>
+        <li><span class="sn">6</span><span>Verify the insured information fields (Box 11a–11d / FL58–FL63) match the primary insurance card and EOB exactly — name spelling, member ID, group number</span></li>
+        <li><span class="sn">7</span><span>Enter the primary payer's claim number or document control number into Box 11b (CMS-1500) or FL64 (UB-04)</span></li>
+      </ol>
+      <div class="nm-h3">Step 3 — Correct &amp; Resubmit</div>
+      <ol class="step-list">
+        <li><span class="sn">8</span><span>Submit a <strong>corrected claim with Resubmission Code 7</strong> to the secondary payer with all COB fields fully populated from the primary EOB</span></li>
+        <li><span class="sn">9</span><span>If the secondary payer requires a paper EOB attached, include a clean copy of the primary EOB with the corrected claim — many secondary payers and Medicaid plans require this</span></li>
+        <li><span class="sn">10</span><span>If the COB order was wrong (wrong primary vs. secondary), correct the payer order and resubmit to the correct payer first before billing the other</span></li>
+      </ol>
+      <div class="alert warn" style="margin-top:14px">
+        <div class="alert-icon">⚠️</div>
+        <div>
+          <div class="alert-title">Timely Filing — Both Payers Have Separate Deadlines</div>
+          <div class="alert-text">The secondary payer's timely filing clock typically starts from the primary payer's payment date — not the date of service. Always check the secondary payer's timely filing policy. Some payers allow 12 months from the primary EOB date; others allow only 90 days. Do not delay COB resubmissions.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── MSP — MEDICARE AS SECONDARY PAYER ── -->
+    <div class="card span-12 card-collapsible">
+      <div class="label">Special Situation — Medicare as Secondary Payer (MSP)</div>
+      <p class="muted" style="margin-bottom:12px;font-size:13px">
+        MSP is one of the most common N4 scenarios in Medicare billing. When Medicare is the secondary payer, very specific rules and fields apply beyond standard COB.
+      </p>
+      <table class="mod-table">
+        <thead>
+          <tr>
+            <th>MSP Situation</th>
+            <th>Who Pays Primary</th>
+            <th>Key Rule to Follow</th>
+            <th>Common N4 Trigger</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="mod-code">Working Aged</span></td>
+            <td>Employer Group Health Plan (GHP)</td>
+            <td>Patient is 65+ and still actively employed — employer GHP pays primary, Medicare pays secondary</td>
+            <td>Claim sent to Medicare first without billing the GHP — Medicare denies with MSP-related RARC including N4</td>
+          </tr>
+          <tr>
+            <td><span class="mod-code">Disability</span></td>
+            <td>Large Group Health Plan (LGHP)</td>
+            <td>Patient is under 65, on Medicare due to disability, and employer has 100+ employees — LGHP pays primary</td>
+            <td>Medicare billed before LGHP — or LGHP EOB not submitted with the Medicare claim</td>
+          </tr>
+          <tr>
+            <td><span class="mod-code">End-Stage Renal Disease (ESRD)</span></td>
+            <td>GHP for first 30 months</td>
+            <td>GHP is primary for the first 30 months of Medicare entitlement due to ESRD — Medicare is primary after the 30-month coordination period ends</td>
+            <td>COB period miscalculated — Medicare billed as primary before the 30-month window has closed</td>
+          </tr>
+          <tr>
+            <td><span class="mod-code">No-Fault / Auto / Liability</span></td>
+            <td>No-fault insurance, auto insurance, or liability insurance</td>
+            <td>If treatment relates to an accident, the no-fault or liability carrier pays first regardless of Medicare enrollment</td>
+            <td>Medicare billed before the liability carrier — or settlement EOB not submitted with the Medicare claim</td>
+          </tr>
+          <tr>
+            <td><span class="mod-code">Workers' Compensation</span></td>
+            <td>Workers' Compensation carrier</td>
+            <td>Any work-related illness or injury — WC pays primary for all related services</td>
+            <td>Medicare billed for WC-related services without WC EOB or denial — triggers N4 and potential MSP recovery action</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="alert err" style="margin-top:14px">
+        <div class="alert-icon">🚫</div>
+        <div>
+          <div class="alert-title">MSP Violations Can Trigger Federal Recovery Actions</div>
+          <div class="alert-text">Billing Medicare as primary when another payer should be primary is not just a billing error — it can trigger a Medicare Secondary Payer Compliance Contractor (MSPCC) audit and a demand for repayment of any Medicare payments made in error. Always verify MSP status through Medicare's HIMR/HIQA system or CMS eligibility portal before billing Medicare on any patient with potential other coverage.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── WHAT NOT TO DO ── -->
+    <div class="card span-6 card-collapsible">
+      <div class="label">What NOT to Do</div>
+      <ul class="info-list">
+        <li>Do not submit to the secondary payer before the primary payer has fully processed and issued an EOB — the secondary will deny with N4 every time</li>
+        <li>Do not leave Box 29 (CMS-1500) or FL54 (UB-04) blank or enter $0.00 unless the primary truly paid nothing and you have the denial EOB to prove it</li>
+        <li>Do not estimate or approximate the primary paid amount — copy the exact dollar figure from the primary EOB, to the cent</li>
+        <li>Do not appeal N4 before correcting and resubmitting the claim with proper COB data — an appeal without the complete primary EOB information will be denied again</li>
+        <li>Do not assume the clearinghouse automatically forwards the primary EOB to the secondary — in most cases the billing team must manually populate the COB fields from the primary remittance</li>
+        <li>Do not ignore MSP rules — if another payer should be primary, billing Medicare or Medicaid first creates compliance risk beyond just a denial</li>
+      </ul>
+      <div class="alert err" style="margin-top:14px">
+        <div class="alert-icon">🚫</div>
+        <div class="alert-text">The most common N4 mistake is submitting a crossover or secondary claim with Box 29 or FL54 blank because the biller assumed the primary EOB would attach automatically. It does not. Every COB field must be manually verified and populated from the primary remittance before the secondary claim goes out.</div>
+      </div>
+    </div>
+
+    <!-- ── PREVENTION CHECKLIST ── -->
+    <div class="card span-6 card-collapsible">
+      <div class="label">Prevention Checklist — Before Submitting Any Secondary or COB Claim</div>
+      <p class="muted" style="margin-bottom:10px;font-size:13px">Run through every item before the secondary claim is submitted:</p>
+      <ul class="checklist">
+        <li class="req"><span class="ck-icon">✅</span><span>Primary payer's EOB has been received and is for the correct patient, DOS, and service line</span></li>
+        <li class="req"><span class="ck-icon">✅</span><span>Primary paid amount entered exactly in Box 29 (CMS-1500) or FL54 (UB-04) — matched cent-for-cent to the primary EOB</span></li>
+        <li><span class="ck-icon">✅</span><span>Primary payer name (Box 11c / FL50) and payer ID (FL51) are correct and recognizable to the secondary payer</span></li>
+        <li><span class="ck-icon">✅</span><span>Primary claim number / document control number entered in Box 11b (CMS-1500) or FL64 (UB-04)</span></li>
+        <li><span class="ck-icon">✅</span><span>Insured information (Box 11a–11d / FL58–FL63) matches the primary insurance card and EOB exactly</span></li>
+        <li><span class="ck-icon">✅</span><span>COB order confirmed — primary is actually primary and secondary is actually secondary per Birthday Rule, MSP rules, or plan COB provision</span></li>
+        <li><span class="ck-icon">✅</span><span>If primary denied the claim — denial EOB is documented and denial reason is communicated correctly on the secondary claim</span></li>
+        <li><span class="ck-icon">✅</span><span>For Medicare MSP situations — MSP status verified via CMS eligibility portal or HIQA before submission</span></li>
+        <li><span class="ck-icon">✅</span><span>Secondary payer's timely filing deadline from primary EOB date confirmed — claim is within the window</span></li>
+        <li><span class="ck-icon">✅</span><span>If secondary payer requires paper EOB attachment — copy of primary EOB is included with the claim</span></li>
+      </ul>
+    </div>
+
+    <!-- ── APPEAL vs CORRECT ── -->
+    <div class="card span-12 card-collapsible">
+      <div class="label">Best Practice — When to Appeal vs. When to Correct &amp; Resubmit</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px">
+        <div class="decision-box">
+          <h4>✅ Appeal When ALL of These Are True</h4>
+          <ul class="info-list" style="margin-top:0">
+            <li>All COB fields were populated correctly on the original claim — Box 29 or FL54 had the exact primary paid amount, payer name and ID were correct, and insured info matched</li>
+            <li>A copy of the primary EOB was attached where required and the claim data matched it exactly</li>
+            <li>The secondary payer denied it anyway — this indicates a payer-side system or COB data issue and an appeal with the primary EOB documentation should be submitted</li>
+            <li>Always attach the complete primary EOB or remittance advice to the appeal — without it, the appeal will be denied</li>
+          </ul>
+        </div>
+        <div class="deny-box">
+          <h4>🔄 Correct &amp; Resubmit First (Most N4 Cases)</h4>
+          <ul class="info-list" style="margin-top:0">
+            <li>Most N4 denials are caused by a blank Box 29 or FL54, or by COB fields that were not populated from the primary EOB — correct the fields and resubmit with Resubmission Code 7</li>
+            <li>If the primary has not yet paid or issued an EOB — wait for primary adjudication, then submit the corrected secondary claim with full COB data</li>
+            <li>If the COB payer order was wrong — correct the order, resubmit to the correct primary first, then bill the secondary after receiving their EOB</li>
+            <li>Do not appeal as a first step — fix the root cause data issue and escalate to appeal only after a corrected claim with full COB data is also denied</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end .grid -->
+</div><!-- end left column -->
+
+<!-- ════ RIGHT SIDEBAR ════ -->
+   <aside>
+ <div class="sidebar-card">
+        <p class="sidebar-title">Quick‑Access Tools</p>
+        <p class="sidebar-sub">Official CMS &amp; NLM billing resources — click any link to open in a new tab.</p>
+        <div style="margin-bottom:12px;position:relative">
+          <input type="text" class="qa-search-input" placeholder="🔍  Search tools…" oninput="qaFilter(this)" autocomplete="off" />
+        </div>
+        <div class="res-list">
+<a class="res-link" href="https://kunalvaish49-cpu.github.io/NDC-Lookup-Tool/" target="_blank" rel="noopener" style="width:100%;text-align:left;cursor:pointer;">
+    <span class="res-icon" style="background:#e8f0ff;color:#1847cc">💊</span>
+    <span class="res-body">
+        <span class="res-name">NDC / HCPCS Drug Lookup Tool</span>
+        <span class="res-desc">Search NDC, J-Code, Drug Name — GitHub Tool</span>
+    </span>
+    <span class="res-arrow">↗</span>
+</a>
+
+<a class="res-link" href="https://kunalvaish49-cpu.github.io/Status-Code-Data/index.html" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#e8f0ff;color:#1847cc">💊</span>
+            <span class="res-body">
+              <span class="res-name">AR RCM STATUS | ACTION | SUB-CATEGORY Tool</span>
+              <span class="res-desc">Search Denial Name</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+
+<a class="res-link" href="https://kunalvaish49-cpu.github.io/CMS-1500-UB-04/" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#e8f0ff;color:#1847cc">💊</span>
+            <span class="res-body">
+              <span class="res-name">CMS & UB-04 Box or FL Knowledge Tool</span>
+              <span class="res-desc">Search FL or Box#</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+          <a class="res-link" href="https://dailymed.nlm.nih.gov/dailymed/" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#e8f0ff;color:#1847cc">💊</span>
+            <span class="res-body">
+              <span class="res-name">DailyMed NDC Lookup</span>
+              <span class="res-desc">Search drug labels &amp; National Drug Codes via NLM DailyMed</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+          <a class="res-link" href="https://medicare.fcso.com/lcd-interactive-index" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#e8f6f0;color:#0a7a50">🔗</span>
+            <span class="res-body">
+              <span class="res-name">LCD & Article Lookup Tool</span>
+              <span class="res-desc">Search Article & LCD By Procedure Code</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+ <a class="res-link" href="https://npiregistry.cms.hhs.gov/search" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#e8f6f0;color:#0a7a50">🔗</span>
+            <span class="res-body">
+              <span class="res-name">NPPES NPI Registry Lookup</span>
+              <span class="res-desc">Provider Speciality & Activation</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+
+  <a class="res-link" href="https://www.cgsmedicare.com/medicare_dynamic/j15/partb/ptpb/ptp.aspx
+" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#e8f6f0;color:#0a7a50">🔗</span>
+            <span class="res-body">
+              <span class="res-name">Part B NCCI Procedure‑to‑Procedure Lookup</span>
+              <span class="res-desc">Check Part B PTP edits &amp; bundling conflicts</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+
+          <a class="res-link" href="https://www.cgsmedicare.com/medicare_dynamic/j15/partb/mue/mue_tool.aspx
+" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#fff7e6;color:#b87010">📋</span>
+            <span class="res-body">
+              <span class="res-name">MUE Lookup Part B</span>
+              <span class="res-desc">Medically Unlikely Edits Part B — max units per claim line</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+<a class="res-link" href="https://www.cgsmedicare.com/medicare_dynamic/j15/parta/mue/mue_tool.aspx
+" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#fff7e6;color:#b87010">📋</span>
+            <span class="res-body">
+              <span class="res-name">MUE Lookup Part A</span>
+              <span class="res-desc">Medically Unlikely Edits Part A — max units per claim line</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+          <a class="res-link" href="https://www.cgsmedicare.com/medicare_dynamic/j15/partb/claimcalc/claimcalc.aspx
+" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#fdf0f0;color:#be2a2a">📅</span>
+            <span class="res-body">
+              <span class="res-name">Claim Timely Filing Calculator</span>
+              <span class="res-desc">Verify filing deadlines by payer &amp; claim type</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+          <a class="res-link" href="https://www.cgsmedicare.com/medicare_dynamic/j15/parta/modifiers/search.aspx
+" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#f0eaff;color:#6d28d9">🏥</span>
+            <span class="res-body">
+              <span class="res-name">Part A Modifier Finder Tool</span>
+              <span class="res-desc">Identify applicable modifiers for Part A facility claims</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+          <a class="res-link" href="https://www.cgsmedicare.com/medicare_dynamic/j15/partb/modifiers/search.aspx
+	" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#e8f6f0;color:#0a6b58">🩺</span>
+            <span class="res-body">
+              <span class="res-name">Part B Modifier Finder Tool</span>
+              <span class="res-desc">Look up Part B professional claim modifiers</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+          <a class="res-link" href="https://www.cgsmedicare.com/medicare_dynamic/j15/parta/ptpa/ptp.aspx
+" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#e8f0ff;color:#1847cc">🔍</span>
+            <span class="res-body">
+              <span class="res-name">Part A NCCI Procedure‑to‑Procedure Lookup</span>
+              <span class="res-desc">Check Part A PTP edits for facility/outpatient claims</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+<a class="res-link" href="https://www.cgsmedicare.com/medicare_dynamic/j15/partb/ptpb/ptp.aspx" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#e8f0ff;color:#1847cc">🔍</span>
+            <span class="res-body">
+              <span class="res-name">Part B NCCI Procedure‑to‑Procedure Lookup</span>
+              <span class="res-desc">Check Part B PTP edits for facility/outpatient claims</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+
+          <a class="res-link" href="https://www.cgsmedicare.com/partb/tools/ivr_converter.html
+" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#fef5e4;color:#b87010">🪪</span>
+            <span class="res-body">
+              <span class="res-name">MBI &amp; Name‑to‑Number Converter</span>
+              <span class="res-desc">Medicare Beneficiary Identifier lookup &amp; conversion tool</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+          <a class="res-link" href="https://qcor.cms.gov/Basic_Search
+" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#f0eaff;color:#6d28d9">🔬</span>
+            <span class="res-body">
+              <span class="res-name">CLIA Lookup Tool — S&amp;C QCOR</span>
+              <span class="res-desc">Search Clinical Laboratory Improvement Amendments data</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+        </div>
+      </div>
+    </aside>
+
+</div><!-- end .layout -->
+</div><!-- end #rarc-section-N4 -->
 
 	
   <footer>
@@ -9181,7 +9659,7 @@ function runRarcAnalyze() {
   });
 
   // Switch section visibility
-  const known = ['N846', 'N816', 'M119', 'N60', 'N815', 'N847', 'N848', 'MA30', 'MA40', 'M44', 'M34', 'M45', 'M62'];
+  const known = ['N846', 'N816', 'M119', 'N60', 'N815', 'N847', 'N848', 'MA30', 'MA40', 'M44', 'M34', 'M45', 'N4', 'M62'];
   const msg = document.getElementById('rarcSearchResults');
 
   if (known.includes(code)) {
@@ -9882,6 +10360,7 @@ const SM_SECTIONS = [
   { icon:'📋', label:'M34  — CLIA Number Missing',  code:'M34'},
   { icon:'📋', label:'M45  — Occurrence Code Error', code:'M34'},
   { icon:'🔐', label:'M62  — Missing/Invalid Treatment Authorization Code', code:'M62' },
+      { icon:'🔄', label:'N4   — Missing/Invalid Prior Insurance Carrier EOB', code:'N4'  },
 
 
 ];
