@@ -1125,6 +1125,8 @@ body.dark-mode .toast {
 	<span class="rarc-chip" onclick="rarcChipClick('M45')">M45</span>
 	<span class="rarc-chip" onclick="rarcChipClick('M62')">M62</span>
 	<span class="rarc-chip" onclick="rarcChipClick('N4')">N4</span>
+	<span class="rarc-chip" onclick="rarcChipClick('N227')">N227</span>
+
       </div>
       <!-- Search results toast -->
       <div id="rarcSearchResults" style="display:none;margin-top:8px;background:rgba(255,255,255,0.10);border:1px solid rgba(255,255,255,0.2);border-radius:8px;padding:8px 14px;font:13px 'DM Sans',sans-serif;color:rgba(255,255,255,0.85);"></div>
@@ -1799,7 +1801,7 @@ If the JW line is the only line, or if the administered line shows zero units, t
           <span class="type-badge warn" style="margin-top:2px">CO-16</span>
         </div>
         <div class="result-desc">
-          <p>Missing / Incomplete / Invalid / Deactivated / Withdrawn NDC</p>
+          <p>Missing / Deactivated / Withdrawn NDC</p>
           <span class="ctx-pill">Drug Billing / NDC Data Issue · Professional &amp; Facility Claims</span>
           <div style="margin-top:14px">
             <div class="label">Common CARC Pairing</div>
@@ -7782,6 +7784,7 @@ EDI 837I Format:
 </div><!-- end #rarc-section-M62 -->
 
 
+
 <!-- ═══════════════════════════════════ N4 SECTION ═══════════════════════════════════ -->
 <div id="rarc-section-N4" class="rarc-section" style="display:none">
 <div class="layout">
@@ -8257,6 +8260,497 @@ EDI 837I Format:
 
 </div><!-- end .layout -->
 </div><!-- end #rarc-section-N4 -->
+
+<!-- ═══════════════════════════════════ N227 SECTION ═══════════════════════════════════ -->
+<div id="rarc-section-N227" class="rarc-section" style="display:none">
+<div class="layout">
+
+<!-- ════ LEFT COLUMN ════ -->
+<div>
+
+  <!-- Result Header -->
+  <div class="result-header">
+    <div class="result-code-block">
+      <span class="codebox">N227</span>
+      <span class="type-badge supp">REMARK</span>
+      <span class="type-badge warn" style="margin-top:2px">CO-16</span>
+    </div>
+    <div class="result-desc">
+      <p>Incomplete Certificate of Medical Necessity (CMN)</p>
+      <span class="ctx-pill">Durable Medical Equipment (DME) · Medical Necessity Documentation · CMS-484 / CMS-849 · DMEPOS</span>
+      <div style="margin-top:14px">
+        <div class="label">Common CARC Pairing</div>
+        <div class="pairs">
+          <span class="pair" title="Claim denied — required information missing or invalid">CO-16</span>
+          <span class="pair" title="Not medically necessary as billed — documentation does not support">CO-50</span>
+          <span class="pair" title="DME and DMEPOS claims">DME</span>
+          <span class="pair" title="Durable Medical Equipment, Prosthetics, Orthotics, and Supplies">DMEPOS</span>
+          <span class="pair" title="CMS-1500 Professional Claim Form">CMS-1500</span>
+          <span class="pair" title="CMS-484 — Certificate of Medical Necessity for Oxygen">CMS-484</span>
+          <span class="pair" title="CMS-849 — Certificate of Medical Necessity for TENS">CMS-849</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid">
+
+    <!-- ── WHAT THIS MEANS ── -->
+    <div class="card span-12 card-collapsible">
+      <div class="label">What This Means</div>
+      <p class="muted">
+        N227 means the payer received a claim for a service — most commonly a piece of Durable Medical Equipment (DME) or a supply — that requires a Certificate of Medical Necessity (CMN), but the CMN attached to the claim was either missing entirely, was filled out incorrectly, had blank required fields, had conflicting information, was not signed by the ordering physician, or was signed on a date that does not align with the order or delivery date. The payer cannot process the claim until a complete, valid CMN is on file.
+      </p>
+      <div class="alert info" style="margin-top:14px">
+        <div class="alert-icon">ℹ️</div>
+        <div>
+          <div class="alert-title">What is a Certificate of Medical Necessity (CMN)?</div>
+          <div class="alert-text">
+            A CMN is a standardized CMS form completed by the ordering physician that confirms a specific piece of DME or a supply is medically necessary for a specific patient. Think of it as the physician's written sworn statement to the payer that says: <em>"I examined this patient, and based on their diagnosis and clinical condition, they need this equipment."</em> Without a valid CMN on file, the DME supplier has no legal or billing basis to receive payment from Medicare or most payers — even if the equipment is genuinely needed by the patient. The CMN is not just paperwork; it is a coverage requirement.
+          </div>
+        </div>
+      </div>
+      <div class="alert warn" style="margin-top:10px">
+        <div class="alert-icon">⚠️</div>
+        <div>
+          <div class="alert-title">N227 Is a Documentation Denial — Not a Coverage Denial</div>
+          <div class="alert-text">
+            N227 does not mean the equipment or supply is not covered. It means the paperwork supporting medical necessity is incomplete or invalid. Fix the CMN, get it properly signed, and resubmit — in most cases the claim will process. However, if the CMN cannot be corrected retroactively (e.g., the physician refuses to sign or the clinical criteria are not met), the denial becomes permanent.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── CMN FORMS REFERENCE TABLE ── -->
+    <div class="card span-12 card-collapsible">
+      <div class="label">CMN Forms — Which Form Goes With Which Equipment</div>
+      <p class="muted" style="margin-bottom:12px;font-size:13px">
+        Each type of DME that requires a CMN has its own CMS form. Using the wrong form, or using the right form but leaving required sections blank, will trigger N227. Below are the most common CMN forms and what they cover.
+      </p>
+      <table class="mod-table">
+        <thead>
+          <tr>
+            <th>CMS Form</th>
+            <th>Equipment / Supply Covered</th>
+            <th>Key Clinical Questions It Asks</th>
+            <th>Most Common Incomplete Field</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="mod-code">CMS-484</span></td>
+            <td>Home Oxygen Equipment — concentrators, portable units, liquid oxygen</td>
+            <td>Blood oxygen saturation or arterial blood gas test results; flow rate (liters per minute); hours of use per day; estimated length of need</td>
+            <td>Oxygen saturation test result or date of qualifying test missing — this is the single most common N227 trigger for oxygen claims</td>
+          </tr>
+          <tr>
+            <td><span class="mod-code">CMS-849</span></td>
+            <td>Transcutaneous Electrical Nerve Stimulation (TENS) units</td>
+            <td>Diagnosis causing chronic pain; prior treatment tried and failed; estimated length of need</td>
+            <td>Prior treatment history section left blank — payer needs evidence that other pain management was tried before TENS</td>
+          </tr>
+          <tr>
+            <td><span class="mod-code">CMS-854</span></td>
+            <td>Enteral Nutrition (tube feeding) — formulas and pumps</td>
+            <td>Reason patient cannot maintain weight/nutrition orally; type of formula ordered; delivery method (gravity, pump, bolus)</td>
+            <td>Clinical condition section incomplete — physician must specify why oral intake is not possible</td>
+          </tr>
+          <tr>
+            <td><span class="mod-code">CMS-10125</span></td>
+            <td>Power Mobility Devices — power wheelchairs and power-operated vehicles (scooters)</td>
+            <td>Mobility limitation diagnosis; face-to-face examination findings; home assessment results; why a cane, walker, or manual wheelchair is insufficient</td>
+            <td>Face-to-face exam documentation or the mobility limitation narrative is missing or vague — CMS requires very specific functional limitation language</td>
+          </tr>
+          <tr>
+            <td><span class="mod-code">CMS-10163</span></td>
+            <td>Diabetic Supplies — glucose monitors, test strips, lancets</td>
+            <td>Type of diabetes (Type 1 or Type 2); insulin use; testing frequency ordered by physician</td>
+            <td>Insulin use field blank for Type 2 patients — affects coverage level for test strip quantity</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="alert info" style="margin-top:14px">
+        <div class="alert-icon">ℹ️</div>
+        <div>
+          <div class="alert-title">Not All DME Requires a CMN — Know the Difference</div>
+          <div class="alert-text">
+            Only specific HCPCS codes require a CMN. Many DME items instead require a Detailed Written Order (DWO) — a physician's prescription or order — rather than the formal CMS CMN form. Submitting a DWO when a CMN is required (or vice versa) will trigger N227. Always verify whether your specific HCPCS code requires a CMN, a DWO, or both before submitting the claim.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── WHERE CMN DATA APPEARS ON THE CLAIM ── -->
+    <div class="card span-12 card-collapsible">
+      <div class="label">Where CMN Information Is Reported on the Claim Form</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:8px">
+        <div>
+          <div class="nm-h3" style="margin-top:0">CMS-1500 (DME Supplier / Professional Claims)</div>
+          <ul class="info-list">
+            <li><strong>Box 17 — Referring Provider Name &amp; NPI:</strong> The ordering or referring physician who completed and signed the CMN must be identified here — name and NPI must match the physician who signed the CMN exactly</li>
+            <li><strong>Box 17b — NPI of Referring Provider:</strong> The ordering physician's NPI must be valid, active, and enrolled as an ordering/referring provider — if the NPI is not in Medicare's ordering/referring database, the CMN is considered invalid regardless of how well it was completed</li>
+            <li><strong>Box 19 / Box 23 — Additional Claim Information:</strong> Some payers require the CMN tracking number or order date to be referenced here — check payer-specific billing guidelines</li>
+            <li><strong>Box 21 — Diagnosis Codes:</strong> The ICD-10 diagnosis code(s) on the claim must align exactly with the clinical condition documented on the CMN — a mismatch between Box 21 and the CMN diagnosis triggers N227</li>
+            <li><strong>Box 24D — Procedure Code:</strong> The HCPCS code billed must be one of the codes covered by the CMN on file — billing a related but different HCPCS code without an updated CMN will cause N227</li>
+            <li><strong>Box 24H — EPSDT / Family Plan:</strong> Not commonly used for DME but if populated, must be consistent with the CMN content</li>
+          </ul>
+        </div>
+        <div>
+          <div class="nm-h3" style="margin-top:0">CMN Form Itself — Required Sections That Cannot Be Blank</div>
+          <ul class="info-list">
+            <li><strong>Section A — Patient Information:</strong> Patient name, Medicare/insurance ID, date of birth, and sex must match the claim exactly — one character off triggers a mismatch edit</li>
+            <li><strong>Section A — Supplier Information:</strong> The DME supplier's name and NPI/PTAN must match what the supplier has enrolled with CMS — using an unenrolled location or NPI invalidates the CMN</li>
+            <li><strong>Section A — Place of Service:</strong> Where the equipment will be used — typically the patient's home. Must be consistent with the place of service billed on the claim</li>
+            <li><strong>Section B — Clinical Questions:</strong> Every question in Section B that has a checkbox or fill-in field must be answered — a single blank answer in Section B is the most common reason a CMN is flagged as incomplete</li>
+            <li><strong>Section C — Narrative / Justification:</strong> For certain items (especially power wheelchairs and complex DME), a clinical narrative is required in Section C — a generic or one-sentence response is not sufficient</li>
+            <li><strong>Section D — Physician Signature &amp; Date:</strong> The ordering physician must sign and personally date Section D — a stamped signature is not acceptable, a signature date that precedes the face-to-face exam is not valid, and a signature by a non-physician (PA, NP) must follow payer rules on mid-level ordering</li>
+          </ul>
+          <div class="alert ok" style="margin-top:10px">
+            <div class="alert-icon">✅</div>
+            <div class="alert-text"><strong>Critical rule:</strong> The physician signature date on the CMN cannot be earlier than the face-to-face examination date. If the CMN is signed before the exam occurred, it is invalid and will trigger N227 — even if all clinical questions are answered correctly.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── WHY THIS HAPPENS ── -->
+    <div class="card span-6 card-collapsible">
+      <div class="label">Why This Happens — Most Common Root Causes</div>
+      <div class="nm-h3" style="margin-top:4px">Missing or Blank CMN Fields</div>
+      <ul class="info-list">
+        <li>Section B clinical questions on the CMN were left partially blank — even one unanswered question in Section B invalidates the entire form</li>
+        <li>The CMN was never obtained before the equipment was delivered — the supplier delivered the item and billed without first securing a completed, signed CMN</li>
+        <li>The CMN was obtained but was never attached to or linked with the claim in the billing system before submission</li>
+        <li>For oxygen claims (CMS-484): the qualifying oxygen saturation test result or arterial blood gas value was not entered on the CMN — this is the most common missing field for oxygen equipment</li>
+        <li>Estimated length of need was left blank — every CMN requires a duration (e.g., 6 months, 12 months, lifetime)</li>
+      </ul>
+      <div class="nm-h3">Signature &amp; Dating Errors</div>
+      <ul class="info-list">
+        <li>The physician signed the CMN but did not personally date it — a signature without a date is not valid</li>
+        <li>The CMN was signed before the face-to-face examination took place — the exam must occur first, then the CMN is completed and signed</li>
+        <li>A rubber stamp or electronic auto-signature was used instead of a hand-written or valid electronic signature — many payers and Medicare do not accept stamped signatures on CMNs</li>
+        <li>The CMN was signed by a physician assistant (PA) or nurse practitioner (NP) without verifying whether the payer accepts mid-level ordering providers for that specific HCPCS code</li>
+      </ul>
+      <div class="nm-h3">Mismatch Between CMN and Claim Data</div>
+      <ul class="info-list">
+        <li>The diagnosis code on the CMN does not match the ICD-10 code in Box 21 of the claim — both must describe the same clinical condition</li>
+        <li>The HCPCS code billed on the claim is not the code referenced or supported by the CMN — the CMN must specifically justify the item being billed</li>
+        <li>The ordering physician's name or NPI on the CMN does not match Box 17/17b on the claim</li>
+        <li>The patient's name or insurance ID on the CMN does not match what is on the claim — even a nickname vs. full legal name discrepancy can trigger N227</li>
+      </ul>
+      <div class="nm-h3">Expired or Outdated CMN</div>
+      <ul class="info-list">
+        <li>The CMN on file has expired — most CMNs are valid for a set period (e.g., 12 months) and recertification is required before the expiration date for ongoing rentals</li>
+        <li>A recertification CMN was not obtained before the billing period covered by the claim — e.g., the original CMN covered months 1–12 but the claim is for month 13 without a recertification</li>
+        <li>The equipment was upgraded or changed but the CMN was never updated to reflect the new item — the CMN must cover the specific HCPCS code being billed</li>
+      </ul>
+    </div>
+
+    <!-- ── HOW TO FIX IT ── -->
+    <div class="card span-6 card-collapsible">
+      <div class="label">How to Fix It — Step-by-Step</div>
+      <div class="nm-h3" style="margin-top:4px">Step 1 — Pull and Review the CMN on File</div>
+      <ol class="step-list">
+        <li><span class="sn">1</span><span>Retrieve the CMN that was on file when the claim was submitted — review every field in Sections A, B, C, and D for completeness</span></li>
+        <li><span class="sn">2</span><span>Compare the CMN against the claim: confirm the patient name, insurance ID, diagnosis code, HCPCS code, ordering physician name and NPI, and dates all match exactly</span></li>
+        <li><span class="sn">3</span><span>Check the physician's signature and date in Section D — confirm the signature date is on or after the face-to-face examination date</span></li>
+      </ol>
+      <div class="nm-h3">Step 2 — Identify the Specific Problem</div>
+      <ol class="step-list">
+        <li><span class="sn">4</span><span>If a Section B clinical question is blank — contact the ordering physician's office to complete the missing field. Do not guess or fill it in yourself; only the ordering physician can answer clinical questions on the CMN</span></li>
+        <li><span class="sn">5</span><span>If the CMN was never obtained — contact the ordering physician immediately to complete and sign a new CMN. Note: some payers allow retroactive completion; others do not. Check the payer's policy before assuming the claim can be salvaged</span></li>
+        <li><span class="sn">6</span><span>If the CMN has expired — arrange for a recertification CMN to be completed and signed by the physician before resubmitting</span></li>
+        <li><span class="sn">7</span><span>If there is a data mismatch (diagnosis code, HCPCS, name, NPI) — correct the specific mismatched field on either the CMN or the claim, whichever has the error</span></li>
+      </ol>
+      <div class="nm-h3">Step 3 — Correct the Claim and Resubmit</div>
+      <ol class="step-list">
+        <li><span class="sn">8</span><span>Once the corrected or completed CMN is in hand, submit a <strong>corrected claim with Resubmission Code 7</strong> — attach or reference the corrected CMN in your billing system</span></li>
+        <li><span class="sn">9</span><span>If the payer requires the CMN to be submitted as an attachment, include a clean, legible copy — some payers require the CMN to be faxed or uploaded to their portal rather than mailed</span></li>
+        <li><span class="sn">10</span><span>Confirm the ordering physician's NPI is active in Medicare's ordering and referring provider database (PECOS) before resubmitting — an unenrolled physician NPI will re-trigger the denial even with a perfect CMN</span></li>
+      </ol>
+      <div class="alert warn" style="margin-top:14px">
+        <div class="alert-icon">⚠️</div>
+        <div>
+          <div class="alert-title">Timely Filing — Do Not Wait on the Physician</div>
+          <div class="alert-text">While chasing the physician's office for a corrected or missing CMN, watch your timely filing deadline carefully. Submit a timely filing exception request to the payer if needed while the CMN is being corrected — some payers will grant an extension when N227 is the denial reason and the documentation issue is physician-side.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── ORDERING PHYSICIAN ENROLLMENT — PECOS ── -->
+    <div class="card span-12 card-collapsible">
+      <div class="label">Critical Requirement — Ordering Physician Must Be Enrolled in PECOS</div>
+      <p class="muted" style="margin-bottom:12px;font-size:13px">
+        For Medicare DME claims, the ordering physician's NPI must be enrolled in the Medicare Provider Enrollment, Chain and Ownership System (PECOS) as an ordering and referring provider. A CMN signed by a physician who is not enrolled in PECOS is considered invalid by Medicare — even if the form is otherwise perfectly completed. This is one of the most overlooked causes of N227 on DME claims.
+      </p>
+      <table class="mod-table">
+        <thead>
+          <tr>
+            <th>Enrollment Check</th>
+            <th>Why It Matters for N227</th>
+            <th>How to Verify</th>
+            <th>Fix If Not Enrolled</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="mod-code">PECOS Enrollment</span></td>
+            <td>Medicare requires the ordering physician to be actively enrolled in PECOS as an ordering/referring provider — a non-enrolled physician's CMN signature is rejected</td>
+            <td>Search the CMS PECOS lookup tool at <strong>pecos.cms.hhs.gov</strong> — enter the physician's NPI and confirm ordering/referring status shows as active</td>
+            <td>The physician must submit a PECOS enrollment application — this process takes weeks; the DME supplier cannot bill Medicare until enrollment is confirmed</td>
+          </tr>
+          <tr>
+            <td><span class="mod-code">NPI Active Status</span></td>
+            <td>Even if PECOS-enrolled, the NPI must be active in the NPPES registry — a deactivated or reassigned NPI invalidates the CMN</td>
+            <td>Search <strong>npiregistry.cms.hhs.gov</strong> — confirm the NPI is active and the name matches the physician who signed the CMN</td>
+            <td>Contact the physician's office to update or reactivate their NPI through NPPES before resubmitting the claim</td>
+          </tr>
+          <tr>
+            <td><span class="mod-code">Mid-Level Ordering</span></td>
+            <td>Nurse practitioners (NPs) and physician assistants (PAs) can order some DME items but not all — certain HCPCS codes require a physician (MD/DO) signature specifically</td>
+            <td>Check the CMS DMEPOS Policy Article for the specific HCPCS code — it will specify whether a mid-level provider can order that item</td>
+            <td>If the HCPCS code requires an MD/DO signature and the CMN was signed by an NP or PA, the ordering physician must sign a new CMN — the mid-level's signature alone is not sufficient</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ── WHAT NOT TO DO ── -->
+    <div class="card span-6 card-collapsible">
+      <div class="label">What NOT to Do</div>
+      <ul class="info-list">
+        <li>Do not fill in blank Section B clinical questions yourself — only the ordering physician can answer clinical questions on the CMN; any alterations by billing staff make the form invalid and create compliance risk</li>
+        <li>Do not alter the physician's signature date, exam date, or any other date on the CMN — falsifying dates on a CMN is a federal compliance violation</li>
+        <li>Do not deliver or bill for equipment before obtaining a signed, completed CMN — the CMN must be in place before the date of delivery for most payers</li>
+        <li>Do not assume the same CMN covers an upgraded or different piece of equipment — if the HCPCS code changes, a new CMN is required</li>
+        <li>Do not appeal N227 without attaching the corrected, completed CMN — an appeal letter alone without the actual documentation will be denied</li>
+        <li>Do not use a CMN completed by a physician who is not enrolled in PECOS for Medicare claims — confirm PECOS enrollment before submitting</li>
+      </ul>
+      <div class="alert err" style="margin-top:14px">
+        <div class="alert-icon">🚫</div>
+        <div class="alert-text">Altering a CMN after it has been signed by a physician — including adding information to blank Section B fields, changing dates, or modifying clinical answers — is considered falsification of a medical record and a federal billing compliance violation. Always go back to the physician for corrections; never make changes yourself.</div>
+      </div>
+    </div>
+
+    <!-- ── PREVENTION CHECKLIST ── -->
+    <div class="card span-6 card-collapsible">
+      <div class="label">Prevention Checklist — Before Delivering Equipment and Before Submitting the Claim</div>
+      <p class="muted" style="margin-bottom:10px;font-size:13px">Run through every item before delivery and before claim submission:</p>
+      <ul class="checklist">
+        <li class="req"><span class="ck-icon">✅</span><span>Correct CMN form identified for the specific HCPCS code being billed — right form for the right equipment</span></li>
+        <li class="req"><span class="ck-icon">✅</span><span>All Section B clinical questions answered — no blank fields anywhere on the form</span></li>
+        <li class="req"><span class="ck-icon">✅</span><span>Physician signature in Section D is a personal, hand-written or valid electronic signature — not a stamp</span></li>
+        <li class="req"><span class="ck-icon">✅</span><span>Physician's signature date is on or after the face-to-face examination date — never before</span></li>
+        <li><span class="ck-icon">✅</span><span>Estimated length of need is completed — specific duration entered, not left blank</span></li>
+        <li><span class="ck-icon">✅</span><span>Patient name, insurance ID, and date of birth on CMN match the claim exactly</span></li>
+        <li><span class="ck-icon">✅</span><span>Diagnosis code on CMN matches ICD-10 code in Box 21 of the CMS-1500 exactly</span></li>
+        <li><span class="ck-icon">✅</span><span>HCPCS code covered by this CMN matches the code being billed on the claim</span></li>
+        <li><span class="ck-icon">✅</span><span>Ordering physician's NPI verified as active in NPPES and enrolled in PECOS as ordering/referring provider (Medicare claims)</span></li>
+        <li><span class="ck-icon">✅</span><span>CMN is not expired — if ongoing rental, recertification CMN obtained before the prior CMN's expiration date</span></li>
+        <li><span class="ck-icon">✅</span><span>CMN linked or attached in the billing system before the claim is submitted</span></li>
+      </ul>
+    </div>
+
+    <!-- ── APPEAL vs CORRECT ── -->
+    <div class="card span-12 card-collapsible">
+      <div class="label">Best Practice — When to Appeal vs. When to Correct &amp; Resubmit</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px">
+        <div class="decision-box">
+          <h4>✅ Appeal When ALL of These Are True</h4>
+          <ul class="info-list" style="margin-top:0">
+            <li>A complete, valid CMN was on file before the claim was submitted — all sections were answered, physician signature and date were present and valid, and no fields were blank</li>
+            <li>The CMN data matches the claim data exactly — diagnosis code, HCPCS code, ordering physician NPI, and patient demographics are all consistent</li>
+            <li>The ordering physician is enrolled in PECOS and their NPI is active in NPPES</li>
+            <li>The payer denied it anyway — this indicates a payer-side documentation matching error and an appeal with the complete CMN attached should be submitted</li>
+          </ul>
+        </div>
+        <div class="deny-box">
+          <h4>🔄 Correct &amp; Resubmit First (Most N227 Cases)</h4>
+          <ul class="info-list" style="margin-top:0">
+            <li>Most N227 denials are caused by blank Section B fields, a missing physician signature date, or a mismatch between the CMN and claim data — correct the specific issue and resubmit with Resubmission Code 7</li>
+            <li>If the CMN was never obtained — get a completed, signed CMN from the ordering physician and resubmit (check payer's retroactive CMN policy first)</li>
+            <li>If the CMN has expired — obtain a recertification CMN and resubmit the affected claims</li>
+            <li>Do not appeal as a first step when the documentation issue is on your side — correct the root cause first, then escalate to appeal only if a corrected claim with a complete CMN is also denied</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end .grid -->
+</div><!-- end left column -->
+
+<!-- ════ RIGHT SIDEBAR ════ -->
+   <aside>
+ <div class="sidebar-card">
+        <p class="sidebar-title">Quick‑Access Tools</p>
+        <p class="sidebar-sub">Official CMS &amp; NLM billing resources — click any link to open in a new tab.</p>
+        <div style="margin-bottom:12px;position:relative">
+          <input type="text" class="qa-search-input" placeholder="🔍  Search tools…" oninput="qaFilter(this)" autocomplete="off" />
+        </div>
+        <div class="res-list">
+<a class="res-link" href="https://kunalvaish49-cpu.github.io/NDC-Lookup-Tool/" target="_blank" rel="noopener" style="width:100%;text-align:left;cursor:pointer;">
+    <span class="res-icon" style="background:#e8f0ff;color:#1847cc">💊</span>
+    <span class="res-body">
+        <span class="res-name">NDC / HCPCS Drug Lookup Tool</span>
+        <span class="res-desc">Search NDC, J-Code, Drug Name — GitHub Tool</span>
+    </span>
+    <span class="res-arrow">↗</span>
+</a>
+
+<a class="res-link" href="https://kunalvaish49-cpu.github.io/Status-Code-Data/index.html" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#e8f0ff;color:#1847cc">💊</span>
+            <span class="res-body">
+              <span class="res-name">AR RCM STATUS | ACTION | SUB-CATEGORY Tool</span>
+              <span class="res-desc">Search Denial Name</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+
+<a class="res-link" href="https://kunalvaish49-cpu.github.io/CMS-1500-UB-04/" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#e8f0ff;color:#1847cc">💊</span>
+            <span class="res-body">
+              <span class="res-name">CMS & UB-04 Box or FL Knowledge Tool</span>
+              <span class="res-desc">Search FL or Box#</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+          <a class="res-link" href="https://dailymed.nlm.nih.gov/dailymed/" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#e8f0ff;color:#1847cc">💊</span>
+            <span class="res-body">
+              <span class="res-name">DailyMed NDC Lookup</span>
+              <span class="res-desc">Search drug labels &amp; National Drug Codes via NLM DailyMed</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+          <a class="res-link" href="https://medicare.fcso.com/lcd-interactive-index" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#e8f6f0;color:#0a7a50">🔗</span>
+            <span class="res-body">
+              <span class="res-name">LCD & Article Lookup Tool</span>
+              <span class="res-desc">Search Article & LCD By Procedure Code</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+ <a class="res-link" href="https://npiregistry.cms.hhs.gov/search" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#e8f6f0;color:#0a7a50">🔗</span>
+            <span class="res-body">
+              <span class="res-name">NPPES NPI Registry Lookup</span>
+              <span class="res-desc">Provider Speciality & Activation</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+
+  <a class="res-link" href="https://www.cgsmedicare.com/medicare_dynamic/j15/partb/ptpb/ptp.aspx
+" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#e8f6f0;color:#0a7a50">🔗</span>
+            <span class="res-body">
+              <span class="res-name">Part B NCCI Procedure‑to‑Procedure Lookup</span>
+              <span class="res-desc">Check Part B PTP edits &amp; bundling conflicts</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+
+          <a class="res-link" href="https://www.cgsmedicare.com/medicare_dynamic/j15/partb/mue/mue_tool.aspx
+" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#fff7e6;color:#b87010">📋</span>
+            <span class="res-body">
+              <span class="res-name">MUE Lookup Part B</span>
+              <span class="res-desc">Medically Unlikely Edits Part B — max units per claim line</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+<a class="res-link" href="https://www.cgsmedicare.com/medicare_dynamic/j15/parta/mue/mue_tool.aspx
+" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#fff7e6;color:#b87010">📋</span>
+            <span class="res-body">
+              <span class="res-name">MUE Lookup Part A</span>
+              <span class="res-desc">Medically Unlikely Edits Part A — max units per claim line</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+          <a class="res-link" href="https://www.cgsmedicare.com/medicare_dynamic/j15/partb/claimcalc/claimcalc.aspx
+" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#fdf0f0;color:#be2a2a">📅</span>
+            <span class="res-body">
+              <span class="res-name">Claim Timely Filing Calculator</span>
+              <span class="res-desc">Verify filing deadlines by payer &amp; claim type</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+          <a class="res-link" href="https://www.cgsmedicare.com/medicare_dynamic/j15/parta/modifiers/search.aspx
+" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#f0eaff;color:#6d28d9">🏥</span>
+            <span class="res-body">
+              <span class="res-name">Part A Modifier Finder Tool</span>
+              <span class="res-desc">Identify applicable modifiers for Part A facility claims</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+          <a class="res-link" href="https://www.cgsmedicare.com/medicare_dynamic/j15/partb/modifiers/search.aspx
+	" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#e8f6f0;color:#0a6b58">🩺</span>
+            <span class="res-body">
+              <span class="res-name">Part B Modifier Finder Tool</span>
+              <span class="res-desc">Look up Part B professional claim modifiers</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+          <a class="res-link" href="https://www.cgsmedicare.com/medicare_dynamic/j15/parta/ptpa/ptp.aspx
+" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#e8f0ff;color:#1847cc">🔍</span>
+            <span class="res-body">
+              <span class="res-name">Part A NCCI Procedure‑to‑Procedure Lookup</span>
+              <span class="res-desc">Check Part A PTP edits for facility/outpatient claims</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+<a class="res-link" href="https://www.cgsmedicare.com/medicare_dynamic/j15/partb/ptpb/ptp.aspx" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#e8f0ff;color:#1847cc">🔍</span>
+            <span class="res-body">
+              <span class="res-name">Part B NCCI Procedure‑to‑Procedure Lookup</span>
+              <span class="res-desc">Check Part B PTP edits for facility/outpatient claims</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+
+          <a class="res-link" href="https://www.cgsmedicare.com/partb/tools/ivr_converter.html
+" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#fef5e4;color:#b87010">🪪</span>
+            <span class="res-body">
+              <span class="res-name">MBI &amp; Name‑to‑Number Converter</span>
+              <span class="res-desc">Medicare Beneficiary Identifier lookup &amp; conversion tool</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+          <a class="res-link" href="https://qcor.cms.gov/Basic_Search
+" target="_blank" rel="noopener">
+            <span class="res-icon" style="background:#f0eaff;color:#6d28d9">🔬</span>
+            <span class="res-body">
+              <span class="res-name">CLIA Lookup Tool — S&amp;C QCOR</span>
+              <span class="res-desc">Search Clinical Laboratory Improvement Amendments data</span>
+            </span>
+            <span class="res-arrow">↗</span>
+          </a>
+
+        </div>
+      </div>
+    </aside>
+
+</div><!-- end .layout -->
+</div><!-- end #rarc-section-N227 -->
 
 	
   <footer>
@@ -9659,7 +10153,7 @@ function runRarcAnalyze() {
   });
 
   // Switch section visibility
-  const known = ['N846', 'N816', 'M119', 'N60', 'N815', 'N847', 'N848', 'MA30', 'MA40', 'M44', 'M34', 'M45', 'N4', 'M62'];
+  const known = ['N846', 'N816', 'M119', 'N60', 'N815', 'N847', 'N848', 'MA30', 'MA40', 'M44', 'M34', 'M45', 'N4', 'M62', 'N227'];
   const msg = document.getElementById('rarcSearchResults');
 
   if (known.includes(code)) {
@@ -10349,7 +10843,7 @@ function collapseAllCards() {
 const SM_SECTIONS = [
   { icon:'📋', label:'N846 — NDC/HCPCS Mismatch', code:'N846'},
   { icon:'📋', label:'N816 — NDC/HCPCS Mismatch', code:'N816'},
-  { icon:'📋', label:'M119 — NDC/HCPCS Mismatch', code:'M119'},
+  { icon:'📋', label:'M119 — NDC/HCPCS Mismatch', code:'M119'},	
   { icon:'📋', label:'N60  — NDC/HCPCS Mismatch', code:'N60'},
   { icon:'📋', label:'N815 — NDC/HCPCS Mismatch', code:'N815'},
   { icon:'📋', label:'N847 — NDC/HCPCS Mismatch', code:'N847'},
@@ -10360,7 +10854,8 @@ const SM_SECTIONS = [
   { icon:'📋', label:'M34  — CLIA Number Missing',  code:'M34'},
   { icon:'📋', label:'M45  — Occurrence Code Error', code:'M34'},
   { icon:'🔐', label:'M62  — Missing/Invalid Treatment Authorization Code', code:'M62' },
-      { icon:'🔄', label:'N4   — Missing/Invalid Prior Insurance Carrier EOB', code:'N4'  },
+  { icon:'🔄', label:'N4   — Missing/Invalid Prior Insurance Carrier EOB', code:'N4'  },
+  { icon:'📄', label:'N227 — Incomplete/Invalid Certificate of Medical Necessity', code:'N227' },
 
 
 ];
