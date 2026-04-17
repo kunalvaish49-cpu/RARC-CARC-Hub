@@ -1207,7 +1207,14 @@ Per IU administered</td></tr></tbody></table></div>
 
         <!-- ── HOW TO FIX IT ── -->
         
-<div class="card span-6 card-collapsible card-collapsible"><div class="label">How to Fix It</div><div class="nm-h3" style="margin-top:4px">4a. Standard Correction Process</div><ol class="step-list"><li><span class="sn">1</span><span>Pull the MAR and vial or package label from the date of service</span></li><li><span class="sn">2</span><span>Confirm the physical form of the drug — powder, liquid, cream, biologic</span></li><li><span class="sn">3</span><span>Verify the quantity aligns with the UOM selected (e.g., if ML — bill actual mLs administered, not vial size)</span></li><li><span class="sn">4</span><span>Confirm the corrected UOM is consistent with the billed J-code and NDC and Submit a corrected claim with Resubmission Code 7</span></li></ol>
+<div class="card span-6 card-collapsible card-collapsible"><div class="label">How to Fix It</div><div class="nm-h3" style="margin-top:4px">4a. Standard Correction Process</div><ol class="step-list"><li><span class="sn">1</span><span>Pull the Medical Records and Verify Treatment Notes and vial or package label and form of drug — powder, liquid, cream, biologic for your Date of Service</span></li><li><span class="sn">2</span><span>Verify the NDC Number were billed Correctly or Not  NDC Format#11-digit (5-4-2) format</span></li>
+<li><span class="sn">3</span>
+<span>Verify the quantity aligns with the UOM selected (e.g., if ML — bill actual mLs administered, not vial size)</span></li>
+<li><span class="sn">4</span>
+<span>Verify NDC Number with UOM was billed correctly - Claim Should be Reprocess</span></li>
+<li><span class="sn">5</span>
+<span>Sometime Insurance don't received information correctly - After confirmation from Insurance resubmitted the Corrected Claim with Resubmission Code 7</span></li>
+</ol>
 
 
 <div class="nm-h3">4b. Discontinued or Inactive NDC</div><ul class="info-list"><li>Check the FDA NDC database or drug wholesaler records for a valid replacement NDC from the same manufacturer for the same drug</li><li>If the drug has been reformulated or the manufacturer has changed, identify the NDC that was active on the date of service</li><li>If no valid NDC can be confirmed for the DOS, escalate to coding — a NOC (not otherwise classified) code may be required with supporting documentation</li></ul></div>
@@ -1506,8 +1513,8 @@ If the JW line is the only line, or if the administered line shows zero units, t
             <div>
               <div class="nm-h3" style="margin-top:0">5a. Standard Correction (Most Cases)</div>
               <ol class="step-list">
-                <li><span class="sn">1</span><span>Pull the MAR and vial or package label from the date of service</span></li>
-                <li><span class="sn">2</span><span>Confirm the physical form of the drug — powder, liquid, cream, biologic</span></li>
+                <li><span class="sn">1</span><span>Pull the Medical Record or Treatment and vial or package label from the date of service</span></li>
+                <li><span class="sn">2</span><span>Verify the NDC Number were billed Correctly or Not  NDC Format#11-digit (5-4-2) format</span></li>
                 <li><span class="sn">3</span><span>Match the drug form to the correct UOM using the table above</span></li>
                 <li><span class="sn">4</span><span>Verify quantity aligns with UOM selected (e.g., if ML — bill actual mLs administered, not vial size)</span></li>
                 <li><span class="sn">5</span><span>Confirm corrected UOM is consistent with the billed J-code and NDC</span></li>
@@ -1904,7 +1911,7 @@ If the JW line is the only line, or if the administered line shows zero units, t
             <div>
               <div class="nm-h3" style="margin-top:0">4a. Missing NDC</div>
               <ol class="step-list">
-                <li><span class="sn">1</span><span>Pull the MAR and vial or package label from the date of service</span></li>
+                <li><span class="sn">1</span><span>Pull the Medical Records and Verify Treatment Notes and vial or package label and form of drug — powder, liquid, cream, biologic for your Date of Service</span></li>
                 <li><span class="sn">2</span><span>Locate the 11-digit NDC from the label — use the actual administered vial, not a reference sheet</span></li>
                 <li><span class="sn">3</span><span>Confirm UOM and quantity match the drug form and MAR documentation</span></li>
                 <li><span class="sn">4</span><span>Validate NDC maps correctly to the billed J-code using a crosswalk</span></li>
@@ -9118,8 +9125,8 @@ EDI 837I Format:
     "Compound drugs billed without clarifying UOM per component"
   ],
   "resolution_steps": [
-    "Pull the MAR and vial or package label from the date of service",
-    "Confirm the physical form of the drug — powder, liquid, cream, biologic",
+    "Pull the Medical Records and Verify Treatment Notes and vial or package label and form of drug — powder, liquid, cream, biologic for your Date of Service",
+    "Verify the NDC Number were billed Correctly or Not  NDC Format#11-digit (5-4-2) format",
     "Match the drug form to the correct UOM code",
     "Verify quantity aligns with UOM selected",
     "Confirm corrected UOM is consistent with the billed J-code and NDC",
