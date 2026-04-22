@@ -1350,99 +1350,264 @@ body.dark-mode .toast {
 
 <!-- ── Unit of Measure (UOM) Misalignment ── -->
 
-<div class='card span-6 card-collapsible' style='border:1px solid var(--border);border-radius:16px;overflow:hidden;background:#fff;box-shadow:0 4px 14px rgba(0,0,0,0.04)'>
-  <div class='label' style='background:linear-gradient(90deg,#2563eb,#3b82f6);color:#fff;padding:10px 14px;font-weight:700;font-size:13px'>
-    Unit of Measure (UOM) Misalignment
-  </div>
+<div class='card span-12 card-collapsible' style='border:1px solid #e2e8f0;border-radius:18px;overflow:hidden;background:#fff;box-shadow:0 8px 24px rgba(15,23,42,0.06)'>
 
-  <div style='padding:14px'>
-    <div style='display:flex;align-items:center;gap:10px;margin-bottom:12px'>
-      <div style='width:34px;height:34px;border-radius:50%;background:#2563eb;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 3px 8px rgba(37,99,235,0.25)'>
-        💊
-      </div>
-      <div>
-        <div class='nm-h3' style='margin:0;font-size:14px;font-weight:700;color:#1d4ed8'>Valid UOM Codes — When to Use Each</div>
-        <div style='font-size:10px;color:#64748b;margin-top:1px'>Reference guide for selecting the correct billing unit of measure</div>
-      </div>
-    </div>
-
-    <div style='background:linear-gradient(180deg,#f8fbff 0%,#eef6ff 100%);border:1px solid #d8e4ff;border-radius:12px;padding:10px;overflow-x:auto'>
-      <table class='uom-table' style='margin:0;font-size:12px'>
-        <thead>
-          <tr style='background:#eff6ff'>
-            <th style='font-size:11px'>UOM Code</th>
-            <th style='font-size:11px'>Name</th>
-            <th style='font-size:11px'>When to Use</th>
-            <th style='font-size:11px'>Billing Unit</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><span class='uom-code'>UN</span></td>
-            <td><strong>Unit</strong></td>
-            <td>Powder-form drugs in a vial that must be reconstituted before administration</td>
-            <td>One unit per vial used</td>
-          </tr>
-          <tr>
-            <td><span class='uom-code'>ML </span></td>
-            <td><strong>Milliliter</strong></td>
-            <td>Liquid-form drugs supplied in a vial or pre-filled syringe</td>
-            <td>Actual milliliters administered</td>
-          </tr>
-          <tr>
-            <td><span class='uom-code'>GR</span></td>
-            <td><strong>Gram</strong></td>
-            <td>Ointments, creams, inhalers, or bulk powders dispensed by weight</td>
-            <td>Actual grams dispensed — primarily retail pharmacy</td>
-          </tr>
-          <tr>
-            <td><span class='uom-code'>F2</span></td>
-            <td><strong>International Unit</strong></td>
-            <td>Factor VIII Antihemophilic Factor and similar biologics billed in international units</td>
-            <td>Per IU administered</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class='alert warn' style='margin-top:12px;margin-bottom:0;border-radius:12px;font-size:12px'>
-      <div class='alert-icon'>📌</div>
-      <div>
-        <div class='alert-title' style='font-size:12px'>Key Rule</div>
-        <div class='alert-text' style='font-size:11px'>The UOM must match the physical form of the drug as supplied on the date of service — not how you prefer to bill it, and not what a prior claim used.</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-        <!-- ── WHY THIS HAPPENS ── -->
-
-<div class='card span-6 card-collapsible' style='border:1px solid var(--border);border-radius:16px;overflow:hidden;background:#fff;box-shadow:0 4px 14px rgba(0,0,0,0.04)'>
-  <div class='label' style='background:linear-gradient(90deg,#f59e0b,#fbbf24);color:#fff;padding:12px 16px;font-weight:700'>
-    Why This Happens
+  <div class='label' style='background:linear-gradient(90deg,#0f172a,#1d4ed8);color:#fff;padding:14px 18px;font-size:15px;font-weight:700;display:flex;align-items:center;justify-content:space-between'>
+    <span>Unit of Measure (UOM) Misalignment</span>
   </div>
 
   <div style='padding:18px'>
-    <div style='display:flex;align-items:center;gap:12px;margin-bottom:14px'>
-      <div style='width:40px;height:40px;border-radius:50%;background:#f59e0b;color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;box-shadow:0 3px 8px rgba(245,158,11,0.25)'>
-        ⚠️
+
+    <div style='display:flex;align-items:center;gap:12px;margin-bottom:16px'>
+      <div style='width:42px;height:42px;border-radius:50%;background:#2563eb;color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;box-shadow:0 3px 10px rgba(37,99,235,0.25)'>
+        💊
       </div>
+
       <div>
-        <div class='nm-h3' style='margin:0;font-size:18px;font-weight:700;color:#92400e'>DATA ENTRY & SELECTION ISSUES</div>
-        <div style='font-size:12px;color:#a16207;margin-top:2px'>Most common root causes behind this denial</div>
+        <div class='nm-h3' style='margin:0;font-size:18px;font-weight:700;color:#1d4ed8'>
+          Valid UOM Codes — When to Use Each
+        </div>
+        <div style='font-size:12px;color:#64748b;margin-top:2px'>
+          Reference guide for selecting the correct billing unit of measure
+        </div>
       </div>
     </div>
 
-    <div style='background:linear-gradient(180deg,#fffaf0 0%,#fff7e6 100%);border:1px solid #fde7b0;border-radius:14px;padding:14px 16px'>
-      <ul class='info-list' style='margin:0'>
-        <li>Wrong NDC selected for the drug actually administered or NDC from a different manufacturer was used</li>
-        <li>A 10-digit NDC was not converted to the required 11-digit (5-4-2) format</li>
-        <li>The HCPCS/J-code does not align with the NDC submitted</li>
-        <li>NDC is expired, discontinued, or no longer active in the payer's drug file</li>
-        <li>NDC field was blank — drug was billed by J-code only, no NDC attached</li>
-        <li>Drug purchased from a new supplier and NDC not captured at point of administration</li>
-      </ul>
+    <div style='background:linear-gradient(180deg,#f8fbff 0%,#eef6ff 100%);border:1px solid #d8e4ff;border-radius:14px;padding:14px;overflow-x:auto'>
+
+      <table class='uom-table' style='margin:0;width:100%;font-size:12px;border-collapse:separate;border-spacing:0'>
+        <thead>
+          <tr style='background:#eff6ff'>
+            <th style='font-size:11px;padding:12px 10px;border-bottom:1px solid #dbeafe;color:#1d4ed8;text-align:left'>UOM Code</th>
+            <th style='font-size:11px;padding:12px 10px;border-bottom:1px solid #dbeafe;color:#1d4ed8;text-align:left'>Name</th>
+            <th style='font-size:11px;padding:12px 10px;border-bottom:1px solid #dbeafe;color:#1d4ed8;text-align:left'>When to Use</th>
+            <th style='font-size:11px;padding:12px 10px;border-bottom:1px solid #dbeafe;color:#1d4ed8;text-align:left'>Billing Unit</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr style='background:#fff'>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'>
+              <span class='uom-code' style='display:inline-block;background:#dbeafe;color:#1d4ed8;padding:4px 8px;border-radius:8px;font-size:11px;font-weight:700'>
+                UN
+              </span>
+            </td>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'><strong>Unit</strong></td>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'>Powder-form drugs in a vial that must be reconstituted before administration</td>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'>One unit per vial used</td>
+          </tr>
+
+          <tr style='background:#fcfdff'>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'>
+              <span class='uom-code' style='display:inline-block;background:#dbeafe;color:#1d4ed8;padding:4px 8px;border-radius:8px;font-size:11px;font-weight:700'>
+                ML
+              </span>
+            </td>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'><strong>Milliliter</strong></td>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'>Liquid-form drugs supplied in a vial or pre-filled syringe</td>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'>Actual milliliters administered</td>
+          </tr>
+
+          <tr style='background:#fff'>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'>
+              <span class='uom-code' style='display:inline-block;background:#dbeafe;color:#1d4ed8;padding:4px 8px;border-radius:8px;font-size:11px;font-weight:700'>
+                GR
+              </span>
+            </td>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'><strong>Gram</strong></td>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'>Ointments, creams, inhalers, or bulk powders dispensed by weight</td>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'>Actual grams dispensed — primarily retail pharmacy</td>
+          </tr>
+
+          <tr style='background:#fcfdff'>
+            <td style='padding:12px 10px'>
+              <span class='uom-code' style='display:inline-block;background:#dbeafe;color:#1d4ed8;padding:4px 8px;border-radius:8px;font-size:11px;font-weight:700'>
+                F2
+              </span>
+            </td>
+            <td style='padding:12px 10px'><strong>International Unit</strong></td>
+            <td style='padding:12px 10px'>Factor VIII Antihemophilic Factor and similar biologics billed in international units</td>
+            <td style='padding:12px 10px'>Per IU administered</td>
+          </tr>
+        </tbody>
+      </table>
+
     </div>
+
+    <div class='alert warn' style='margin-top:16px;margin-bottom:0;border-radius:14px;border:1px solid #fde68a;background:linear-gradient(180deg,#fffaf0 0%,#fff7e6 100%);padding:14px 16px'>
+      <div style='display:flex;align-items:flex-start;gap:12px'>
+        <div style='width:34px;height:34px;border-radius:50%;background:#f59e0b;color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;flex-shrink:0'>
+          📌
+        </div>
+
+        <div>
+          <div class='alert-title' style='font-size:13px;font-weight:700;color:#92400e;margin-bottom:4px'>
+            Key Rule
+          </div>
+          <div class='alert-text' style='font-size:12px;line-height:1.7;color:#57534e'>
+            The UOM must match the physical form of the drug as supplied on the date of service — not how you prefer to bill it, and not what a prior claim used.
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+        <!-- ── WHY THIS HAPPENS ── -->
+
+<div class='card span-12 card-collapsible' style='border:1px solid #e2e8f0;border-radius:18px;overflow:hidden;background:#fff;box-shadow:0 8px 24px rgba(15,23,42,0.06)'>
+
+  <div class='label' style='background:linear-gradient(90deg,#0f172a,#1d4ed8);color:#fff;padding:14px 18px;font-size:15px;font-weight:700;display:flex;align-items:center;justify-content:space-between'>
+    <span>Why This Happens</span>
+  </div>
+
+  <div style='padding:18px'>
+
+    <div style='display:flex;align-items:center;gap:12px;margin-bottom:16px'>
+      <div style='width:42px;height:42px;border-radius:50%;background:#f59e0b;color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;box-shadow:0 3px 10px rgba(245,158,11,0.25)'>
+        ⚠️
+      </div>
+
+      <div>
+        <div class='nm-h3' style='margin:0;font-size:18px;font-weight:700;color:#92400e'>
+          DATA ENTRY &amp; SELECTION ISSUES
+        </div>
+        <div style='font-size:12px;color:#64748b;margin-top:2px'>
+          Most common root causes behind NDC mismatch denials
+        </div>
+      </div>
+    </div>
+
+    <div style='background:linear-gradient(180deg,#f8fbff 0%,#eef6ff 100%);border:1px solid #bfdbfe;border-radius:14px;padding:14px 16px;margin-bottom:18px'>
+      <div style='display:flex;align-items:flex-start;gap:12px'>
+        <div style='width:34px;height:34px;border-radius:50%;background:#2563eb;color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;flex-shrink:0'>
+          ℹ️
+        </div>
+
+        <div>
+          <div style='font-size:13px;font-weight:700;color:#1d4ed8;margin-bottom:6px'>
+            Quick Reminder
+          </div>
+
+          <div style='font-size:12px;line-height:1.7;color:#334155'>
+            NDC mismatch denials typically happen when the submitted NDC does not align with the drug administered, HCPCS code billed, or payer drug file requirements.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style='display:grid;grid-template-columns:1fr 1fr;gap:14px'>
+
+      <div style='background:#fff;border:1px solid #fde7b0;border-radius:14px;padding:14px 16px;box-shadow:0 2px 6px rgba(245,158,11,0.06)'>
+        <div style='display:flex;align-items:flex-start;gap:10px'>
+          <div style='width:32px;height:32px;border-radius:50%;background:#fef3c7;color:#b45309;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0'>
+            1
+          </div>
+
+          <div>
+            <div style='font-size:13px;font-weight:700;color:#92400e;margin-bottom:4px'>
+              Wrong NDC Selected
+            </div>
+
+            <div style='font-size:12px;line-height:1.7;color:#57534e'>
+              The NDC entered does not belong to the drug actually administered or references a different manufacturer version.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style='background:#fff;border:1px solid #fde7b0;border-radius:14px;padding:14px 16px;box-shadow:0 2px 6px rgba(245,158,11,0.06)'>
+        <div style='display:flex;align-items:flex-start;gap:10px'>
+          <div style='width:32px;height:32px;border-radius:50%;background:#fef3c7;color:#b45309;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0'>
+            2
+          </div>
+
+          <div>
+            <div style='font-size:13px;font-weight:700;color:#92400e;margin-bottom:4px'>
+              10-Digit NDC Not Converted
+            </div>
+
+            <div style='font-size:12px;line-height:1.7;color:#57534e'>
+              A 10-digit NDC was submitted without converting it into the required 11-digit billing format.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style='background:#fff;border:1px solid #fde7b0;border-radius:14px;padding:14px 16px;box-shadow:0 2px 6px rgba(245,158,11,0.06)'>
+        <div style='display:flex;align-items:flex-start;gap:10px'>
+          <div style='width:32px;height:32px;border-radius:50%;background:#fef3c7;color:#b45309;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0'>
+            3
+          </div>
+
+          <div>
+            <div style='font-size:13px;font-weight:700;color:#92400e;margin-bottom:4px'>
+              HCPCS and NDC Misalignment
+            </div>
+
+            <div style='font-size:12px;line-height:1.7;color:#57534e'>
+              The HCPCS or J-code billed does not correspond with the NDC submitted on the claim.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style='background:#fff;border:1px solid #fde7b0;border-radius:14px;padding:14px 16px;box-shadow:0 2px 6px rgba(245,158,11,0.06)'>
+        <div style='display:flex;align-items:flex-start;gap:10px'>
+          <div style='width:32px;height:32px;border-radius:50%;background:#fef3c7;color:#b45309;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0'>
+            4
+          </div>
+
+          <div>
+            <div style='font-size:13px;font-weight:700;color:#92400e;margin-bottom:4px'>
+              Expired or Inactive NDC
+            </div>
+
+            <div style='font-size:12px;line-height:1.7;color:#57534e'>
+              The submitted NDC is expired, discontinued, or no longer active in the payer's drug file.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style='background:#fff;border:1px solid #fde7b0;border-radius:14px;padding:14px 16px;box-shadow:0 2px 6px rgba(245,158,11,0.06)'>
+        <div style='display:flex;align-items:flex-start;gap:10px'>
+          <div style='width:32px;height:32px;border-radius:50%;background:#fef3c7;color:#b45309;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0'>
+            5
+          </div>
+
+          <div>
+            <div style='font-size:13px;font-weight:700;color:#92400e;margin-bottom:4px'>
+              Missing NDC on Claim
+            </div>
+
+            <div style='font-size:12px;line-height:1.7;color:#57534e'>
+              The drug was billed using only a J-code or HCPCS code without attaching the required NDC information.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style='background:#fff;border:1px solid #fde7b0;border-radius:14px;padding:14px 16px;box-shadow:0 2px 6px rgba(245,158,11,0.06)'>
+        <div style='display:flex;align-items:flex-start;gap:10px'>
+          <div style='width:32px;height:32px;border-radius:50%;background:#fef3c7;color:#b45309;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0'>
+            6
+          </div>
+
+          <div>
+            <div style='font-size:13px;font-weight:700;color:#92400e;margin-bottom:4px'>
+              Supplier Change Not Captured
+            </div>
+
+            <div style='font-size:12px;line-height:1.7;color:#57534e'>
+              A new supplier or manufacturer was used, but the updated NDC was not captured during administration or claim entry.
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
   </div>
 </div>
 
@@ -2188,99 +2353,265 @@ NDC - Drug Look Reference Image
 </div>
 
 
-        <!-- Valid UOM Codes -->
-       <div class='card span-6 card-collapsible' style='border:1px solid var(--border);border-radius:16px;overflow:hidden;background:#fff;box-shadow:0 4px 14px rgba(0,0,0,0.04)'>
-  <div class='label' style='background:linear-gradient(90deg,#2563eb,#3b82f6);color:#fff;padding:10px 14px;font-weight:700;font-size:13px'>
-    Unit of Measure (UOM) Misalignment
-  </div>
+      <div class='card span-12 card-collapsible' style='border:1px solid #e2e8f0;border-radius:18px;overflow:hidden;background:#fff;box-shadow:0 8px 24px rgba(15,23,42,0.06)'>
 
-  <div style='padding:14px'>
-    <div style='display:flex;align-items:center;gap:10px;margin-bottom:12px'>
-      <div style='width:34px;height:34px;border-radius:50%;background:#2563eb;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 3px 8px rgba(37,99,235,0.25)'>
-        💊
-      </div>
-      <div>
-        <div class='nm-h3' style='margin:0;font-size:14px;font-weight:700;color:#1d4ed8'>Valid UOM Codes — When to Use Each</div>
-        <div style='font-size:10px;color:#64748b;margin-top:1px'>Reference guide for selecting the correct billing unit of measure</div>
-      </div>
-    </div>
-
-    <div style='background:linear-gradient(180deg,#f8fbff 0%,#eef6ff 100%);border:1px solid #d8e4ff;border-radius:12px;padding:10px;overflow-x:auto'>
-      <table class='uom-table' style='margin:0;font-size:12px'>
-        <thead>
-          <tr style='background:#eff6ff'>
-            <th style='font-size:11px'>UOM Code</th>
-            <th style='font-size:11px'>Name</th>
-            <th style='font-size:11px'>When to Use</th>
-            <th style='font-size:11px'>Billing Unit</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><span class='uom-code'>UN</span></td>
-            <td><strong>Unit</strong></td>
-            <td>Powder-form drugs in a vial that must be reconstituted before administration</td>
-            <td>One unit per vial used</td>
-          </tr>
-          <tr>
-            <td><span class='uom-code'>ML </span></td>
-            <td><strong>Milliliter</strong></td>
-            <td>Liquid-form drugs supplied in a vial or pre-filled syringe</td>
-            <td>Actual milliliters administered</td>
-          </tr>
-          <tr>
-            <td><span class='uom-code'>GR</span></td>
-            <td><strong>Gram</strong></td>
-            <td>Ointments, creams, inhalers, or bulk powders dispensed by weight</td>
-            <td>Actual grams dispensed — primarily retail pharmacy</td>
-          </tr>
-          <tr>
-            <td><span class='uom-code'>F2</span></td>
-            <td><strong>International Unit</strong></td>
-            <td>Factor VIII Antihemophilic Factor and similar biologics billed in international units</td>
-            <td>Per IU administered</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class='alert warn' style='margin-top:12px;margin-bottom:0;border-radius:12px;font-size:12px'>
-      <div class='alert-icon'>📌</div>
-      <div>
-        <div class='alert-title' style='font-size:12px'>Key Rule</div>
-        <div class='alert-text' style='font-size:11px'>The UOM must match the physical form of the drug as supplied on the date of service — not how you prefer to bill it, and not what a prior claim used.</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-        <!-- Why This Happens -->
-        <div class='card span-6 card-collapsible' style='border:1px solid var(--border);border-radius:16px;overflow:hidden;background:#fff;box-shadow:0 4px 14px rgba(0,0,0,0.04)'>
-  <div class='label' style='background:linear-gradient(90deg,#f59e0b,#fbbf24);color:#fff;padding:12px 16px;font-weight:700'>
-    Why This Happens
+  <div class='label' style='background:linear-gradient(90deg,#0f172a,#1d4ed8);color:#fff;padding:14px 18px;font-size:15px;font-weight:700;display:flex;align-items:center;justify-content:space-between'>
+    <span>Unit of Measure (UOM) Misalignment</span>
   </div>
 
   <div style='padding:18px'>
-    <div style='display:flex;align-items:center;gap:12px;margin-bottom:14px'>
-      <div style='width:40px;height:40px;border-radius:50%;background:#f59e0b;color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;box-shadow:0 3px 8px rgba(245,158,11,0.25)'>
-        ⚠️
+
+    <div style='display:flex;align-items:center;gap:12px;margin-bottom:16px'>
+      <div style='width:42px;height:42px;border-radius:50%;background:#2563eb;color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;box-shadow:0 3px 10px rgba(37,99,235,0.25)'>
+        💊
       </div>
+
       <div>
-        <div class='nm-h3' style='margin:0;font-size:18px;font-weight:700;color:#92400e'>DATA ENTRY & SELECTION ISSUES</div>
-        <div style='font-size:12px;color:#a16207;margin-top:2px'>Most common root causes behind this denial</div>
+        <div class='nm-h3' style='margin:0;font-size:18px;font-weight:700;color:#1d4ed8'>
+          Valid UOM Codes — When to Use Each
+        </div>
+        <div style='font-size:12px;color:#64748b;margin-top:2px'>
+          Reference guide for selecting the correct billing unit of measure
+        </div>
       </div>
     </div>
 
-    <div style='background:linear-gradient(180deg,#fffaf0 0%,#fff7e6 100%);border:1px solid #fde7b0;border-radius:14px;padding:14px 16px'>
-      <ul class='info-list' style='margin:0'>
-        <li>UOM code left blank or populated with a placeholder/default</li>
-        <li>Wrong UOM selected — e.g., billing UN for a liquid drug that should be ML</li>
-        <li>UOM does not match the drug form in the payer's NDC drug file</li>
-        <li>NDC is expired, discontinued, or no longer active in the payer's drug file</li>
-        <li>NDC field was blank — drug was billed by J-code only, no NDC attached</li>
-        <li>Drug purchased from a new supplier and NDC not captured at point of administration</li>
-      </ul>
+    <div style='background:linear-gradient(180deg,#f8fbff 0%,#eef6ff 100%);border:1px solid #d8e4ff;border-radius:14px;padding:14px;overflow-x:auto'>
+
+      <table class='uom-table' style='margin:0;width:100%;font-size:12px;border-collapse:separate;border-spacing:0'>
+        <thead>
+          <tr style='background:#eff6ff'>
+            <th style='font-size:11px;padding:12px 10px;border-bottom:1px solid #dbeafe;color:#1d4ed8;text-align:left'>UOM Code</th>
+            <th style='font-size:11px;padding:12px 10px;border-bottom:1px solid #dbeafe;color:#1d4ed8;text-align:left'>Name</th>
+            <th style='font-size:11px;padding:12px 10px;border-bottom:1px solid #dbeafe;color:#1d4ed8;text-align:left'>When to Use</th>
+            <th style='font-size:11px;padding:12px 10px;border-bottom:1px solid #dbeafe;color:#1d4ed8;text-align:left'>Billing Unit</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr style='background:#fff'>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'>
+              <span class='uom-code' style='display:inline-block;background:#dbeafe;color:#1d4ed8;padding:4px 8px;border-radius:8px;font-size:11px;font-weight:700'>
+                UN
+              </span>
+            </td>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'><strong>Unit</strong></td>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'>Powder-form drugs in a vial that must be reconstituted before administration</td>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'>One unit per vial used</td>
+          </tr>
+
+          <tr style='background:#fcfdff'>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'>
+              <span class='uom-code' style='display:inline-block;background:#dbeafe;color:#1d4ed8;padding:4px 8px;border-radius:8px;font-size:11px;font-weight:700'>
+                ML
+              </span>
+            </td>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'><strong>Milliliter</strong></td>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'>Liquid-form drugs supplied in a vial or pre-filled syringe</td>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'>Actual milliliters administered</td>
+          </tr>
+
+          <tr style='background:#fff'>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'>
+              <span class='uom-code' style='display:inline-block;background:#dbeafe;color:#1d4ed8;padding:4px 8px;border-radius:8px;font-size:11px;font-weight:700'>
+                GR
+              </span>
+            </td>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'><strong>Gram</strong></td>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'>Ointments, creams, inhalers, or bulk powders dispensed by weight</td>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'>Actual grams dispensed — primarily retail pharmacy</td>
+          </tr>
+
+          <tr style='background:#fcfdff'>
+            <td style='padding:12px 10px'>
+              <span class='uom-code' style='display:inline-block;background:#dbeafe;color:#1d4ed8;padding:4px 8px;border-radius:8px;font-size:11px;font-weight:700'>
+                F2
+              </span>
+            </td>
+            <td style='padding:12px 10px'><strong>International Unit</strong></td>
+            <td style='padding:12px 10px'>Factor VIII Antihemophilic Factor and similar biologics billed in international units</td>
+            <td style='padding:12px 10px'>Per IU administered</td>
+          </tr>
+        </tbody>
+      </table>
+
     </div>
+
+    <div class='alert warn' style='margin-top:16px;margin-bottom:0;border-radius:14px;border:1px solid #fde68a;background:linear-gradient(180deg,#fffaf0 0%,#fff7e6 100%);padding:14px 16px'>
+      <div style='display:flex;align-items:flex-start;gap:12px'>
+        <div style='width:34px;height:34px;border-radius:50%;background:#f59e0b;color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;flex-shrink:0'>
+          📌
+        </div>
+
+        <div>
+          <div class='alert-title' style='font-size:13px;font-weight:700;color:#92400e;margin-bottom:4px'>
+            Key Rule
+          </div>
+          <div class='alert-text' style='font-size:12px;line-height:1.7;color:#57534e'>
+            The UOM must match the physical form of the drug as supplied on the date of service — not how you prefer to bill it, and not what a prior claim used.
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+        <div class='card span-12 card-collapsible' style='border:1px solid #e2e8f0;border-radius:18px;overflow:hidden;background:#fff;box-shadow:0 8px 24px rgba(15,23,42,0.06)'>
+
+  <div class='label' style='background:linear-gradient(90deg,#0f172a,#1d4ed8);color:#fff;padding:14px 18px;font-size:15px;font-weight:700;display:flex;align-items:center;justify-content:space-between'>
+    <span>Why This Happens</span>
+  </div>
+
+  <div style='padding:18px'>
+
+    <div style='display:flex;align-items:center;gap:12px;margin-bottom:16px'>
+      <div style='width:42px;height:42px;border-radius:50%;background:#f59e0b;color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;box-shadow:0 3px 10px rgba(245,158,11,0.25)'>
+        ⚠️
+      </div>
+
+      <div>
+        <div class='nm-h3' style='margin:0;font-size:18px;font-weight:700;color:#92400e'>
+          DATA ENTRY &amp; SELECTION ISSUES
+        </div>
+        <div style='font-size:12px;color:#64748b;margin-top:2px'>
+          Most common root causes behind UOM-related denials
+        </div>
+      </div>
+    </div>
+
+    <div style='background:linear-gradient(180deg,#f8fbff 0%,#eef6ff 100%);border:1px solid #bfdbfe;border-radius:14px;padding:14px 16px;margin-bottom:18px'>
+      <div style='display:flex;align-items:flex-start;gap:12px'>
+        <div style='width:34px;height:34px;border-radius:50%;background:#2563eb;color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;flex-shrink:0'>
+          ℹ️
+        </div>
+
+        <div>
+          <div style='font-size:13px;font-weight:700;color:#1d4ed8;margin-bottom:6px'>
+            Quick Reminder
+          </div>
+
+          <div style='font-size:12px;line-height:1.7;color:#334155'>
+            Most UOM denials happen because the submitted unit of measure does not match the drug type, payer drug file, or claim formatting requirements.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style='display:grid;grid-template-columns:1fr 1fr;gap:14px'>
+
+      <div style='background:#fff;border:1px solid #fde7b0;border-radius:14px;padding:14px 16px;box-shadow:0 2px 6px rgba(245,158,11,0.06)'>
+        <div style='display:flex;align-items:flex-start;gap:10px'>
+          <div style='width:32px;height:32px;border-radius:50%;background:#fef3c7;color:#b45309;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0'>
+            1
+          </div>
+
+          <div>
+            <div style='font-size:13px;font-weight:700;color:#92400e;margin-bottom:4px'>
+              Missing UOM Code
+            </div>
+
+            <div style='font-size:12px;line-height:1.7;color:#57534e'>
+              The UOM field was left blank or populated with a placeholder or default value.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style='background:#fff;border:1px solid #fde7b0;border-radius:14px;padding:14px 16px;box-shadow:0 2px 6px rgba(245,158,11,0.06)'>
+        <div style='display:flex;align-items:flex-start;gap:10px'>
+          <div style='width:32px;height:32px;border-radius:50%;background:#fef3c7;color:#b45309;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0'>
+            2
+          </div>
+
+          <div>
+            <div style='font-size:13px;font-weight:700;color:#92400e;margin-bottom:4px'>
+              Wrong UOM Selected
+            </div>
+
+            <div style='font-size:12px;line-height:1.7;color:#57534e'>
+              Example: billing UN for a liquid drug that should be billed using ML.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style='background:#fff;border:1px solid #fde7b0;border-radius:14px;padding:14px 16px;box-shadow:0 2px 6px rgba(245,158,11,0.06)'>
+        <div style='display:flex;align-items:flex-start;gap:10px'>
+          <div style='width:32px;height:32px;border-radius:50%;background:#fef3c7;color:#b45309;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0'>
+            3
+          </div>
+
+          <div>
+            <div style='font-size:13px;font-weight:700;color:#92400e;margin-bottom:4px'>
+              Drug Form Mismatch
+            </div>
+
+            <div style='font-size:12px;line-height:1.7;color:#57534e'>
+              The UOM submitted does not match the drug form listed in the payer's NDC drug file.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style='background:#fff;border:1px solid #fde7b0;border-radius:14px;padding:14px 16px;box-shadow:0 2px 6px rgba(245,158,11,0.06)'>
+        <div style='display:flex;align-items:flex-start;gap:10px'>
+          <div style='width:32px;height:32px;border-radius:50%;background:#fef3c7;color:#b45309;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0'>
+            4
+          </div>
+
+          <div>
+            <div style='font-size:13px;font-weight:700;color:#92400e;margin-bottom:4px'>
+              Expired or Inactive NDC
+            </div>
+
+            <div style='font-size:12px;line-height:1.7;color:#57534e'>
+              The NDC submitted is expired, discontinued, or no longer active in the payer's drug file.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style='background:#fff;border:1px solid #fde7b0;border-radius:14px;padding:14px 16px;box-shadow:0 2px 6px rgba(245,158,11,0.06)'>
+        <div style='display:flex;align-items:flex-start;gap:10px'>
+          <div style='width:32px;height:32px;border-radius:50%;background:#fef3c7;color:#b45309;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0'>
+            5
+          </div>
+
+          <div>
+            <div style='font-size:13px;font-weight:700;color:#92400e;margin-bottom:4px'>
+              Missing NDC on Claim
+            </div>
+
+            <div style='font-size:12px;line-height:1.7;color:#57534e'>
+              The drug was billed only with a J-code or HCPCS code, but no NDC value was attached to the claim.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style='background:#fff;border:1px solid #fde7b0;border-radius:14px;padding:14px 16px;box-shadow:0 2px 6px rgba(245,158,11,0.06)'>
+        <div style='display:flex;align-items:flex-start;gap:10px'>
+          <div style='width:32px;height:32px;border-radius:50%;background:#fef3c7;color:#b45309;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0'>
+            6
+          </div>
+
+          <div>
+            <div style='font-size:13px;font-weight:700;color:#92400e;margin-bottom:4px'>
+              Supplier Change Not Captured
+            </div>
+
+            <div style='font-size:12px;line-height:1.7;color:#57534e'>
+              A new supplier or manufacturer was used, but the updated NDC and UOM were never captured at the point of administration.
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
   </div>
 </div>
 
@@ -3026,101 +3357,265 @@ NDC & UOM captured directly from the administered vial or package label</span>
 </div>
 
 
-<div class='card span-6 card-collapsible' style='border:1px solid var(--border);border-radius:16px;overflow:hidden;background:#fff;box-shadow:0 4px 14px rgba(0,0,0,0.04)'>
-  <div class='label' style='background:linear-gradient(90deg,#2563eb,#3b82f6);color:#fff;padding:10px 14px;font-weight:700;font-size:13px'>
-    Unit of Measure (UOM) Misalignment
-  </div>
+<div class='card span-12 card-collapsible' style='border:1px solid #e2e8f0;border-radius:18px;overflow:hidden;background:#fff;box-shadow:0 8px 24px rgba(15,23,42,0.06)'>
 
-  <div style='padding:14px'>
-    <div style='display:flex;align-items:center;gap:10px;margin-bottom:12px'>
-      <div style='width:34px;height:34px;border-radius:50%;background:#2563eb;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 3px 8px rgba(37,99,235,0.25)'>
-        💊
-      </div>
-      <div>
-        <div class='nm-h3' style='margin:0;font-size:14px;font-weight:700;color:#1d4ed8'>Valid UOM Codes — When to Use Each</div>
-        <div style='font-size:10px;color:#64748b;margin-top:1px'>Reference guide for selecting the correct billing unit of measure</div>
-      </div>
-    </div>
-
-    <div style='background:linear-gradient(180deg,#f8fbff 0%,#eef6ff 100%);border:1px solid #d8e4ff;border-radius:12px;padding:10px;overflow-x:auto'>
-      <table class='uom-table' style='margin:0;font-size:12px'>
-        <thead>
-          <tr style='background:#eff6ff'>
-            <th style='font-size:11px'>UOM Code</th>
-            <th style='font-size:11px'>Name</th>
-            <th style='font-size:11px'>When to Use</th>
-            <th style='font-size:11px'>Billing Unit</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><span class='uom-code'>UN</span></td>
-            <td><strong>Unit</strong></td>
-            <td>Powder-form drugs in a vial that must be reconstituted before administration</td>
-            <td>One unit per vial used</td>
-          </tr>
-          <tr>
-            <td><span class='uom-code'>ML </span></td>
-            <td><strong>Milliliter</strong></td>
-            <td>Liquid-form drugs supplied in a vial or pre-filled syringe</td>
-            <td>Actual milliliters administered</td>
-          </tr>
-          <tr>
-            <td><span class='uom-code'>GR</span></td>
-            <td><strong>Gram</strong></td>
-            <td>Ointments, creams, inhalers, or bulk powders dispensed by weight</td>
-            <td>Actual grams dispensed — primarily retail pharmacy</td>
-          </tr>
-          <tr>
-            <td><span class='uom-code'>F2</span></td>
-            <td><strong>International Unit</strong></td>
-            <td>Factor VIII Antihemophilic Factor and similar biologics billed in international units</td>
-            <td>Per IU administered</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class='alert warn' style='margin-top:12px;margin-bottom:0;border-radius:12px;font-size:12px'>
-      <div class='alert-icon'>📌</div>
-      <div>
-        <div class='alert-title' style='font-size:12px'>Key Rule</div>
-        <div class='alert-text' style='font-size:11px'>The UOM must match the physical form of the drug as supplied on the date of service — not how you prefer to bill it, and not what a prior claim used.</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<div class='card span-6 card-collapsible' style='border:1px solid var(--border);border-radius:16px;overflow:hidden;background:#fff;box-shadow:0 4px 14px rgba(0,0,0,0.04)'>
-  <div class='label' style='background:linear-gradient(90deg,#f59e0b,#fbbf24);color:#fff;padding:12px 16px;font-weight:700'>
-    Why This Happens
+  <div class='label' style='background:linear-gradient(90deg,#0f172a,#1d4ed8);color:#fff;padding:14px 18px;font-size:15px;font-weight:700;display:flex;align-items:center;justify-content:space-between'>
+    <span>Unit of Measure (UOM) Misalignment</span>
   </div>
 
   <div style='padding:18px'>
-    <div style='display:flex;align-items:center;gap:12px;margin-bottom:14px'>
-      <div style='width:40px;height:40px;border-radius:50%;background:#f59e0b;color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;box-shadow:0 3px 8px rgba(245,158,11,0.25)'>
-        ⚠️
+
+    <div style='display:flex;align-items:center;gap:12px;margin-bottom:16px'>
+      <div style='width:42px;height:42px;border-radius:50%;background:#2563eb;color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;box-shadow:0 3px 10px rgba(37,99,235,0.25)'>
+        💊
       </div>
+
       <div>
-        <div class='nm-h3' style='margin:0;font-size:18px;font-weight:700;color:#92400e'>DATA ENTRY & SELECTION ISSUES</div>
-        <div style='font-size:12px;color:#a16207;margin-top:2px'>Most common root causes behind this denial</div>
+        <div class='nm-h3' style='margin:0;font-size:18px;font-weight:700;color:#1d4ed8'>
+          Valid UOM Codes — When to Use Each
+        </div>
+        <div style='font-size:12px;color:#64748b;margin-top:2px'>
+          Reference guide for selecting the correct billing unit of measure
+        </div>
       </div>
     </div>
 
-    <div style='background:linear-gradient(180deg,#fffaf0 0%,#fff7e6 100%);border:1px solid #fde7b0;border-radius:14px;padding:14px 16px'>
-      <ul class='info-list' style='margin:0'>
-        <li>Wrong NDC selected for the drug actually administered or NDC from a different manufacturer was used</li>
-        <li>A 10-digit NDC was not converted to the required 11-digit (5-4-2) format</li>
-        <li>The HCPCS/J-code does not align with the NDC submitted</li>
-        <li>NDC is expired, discontinued, or no longer active in the payer's drug file</li>
-        <li>NDC field was blank — drug was billed by J-code only, no NDC attached</li>
-        <li>Drug purchased from a new supplier and NDC not captured at point of administration</li>
-      </ul>
+    <div style='background:linear-gradient(180deg,#f8fbff 0%,#eef6ff 100%);border:1px solid #d8e4ff;border-radius:14px;padding:14px;overflow-x:auto'>
+
+      <table class='uom-table' style='margin:0;width:100%;font-size:12px;border-collapse:separate;border-spacing:0'>
+        <thead>
+          <tr style='background:#eff6ff'>
+            <th style='font-size:11px;padding:12px 10px;border-bottom:1px solid #dbeafe;color:#1d4ed8;text-align:left'>UOM Code</th>
+            <th style='font-size:11px;padding:12px 10px;border-bottom:1px solid #dbeafe;color:#1d4ed8;text-align:left'>Name</th>
+            <th style='font-size:11px;padding:12px 10px;border-bottom:1px solid #dbeafe;color:#1d4ed8;text-align:left'>When to Use</th>
+            <th style='font-size:11px;padding:12px 10px;border-bottom:1px solid #dbeafe;color:#1d4ed8;text-align:left'>Billing Unit</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr style='background:#fff'>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'>
+              <span class='uom-code' style='display:inline-block;background:#dbeafe;color:#1d4ed8;padding:4px 8px;border-radius:8px;font-size:11px;font-weight:700'>
+                UN
+              </span>
+            </td>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'><strong>Unit</strong></td>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'>Powder-form drugs in a vial that must be reconstituted before administration</td>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'>One unit per vial used</td>
+          </tr>
+
+          <tr style='background:#fcfdff'>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'>
+              <span class='uom-code' style='display:inline-block;background:#dbeafe;color:#1d4ed8;padding:4px 8px;border-radius:8px;font-size:11px;font-weight:700'>
+                ML
+              </span>
+            </td>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'><strong>Milliliter</strong></td>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'>Liquid-form drugs supplied in a vial or pre-filled syringe</td>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'>Actual milliliters administered</td>
+          </tr>
+
+          <tr style='background:#fff'>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'>
+              <span class='uom-code' style='display:inline-block;background:#dbeafe;color:#1d4ed8;padding:4px 8px;border-radius:8px;font-size:11px;font-weight:700'>
+                GR
+              </span>
+            </td>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'><strong>Gram</strong></td>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'>Ointments, creams, inhalers, or bulk powders dispensed by weight</td>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'>Actual grams dispensed — primarily retail pharmacy</td>
+          </tr>
+
+          <tr style='background:#fcfdff'>
+            <td style='padding:12px 10px'>
+              <span class='uom-code' style='display:inline-block;background:#dbeafe;color:#1d4ed8;padding:4px 8px;border-radius:8px;font-size:11px;font-weight:700'>
+                F2
+              </span>
+            </td>
+            <td style='padding:12px 10px'><strong>International Unit</strong></td>
+            <td style='padding:12px 10px'>Factor VIII Antihemophilic Factor and similar biologics billed in international units</td>
+            <td style='padding:12px 10px'>Per IU administered</td>
+          </tr>
+        </tbody>
+      </table>
+
     </div>
+
+    <div class='alert warn' style='margin-top:16px;margin-bottom:0;border-radius:14px;border:1px solid #fde68a;background:linear-gradient(180deg,#fffaf0 0%,#fff7e6 100%);padding:14px 16px'>
+      <div style='display:flex;align-items:flex-start;gap:12px'>
+        <div style='width:34px;height:34px;border-radius:50%;background:#f59e0b;color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;flex-shrink:0'>
+          📌
+        </div>
+
+        <div>
+          <div class='alert-title' style='font-size:13px;font-weight:700;color:#92400e;margin-bottom:4px'>
+            Key Rule
+          </div>
+          <div class='alert-text' style='font-size:12px;line-height:1.7;color:#57534e'>
+            The UOM must match the physical form of the drug as supplied on the date of service — not how you prefer to bill it, and not what a prior claim used.
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
 
+<div class='card span-12 card-collapsible' style='border:1px solid #e2e8f0;border-radius:18px;overflow:hidden;background:#fff;box-shadow:0 8px 24px rgba(15,23,42,0.06)'>
+
+  <div class='label' style='background:linear-gradient(90deg,#0f172a,#1d4ed8);color:#fff;padding:14px 18px;font-size:15px;font-weight:700;display:flex;align-items:center;justify-content:space-between'>
+    <span>Why This Happens</span>
+  </div>
+
+  <div style='padding:18px'>
+
+    <div style='display:flex;align-items:center;gap:12px;margin-bottom:16px'>
+      <div style='width:42px;height:42px;border-radius:50%;background:#f59e0b;color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;box-shadow:0 3px 10px rgba(245,158,11,0.25)'>
+        ⚠️
+      </div>
+
+      <div>
+        <div class='nm-h3' style='margin:0;font-size:18px;font-weight:700;color:#92400e'>
+          DATA ENTRY &amp; SELECTION ISSUES
+        </div>
+        <div style='font-size:12px;color:#64748b;margin-top:2px'>
+          Most common root causes behind NDC-to-HCPCS mismatch denials
+        </div>
+      </div>
+    </div>
+
+    <div style='background:linear-gradient(180deg,#f8fbff 0%,#eef6ff 100%);border:1px solid #bfdbfe;border-radius:14px;padding:14px 16px;margin-bottom:18px'>
+      <div style='display:flex;align-items:flex-start;gap:12px'>
+        <div style='width:34px;height:34px;border-radius:50%;background:#2563eb;color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;flex-shrink:0'>
+          ℹ️
+        </div>
+
+        <div>
+          <div style='font-size:13px;font-weight:700;color:#1d4ed8;margin-bottom:6px'>
+            Quick Reminder
+          </div>
+
+          <div style='font-size:12px;line-height:1.7;color:#334155'>
+            Most denials occur because the submitted NDC does not align with the HCPCS or J-code billed, or the NDC itself is invalid or incomplete.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style='display:grid;grid-template-columns:1fr 1fr;gap:14px'>
+
+      <div style='background:#fff;border:1px solid #fde7b0;border-radius:14px;padding:14px 16px;box-shadow:0 2px 6px rgba(245,158,11,0.06)'>
+        <div style='display:flex;align-items:flex-start;gap:10px'>
+          <div style='width:32px;height:32px;border-radius:50%;background:#fef3c7;color:#b45309;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0'>
+            1
+          </div>
+
+          <div>
+            <div style='font-size:13px;font-weight:700;color:#92400e;margin-bottom:4px'>
+              Wrong NDC Selected
+            </div>
+
+            <div style='font-size:12px;line-height:1.7;color:#57534e'>
+              The NDC entered does not belong to the drug actually administered or references a different manufacturer version.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style='background:#fff;border:1px solid #fde7b0;border-radius:14px;padding:14px 16px;box-shadow:0 2px 6px rgba(245,158,11,0.06)'>
+        <div style='display:flex;align-items:flex-start;gap:10px'>
+          <div style='width:32px;height:32px;border-radius:50%;background:#fef3c7;color:#b45309;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0'>
+            2
+          </div>
+
+          <div>
+            <div style='font-size:13px;font-weight:700;color:#92400e;margin-bottom:4px'>
+              10-Digit NDC Not Converted
+            </div>
+
+            <div style='font-size:12px;line-height:1.7;color:#57534e'>
+              A 10-digit NDC was submitted without converting it to the required 11-digit (5-4-2) billing format.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style='background:#fff;border:1px solid #fde7b0;border-radius:14px;padding:14px 16px;box-shadow:0 2px 6px rgba(245,158,11,0.06)'>
+        <div style='display:flex;align-items:flex-start;gap:10px'>
+          <div style='width:32px;height:32px;border-radius:50%;background:#fef3c7;color:#b45309;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0'>
+            3
+          </div>
+
+          <div>
+            <div style='font-size:13px;font-weight:700;color:#92400e;margin-bottom:4px'>
+              HCPCS and NDC Do Not Match
+            </div>
+
+            <div style='font-size:12px;line-height:1.7;color:#57534e'>
+              The HCPCS or J-code billed does not align with the NDC submitted on the claim.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style='background:#fff;border:1px solid #fde7b0;border-radius:14px;padding:14px 16px;box-shadow:0 2px 6px rgba(245,158,11,0.06)'>
+        <div style='display:flex;align-items:flex-start;gap:10px'>
+          <div style='width:32px;height:32px;border-radius:50%;background:#fef3c7;color:#b45309;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0'>
+            4
+          </div>
+
+          <div>
+            <div style='font-size:13px;font-weight:700;color:#92400e;margin-bottom:4px'>
+              Expired or Inactive NDC
+            </div>
+
+            <div style='font-size:12px;line-height:1.7;color:#57534e'>
+              The NDC submitted is expired, discontinued, or no longer active in the payer's drug file.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style='background:#fff;border:1px solid #fde7b0;border-radius:14px;padding:14px 16px;box-shadow:0 2px 6px rgba(245,158,11,0.06)'>
+        <div style='display:flex;align-items:flex-start;gap:10px'>
+          <div style='width:32px;height:32px;border-radius:50%;background:#fef3c7;color:#b45309;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0'>
+            5
+          </div>
+
+          <div>
+            <div style='font-size:13px;font-weight:700;color:#92400e;margin-bottom:4px'>
+              Missing NDC on Claim
+            </div>
+
+            <div style='font-size:12px;line-height:1.7;color:#57534e'>
+              The drug was billed using only a J-code or HCPCS code, but no NDC value was included on the claim.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style='background:#fff;border:1px solid #fde7b0;border-radius:14px;padding:14px 16px;box-shadow:0 2px 6px rgba(245,158,11,0.06)'>
+        <div style='display:flex;align-items:flex-start;gap:10px'>
+          <div style='width:32px;height:32px;border-radius:50%;background:#fef3c7;color:#b45309;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0'>
+            6
+          </div>
+
+          <div>
+            <div style='font-size:13px;font-weight:700;color:#92400e;margin-bottom:4px'>
+              Supplier Change Not Captured
+            </div>
+
+            <div style='font-size:12px;line-height:1.7;color:#57534e'>
+              The drug was purchased from a new supplier, but the updated NDC was not captured during administration or claim entry.
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
 
         <!-- How to Fix It -->
        <div class='card span-12 card-collapsible'>
@@ -3827,100 +4322,266 @@ NDC & UOM captured directly from the administered vial or package label</span>
 
 
 
-<div class='card span-6 card-collapsible' style='border:1px solid var(--border);border-radius:16px;overflow:hidden;background:#fff;box-shadow:0 4px 14px rgba(0,0,0,0.04)'>
-  <div class='label' style='background:linear-gradient(90deg,#2563eb,#3b82f6);color:#fff;padding:10px 14px;font-weight:700;font-size:13px'>
-    Unit of Measure (UOM) Misalignment
-  </div>
+<div class='card span-12 card-collapsible' style='border:1px solid #e2e8f0;border-radius:18px;overflow:hidden;background:#fff;box-shadow:0 8px 24px rgba(15,23,42,0.06)'>
 
-  <div style='padding:14px'>
-    <div style='display:flex;align-items:center;gap:10px;margin-bottom:12px'>
-      <div style='width:34px;height:34px;border-radius:50%;background:#2563eb;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 3px 8px rgba(37,99,235,0.25)'>
-        💊
-      </div>
-      <div>
-        <div class='nm-h3' style='margin:0;font-size:14px;font-weight:700;color:#1d4ed8'>Valid UOM Codes — When to Use Each</div>
-        <div style='font-size:10px;color:#64748b;margin-top:1px'>Reference guide for selecting the correct billing unit of measure</div>
-      </div>
-    </div>
-
-    <div style='background:linear-gradient(180deg,#f8fbff 0%,#eef6ff 100%);border:1px solid #d8e4ff;border-radius:12px;padding:10px;overflow-x:auto'>
-      <table class='uom-table' style='margin:0;font-size:12px'>
-        <thead>
-          <tr style='background:#eff6ff'>
-            <th style='font-size:11px'>UOM Code</th>
-            <th style='font-size:11px'>Name</th>
-            <th style='font-size:11px'>When to Use</th>
-            <th style='font-size:11px'>Billing Unit</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><span class='uom-code'>UN</span></td>
-            <td><strong>Unit</strong></td>
-            <td>Powder-form drugs in a vial that must be reconstituted before administration</td>
-            <td>One unit per vial used</td>
-          </tr>
-          <tr>
-            <td><span class='uom-code'>ML </span></td>
-            <td><strong>Milliliter</strong></td>
-            <td>Liquid-form drugs supplied in a vial or pre-filled syringe</td>
-            <td>Actual milliliters administered</td>
-          </tr>
-          <tr>
-            <td><span class='uom-code'>GR</span></td>
-            <td><strong>Gram</strong></td>
-            <td>Ointments, creams, inhalers, or bulk powders dispensed by weight</td>
-            <td>Actual grams dispensed — primarily retail pharmacy</td>
-          </tr>
-          <tr>
-            <td><span class='uom-code'>F2</span></td>
-            <td><strong>International Unit</strong></td>
-            <td>Factor VIII Antihemophilic Factor and similar biologics billed in international units</td>
-            <td>Per IU administered</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class='alert warn' style='margin-top:12px;margin-bottom:0;border-radius:12px;font-size:12px'>
-      <div class='alert-icon'>📌</div>
-      <div>
-        <div class='alert-title' style='font-size:12px'>Key Rule</div>
-        <div class='alert-text' style='font-size:11px'>The UOM must match the physical form of the drug as supplied on the date of service — not how you prefer to bill it, and not what a prior claim used.</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<div class='card span-6 card-collapsible' style='border:1px solid var(--border);border-radius:16px;overflow:hidden;background:#fff;box-shadow:0 4px 14px rgba(0,0,0,0.04)'>
-  <div class='label' style='background:linear-gradient(90deg,#f59e0b,#fbbf24);color:#fff;padding:12px 16px;font-weight:700'>
-    Why This Happens
+  <div class='label' style='background:linear-gradient(90deg,#0f172a,#1d4ed8);color:#fff;padding:14px 18px;font-size:15px;font-weight:700;display:flex;align-items:center;justify-content:space-between'>
+    <span>Unit of Measure (UOM) Misalignment</span>
   </div>
 
   <div style='padding:18px'>
-    <div style='display:flex;align-items:center;gap:12px;margin-bottom:14px'>
-      <div style='width:40px;height:40px;border-radius:50%;background:#f59e0b;color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;box-shadow:0 3px 8px rgba(245,158,11,0.25)'>
-        ⚠️
+
+    <div style='display:flex;align-items:center;gap:12px;margin-bottom:16px'>
+      <div style='width:42px;height:42px;border-radius:50%;background:#2563eb;color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;box-shadow:0 3px 10px rgba(37,99,235,0.25)'>
+        💊
       </div>
+
       <div>
-        <div class='nm-h3' style='margin:0;font-size:18px;font-weight:700;color:#92400e'>DATA ENTRY & SELECTION ISSUES</div>
-        <div style='font-size:12px;color:#a16207;margin-top:2px'>Most common root causes behind this denial</div>
+        <div class='nm-h3' style='margin:0;font-size:18px;font-weight:700;color:#1d4ed8'>
+          Valid UOM Codes — When to Use Each
+        </div>
+        <div style='font-size:12px;color:#64748b;margin-top:2px'>
+          Reference guide for selecting the correct billing unit of measure
+        </div>
       </div>
     </div>
 
-    <div style='background:linear-gradient(180deg,#fffaf0 0%,#fff7e6 100%);border:1px solid #fde7b0;border-radius:14px;padding:14px 16px'>
-      <ul class='info-list' style='margin:0'>
-        <li>Wrong NDC selected for the drug actually administered or NDC from a different manufacturer was used</li>
-        <li>A 10-digit NDC was not converted to the required 11-digit (5-4-2) format</li>
-        <li>The HCPCS/J-code does not align with the NDC submitted</li>
-        <li>NDC is expired, discontinued, or no longer active in the payer's drug file</li>
-        <li>NDC field was blank — drug was billed by J-code only, no NDC attached</li>
-        <li>Drug purchased from a new supplier and NDC not captured at point of administration</li>
-      </ul>
+    <div style='background:linear-gradient(180deg,#f8fbff 0%,#eef6ff 100%);border:1px solid #d8e4ff;border-radius:14px;padding:14px;overflow-x:auto'>
+
+      <table class='uom-table' style='margin:0;width:100%;font-size:12px;border-collapse:separate;border-spacing:0'>
+        <thead>
+          <tr style='background:#eff6ff'>
+            <th style='font-size:11px;padding:12px 10px;border-bottom:1px solid #dbeafe;color:#1d4ed8;text-align:left'>UOM Code</th>
+            <th style='font-size:11px;padding:12px 10px;border-bottom:1px solid #dbeafe;color:#1d4ed8;text-align:left'>Name</th>
+            <th style='font-size:11px;padding:12px 10px;border-bottom:1px solid #dbeafe;color:#1d4ed8;text-align:left'>When to Use</th>
+            <th style='font-size:11px;padding:12px 10px;border-bottom:1px solid #dbeafe;color:#1d4ed8;text-align:left'>Billing Unit</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr style='background:#fff'>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'>
+              <span class='uom-code' style='display:inline-block;background:#dbeafe;color:#1d4ed8;padding:4px 8px;border-radius:8px;font-size:11px;font-weight:700'>
+                UN
+              </span>
+            </td>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'><strong>Unit</strong></td>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'>Powder-form drugs in a vial that must be reconstituted before administration</td>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'>One unit per vial used</td>
+          </tr>
+
+          <tr style='background:#fcfdff'>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'>
+              <span class='uom-code' style='display:inline-block;background:#dbeafe;color:#1d4ed8;padding:4px 8px;border-radius:8px;font-size:11px;font-weight:700'>
+                ML
+              </span>
+            </td>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'><strong>Milliliter</strong></td>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'>Liquid-form drugs supplied in a vial or pre-filled syringe</td>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'>Actual milliliters administered</td>
+          </tr>
+
+          <tr style='background:#fff'>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'>
+              <span class='uom-code' style='display:inline-block;background:#dbeafe;color:#1d4ed8;padding:4px 8px;border-radius:8px;font-size:11px;font-weight:700'>
+                GR
+              </span>
+            </td>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'><strong>Gram</strong></td>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'>Ointments, creams, inhalers, or bulk powders dispensed by weight</td>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'>Actual grams dispensed — primarily retail pharmacy</td>
+          </tr>
+
+          <tr style='background:#fcfdff'>
+            <td style='padding:12px 10px'>
+              <span class='uom-code' style='display:inline-block;background:#dbeafe;color:#1d4ed8;padding:4px 8px;border-radius:8px;font-size:11px;font-weight:700'>
+                F2
+              </span>
+            </td>
+            <td style='padding:12px 10px'><strong>International Unit</strong></td>
+            <td style='padding:12px 10px'>Factor VIII Antihemophilic Factor and similar biologics billed in international units</td>
+            <td style='padding:12px 10px'>Per IU administered</td>
+          </tr>
+        </tbody>
+      </table>
+
     </div>
+
+    <div class='alert warn' style='margin-top:16px;margin-bottom:0;border-radius:14px;border:1px solid #fde68a;background:linear-gradient(180deg,#fffaf0 0%,#fff7e6 100%);padding:14px 16px'>
+      <div style='display:flex;align-items:flex-start;gap:12px'>
+        <div style='width:34px;height:34px;border-radius:50%;background:#f59e0b;color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;flex-shrink:0'>
+          📌
+        </div>
+
+        <div>
+          <div class='alert-title' style='font-size:13px;font-weight:700;color:#92400e;margin-bottom:4px'>
+            Key Rule
+          </div>
+          <div class='alert-text' style='font-size:12px;line-height:1.7;color:#57534e'>
+            The UOM must match the physical form of the drug as supplied on the date of service — not how you prefer to bill it, and not what a prior claim used.
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
+
+<div class='card span-12 card-collapsible' style='border:1px solid #e2e8f0;border-radius:18px;overflow:hidden;background:#fff;box-shadow:0 8px 24px rgba(15,23,42,0.06)'>
+
+  <div class='label' style='background:linear-gradient(90deg,#0f172a,#1d4ed8);color:#fff;padding:14px 18px;font-size:15px;font-weight:700;display:flex;align-items:center;justify-content:space-between'>
+    <span>Why This Happens</span>
+  </div>
+
+  <div style='padding:18px'>
+
+    <div style='display:flex;align-items:center;gap:12px;margin-bottom:16px'>
+      <div style='width:42px;height:42px;border-radius:50%;background:#f59e0b;color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;box-shadow:0 3px 10px rgba(245,158,11,0.25)'>
+        ⚠️
+      </div>
+
+      <div>
+        <div class='nm-h3' style='margin:0;font-size:18px;font-weight:700;color:#92400e'>
+          DATA ENTRY &amp; SELECTION ISSUES
+        </div>
+        <div style='font-size:12px;color:#64748b;margin-top:2px'>
+          Most common root causes behind NDC-to-HCPCS mismatch denials
+        </div>
+      </div>
+    </div>
+
+    <div style='background:linear-gradient(180deg,#f8fbff 0%,#eef6ff 100%);border:1px solid #bfdbfe;border-radius:14px;padding:14px 16px;margin-bottom:18px'>
+      <div style='display:flex;align-items:flex-start;gap:12px'>
+        <div style='width:34px;height:34px;border-radius:50%;background:#2563eb;color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;flex-shrink:0'>
+          ℹ️
+        </div>
+
+        <div>
+          <div style='font-size:13px;font-weight:700;color:#1d4ed8;margin-bottom:6px'>
+            Quick Reminder
+          </div>
+
+          <div style='font-size:12px;line-height:1.7;color:#334155'>
+            Most NDC mismatch denials occur because the submitted NDC does not align with the billed HCPCS or J-code, or the NDC itself is invalid or incomplete.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style='display:grid;grid-template-columns:1fr 1fr;gap:14px'>
+
+      <div style='background:#fff;border:1px solid #fde7b0;border-radius:14px;padding:14px 16px;box-shadow:0 2px 6px rgba(245,158,11,0.06)'>
+        <div style='display:flex;align-items:flex-start;gap:10px'>
+          <div style='width:32px;height:32px;border-radius:50%;background:#fef3c7;color:#b45309;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0'>
+            1
+          </div>
+
+          <div>
+            <div style='font-size:13px;font-weight:700;color:#92400e;margin-bottom:4px'>
+              Wrong NDC Selected
+            </div>
+
+            <div style='font-size:12px;line-height:1.7;color:#57534e'>
+              The NDC entered does not belong to the drug actually administered or references a different manufacturer version.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style='background:#fff;border:1px solid #fde7b0;border-radius:14px;padding:14px 16px;box-shadow:0 2px 6px rgba(245,158,11,0.06)'>
+        <div style='display:flex;align-items:flex-start;gap:10px'>
+          <div style='width:32px;height:32px;border-radius:50%;background:#fef3c7;color:#b45309;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0'>
+            2
+          </div>
+
+          <div>
+            <div style='font-size:13px;font-weight:700;color:#92400e;margin-bottom:4px'>
+              10-Digit NDC Not Converted
+            </div>
+
+            <div style='font-size:12px;line-height:1.7;color:#57534e'>
+              A 10-digit NDC was submitted without converting it to the required 11-digit (5-4-2) billing format.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style='background:#fff;border:1px solid #fde7b0;border-radius:14px;padding:14px 16px;box-shadow:0 2px 6px rgba(245,158,11,0.06)'>
+        <div style='display:flex;align-items:flex-start;gap:10px'>
+          <div style='width:32px;height:32px;border-radius:50%;background:#fef3c7;color:#b45309;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0'>
+            3
+          </div>
+
+          <div>
+            <div style='font-size:13px;font-weight:700;color:#92400e;margin-bottom:4px'>
+              HCPCS and NDC Do Not Match
+            </div>
+
+            <div style='font-size:12px;line-height:1.7;color:#57534e'>
+              The HCPCS or J-code billed does not align with the NDC submitted on the claim.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style='background:#fff;border:1px solid #fde7b0;border-radius:14px;padding:14px 16px;box-shadow:0 2px 6px rgba(245,158,11,0.06)'>
+        <div style='display:flex;align-items:flex-start;gap:10px'>
+          <div style='width:32px;height:32px;border-radius:50%;background:#fef3c7;color:#b45309;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0'>
+            4
+          </div>
+
+          <div>
+            <div style='font-size:13px;font-weight:700;color:#92400e;margin-bottom:4px'>
+              Expired or Inactive NDC
+            </div>
+
+            <div style='font-size:12px;line-height:1.7;color:#57534e'>
+              The NDC used is expired, discontinued, or no longer active in the payer's drug file.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style='background:#fff;border:1px solid #fde7b0;border-radius:14px;padding:14px 16px;box-shadow:0 2px 6px rgba(245,158,11,0.06)'>
+        <div style='display:flex;align-items:flex-start;gap:10px'>
+          <div style='width:32px;height:32px;border-radius:50%;background:#fef3c7;color:#b45309;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0'>
+            5
+          </div>
+
+          <div>
+            <div style='font-size:13px;font-weight:700;color:#92400e;margin-bottom:4px'>
+              Missing NDC on Claim
+            </div>
+
+            <div style='font-size:12px;line-height:1.7;color:#57534e'>
+              The drug was billed using only a J-code or HCPCS code, but no NDC value was included on the claim.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style='background:#fff;border:1px solid #fde7b0;border-radius:14px;padding:14px 16px;box-shadow:0 2px 6px rgba(245,158,11,0.06)'>
+        <div style='display:flex;align-items:flex-start;gap:10px'>
+          <div style='width:32px;height:32px;border-radius:50%;background:#fef3c7;color:#b45309;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0'>
+            6
+          </div>
+
+          <div>
+            <div style='font-size:13px;font-weight:700;color:#92400e;margin-bottom:4px'>
+              Supplier Change Not Captured
+            </div>
+
+            <div style='font-size:12px;line-height:1.7;color:#57534e'>
+              The drug was purchased from a new supplier, but the updated NDC was not captured during administration or claim entry.
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
         <!-- How to Fix It -->
       
 
@@ -4658,101 +5319,266 @@ NDC & UOM captured directly from the administered vial or package label</span>
 
 
  <!-- Unit of Measure (UOM) Misalignment -->
-       <div class='card span-6 card-collapsible' style='border:1px solid var(--border);border-radius:16px;overflow:hidden;background:#fff;box-shadow:0 4px 14px rgba(0,0,0,0.04)'>
-  <div class='label' style='background:linear-gradient(90deg,#2563eb,#3b82f6);color:#fff;padding:10px 14px;font-weight:700;font-size:13px'>
-    Unit of Measure (UOM) Misalignment
-  </div>
+    <div class='card span-12 card-collapsible' style='border:1px solid #e2e8f0;border-radius:18px;overflow:hidden;background:#fff;box-shadow:0 8px 24px rgba(15,23,42,0.06)'>
 
-  <div style='padding:14px'>
-    <div style='display:flex;align-items:center;gap:10px;margin-bottom:12px'>
-      <div style='width:34px;height:34px;border-radius:50%;background:#2563eb;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 3px 8px rgba(37,99,235,0.25)'>
-        💊
-      </div>
-      <div>
-        <div class='nm-h3' style='margin:0;font-size:14px;font-weight:700;color:#1d4ed8'>Valid UOM Codes — When to Use Each</div>
-        <div style='font-size:10px;color:#64748b;margin-top:1px'>Reference guide for selecting the correct billing unit of measure</div>
-      </div>
-    </div>
-
-    <div style='background:linear-gradient(180deg,#f8fbff 0%,#eef6ff 100%);border:1px solid #d8e4ff;border-radius:12px;padding:10px;overflow-x:auto'>
-      <table class='uom-table' style='margin:0;font-size:12px'>
-        <thead>
-          <tr style='background:#eff6ff'>
-            <th style='font-size:11px'>UOM Code</th>
-            <th style='font-size:11px'>Name</th>
-            <th style='font-size:11px'>When to Use</th>
-            <th style='font-size:11px'>Billing Unit</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><span class='uom-code'>UN</span></td>
-            <td><strong>Unit</strong></td>
-            <td>Powder-form drugs in a vial that must be reconstituted before administration</td>
-            <td>One unit per vial used</td>
-          </tr>
-          <tr>
-            <td><span class='uom-code'>ML </span></td>
-            <td><strong>Milliliter</strong></td>
-            <td>Liquid-form drugs supplied in a vial or pre-filled syringe</td>
-            <td>Actual milliliters administered</td>
-          </tr>
-          <tr>
-            <td><span class='uom-code'>GR</span></td>
-            <td><strong>Gram</strong></td>
-            <td>Ointments, creams, inhalers, or bulk powders dispensed by weight</td>
-            <td>Actual grams dispensed — primarily retail pharmacy</td>
-          </tr>
-          <tr>
-            <td><span class='uom-code'>F2</span></td>
-            <td><strong>International Unit</strong></td>
-            <td>Factor VIII Antihemophilic Factor and similar biologics billed in international units</td>
-            <td>Per IU administered</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class='alert warn' style='margin-top:12px;margin-bottom:0;border-radius:12px;font-size:12px'>
-      <div class='alert-icon'>📌</div>
-      <div>
-        <div class='alert-title' style='font-size:12px'>Key Rule</div>
-        <div class='alert-text' style='font-size:11px'>The UOM must match the physical form of the drug as supplied on the date of service — not how you prefer to bill it, and not what a prior claim used.</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<div class='card span-6 card-collapsible' style='border:1px solid var(--border);border-radius:16px;overflow:hidden;background:#fff;box-shadow:0 4px 14px rgba(0,0,0,0.04)'>
-  <div class='label' style='background:linear-gradient(90deg,#f59e0b,#fbbf24);color:#fff;padding:12px 16px;font-weight:700'>
-    Why This Happens
+  <div class='label' style='background:linear-gradient(90deg,#0f172a,#1d4ed8);color:#fff;padding:14px 18px;font-size:15px;font-weight:700;display:flex;align-items:center;justify-content:space-between'>
+    <span>Unit of Measure (UOM) Misalignment</span>
   </div>
 
   <div style='padding:18px'>
-    <div style='display:flex;align-items:center;gap:12px;margin-bottom:14px'>
-      <div style='width:40px;height:40px;border-radius:50%;background:#f59e0b;color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;box-shadow:0 3px 8px rgba(245,158,11,0.25)'>
-        ⚠️
+
+    <div style='display:flex;align-items:center;gap:12px;margin-bottom:16px'>
+      <div style='width:42px;height:42px;border-radius:50%;background:#2563eb;color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;box-shadow:0 3px 10px rgba(37,99,235,0.25)'>
+        💊
       </div>
+
       <div>
-        <div class='nm-h3' style='margin:0;font-size:18px;font-weight:700;color:#92400e'>DATA ENTRY & SELECTION ISSUES</div>
-        <div style='font-size:12px;color:#a16207;margin-top:2px'>Most common root causes behind this denial</div>
+        <div class='nm-h3' style='margin:0;font-size:18px;font-weight:700;color:#1d4ed8'>
+          Valid UOM Codes — When to Use Each
+        </div>
+        <div style='font-size:12px;color:#64748b;margin-top:2px'>
+          Reference guide for selecting the correct billing unit of measure
+        </div>
       </div>
     </div>
 
-    <div style='background:linear-gradient(180deg,#fffaf0 0%,#fff7e6 100%);border:1px solid #fde7b0;border-radius:14px;padding:14px 16px'>
-      <ul class='info-list' style='margin:0'>
-        <li>UOM code left blank or populated with a placeholder/default</li>
-        <li>Wrong UOM selected — e.g., billing UN for a liquid drug that should be ML</li>
-        <li>UOM does not match the drug form in the payer's NDC drug file</li>
-        <li>NDC is expired, discontinued, or no longer active in the payer's drug file</li>
-        <li>NDC field was blank — drug was billed by J-code only, no NDC attached</li>
-        <li>Drug purchased from a new supplier and NDC not captured at point of administration</li>
-      </ul>
+    <div style='background:linear-gradient(180deg,#f8fbff 0%,#eef6ff 100%);border:1px solid #d8e4ff;border-radius:14px;padding:14px;overflow-x:auto'>
+
+      <table class='uom-table' style='margin:0;width:100%;font-size:12px;border-collapse:separate;border-spacing:0'>
+        <thead>
+          <tr style='background:#eff6ff'>
+            <th style='font-size:11px;padding:12px 10px;border-bottom:1px solid #dbeafe;color:#1d4ed8;text-align:left'>UOM Code</th>
+            <th style='font-size:11px;padding:12px 10px;border-bottom:1px solid #dbeafe;color:#1d4ed8;text-align:left'>Name</th>
+            <th style='font-size:11px;padding:12px 10px;border-bottom:1px solid #dbeafe;color:#1d4ed8;text-align:left'>When to Use</th>
+            <th style='font-size:11px;padding:12px 10px;border-bottom:1px solid #dbeafe;color:#1d4ed8;text-align:left'>Billing Unit</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr style='background:#fff'>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'>
+              <span class='uom-code' style='display:inline-block;background:#dbeafe;color:#1d4ed8;padding:4px 8px;border-radius:8px;font-size:11px;font-weight:700'>
+                UN
+              </span>
+            </td>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'><strong>Unit</strong></td>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'>Powder-form drugs in a vial that must be reconstituted before administration</td>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'>One unit per vial used</td>
+          </tr>
+
+          <tr style='background:#fcfdff'>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'>
+              <span class='uom-code' style='display:inline-block;background:#dbeafe;color:#1d4ed8;padding:4px 8px;border-radius:8px;font-size:11px;font-weight:700'>
+                ML
+              </span>
+            </td>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'><strong>Milliliter</strong></td>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'>Liquid-form drugs supplied in a vial or pre-filled syringe</td>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'>Actual milliliters administered</td>
+          </tr>
+
+          <tr style='background:#fff'>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'>
+              <span class='uom-code' style='display:inline-block;background:#dbeafe;color:#1d4ed8;padding:4px 8px;border-radius:8px;font-size:11px;font-weight:700'>
+                GR
+              </span>
+            </td>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'><strong>Gram</strong></td>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'>Ointments, creams, inhalers, or bulk powders dispensed by weight</td>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'>Actual grams dispensed — primarily retail pharmacy</td>
+          </tr>
+
+          <tr style='background:#fcfdff'>
+            <td style='padding:12px 10px'>
+              <span class='uom-code' style='display:inline-block;background:#dbeafe;color:#1d4ed8;padding:4px 8px;border-radius:8px;font-size:11px;font-weight:700'>
+                F2
+              </span>
+            </td>
+            <td style='padding:12px 10px'><strong>International Unit</strong></td>
+            <td style='padding:12px 10px'>Factor VIII Antihemophilic Factor and similar biologics billed in international units</td>
+            <td style='padding:12px 10px'>Per IU administered</td>
+          </tr>
+        </tbody>
+      </table>
+
     </div>
+
+    <div class='alert warn' style='margin-top:16px;margin-bottom:0;border-radius:14px;border:1px solid #fde68a;background:linear-gradient(180deg,#fffaf0 0%,#fff7e6 100%);padding:14px 16px'>
+      <div style='display:flex;align-items:flex-start;gap:12px'>
+        <div style='width:34px;height:34px;border-radius:50%;background:#f59e0b;color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;flex-shrink:0'>
+          📌
+        </div>
+
+        <div>
+          <div class='alert-title' style='font-size:13px;font-weight:700;color:#92400e;margin-bottom:4px'>
+            Key Rule
+          </div>
+          <div class='alert-text' style='font-size:12px;line-height:1.7;color:#57534e'>
+            The UOM must match the physical form of the drug as supplied on the date of service — not how you prefer to bill it, and not what a prior claim used.
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
 
+
+<div class='card span-12 card-collapsible' style='border:1px solid #e2e8f0;border-radius:18px;overflow:hidden;background:#fff;box-shadow:0 8px 24px rgba(15,23,42,0.06)'>
+
+  <div class='label' style='background:linear-gradient(90deg,#0f172a,#1d4ed8);color:#fff;padding:14px 18px;font-size:15px;font-weight:700;display:flex;align-items:center;justify-content:space-between'>
+    <span>Why This Happens</span>
+  </div>
+
+  <div style='padding:18px'>
+
+    <div style='display:flex;align-items:center;gap:12px;margin-bottom:16px'>
+      <div style='width:42px;height:42px;border-radius:50%;background:#f59e0b;color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;box-shadow:0 3px 10px rgba(245,158,11,0.25)'>
+        ⚠️
+      </div>
+
+      <div>
+        <div class='nm-h3' style='margin:0;font-size:18px;font-weight:700;color:#92400e'>
+          DATA ENTRY &amp; SELECTION ISSUES
+        </div>
+        <div style='font-size:12px;color:#64748b;margin-top:2px'>
+          Most common root causes behind UOM-related drug billing denials
+        </div>
+      </div>
+    </div>
+
+    <div style='background:linear-gradient(180deg,#f8fbff 0%,#eef6ff 100%);border:1px solid #bfdbfe;border-radius:14px;padding:14px 16px;margin-bottom:18px'>
+      <div style='display:flex;align-items:flex-start;gap:12px'>
+        <div style='width:34px;height:34px;border-radius:50%;background:#2563eb;color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;flex-shrink:0'>
+          ℹ️
+        </div>
+
+        <div>
+          <div style='font-size:13px;font-weight:700;color:#1d4ed8;margin-bottom:6px'>
+            Quick Reminder
+          </div>
+
+          <div style='font-size:12px;line-height:1.7;color:#334155'>
+            Most UOM denials happen because the submitted unit of measure does not match the drug form, payer requirements, or NDC file mapping.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style='display:grid;grid-template-columns:1fr 1fr;gap:14px'>
+
+      <div style='background:#fff;border:1px solid #fde7b0;border-radius:14px;padding:14px 16px;box-shadow:0 2px 6px rgba(245,158,11,0.06)'>
+        <div style='display:flex;align-items:flex-start;gap:10px'>
+          <div style='width:32px;height:32px;border-radius:50%;background:#fef3c7;color:#b45309;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0'>
+            1
+          </div>
+
+          <div>
+            <div style='font-size:13px;font-weight:700;color:#92400e;margin-bottom:4px'>
+              Missing UOM Code
+            </div>
+
+            <div style='font-size:12px;line-height:1.7;color:#57534e'>
+              The UOM field was left blank or populated with a placeholder or default value.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style='background:#fff;border:1px solid #fde7b0;border-radius:14px;padding:14px 16px;box-shadow:0 2px 6px rgba(245,158,11,0.06)'>
+        <div style='display:flex;align-items:flex-start;gap:10px'>
+          <div style='width:32px;height:32px;border-radius:50%;background:#fef3c7;color:#b45309;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0'>
+            2
+          </div>
+
+          <div>
+            <div style='font-size:13px;font-weight:700;color:#92400e;margin-bottom:4px'>
+              Wrong UOM Selected
+            </div>
+
+            <div style='font-size:12px;line-height:1.7;color:#57534e'>
+              Example: billing UN for a liquid drug that should be billed using ML.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style='background:#fff;border:1px solid #fde7b0;border-radius:14px;padding:14px 16px;box-shadow:0 2px 6px rgba(245,158,11,0.06)'>
+        <div style='display:flex;align-items:flex-start;gap:10px'>
+          <div style='width:32px;height:32px;border-radius:50%;background:#fef3c7;color:#b45309;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0'>
+            3
+          </div>
+
+          <div>
+            <div style='font-size:13px;font-weight:700;color:#92400e;margin-bottom:4px'>
+              Drug Form Mismatch
+            </div>
+
+            <div style='font-size:12px;line-height:1.7;color:#57534e'>
+              The UOM submitted does not match the drug form listed in the payer's NDC drug file.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style='background:#fff;border:1px solid #fde7b0;border-radius:14px;padding:14px 16px;box-shadow:0 2px 6px rgba(245,158,11,0.06)'>
+        <div style='display:flex;align-items:flex-start;gap:10px'>
+          <div style='width:32px;height:32px;border-radius:50%;background:#fef3c7;color:#b45309;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0'>
+            4
+          </div>
+
+          <div>
+            <div style='font-size:13px;font-weight:700;color:#92400e;margin-bottom:4px'>
+              Expired or Discontinued NDC
+            </div>
+
+            <div style='font-size:12px;line-height:1.7;color:#57534e'>
+              The NDC submitted is expired, discontinued, or no longer active in the payer's drug file.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style='background:#fff;border:1px solid #fde7b0;border-radius:14px;padding:14px 16px;box-shadow:0 2px 6px rgba(245,158,11,0.06)'>
+        <div style='display:flex;align-items:flex-start;gap:10px'>
+          <div style='width:32px;height:32px;border-radius:50%;background:#fef3c7;color:#b45309;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0'>
+            5
+          </div>
+
+          <div>
+            <div style='font-size:13px;font-weight:700;color:#92400e;margin-bottom:4px'>
+              Missing NDC on Claim
+            </div>
+
+            <div style='font-size:12px;line-height:1.7;color:#57534e'>
+              The drug was billed only with a J-code or HCPCS code, but no NDC value was attached to the claim.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style='background:#fff;border:1px solid #fde7b0;border-radius:14px;padding:14px 16px;box-shadow:0 2px 6px rgba(245,158,11,0.06)'>
+        <div style='display:flex;align-items:flex-start;gap:10px'>
+          <div style='width:32px;height:32px;border-radius:50%;background:#fef3c7;color:#b45309;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0'>
+            6
+          </div>
+
+          <div>
+            <div style='font-size:13px;font-weight:700;color:#92400e;margin-bottom:4px'>
+              Supplier Change Not Captured
+            </div>
+
+            <div style='font-size:12px;line-height:1.7;color:#57534e'>
+              A new supplier or manufacturer was used, but the updated NDC and UOM were never captured at the point of administration.
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
         <!-- How to Fix It -->
        <div class='card span-12 card-collapsible' style='border:1px solid var(--border);border-radius:18px;overflow:hidden;background:#fff;box-shadow:0 6px 18px rgba(0,0,0,0.05)'>
   <div class='label' style='background:linear-gradient(90deg,#0f172a,#1e3a8a);color:#fff;padding:12px 16px;font-size:14px;font-weight:700'>
@@ -5491,100 +6317,268 @@ NDC & UOM captured directly from the administered vial or package label</span>
 
        
 
-<div class='card span-6 card-collapsible' style='border:1px solid var(--border);border-radius:16px;overflow:hidden;background:#fff;box-shadow:0 4px 14px rgba(0,0,0,0.04)'>
-  <div class='label' style='background:linear-gradient(90deg,#2563eb,#3b82f6);color:#fff;padding:10px 14px;font-weight:700;font-size:13px'>
-    Unit of Measure (UOM) Misalignment
+<div class='card span-12 card-collapsible' style='border:1px solid #e2e8f0;border-radius:18px;overflow:hidden;background:#fff;box-shadow:0 8px 24px rgba(15,23,42,0.06)'>
+
+  <div class='label' style='background:linear-gradient(90deg,#0f172a,#1d4ed8);color:#fff;padding:14px 18px;font-size:15px;font-weight:700;display:flex;align-items:center;justify-content:space-between'>
+    <span>Unit of Measure (UOM) Misalignment</span>
   </div>
 
-  <div style='padding:14px'>
-    <div style='display:flex;align-items:center;gap:10px;margin-bottom:12px'>
-      <div style='width:34px;height:34px;border-radius:50%;background:#2563eb;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 3px 8px rgba(37,99,235,0.25)'>
+  <div style='padding:18px'>
+
+    <div style='display:flex;align-items:center;gap:12px;margin-bottom:16px'>
+      <div style='width:42px;height:42px;border-radius:50%;background:#2563eb;color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;box-shadow:0 3px 10px rgba(37,99,235,0.25)'>
         💊
       </div>
+
       <div>
-        <div class='nm-h3' style='margin:0;font-size:14px;font-weight:700;color:#1d4ed8'>Valid UOM Codes — When to Use Each</div>
-        <div style='font-size:10px;color:#64748b;margin-top:1px'>Reference guide for selecting the correct billing unit of measure</div>
+        <div class='nm-h3' style='margin:0;font-size:18px;font-weight:700;color:#1d4ed8'>
+          Valid UOM Codes — When to Use Each
+        </div>
+        <div style='font-size:12px;color:#64748b;margin-top:2px'>
+          Reference guide for selecting the correct billing unit of measure
+        </div>
       </div>
     </div>
 
-    <div style='background:linear-gradient(180deg,#f8fbff 0%,#eef6ff 100%);border:1px solid #d8e4ff;border-radius:12px;padding:10px;overflow-x:auto'>
-      <table class='uom-table' style='margin:0;font-size:12px'>
+    <div style='background:linear-gradient(180deg,#f8fbff 0%,#eef6ff 100%);border:1px solid #d8e4ff;border-radius:14px;padding:14px;overflow-x:auto'>
+
+      <table class='uom-table' style='margin:0;width:100%;font-size:12px;border-collapse:separate;border-spacing:0'>
         <thead>
           <tr style='background:#eff6ff'>
-            <th style='font-size:11px'>UOM Code</th>
-            <th style='font-size:11px'>Name</th>
-            <th style='font-size:11px'>When to Use</th>
-            <th style='font-size:11px'>Billing Unit</th>
+            <th style='font-size:11px;padding:12px 10px;border-bottom:1px solid #dbeafe;color:#1d4ed8;text-align:left'>UOM Code</th>
+            <th style='font-size:11px;padding:12px 10px;border-bottom:1px solid #dbeafe;color:#1d4ed8;text-align:left'>Name</th>
+            <th style='font-size:11px;padding:12px 10px;border-bottom:1px solid #dbeafe;color:#1d4ed8;text-align:left'>When to Use</th>
+            <th style='font-size:11px;padding:12px 10px;border-bottom:1px solid #dbeafe;color:#1d4ed8;text-align:left'>Billing Unit</th>
           </tr>
         </thead>
+
         <tbody>
-          <tr>
-            <td><span class='uom-code'>UN</span></td>
-            <td><strong>Unit</strong></td>
-            <td>Powder-form drugs in a vial that must be reconstituted before administration</td>
-            <td>One unit per vial used</td>
+          <tr style='background:#fff'>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'>
+              <span class='uom-code' style='display:inline-block;background:#dbeafe;color:#1d4ed8;padding:4px 8px;border-radius:8px;font-size:11px;font-weight:700'>
+                UN
+              </span>
+            </td>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'><strong>Unit</strong></td>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'>Powder-form drugs in a vial that must be reconstituted before administration</td>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'>One unit per vial used</td>
           </tr>
-          <tr>
-            <td><span class='uom-code'>ML </span></td>
-            <td><strong>Milliliter</strong></td>
-            <td>Liquid-form drugs supplied in a vial or pre-filled syringe</td>
-            <td>Actual milliliters administered</td>
+
+          <tr style='background:#fcfdff'>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'>
+              <span class='uom-code' style='display:inline-block;background:#dbeafe;color:#1d4ed8;padding:4px 8px;border-radius:8px;font-size:11px;font-weight:700'>
+                ML
+              </span>
+            </td>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'><strong>Milliliter</strong></td>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'>Liquid-form drugs supplied in a vial or pre-filled syringe</td>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'>Actual milliliters administered</td>
           </tr>
-          <tr>
-            <td><span class='uom-code'>GR</span></td>
-            <td><strong>Gram</strong></td>
-            <td>Ointments, creams, inhalers, or bulk powders dispensed by weight</td>
-            <td>Actual grams dispensed — primarily retail pharmacy</td>
+
+          <tr style='background:#fff'>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'>
+              <span class='uom-code' style='display:inline-block;background:#dbeafe;color:#1d4ed8;padding:4px 8px;border-radius:8px;font-size:11px;font-weight:700'>
+                GR
+              </span>
+            </td>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'><strong>Gram</strong></td>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'>Ointments, creams, inhalers, or bulk powders dispensed by weight</td>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'>Actual grams dispensed — primarily retail pharmacy</td>
           </tr>
-          <tr>
-            <td><span class='uom-code'>F2</span></td>
-            <td><strong>International Unit</strong></td>
-            <td>Factor VIII Antihemophilic Factor and similar biologics billed in international units</td>
-            <td>Per IU administered</td>
+
+          <tr style='background:#fcfdff'>
+            <td style='padding:12px 10px'>
+              <span class='uom-code' style='display:inline-block;background:#dbeafe;color:#1d4ed8;padding:4px 8px;border-radius:8px;font-size:11px;font-weight:700'>
+                F2
+              </span>
+            </td>
+            <td style='padding:12px 10px'><strong>International Unit</strong></td>
+            <td style='padding:12px 10px'>Factor VIII Antihemophilic Factor and similar biologics billed in international units</td>
+            <td style='padding:12px 10px'>Per IU administered</td>
           </tr>
         </tbody>
       </table>
+
     </div>
 
-    <div class='alert warn' style='margin-top:12px;margin-bottom:0;border-radius:12px;font-size:12px'>
-      <div class='alert-icon'>📌</div>
-      <div>
-        <div class='alert-title' style='font-size:12px'>Key Rule</div>
-        <div class='alert-text' style='font-size:11px'>The UOM must match the physical form of the drug as supplied on the date of service — not how you prefer to bill it, and not what a prior claim used.</div>
+    <div class='alert warn' style='margin-top:16px;margin-bottom:0;border-radius:14px;border:1px solid #fde68a;background:linear-gradient(180deg,#fffaf0 0%,#fff7e6 100%);padding:14px 16px'>
+      <div style='display:flex;align-items:flex-start;gap:12px'>
+        <div style='width:34px;height:34px;border-radius:50%;background:#f59e0b;color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;flex-shrink:0'>
+          📌
+        </div>
+
+        <div>
+          <div class='alert-title' style='font-size:13px;font-weight:700;color:#92400e;margin-bottom:4px'>
+            Key Rule
+          </div>
+          <div class='alert-text' style='font-size:12px;line-height:1.7;color:#57534e'>
+            The UOM must match the physical form of the drug as supplied on the date of service — not how you prefer to bill it, and not what a prior claim used.
+          </div>
+        </div>
       </div>
     </div>
+
   </div>
 </div>
 
  <!-- Why N847 Happens -->
-       <div class='card span-6 card-collapsible' style='border:1px solid var(--border);border-radius:16px;overflow:hidden;background:#fff;box-shadow:0 4px 14px rgba(0,0,0,0.04)'>
-  <div class='label' style='background:linear-gradient(90deg,#f59e0b,#fbbf24);color:#fff;padding:12px 16px;font-weight:700'>
-    Why This Happens
+    
+<div class='card span-12 card-collapsible' style='border:1px solid #e2e8f0;border-radius:18px;overflow:hidden;background:#fff;box-shadow:0 8px 24px rgba(15,23,42,0.06)'>
+
+  <div class='label' style='background:linear-gradient(90deg,#0f172a,#1d4ed8);color:#fff;padding:14px 18px;font-size:15px;font-weight:700;display:flex;align-items:center;justify-content:space-between'>
+    <span>Why This Happens</span>
   </div>
 
   <div style='padding:18px'>
-    <div style='display:flex;align-items:center;gap:12px;margin-bottom:14px'>
-      <div style='width:40px;height:40px;border-radius:50%;background:#f59e0b;color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;box-shadow:0 3px 8px rgba(245,158,11,0.25)'>
+
+    <div style='display:flex;align-items:center;gap:12px;margin-bottom:16px'>
+      <div style='width:42px;height:42px;border-radius:50%;background:#f59e0b;color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;box-shadow:0 3px 10px rgba(245,158,11,0.25)'>
         ⚠️
       </div>
+
       <div>
-        <div class='nm-h3' style='margin:0;font-size:18px;font-weight:700;color:#92400e'>DATA ENTRY & SELECTION ISSUES</div>
-        <div style='font-size:12px;color:#a16207;margin-top:2px'>Most common root causes behind this denial</div>
+        <div class='nm-h3' style='margin:0;font-size:18px;font-weight:700;color:#92400e'>
+          DATA ENTRY &amp; SELECTION ISSUES
+        </div>
+        <div style='font-size:12px;color:#64748b;margin-top:2px'>
+          Most common root causes behind inactive, retired, or discontinued NDC denials
+        </div>
       </div>
     </div>
 
-    <div style='background:linear-gradient(180deg,#fffaf0 0%,#fff7e6 100%);border:1px solid #fde7b0;border-radius:14px;padding:14px 16px'>
-      <ul class='info-list' style='margin:0'>
-        <li>NDC was copied from a prior claim where a different lot, package size, or manufacturer version was used — and that NDC has since been retired</li>
-        <li>Drug manufacturer changed packaging or labeling, issuing a new NDC while retiring the old one — billing system was not updated</li>
-        <li>Drug was purchased from a new wholesaler or distributor whose product carries a different, current NDC than the legacy NDC in the system</li>
-        <li>NDC is expired, discontinued, or no longer active in the payer's drug file</li>
-        <li>NDC field was blank — drug was billed by J-code only, no NDC attached</li>
-        <li>Drug purchased from a new supplier and NDC not captured at point of administration</li>
-      </ul>
+    <div style='background:linear-gradient(180deg,#f8fbff 0%,#eef6ff 100%);border:1px solid #bfdbfe;border-radius:14px;padding:14px 16px;margin-bottom:18px'>
+      <div style='display:flex;align-items:flex-start;gap:12px'>
+        <div style='width:34px;height:34px;border-radius:50%;background:#2563eb;color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;flex-shrink:0'>
+          ℹ️
+        </div>
+
+        <div>
+          <div style='font-size:13px;font-weight:700;color:#1d4ed8;margin-bottom:6px'>
+            Quick Reminder
+          </div>
+
+          <div style='font-size:12px;line-height:1.7;color:#334155'>
+            Most discontinued NDC denials occur because the claim references an old, inactive, or retired NDC that no longer matches the drug currently being dispensed or billed.
+          </div>
+        </div>
+      </div>
     </div>
+
+    <div style='display:grid;grid-template-columns:1fr 1fr;gap:14px'>
+
+      <div style='background:#fff;border:1px solid #fde7b0;border-radius:14px;padding:14px 16px;box-shadow:0 2px 6px rgba(245,158,11,0.06)'>
+        <div style='display:flex;align-items:flex-start;gap:10px'>
+          <div style='width:32px;height:32px;border-radius:50%;background:#fef3c7;color:#b45309;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0'>
+            1
+          </div>
+
+          <div>
+            <div style='font-size:13px;font-weight:700;color:#92400e;margin-bottom:4px'>
+              Old NDC Reused
+            </div>
+
+            <div style='font-size:12px;line-height:1.7;color:#57534e'>
+              An NDC was copied from a prior claim where a different lot, package size, or manufacturer version was used, and that NDC has since been retired.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style='background:#fff;border:1px solid #fde7b0;border-radius:14px;padding:14px 16px;box-shadow:0 2px 6px rgba(245,158,11,0.06)'>
+        <div style='display:flex;align-items:flex-start;gap:10px'>
+          <div style='width:32px;height:32px;border-radius:50%;background:#fef3c7;color:#b45309;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0'>
+            2
+          </div>
+
+          <div>
+            <div style='font-size:13px;font-weight:700;color:#92400e;margin-bottom:4px'>
+              Manufacturer Changed Packaging
+            </div>
+
+            <div style='font-size:12px;line-height:1.7;color:#57534e'>
+              The drug manufacturer updated packaging or labeling and issued a new NDC, but the billing system still contains the retired code.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style='background:#fff;border:1px solid #fde7b0;border-radius:14px;padding:14px 16px;box-shadow:0 2px 6px rgba(245,158,11,0.06)'>
+        <div style='display:flex;align-items:flex-start;gap:10px'>
+          <div style='width:32px;height:32px;border-radius:50%;background:#fef3c7;color:#b45309;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0'>
+            3
+          </div>
+
+          <div>
+            <div style='font-size:13px;font-weight:700;color:#92400e;margin-bottom:4px'>
+              New Supplier Different NDC
+            </div>
+
+            <div style='font-size:12px;line-height:1.7;color:#57534e'>
+              The drug was purchased from a new wholesaler or distributor whose product carries a different current NDC than the legacy code stored in the system.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style='background:#fff;border:1px solid #fde7b0;border-radius:14px;padding:14px 16px;box-shadow:0 2px 6px rgba(245,158,11,0.06)'>
+        <div style='display:flex;align-items:flex-start;gap:10px'>
+          <div style='width:32px;height:32px;border-radius:50%;background:#fef3c7;color:#b45309;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0'>
+            4
+          </div>
+
+          <div>
+            <div style='font-size:13px;font-weight:700;color:#92400e;margin-bottom:4px'>
+              Expired or Discontinued NDC
+            </div>
+
+            <div style='font-size:12px;line-height:1.7;color:#57534e'>
+              The NDC submitted is expired, discontinued, or no longer active in the payer's drug reference file.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style='background:#fff;border:1px solid #fde7b0;border-radius:14px;padding:14px 16px;box-shadow:0 2px 6px rgba(245,158,11,0.06)'>
+        <div style='display:flex;align-items:flex-start;gap:10px'>
+          <div style='width:32px;height:32px;border-radius:50%;background:#fef3c7;color:#b45309;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0'>
+            5
+          </div>
+
+          <div>
+            <div style='font-size:13px;font-weight:700;color:#92400e;margin-bottom:4px'>
+              Missing NDC on Claim
+            </div>
+
+            <div style='font-size:12px;line-height:1.7;color:#57534e'>
+              The drug was billed only with a J-code or HCPCS code, but no NDC value was attached to the claim.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style='background:#fff;border:1px solid #fde7b0;border-radius:14px;padding:14px 16px;box-shadow:0 2px 6px rgba(245,158,11,0.06)'>
+        <div style='display:flex;align-items:flex-start;gap:10px'>
+          <div style='width:32px;height:32px;border-radius:50%;background:#fef3c7;color:#b45309;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0'>
+            6
+          </div>
+
+          <div>
+            <div style='font-size:13px;font-weight:700;color:#92400e;margin-bottom:4px'>
+              Supplier Change Not Captured
+            </div>
+
+            <div style='font-size:12px;line-height:1.7;color:#57534e'>
+              A new supplier or manufacturer was used, but the updated NDC was never captured at the point of administration or inventory intake.
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
   </div>
 </div>
+
 
 
         <!-- How to Fix It -->
@@ -6320,99 +7314,265 @@ NDC & UOM captured directly from the administered vial or package label</span>
   </div>
 </div>
 
-<div class='card span-6 card-collapsible' style='border:1px solid var(--border);border-radius:16px;overflow:hidden;background:#fff;box-shadow:0 4px 14px rgba(0,0,0,0.04)'>
-  <div class='label' style='background:linear-gradient(90deg,#2563eb,#3b82f6);color:#fff;padding:10px 14px;font-weight:700;font-size:13px'>
-    Unit of Measure (UOM) Misalignment
+<div class='card span-12 card-collapsible' style='border:1px solid #e2e8f0;border-radius:18px;overflow:hidden;background:#fff;box-shadow:0 8px 24px rgba(15,23,42,0.06)'>
+
+  <div class='label' style='background:linear-gradient(90deg,#0f172a,#1d4ed8);color:#fff;padding:14px 18px;font-size:15px;font-weight:700;display:flex;align-items:center;justify-content:space-between'>
+    <span>Unit of Measure (UOM) Misalignment</span>
   </div>
 
-  <div style='padding:14px'>
-    <div style='display:flex;align-items:center;gap:10px;margin-bottom:12px'>
-      <div style='width:34px;height:34px;border-radius:50%;background:#2563eb;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 3px 8px rgba(37,99,235,0.25)'>
+  <div style='padding:18px'>
+
+    <div style='display:flex;align-items:center;gap:12px;margin-bottom:16px'>
+      <div style='width:42px;height:42px;border-radius:50%;background:#2563eb;color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;box-shadow:0 3px 10px rgba(37,99,235,0.25)'>
         💊
       </div>
+
       <div>
-        <div class='nm-h3' style='margin:0;font-size:14px;font-weight:700;color:#1d4ed8'>Valid UOM Codes — When to Use Each</div>
-        <div style='font-size:10px;color:#64748b;margin-top:1px'>Reference guide for selecting the correct billing unit of measure</div>
+        <div class='nm-h3' style='margin:0;font-size:18px;font-weight:700;color:#1d4ed8'>
+          Valid UOM Codes — When to Use Each
+        </div>
+        <div style='font-size:12px;color:#64748b;margin-top:2px'>
+          Reference guide for selecting the correct billing unit of measure
+        </div>
       </div>
     </div>
 
-    <div style='background:linear-gradient(180deg,#f8fbff 0%,#eef6ff 100%);border:1px solid #d8e4ff;border-radius:12px;padding:10px;overflow-x:auto'>
-      <table class='uom-table' style='margin:0;font-size:12px'>
+    <div style='background:linear-gradient(180deg,#f8fbff 0%,#eef6ff 100%);border:1px solid #d8e4ff;border-radius:14px;padding:14px;overflow-x:auto'>
+
+      <table class='uom-table' style='margin:0;width:100%;font-size:12px;border-collapse:separate;border-spacing:0'>
         <thead>
           <tr style='background:#eff6ff'>
-            <th style='font-size:11px'>UOM Code</th>
-            <th style='font-size:11px'>Name</th>
-            <th style='font-size:11px'>When to Use</th>
-            <th style='font-size:11px'>Billing Unit</th>
+            <th style='font-size:11px;padding:12px 10px;border-bottom:1px solid #dbeafe;color:#1d4ed8;text-align:left'>UOM Code</th>
+            <th style='font-size:11px;padding:12px 10px;border-bottom:1px solid #dbeafe;color:#1d4ed8;text-align:left'>Name</th>
+            <th style='font-size:11px;padding:12px 10px;border-bottom:1px solid #dbeafe;color:#1d4ed8;text-align:left'>When to Use</th>
+            <th style='font-size:11px;padding:12px 10px;border-bottom:1px solid #dbeafe;color:#1d4ed8;text-align:left'>Billing Unit</th>
           </tr>
         </thead>
+
         <tbody>
-          <tr>
-            <td><span class='uom-code'>UN</span></td>
-            <td><strong>Unit</strong></td>
-            <td>Powder-form drugs in a vial that must be reconstituted before administration</td>
-            <td>One unit per vial used</td>
+          <tr style='background:#fff'>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'>
+              <span class='uom-code' style='display:inline-block;background:#dbeafe;color:#1d4ed8;padding:4px 8px;border-radius:8px;font-size:11px;font-weight:700'>
+                UN
+              </span>
+            </td>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'><strong>Unit</strong></td>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'>Powder-form drugs in a vial that must be reconstituted before administration</td>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'>One unit per vial used</td>
           </tr>
-          <tr>
-            <td><span class='uom-code'>ML </span></td>
-            <td><strong>Milliliter</strong></td>
-            <td>Liquid-form drugs supplied in a vial or pre-filled syringe</td>
-            <td>Actual milliliters administered</td>
+
+          <tr style='background:#fcfdff'>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'>
+              <span class='uom-code' style='display:inline-block;background:#dbeafe;color:#1d4ed8;padding:4px 8px;border-radius:8px;font-size:11px;font-weight:700'>
+                ML
+              </span>
+            </td>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'><strong>Milliliter</strong></td>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'>Liquid-form drugs supplied in a vial or pre-filled syringe</td>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'>Actual milliliters administered</td>
           </tr>
-          <tr>
-            <td><span class='uom-code'>GR</span></td>
-            <td><strong>Gram</strong></td>
-            <td>Ointments, creams, inhalers, or bulk powders dispensed by weight</td>
-            <td>Actual grams dispensed — primarily retail pharmacy</td>
+
+          <tr style='background:#fff'>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'>
+              <span class='uom-code' style='display:inline-block;background:#dbeafe;color:#1d4ed8;padding:4px 8px;border-radius:8px;font-size:11px;font-weight:700'>
+                GR
+              </span>
+            </td>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'><strong>Gram</strong></td>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'>Ointments, creams, inhalers, or bulk powders dispensed by weight</td>
+            <td style='padding:12px 10px;border-bottom:1px solid #e2e8f0'>Actual grams dispensed — primarily retail pharmacy</td>
           </tr>
-          <tr>
-            <td><span class='uom-code'>F2</span></td>
-            <td><strong>International Unit</strong></td>
-            <td>Factor VIII Antihemophilic Factor and similar biologics billed in international units</td>
-            <td>Per IU administered</td>
+
+          <tr style='background:#fcfdff'>
+            <td style='padding:12px 10px'>
+              <span class='uom-code' style='display:inline-block;background:#dbeafe;color:#1d4ed8;padding:4px 8px;border-radius:8px;font-size:11px;font-weight:700'>
+                F2
+              </span>
+            </td>
+            <td style='padding:12px 10px'><strong>International Unit</strong></td>
+            <td style='padding:12px 10px'>Factor VIII Antihemophilic Factor and similar biologics billed in international units</td>
+            <td style='padding:12px 10px'>Per IU administered</td>
           </tr>
         </tbody>
       </table>
+
     </div>
 
-    <div class='alert warn' style='margin-top:12px;margin-bottom:0;border-radius:12px;font-size:12px'>
-      <div class='alert-icon'>📌</div>
-      <div>
-        <div class='alert-title' style='font-size:12px'>Key Rule</div>
-        <div class='alert-text' style='font-size:11px'>The UOM must match the physical form of the drug as supplied on the date of service — not how you prefer to bill it, and not what a prior claim used.</div>
+    <div class='alert warn' style='margin-top:16px;margin-bottom:0;border-radius:14px;border:1px solid #fde68a;background:linear-gradient(180deg,#fffaf0 0%,#fff7e6 100%);padding:14px 16px'>
+      <div style='display:flex;align-items:flex-start;gap:12px'>
+        <div style='width:34px;height:34px;border-radius:50%;background:#f59e0b;color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;flex-shrink:0'>
+          📌
+        </div>
+
+        <div>
+          <div class='alert-title' style='font-size:13px;font-weight:700;color:#92400e;margin-bottom:4px'>
+            Key Rule
+          </div>
+          <div class='alert-text' style='font-size:12px;line-height:1.7;color:#57534e'>
+            The UOM must match the physical form of the drug as supplied on the date of service — not how you prefer to bill it, and not what a prior claim used.
+          </div>
+        </div>
       </div>
     </div>
+
   </div>
 </div>
 
 
  <!-- Why N848 Happens -->
-       <div class='card span-6 card-collapsible' style='border:1px solid var(--border);border-radius:16px;overflow:hidden;background:#fff;box-shadow:0 4px 14px rgba(0,0,0,0.04)'>
-  <div class='label' style='background:linear-gradient(90deg,#f59e0b,#fbbf24);color:#fff;padding:12px 16px;font-weight:700'>
-    Why This Happens
+     <div class='card span-12 card-collapsible' style='border:1px solid #e2e8f0;border-radius:18px;overflow:hidden;background:#fff;box-shadow:0 8px 24px rgba(15,23,42,0.06)'>
+
+  <div class='label' style='background:linear-gradient(90deg,#0f172a,#1d4ed8);color:#fff;padding:14px 18px;font-size:15px;font-weight:700;display:flex;align-items:center;justify-content:space-between'>
+    <span>Why This Happens</span>
   </div>
 
   <div style='padding:18px'>
-    <div style='display:flex;align-items:center;gap:12px;margin-bottom:14px'>
-      <div style='width:40px;height:40px;border-radius:50%;background:#f59e0b;color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;box-shadow:0 3px 8px rgba(245,158,11,0.25)'>
+
+    <div style='display:flex;align-items:center;gap:12px;margin-bottom:16px'>
+      <div style='width:42px;height:42px;border-radius:50%;background:#f59e0b;color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;box-shadow:0 3px 10px rgba(245,158,11,0.25)'>
         ⚠️
       </div>
+
       <div>
-        <div class='nm-h3' style='margin:0;font-size:18px;font-weight:700;color:#92400e'>DATA ENTRY & SELECTION ISSUES</div>
-        <div style='font-size:12px;color:#a16207;margin-top:2px'>Most common root causes behind this denial</div>
+        <div class='nm-h3' style='margin:0;font-size:18px;font-weight:700;color:#92400e'>
+          DATA ENTRY &amp; SELECTION ISSUES
+        </div>
+        <div style='font-size:12px;color:#64748b;margin-top:2px'>
+          Most common root causes behind invalid or unrecognized NDC submissions
+        </div>
       </div>
     </div>
 
-    <div style='background:linear-gradient(180deg,#fffaf0 0%,#fff7e6 100%);border:1px solid #fde7b0;border-radius:14px;padding:14px 16px'>
-      <ul class='info-list' style='margin:0'>
-        <li>Digit transposition — e.g., 12345678901 entered as 12354678910 — creates an NDC that resolves to no product</li>
-        <li>Missing digit — 10-digit NDC submitted without converting to 11-digit (5-4-2), and the result does not match any product</li>
-        <li>Extra digit typed — 12-digit string submitted, which fails all lookup matches</li>
-        <li>Dashes included in the NDC string in a field that requires a dash-free 11-digit format — or vice versa</li>
-        <li>NDC field was blank — drug was billed by J-code only, no NDC attached</li>
-        <li>Drug purchased from a new supplier and NDC not captured at point of administration</li>
-      </ul>
+    <div style='background:linear-gradient(180deg,#f8fbff 0%,#eef6ff 100%);border:1px solid #bfdbfe;border-radius:14px;padding:14px 16px;margin-bottom:18px'>
+      <div style='display:flex;align-items:flex-start;gap:12px'>
+        <div style='width:34px;height:34px;border-radius:50%;background:#2563eb;color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;flex-shrink:0'>
+          ℹ️
+        </div>
+
+        <div>
+          <div style='font-size:13px;font-weight:700;color:#1d4ed8;margin-bottom:6px'>
+            Quick Reminder
+          </div>
+
+          <div style='font-size:12px;line-height:1.7;color:#334155'>
+            Most invalid NDC denials happen because the submitted NDC contains missing digits, extra digits, formatting issues, or does not match an active drug product.
+          </div>
+        </div>
+      </div>
     </div>
+
+    <div style='display:grid;grid-template-columns:1fr 1fr;gap:14px'>
+
+      <div style='background:#fff;border:1px solid #fde7b0;border-radius:14px;padding:14px 16px;box-shadow:0 2px 6px rgba(245,158,11,0.06)'>
+        <div style='display:flex;align-items:flex-start;gap:10px'>
+          <div style='width:32px;height:32px;border-radius:50%;background:#fef3c7;color:#b45309;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0'>
+            1
+          </div>
+
+          <div>
+            <div style='font-size:13px;font-weight:700;color:#92400e;margin-bottom:4px'>
+              Digit Transposition
+            </div>
+
+            <div style='font-size:12px;line-height:1.7;color:#57534e'>
+              Example: 12345678901 entered as 12354678910 — creating an NDC that resolves to no valid product.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style='background:#fff;border:1px solid #fde7b0;border-radius:14px;padding:14px 16px;box-shadow:0 2px 6px rgba(245,158,11,0.06)'>
+        <div style='display:flex;align-items:flex-start;gap:10px'>
+          <div style='width:32px;height:32px;border-radius:50%;background:#fef3c7;color:#b45309;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0'>
+            2
+          </div>
+
+          <div>
+            <div style='font-size:13px;font-weight:700;color:#92400e;margin-bottom:4px'>
+              Missing Digit
+            </div>
+
+            <div style='font-size:12px;line-height:1.7;color:#57534e'>
+              A 10-digit NDC was submitted without converting it to the required 11-digit format, causing no valid match.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style='background:#fff;border:1px solid #fde7b0;border-radius:14px;padding:14px 16px;box-shadow:0 2px 6px rgba(245,158,11,0.06)'>
+        <div style='display:flex;align-items:flex-start;gap:10px'>
+          <div style='width:32px;height:32px;border-radius:50%;background:#fef3c7;color:#b45309;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0'>
+            3
+          </div>
+
+          <div>
+            <div style='font-size:13px;font-weight:700;color:#92400e;margin-bottom:4px'>
+              Extra Digit Entered
+            </div>
+
+            <div style='font-size:12px;line-height:1.7;color:#57534e'>
+              A 12-digit string was submitted, which fails all payer and NDC directory lookup validations.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style='background:#fff;border:1px solid #fde7b0;border-radius:14px;padding:14px 16px;box-shadow:0 2px 6px rgba(245,158,11,0.06)'>
+        <div style='display:flex;align-items:flex-start;gap:10px'>
+          <div style='width:32px;height:32px;border-radius:50%;background:#fef3c7;color:#b45309;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0'>
+            4
+          </div>
+
+          <div>
+            <div style='font-size:13px;font-weight:700;color:#92400e;margin-bottom:4px'>
+              Incorrect Dash Formatting
+            </div>
+
+            <div style='font-size:12px;line-height:1.7;color:#57534e'>
+              Dashes were included in a field requiring an 11-digit dash-free NDC format — or removed when the payer expected dashed formatting.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style='background:#fff;border:1px solid #fde7b0;border-radius:14px;padding:14px 16px;box-shadow:0 2px 6px rgba(245,158,11,0.06)'>
+        <div style='display:flex;align-items:flex-start;gap:10px'>
+          <div style='width:32px;height:32px;border-radius:50%;background:#fef3c7;color:#b45309;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0'>
+            5
+          </div>
+
+          <div>
+            <div style='font-size:13px;font-weight:700;color:#92400e;margin-bottom:4px'>
+              Missing NDC Field
+            </div>
+
+            <div style='font-size:12px;line-height:1.7;color:#57534e'>
+              The drug was billed using only the HCPCS or J-code, but no NDC value was included on the claim.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style='background:#fff;border:1px solid #fde7b0;border-radius:14px;padding:14px 16px;box-shadow:0 2px 6px rgba(245,158,11,0.06)'>
+        <div style='display:flex;align-items:flex-start;gap:10px'>
+          <div style='width:32px;height:32px;border-radius:50%;background:#fef3c7;color:#b45309;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0'>
+            6
+          </div>
+
+          <div>
+            <div style='font-size:13px;font-weight:700;color:#92400e;margin-bottom:4px'>
+              Supplier Change Not Updated
+            </div>
+
+            <div style='font-size:12px;line-height:1.7;color:#57534e'>
+              The drug was purchased from a new supplier, but the updated NDC was not captured at the point of administration.
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
   </div>
 </div>
 
@@ -6953,7 +8113,7 @@ NDC & UOM captured directly from the administered vial or package label</span>
           <div class='label' style='font-size:14px;font-weight:700;color:#1f4e78;margin-bottom:10px;'>Common CARC Pairing</div>
           
           <div class='pairs' style='display:flex;flex-wrap:wrap;gap:8px;'>
-            <span class='pair' style='background:#eef4ff;color:#1f4e78;padding:8px 12px;border-radius:20px;font-size:13px;border:1px solid #d6e4ff;'>CMS-1500 Box 24 & UB-04 (FL43-FL44)</span>
+            <span class='pair' style='background:#eef4ff;color:#1f4e78;padding:8px 12px;border-radius:20px;font-size:13px;border:1px solid #d6e4ff;'>CMS-1500 Not Use & UB-04 (FL43-FL44)</span>
             
             <span class='pair' style='background:#fff4e5;color:#c55a11;padding:8px 12px;border-radius:20px;font-size:13px;border:1px solid #ffd9b3;'>CO-16</span>
             
@@ -7654,9 +8814,7 @@ NDC & UOM captured directly from the administered vial or package label</span>
 </div> 
 
 
-  
-
-      
+ 
         <!-- ── HOW TO FIX IT ── -->
   <div class='card span-12 card-collapsible' style='border:1px solid var(--border);border-radius:20px;overflow:hidden;background:#fff;box-shadow:0 10px 24px rgba(15,23,42,0.08)'>
 
@@ -8146,101 +9304,379 @@ NDC & UOM captured directly from the administered vial or package label</span>
 </div><!-- end #rarc-section-MA30 -->
 
 <!-- ═══════════════════════════════════ MA40 SECTION ═══════════════════════════════════ -->
-<div id="rarc-section-MA40" class="rarc-section" style="display:none">
-<div class="layout">
 
-  <!-- ════ LEFT COLUMN ════ -->
-  <div>
 
-    <!-- Result Header -->
-    <div class="result-header">
-      <div class="result-code-block">
-        <span class="codebox">MA40</span>
-        <span class="type-badge supp">REMARK</span>
-        <span class="type-badge warn" style="margin-top:2px">CO-16</span>
+
+<div id='rarc-section-MA40' class='rarc-section' style='background:#ffffff;border:1px solid #dbe4f0;border-radius:14px;padding:20px;margin-bottom:20px;box-shadow:0 2px 8px rgba(0,0,0,0.08);font-family:Segoe UI,Arial,sans-serif;'>
+  <div class='layout'> 
+   <div>
+    <div class='result-header' style='display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap;'>
+      
+      <div class='result-code-block' style='display:flex;gap:10px;align-items:center;flex-wrap:wrap;'>
+        <span class='codebox' style='background:#1f4e78;color:#fff;font-size:18px;font-weight:700;padding:8px 14px;border-radius:8px;'>MA40</span>
+        
+        <span class='type-badge supp' style='background:#e2f0d9;color:#2e7d32;font-size:12px;font-weight:700;padding:6px 12px;border-radius:20px;text-transform:uppercase;'>SUPPLEMENTAL</span>
+        
+        <span class='type-badge warn' style='margin-top:2px;background:#fde9d9;color:#c55a11;font-size:12px;font-weight:700;padding:6px 12px;border-radius:20px;'>CO-16</span>
       </div>
-      <div class="result-desc">
-        <p>Missing / Incomplete / Invalid Admission Date</p>
-        <span class="ctx-pill">Facility Billing / UB-04 · Admission Date (FL12) · Inpatient &amp; SNF</span>
-        <div style="margin-top:14px">
-          <div class="label">Common CARC Pairing</div>
-          <div class="pairs">
-            <span class="pair">CO-16</span>
-            <span class="pair">UB-04</span>
-            <span class="pair">FL12</span>
-            <span class="pair">Inpatient</span>
-            <span class="pair">SNF</span>
+
+      <div class='result-desc' style='margin-top:16px;width:100%;'>
+        <p style='font-size:20px;font-weight:700;color:#1f1f1f;margin:0 0 12px 0;line-height:1.4;'>Invalid Admission Date</p>
+        
+        <span class='ctx-pill' style='display:inline-block;background:#f3f6fa;color:#44546a;font-size:13px;padding:8px 14px;border-radius:20px;margin-bottom:18px;'>Facility Billing / UB-04 · Inpatient & SNF</span>
+
+        <div style='margin-top:14px;border-top:1px solid #e6e6e6;padding-top:14px;'>
+          <div class='label' style='font-size:14px;font-weight:700;color:#1f4e78;margin-bottom:10px;'>Common CARC Pairing</div>
+          
+          <div class='pairs' style='display:flex;flex-wrap:wrap;gap:8px;'>
+            <span class='pair' style='background:#eef4ff;color:#1f4e78;padding:8px 12px;border-radius:20px;font-size:13px;border:1px solid #d6e4ff;'>UB-04 (FL12)</span>
+            
+            <span class='pair' style='background:#fff4e5;color:#c55a11;padding:8px 12px;border-radius:20px;font-size:13px;border:1px solid #ffd9b3;'>CO-16</span>
+            
+            <span class='pair' style='background:#f5f5f5;color:#444;padding:8px 12px;border-radius:20px;font-size:13px;border:1px solid #dddddd;'>Claim/service lacks information</span>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="grid">
+    <div class='grid'>
+
 
       <!-- What This Means -->
-      <div class="card span-12 card-collapsible">
-        <div class="label">What This Means</div>
-        <p class="muted">The Admission Date field (Form Locator 12) on the UB-04 claim was either left blank, submitted with an invalid date format, or contains a date that conflicts with other fields on the claim. FL12 is required on all inpatient hospital and SNF claims — the payer cannot determine the start of the benefit period without it, and the claim will suspend or deny with MA40 until it is corrected.</p>
-        <div class="alert info" style="margin-top:14px">
-          <div class="alert-icon">ℹ️</div>
+      <div class='card span-12 card-collapsible' style='border:1px solid var(--border);border-radius:18px;overflow:hidden;background:#fff;box-shadow:0 6px 18px rgba(0,0,0,0.05)'>
+  <div class='label' style='background:linear-gradient(90deg,#0ea5e9,#2563eb);color:#fff;padding:12px 16px;font-size:14px;font-weight:700'>
+    What This Means
+  </div>
+
+  <div style='padding:18px'>
+    <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:16px'>
+      <div style='width:40px;height:40px;border-radius:50%;background:#dbeafe;color:#2563eb;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700'>
+        💡
+      </div>
+
+      <div style='flex:1'>
+        <div style='font-size:15px;font-weight:700;color:#0f172a;margin-bottom:6px'>
+          What This Means
+        </div>
+        <p class='muted' style='margin:0;font-size:13px;line-height:1.6;color:#475569'>
+          The Admission Date field (Form Locator 12) on the UB-04 claim was either left blank, submitted with an invalid date format, or contains a date that conflicts with other fields on the claim. FL12 is required on all inpatient hospital and SNF claims — the payer cannot determine the start of the benefit period without it
+        </p>
+      </div>
+    </div>
+
+    <div class='alert info' style='margin-top:10px;border-radius:14px;border:1px solid #bfdbfe;background:linear-gradient(180deg,#f8fbff 0%,#eef6ff 100%);padding:14px'>
+      <div style='display:flex;align-items:flex-start;gap:12px'>
+        <div class='alert-icon' style='width:34px;height:34px;border-radius:50%;background:#2563eb;color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px'>
+          ℹ️
+        </div>
+
+        <div style='flex:1'>
+          <div class='alert-title' style='font-size:13px;font-weight:700;color:#1d4ed8;margin-bottom:6px'>
+            Important Distinction
+          </div>
+
+          <div class='alert-text' style='font-size:12px;line-height:1.6;color:#334155'>
+            MA40 does not mean the stay is not covered. It is a data integrity error — the claim cannot be processed until a valid, correctly formatted admission date is present in FL12. This is almost always resolved with a corrected claim, not an appeal.
+          </div>
+
+          <div style='display:flex;gap:12px;flex-wrap:wrap;margin-top:14px'>
+
+            <button class='thumb-btn' style='border-radius:12px;overflow:hidden;border:1px solid #dbeafe;box-shadow:0 2px 8px rgba(37,99,235,0.12)' onclick="openLB('https://raw.githubusercontent.com/kunalvaish49-cpu/VisualCode_UB-04/b39d3afe093b6896ed72d28928d7932e541acc92/FL-12-15%20UB-04.jpg')">
+              <img class='thumb-img' style='display:block;width:120px;height:90px;object-fit:cover' src='https://raw.githubusercontent.com/kunalvaish49-cpu/VisualCode_UB-04/b39d3afe093b6896ed72d28928d7932e541acc92/FL-12-15%20UB-04.jpg' />
+            </button>
+
+            <button class='thumb-btn' style='border-radius:12px;overflow:hidden;border:1px solid #dbeafe;box-shadow:0 2px 8px rgba(37,99,235,0.12)' onclick="openLB('https://raw.githubusercontent.com/kunalvaish49-cpu/VisualCode_UB-04/96802e73495cffbb845bdd1940d711664f1aa09b/Conditoin%20Code%20D4.jpg')">
+              <img class='thumb-img' style='display:block;width:120px;height:90px;object-fit:cover' src='https://raw.githubusercontent.com/kunalvaish49-cpu/VisualCode_UB-04/96802e73495cffbb845bdd1940d711664f1aa09b/Conditoin%20Code%20D4.jpg' />
+            </button>
+
+            <button class='thumb-btn' style='border-radius:12px;overflow:hidden;border:1px solid #dbeafe;box-shadow:0 2px 8px rgba(37,99,235,0.12)' onclick="openLB('https://raw.githubusercontent.com/kunalvaish49-cpu/VisualCode_UB-04/929bbcb74919ad5b7273b72c9a5a207f68d8d9e0/Admission%20Date%20Reference.jpg')">
+              <img class='thumb-img' style='display:block;width:120px;height:90px;object-fit:cover' src='https://raw.githubusercontent.com/kunalvaish49-cpu/VisualCode_UB-04/929bbcb74919ad5b7273b72c9a5a207f68d8d9e0/Admission%20Date%20Reference.jpg' />
+            </button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+      <!-- Where FL12 Lives -->
+     <div class='card span-12 card-collapsible' style='border:1px solid var(--border);border-radius:18px;overflow:hidden;background:#fff;box-shadow:0 6px 18px rgba(0,0,0,0.05)'>
+  <div class='label' style='background:linear-gradient(90deg,#0f172a,#1e3a8a);color:#fff;padding:12px 16px;font-size:14px;font-weight:700'>
+    Where to Report This Information
+  </div>
+
+  <div style='padding:18px'>
+
+    <div style='display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:4px'>
+
+      <div style='border:1px solid #dbeafe;border-radius:16px;padding:16px;background:linear-gradient(180deg,#f8fbff 0%,#ffffff 100%);box-shadow:0 2px 10px rgba(37,99,235,0.08)'>
+        <div style='display:flex;align-items:center;gap:10px;margin-bottom:12px'>
+          <div style='width:38px;height:38px;border-radius:50%;background:#2563eb;color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;box-shadow:0 2px 8px rgba(37,99,235,0.2)'>
+            📄
+          </div>
           <div>
- 
-<div class="alert-title">Important Distinction</div>
-<div class="alert-text">MA40 does not mean the stay is not covered. It is a data integrity error — the claim cannot be processed until a valid, correctly formatted admission date is present in FL12. This is almost always resolved with a corrected claim, not an appeal.</div></br>
+            <div class='nm-h3' style='margin:0;font-size:14px;font-weight:700;color:#1d4ed8'>CMS-1500 (Professional)</div>
+            <div style='font-size:11px;color:#64748b'>Professional claim reporting guidance</div>
+          </div>
+        </div>
 
+        <ul class='info-list' style='font-size:12px;margin-bottom:12px'>
+          <li><strong>Non Billable</strong> Non Billable</li>
+          <li><strong>Non Billable</strong> Non Billable</li>
+        </ul>
 
-<button class="thumb-btn" onclick="openLB('https://raw.githubusercontent.com/kunalvaish49-cpu/VisualCode_UB-04/b39d3afe093b6896ed72d28928d7932e541acc92/FL-12-15%20UB-04.jpg')"><img class="thumb-img" 
+        <div class='ndc-example' style='margin-top:8px;padding:10px;border-radius:10px;background:#eff6ff;border:1px solid #bfdbfe'>
+          <div class='ndc-ok' style='margin-bottom:4px;font-size:11px;font-weight:600;color:#166534'>Non Billable</div>
+          <div class='ndc-bad' style='font-size:11px;font-weight:600;color:#b91c1c'>Non Billable</div>
+        </div>
 
-src="https://raw.githubusercontent.com/kunalvaish49-cpu/VisualCode_UB-04/b39d3afe093b6896ed72d28928d7932e541acc92/FL-12-15%20UB-04.jpg" /></button>
+        <div class='thumb-wrap' style='margin-top:14px;text-align:center'>
+          <button class='thumb-btn' style='border:none;background:none;padding:0' onclick="openLB('https://raw.githubusercontent.com/kunalvaish49-cpu/VisualCode_UB-04/b39d3afe093b6896ed72d28928d7932e541acc92/FL-12-15%20UB-04.jpg','CMS-1500 (Professional)')">
+            <img class='thumb-img' style='border-radius:12px;border:1px solid #dbeafe;box-shadow:0 3px 10px rgba(0,0,0,0.08);max-height:120px' src='https://raw.githubusercontent.com/kunalvaish49-cpu/VisualCode_UB-04/b39d3afe093b6896ed72d28928d7932e541acc92/FL-12-15%20UB-04.jpg' alt='CMS-1500 (Professional)' />
+          </button>
+        </div>
+      </div>
+
+      <div style='border:1px solid #dcfce7;border-radius:16px;padding:16px;background:linear-gradient(180deg,#f7fff8 0%,#ffffff 100%);box-shadow:0 2px 10px rgba(22,163,74,0.08)'>
+        <div style='display:flex;align-items:center;gap:10px;margin-bottom:12px'>
+          <div style='width:38px;height:38px;border-radius:50%;background:#16a34a;color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;box-shadow:0 2px 8px rgba(22,163,74,0.2)'>
+            🏥
+          </div>
+          <div>
+            <div class='nm-h3' style='margin:0;font-size:14px;font-weight:700;color:#15803d'>UB-04 (Facility Claims)</div>
+            <div style='font-size:11px;color:#64748b'>Facility claim reporting guidance</div>
+          </div>
+        </div>
+
+        <ul class='info-list' style='font-size:12px;margin-bottom:12px'>
+          <li><strong>FL12 — Admission / Start of Care Date:</strong> Patient admitted date for Service inpatient or SNF.</li>
+          <li><strong>Format</strong> MM/DD/YY (6-digit) per UB-04 instructions — some payers accept MMDDYYYY (8-digit).</li>
+        </ul>
+
+        <div class='ndc-example' style='margin-top:8px;padding:10px;border-radius:10px;background:#f0fdf4;border:1px solid #bbf7d0'>
+          <div class='ndc-ok' style='margin-bottom:4px;font-size:11px;font-weight:600;color:#166534'>Fields That Cross-Validate With FL12</div>
+          <div class='ndc-bad' style='font-size:11px;font-weight:600;color:#b91c1c'>FL6 — Statement Covers Period (From Date)
+FL17 — Patient Discharge Status
+FL18–FL28 — Condition Codes
+FL31–FL34 — Occurrence Codes / Dates
+FL4 — Type of Bill
+FL67 — Principal Diagnosis</div>
+        </div>
+
+        <div class='thumb-wrap' style='margin-top:14px;text-align:center'>
+          <button class='thumb-btn' style='border:none;background:none;padding:0' onclick="openLB('https://raw.githubusercontent.com/kunalvaish49-cpu/VisualCode_UB-04/929bbcb74919ad5b7273b72c9a5a207f68d8d9e0/Admission%20Date%20Reference.jpg','UB-04 (Facility Claims)')">
+            <img class='thumb-img' style='border-radius:12px;border:1px solid #dcfce7;box-shadow:0 3px 10px rgba(0,0,0,0.08);max-height:120px' src='https://raw.githubusercontent.com/kunalvaish49-cpu/VisualCode_UB-04/929bbcb74919ad5b7273b72c9a5a207f68d8d9e0/Admission%20Date%20Reference.jpg' alt='UB-04 (Facility Claims)' />
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <div class='alert warn' style='margin-top:18px;margin-bottom:18px;border-radius:14px;background:linear-gradient(180deg,#fff7ed 0%,#fffbeb 100%);border:1px solid #fed7aa'>
+      <div class='alert-icon'>⚠️</div>
+      <div>
+        <div class='alert-title' style='font-size:13px;font-weight:700;color:#c2410c'>Admission Date — Common Sub-Error</div>
+        <div class='alert-text' style='font-size:12px;line-height:1.6;color:#7c2d12'>FL 12 = Most critical date; drives DRG, benefit period & payer logic & Medicare SNF claims, the admission date drives the benefit period and coinsurance day calculations.</div>
+      </div>
+    </div>
+
+    <div style='border:1px solid #e2e8f0;border-radius:16px;padding:16px;background:linear-gradient(180deg,#f8fafc 0%,#ffffff 100%)'>
+      <div style='display:flex;align-items:center;gap:10px;margin-bottom:12px'>
+        <div style='width:34px;height:34px;border-radius:50%;background:#0f172a;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700'>
+          #
+        </div>
+        <div class='nm-h3' style='margin:0;font-size:14px;font-weight:700;color:#0f172a'>Admission Date — Conversion Guide</div>
+      </div>
+
+      <table class='uom-table' style='font-size:12px'>
+        <thead>
+          <tr>
+            <th>Original Format</th>
+            <th>Add Zero To</th>
+            <th>Example Conversion</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class='uom-code'>FL 12</span></td>
+            <td>Admission / Start of Care Date</td>
+            <td>Primary admission date — main anchor date</td>
+          </tr>
+          <tr>
+            <td><span class='uom-code'>FL 31–34</span></td>
+            <td>Occurrence Code + Date</td>
+            <td>Event-specific dates (accident, onset, retirement)</td>
+          </tr>
+          <tr>
+            <td><span class='uom-code'>FL 35–36</span></td>
+            <td>Occurrence Span Code + Date</td>
+            <td>Date ranges (leave of absence, SNF span)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+
+      <!-- Why This Happens -->
+<div class='card span-12 card-collapsible' style='border:1px solid #e2e8f0;border-radius:18px;overflow:hidden;background:#fff;box-shadow:0 8px 24px rgba(15,23,42,0.06)'>
+
+  <div class='label' style='background:linear-gradient(90deg,#0f172a,#1d4ed8);color:#fff;padding:14px 18px;font-size:15px;font-weight:700;display:flex;align-items:center;justify-content:space-between'>
+    <span>Why This Happens</span>
+  </div>
+
+  <div style='padding:18px'>
+
+    <div style='display:flex;align-items:center;gap:12px;margin-bottom:16px'>
+      <div style='width:42px;height:42px;border-radius:50%;background:#f59e0b;color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;box-shadow:0 3px 10px rgba(245,158,11,0.25)'>
+        ⚠️
+      </div>
+
+      <div>
+        <div class='nm-h3' style='margin:0;font-size:18px;font-weight:700;color:#92400e'>
+          DATA ENTRY &amp; SELECTION ISSUES
+        </div>
+        <div style='font-size:12px;color:#64748b;margin-top:2px'>
+          Most common root causes behind this denial
+        </div>
+      </div>
+    </div>
+
+    <div style='background:linear-gradient(180deg,#f8fbff 0%,#eef6ff 100%);border:1px solid #bfdbfe;border-radius:14px;padding:14px 16px;margin-bottom:18px'>
+      <div style='display:flex;align-items:flex-start;gap:12px'>
+        <div style='width:34px;height:34px;border-radius:50%;background:#2563eb;color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;flex-shrink:0'>
+          ℹ️
+        </div>
+
+        <div>
+          <div style='font-size:13px;font-weight:700;color:#1d4ed8;margin-bottom:6px'>
+            Quick Reminder
+          </div>
+
+          <div style='font-size:12px;line-height:1.7;color:#334155'>
+            Most TOB denials happen because the claim contains a missing, incomplete, incorrect, or mismatched Type of Bill value.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style='display:grid;grid-template-columns:1fr 1fr;gap:14px'>
+
+      <div style='background:#fff;border:1px solid #fde7b0;border-radius:14px;padding:14px 16px;box-shadow:0 2px 6px rgba(245,158,11,0.06)'>
+        <div style='display:flex;align-items:flex-start;gap:10px'>
+          <div style='width:32px;height:32px;border-radius:50%;background:#fef3c7;color:#b45309;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0'>
+            1
+          </div>
+
+          <div>
+            <div style='font-size:13px;font-weight:700;color:#92400e;margin-bottom:4px'>
+              Missing TOB
+            </div>
+
+            <div style='font-size:12px;line-height:1.7;color:#57534e'>
+              FL4 was left completely blank during claim submission.
             </div>
           </div>
         </div>
+      </div>
 
-      <!-- Where FL12 Lives -->
-      <div class="card span-12 card-collapsible">
-        <div class="label">Where FL12 Is on the UB-04</div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:8px">
-          <div>
-            <div class="nm-h3" style="margin-top:0">UB-04 Form Locator 12</div>
-            <ul class="info-list">
-              <li><strong>FL12 — Admission / Start of Care Date:</strong> The date the patient was admitted for an inpatient stay or the start of a home health or SNF episode</li>
-              <li>Format: <strong>MM/DD/YY</strong> (6-digit) per UB-04 instructions — some payers accept MMDDYYYY (8-digit) in the EDI 837I loop</li>
-              <li>EDI 837I equivalent: <strong>Loop 2300 DTP*435</strong> (Admission Date)</li>
-              <li>Required on all inpatient (TOB 011x, 021x) and SNF claims</li>
-              <li>Not required on outpatient (TOB 013x) or HHA final claims (TOB 032x) unless payer-specific rules apply</li>
-            </ul>
+      <div style='background:#fff;border:1px solid #fde7b0;border-radius:14px;padding:14px 16px;box-shadow:0 2px 6px rgba(245,158,11,0.06)'>
+        <div style='display:flex;align-items:flex-start;gap:10px'>
+          <div style='width:32px;height:32px;border-radius:50%;background:#fef3c7;color:#b45309;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0'>
+            2
           </div>
+
           <div>
-            <div class="nm-h3" style="margin-top:0">Fields That Cross-Validate With FL12</div>
-            <ul class="info-list">
-              <li><strong>FL6 — Statement Covers Period (From Date):</strong> Cannot be earlier than FL12 admission date</li>
-              <li><strong>FL17 — Patient Discharge Status:</strong> Must be present if FL12 is present; discharge date must be on or after FL12</li>
-              <li><strong>FL18–FL28 — Condition Codes:</strong> Certain condition codes are date-driven from the admission date</li>
-              <li><strong>FL31–FL34 — Occurrence Codes / Dates:</strong> Occurrence codes tied to admission (e.g., OC 01 — Accident) must be on or after FL12</li>
-              <li><strong>FL4 — Type of Bill:</strong> Inpatient TOB (011x, 021x) triggers FL12 requirement</li>
-              <li><strong>FL67 — Principal Diagnosis:</strong> POA indicator validation is anchored to the admission date</li>
-            </ul>
+            <div style='font-size:13px;font-weight:700;color:#92400e;margin-bottom:4px'>
+              Incomplete TOB
+            </div>
+
+            <div style='font-size:12px;line-height:1.7;color:#57534e'>
+              Only 2 or 3 digits submitted — TOB submitted as 3 characters instead of 4 — leading zero dropped.
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Why This Happens -->
-      <div class="card span-6 card-collapsible">
-        <div class="label">Why This Happens — Most Common Causes</div>
-        <ul class="info-list">
-          <li>FL12 left blank during claim entry — most common cause</li>
-          <li>Admission date entered in wrong format (e.g., YYYY-MM-DD instead of MM/DD/YY)</li>
-          <li>Date entered as all zeros (000000) or with placeholder text</li>
-          <li>EHR-to-billing system interface failed to map the admit date to FL12</li>
-          <li>Admit date on the claim does not match ADT (Admission, Discharge, Transfer) system records</li>
-          <li>Admission date is after the statement period end date — impossible chronological sequence</li>
-          <li>Admission date is in the future — date entry error</li>
-          <li>Claim was copied from a prior patient encounter and the admission date was not updated</li>
-          <li>SNF claim submitted without the admission date from the qualifying hospital stay</li>
-          <li>Late charge claim (TOB frequency 5) submitted and the original admission date was not carried over</li>
-          <li>Interim continuing or interim last claim submitted without the original admission date from the interim first</li>
-        </ul>
+      <div style='background:#fff;border:1px solid #fde7b0;border-radius:14px;padding:14px 16px;box-shadow:0 2px 6px rgba(245,158,11,0.06)'>
+        <div style='display:flex;align-items:flex-start;gap:10px'>
+          <div style='width:32px;height:32px;border-radius:50%;background:#fef3c7;color:#b45309;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0'>
+            3
+          </div>
+
+          <div>
+            <div style='font-size:13px;font-weight:700;color:#92400e;margin-bottom:4px'>
+              Wrong Facility Type
+            </div>
+
+            <div style='font-size:12px;line-height:1.7;color:#57534e'>
+              Facility type digit does not match the provider's enrollment type — for example, an ASC billing with a hospital TOB (013X) instead of an ASC TOB (085X).
+            </div>
+          </div>
+        </div>
       </div>
+
+      <div style='background:#fff;border:1px solid #fde7b0;border-radius:14px;padding:14px 16px;box-shadow:0 2px 6px rgba(245,158,11,0.06)'>
+        <div style='display:flex;align-items:flex-start;gap:10px'>
+          <div style='width:32px;height:32px;border-radius:50%;background:#fef3c7;color:#b45309;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0'>
+            4
+          </div>
+
+          <div>
+            <div style='font-size:13px;font-weight:700;color:#92400e;margin-bottom:4px'>
+              Wrong Bill Classification
+            </div>
+
+            <div style='font-size:12px;line-height:1.7;color:#57534e'>
+              Outpatient services billed with inpatient classification — for example, 0111 used for an outpatient infusion that should be 0131.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style='background:#fff;border:1px solid #fde7b0;border-radius:14px;padding:14px 16px;box-shadow:0 2px 6px rgba(245,158,11,0.06)'>
+        <div style='display:flex;align-items:flex-start;gap:10px'>
+          <div style='width:32px;height:32px;border-radius:50%;background:#fef3c7;color:#b45309;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0'>
+            5
+          </div>
+
+          <div>
+            <div style='font-size:13px;font-weight:700;color:#92400e;margin-bottom:4px'>
+              Wrong Frequency Code
+            </div>
+
+            <div style='font-size:12px;line-height:1.7;color:#57534e'>
+              Admit-through-discharge claim (frequency 1) submitted when the patient was never discharged — creating a false episode closure.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style='background:#fff;border:1px solid #fde7b0;border-radius:14px;padding:14px 16px;box-shadow:0 2px 6px rgba(245,158,11,0.06)'>
+        <div style='display:flex;align-items:flex-start;gap:10px'>
+          <div style='width:32px;height:32px;border-radius:50%;background:#fef3c7;color:#b45309;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0'>
+            6
+          </div>
+
+          <div>
+            <div style='font-size:13px;font-weight:700;color:#92400e;margin-bottom:4px'>
+              System &amp; Interface Errors
+            </div>
+
+            <div style='font-size:12px;line-height:1.7;color:#57534e'>
+              Billing system updated with new TOB values but old TOBs carried forward in templates.
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
 
       <!-- How to Fix It -->
       <div class="card span-6 card-collapsible">
