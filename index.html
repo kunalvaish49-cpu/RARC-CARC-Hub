@@ -9832,98 +9832,343 @@ FL67 — Principal Diagnosis</div>
   </div>
 </div>
 
-      <!-- How to Fix It -->
-      <div class="card span-6 card-collapsible">
-        <div class="label">How to Fix It</div>
-        <div class="nm-h3" style="margin-top:4px">Standard Correction — Step by Step</div>
-        <ol class="step-list">
-          <li><span class="sn">1</span><span>Pull the face sheet, ADT system record, or registration document to confirm the correct admission date</span></li>
-          <li><span class="sn">2</span><span>Confirm the date format matches payer requirements — typically MM/DD/YY on the paper UB-04 or MMDDYYYY in the EDI 837I DTP*435 segment</span></li>
-          <li><span class="sn">3</span><span>Check that the admission date is not later than the Statement From date (FL6) — if it is, also correct FL6</span></li>
-          <li><span class="sn">4</span><span>Check that the admission date is not after the discharge date (FL17 / Statement Thru date)</span></li>
-          <li><span class="sn">5</span><span>For SNF claims — verify the admission date reflects the SNF admission, not the prior qualifying hospital admission, unless payer-specific rules require the hospital admit date</span></li>
-          <li><span class="sn">6</span><span>For interim continuing / interim last claims — carry the same original admission date from the interim first claim</span></li>
-          <li><span class="sn">7</span><span>Add Condition Code D4 if correcting a previously submitted claim (indicates TOB or data correction)</span></li>
-          <li><span class="sn">8</span><span>Submit a corrected claim using Frequency Code 7 (Replacement) in the Type of Bill</span></li>
-        </ol>
-      </div>
+      <div class='card span-12 card-collapsible' style='border:1px solid var(--border);border-radius:20px;overflow:hidden;background:#fff;box-shadow:0 10px 24px rgba(15,23,42,0.08)'>
 
+  <div class='label' style='background:linear-gradient(90deg,#0f172a,#1e3a8a);color:#fff;padding:14px 18px;font-size:15px;font-weight:700;letter-spacing:.3px'>
+    How to Fix It
+  </div>
 
-      <!-- Condition Code D4 -->
-      <div class="card span-12 card-collapsible">
-        <div class="label">Condition Code D4 — When and Why to Use It</div>
-        <div class="alert info" style="margin-bottom:14px">
-          <div class="alert-icon">ℹ️</div>
+  <div style='padding:20px'>
+    <div style='display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px'>
+
+      <!-- Step 1 -->
+      <div style='border:1px solid #dbeafe;border-radius:18px;padding:18px;background:linear-gradient(180deg,#f8fbff 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(37,99,235,0.08)'>
+        <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
+          <div style='width:38px;height:38px;border-radius:50%;background:#2563eb;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(37,99,235,0.2)'>1</div>
           <div>
-            <div class="alert-title">Always Include D4 on Corrected Claims</div>
-            <div class="alert-text">Condition Code D4 signals to the payer that this claim is a correction of a previously submitted claim. It is required when changing FL12 on a replacement claim (Frequency Code 7) to ensure the payer's system replaces — rather than duplicates — the original submission.</div>
+            <div class='nm-h3' style='margin:0;font-size:14px;font-weight:700;color:#1d4ed8'>
+              Coding Escalation - Step 1
+            </div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>
+              Initial review and coding validation
+            </div>
           </div>
         </div>
-        <ul class="info-list">
-          <li>D4 goes in FL18–FL28 (Condition Code field) on the corrected UB-04</li>
-          <li>If omitted on a replacement claim, the payer may treat the corrected claim as a duplicate and deny it</li>
-          <li>D4 is required regardless of whether the only correction is the admission date or whether multiple fields are being corrected</li>
+
+        <div style='background:#eff6ff;border:1px solid #dbeafe;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
+          Admission date in FL 12 is missing, invalid, or conflicts with other dates on the claim.
+        </div>
+
+        <ul class='info-list' style='font-size:12px;line-height:1.65;margin:0'>
+          <li>FL 12 is blank → Pull face sheet immediately & populate the admission date</li>
+          <li>Wrong date format (YYYY instead of MMDDYY) → Correct to MMDDYY format and resubmit</li>
+          <li>Admission date is after FL 6 From date → Fix FL 12 to be equal to or before FL 6 From date</li>
         </ul>
       </div>
+
+      <!-- Step 2 -->
+      <div style='border:1px solid #dcfce7;border-radius:18px;padding:18px;background:linear-gradient(180deg,#f7fff8 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(22,163,74,0.08)'>
+        <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
+          <div style='width:38px;height:38px;border-radius:50%;background:#16a34a;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(22,163,74,0.2)'>2</div>
+          <div>
+            <div class='nm-h3' style='margin:0;font-size:14px;font-weight:700;color:#15803d'>
+              Corrected Claim Resubmission - Step 2
+            </div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>
+              Correct and resubmit the claim
+            </div>
+          </div>
+        </div>
+
+        <div style='background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
+          Original claim had an admission date error — corrected claim must be sent with FL 12 fixed.
+        </div>
+
+        <ul class='info-list' style='font-size:12px;line-height:1.65;margin:0'>
+          <li>FL 12 blank on original claim → Add correct admission date and resubmit as Frequency Type 7</li>
+          <li>FL 6 From date earlier than FL 12 → Align FL 6 From date to match or come after FL 12</li>
+          <li>Corrected claim missing Condition Code → Add Condition Code D1 to avoid duplicate denial</li>
+          <li>Resubmission past timely filing limit → Attach original submission record as timely filing proof</li>
+        </ul>
+      </div>
+
+      <!-- Step 3 -->
+      <div style='border:1px solid #fed7aa;border-radius:18px;padding:18px;background:linear-gradient(180deg,#fffaf5 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(234,88,12,0.08)'>
+        <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
+          <div style='width:38px;height:38px;border-radius:50%;background:#ea580c;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(234,88,12,0.2)'>3</div>
+          <div>
+            <div class='nm-h3' style='margin:0;font-size:14px;font-weight:700;color:#c2410c'>
+              Calling Required - Step 3
+            </div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>
+              Contact payer for clarification
+            </div>
+          </div>
+        </div>
+
+        <div style='background:#fff7ed;border:1px solid #fed7aa;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
+          Corrected claim status is unknown or payer shows no record of receipt.
+        </div>
+
+        <ul class='info-list' style='font-size:12px;line-height:1.65;margin:0'>
+          <li>Corrected claim not in payer system → Confirm receipt & request manual entry or retransmission</li>
+          <li>Payer unsure why MA40 triggered → Ask rep to specify — missing vs invalid vs conflicting date</li>
+          <li>Payer shows original claim only → Provide corrected claim # and date, request escalation to supervisor</li>
+        </ul>
+      </div>
+
+      <!-- Step 4 -->
+      <div style='border:1px solid #fecaca;border-radius:18px;padding:18px;background:linear-gradient(180deg,#fff6f6 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(220,38,38,0.08)'>
+        <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
+          <div style='width:38px;height:38px;border-radius:50%;background:#dc2626;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(220,38,38,0.2)'>4</div>
+          <div>
+            <div class='nm-h3' style='margin:0;font-size:14px;font-weight:700;color:#b91c1c'>
+              Appeal Required - Step 4
+            </div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>
+              Escalate through the appeal process
+            </div>
+          </div>
+        </div>
+
+        <div style='background:#fef2f2;border:1px solid #fecaca;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
+          Payer refuses to reprocess corrected claim despite valid admission date.
+        </div>
+
+        <ul class='info-list' style='font-size:12px;line-height:1.65;margin:0'>
+          <li>Corrected claim denied without reason → File appeal attaching face sheet and H&P confirming admission date</li>
+          <li>Payer claims admission date is medically invalid → Attach physician admission orders</li>
+          <li>Appeal deadline approaching → File immediately and supplement later if needed</li>
+          <li>Payer applies wrong benefit period → Include admission date proof</li>
+        </ul>
+      </div>
+
+      <!-- Step 5 -->
+      <div style='grid-column:1 / -1;border:1px solid #ddd6fe;border-radius:18px;padding:18px;background:linear-gradient(180deg,#f8f7ff 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(124,58,237,0.08)'>
+        <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
+          <div style='width:38px;height:38px;border-radius:50%;background:#7c3aed;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(124,58,237,0.2)'>5</div>
+          <div>
+            <div class='nm-h3' style='margin:0;font-size:14px;font-weight:700;color:#6d28d9'>
+              Payer says info not received - Step 5
+            </div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>
+              Verify claim transmission and field placement
+            </div>
+          </div>
+        </div>
+
+        <div style='background:#f5f3ff;border:1px solid #ddd6fe;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
+          Payer claims FL 12 was not present on the submitted claim form.
+        </div>
+
+        <ul class='info-list' style='font-size:12px;line-height:1.65;margin:0'>
+          <li>Pull clearinghouse claim image and compare with original</li>
+          <li>Check 837I file (Loop 2300) for missing admission date</li>
+          <li>Confirm clearinghouse transmission logs</li>
+          <li>Request payer-side claim image for validation</li>
+          <li>Fix mapping issue before resubmission</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
 
       <!-- What NOT to Do -->
-      <div class="card span-6 card-collapsible">
-        <div class="label">What NOT to Do</div>
-        <ul class="info-list">
-          <li>Do not appeal before submitting a corrected claim with the valid admission date</li>
-          <li>Do not submit the corrected claim with the same blank or invalid FL12</li>
-          <li>Do not assume the admission date carried over correctly from a prior claim without verifying the actual FL12 value</li>
-          <li>Do not use the hospital admission date on an SNF claim if the SNF had a separate, later admission date — verify which date applies</li>
-          <li>Do not omit Condition Code D4 on the replacement claim</li>
-          <li>Do not carry forward a placeholder date (e.g., 01/01/00 or 000000) from a billing template</li>
-        </ul>
-        <div class="alert err" style="margin-top:14px">
-          <div class="alert-icon">🚫</div>
-          <div class="alert-text">Appealing before correcting FL12 wastes timely filing days. MA40 is almost always a correctable data error — verify the admission date from the ADT system, correct it, and resubmit with Frequency Code 7 and Condition Code D4.</div>
+      <div class='card span-6 card-collapsible' style='border:1px solid var(--border);border-radius:20px;overflow:hidden;background:#fff;box-shadow:0 10px 24px rgba(15,23,42,0.08)'>
+
+  <div class='label' style='background:linear-gradient(90deg,#7f1d1d,#dc2626);color:#fff;padding:14px 18px;font-size:15px;font-weight:700;letter-spacing:.3px'>
+    WHAT NOT TO DO
+  </div>
+
+  <div style='padding:20px'>
+
+    <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:16px'>
+      <div style='width:40px;height:40px;border-radius:50%;background:#dc2626;color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;box-shadow:0 2px 8px rgba(220,38,38,0.2)'>
+        🚫
+      </div>
+      <div>
+        <div class='nm-h3' style='margin:0;font-size:14px;font-weight:700;color:#b91c1c'>
+          What NOT to Do
+        </div>
+        <div style='font-size:11px;color:#64748b;margin-top:2px'>
+          Avoid these common actions that lead to repeat denials
         </div>
       </div>
+    </div>
+
+    <!-- Highlight Box -->
+    <div style='background:#fef2f2;border:1px solid #fecaca;border-radius:14px;padding:12px 14px;margin-bottom:14px;font-size:12px;line-height:1.55;color:#7f1d1d'>
+      These mistakes commonly trigger repeat denials, delays, or incorrect claim processing.
+    </div>
+
+    <!-- Main List -->
+    <div style='background:linear-gradient(180deg,#fff7f7 0%,#ffffff 100%);border:1px solid #fecaca;border-radius:16px;padding:16px'>
+      <ul class='info-list' style='margin:0;font-size:12px;line-height:1.65;color:#475569'>
+        <li>Do not resubmit the claim with the same invalid or incomplete TOB — it will deny again with MA30</li>
+        <li>Do not change the TOB without reviewing all cross-validated fields — mismatches will generate secondary denials</li>
+        <li>Do not use frequency code 7 (replacement) without a valid prior claim — it may create a new claim instead</li>
+        <li>Do not use frequency code 8 (void) unless the original claim was paid — unpaid claims may not process correctly</li>
+        <li>Do not carry an incorrect TOB to secondary claims — this causes cascading denials</li>
+      </ul>
+    </div>
+
+    <!-- Alert -->
+    <div class='alert err' style='margin-top:18px;margin-bottom:0;border-radius:16px;background:linear-gradient(180deg,#fef2f2 0%,#fff5f5 100%);border:1px solid #fca5a5;box-shadow:0 3px 10px rgba(220,38,38,0.08)'>
+      <div class='alert-icon' style='font-size:18px'>⚠️</div>
+      <div>
+        <div class='alert-title' style='font-size:13px;font-weight:700;color:#b91c1c'>
+          Critical Reminder
+        </div>
+        <div class='alert-text' style='font-size:12px;line-height:1.6;color:#7f1d1d'>
+          Appealing MA30 before correcting the TOB error wastes timely filing days and is rarely successful. Always correct the TOB, validate all related fields, and resubmit before considering an appeal.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
 
       <!-- Prevention Checklist -->
-      <div class="card span-6 card-collapsible">
-        <div class="label">Prevention Checklist</div>
-        <p class="muted" style="margin-bottom:10px;font-size:13px">Before submitting any inpatient or SNF claim, confirm:</p>
-        <ul class="checklist">
-          <li><span class="ck-icon">✅</span><span>FL12 is populated — not blank, not zero-filled, not a placeholder</span></li>
-          <li><span class="ck-icon">✅</span><span>Date format is MM/DD/YY (paper) or MMDDYYYY (EDI 837I)</span></li>
-          <li><span class="ck-icon">✅</span><span>Admission date is confirmed against the face sheet or ADT system record</span></li>
-          <li><span class="ck-icon">✅</span><span>Admission date is on or before the Statement From date (FL6)</span></li>
-          <li><span class="ck-icon">✅</span><span>Admission date is on or before the discharge / Statement Thru date</span></li>
-          <li><span class="ck-icon">✅</span><span>For interim claims — admission date matches the original admission date from the first claim in the series</span></li>
-          <li><span class="ck-icon">✅</span><span>For corrected claims — Condition Code D4 is included and Frequency Code 7 is in the TOB</span></li>
-          <li><span class="ck-icon">✅</span><span>Claim run through scrubber with FL12 validation before submission</span></li>
-        </ul>
+      <div class='card span-6 card-collapsible' style='border:1px solid var(--border);border-radius:18px;overflow:hidden;background:#fff;box-shadow:0 6px 18px rgba(0,0,0,0.05)'>
+  <div class='label' style='background:linear-gradient(90deg,#065f46,#10b981);color:#fff;padding:12px 16px;font-size:14px;font-weight:700'>
+    PREVENTIVE CHECKLIST
+  </div>
+  <div style='padding:18px'>
+    <div style='display:flex;align-items:center;gap:10px;margin-bottom:14px'>
+      <div style='width:38px;height:38px;border-radius:50%;background:#10b981;color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;box-shadow:0 2px 8px rgba(16,185,129,0.2)'>
+        ✅
       </div>
+      <div>
+        <div class='nm-h3' style='margin:0;font-size:14px;font-weight:700;color:#047857'>PREVENTIVE CHECKLIST</div>
+        <div style='font-size:11px;color:#64748b'>Pre-submission validation checklist</div>
+      </div>
+    </div>
+    <div style='background:linear-gradient(180deg,#f0fdf4 0%,#ffffff 100%);border:1px solid #bbf7d0;border-radius:14px;padding:12px 14px;margin-bottom:14px'>
+      <p class='muted' style='margin:0;font-size:12px;line-height:1.6;color:#475569'>
+        Before submitting any inpatient or SNF claim, confirm
+      </p>
+    </div>
+    <div style='background:#fafafa;border:1px solid #e5e7eb;border-radius:14px;padding:14px 16px'>
+      <ul class='checklist' style='margin:0;display:flex;flex-direction:column;gap:10px'>
+        <li style='display:flex;align-items:flex-start;gap:10px;font-size:12px;color:#334155'>
+          <span class='ck-icon' style='color:#10b981;font-size:14px;font-weight:700'>✅</span>
+          <span>FL12 is populated — not blank, not zero-filled, not a placeholder</span>
+        </li>
+        <li style='display:flex;align-items:flex-start;gap:10px;font-size:12px;color:#334155'>
+          <span class='ck-icon' style='color:#10b981;font-size:14px;font-weight:700'>✅</span>
+          <span>Date format is MM/DD/YY (paper) or MMDDYYYY (EDI 837I)</span>
+        </li>
+        <li style='display:flex;align-items:flex-start;gap:10px;font-size:12px;color:#334155'>
+          <span class='ck-icon' style='color:#10b981;font-size:14px;font-weight:700'>✅</span>
+          <span>Admission date is confirmed against the face sheet or ADT system record</span>
+        </li>
+        <li style='display:flex;align-items:flex-start;gap:10px;font-size:12px;color:#334155'>
+          <span class='ck-icon' style='color:#10b981;font-size:14px;font-weight:700'>✅</span>
+          <span>Admission date is on or before the Statement From date (FL6)</span>
+        </li>
+        <li style='display:flex;align-items:flex-start;gap:10px;font-size:12px;color:#334155'>
+          <span class='ck-icon' style='color:#10b981;font-size:14px;font-weight:700'>✅</span>
+          <span>Admission date is on or before the discharge / Statement Thru date</span>
+        </li>
+        <li style='display:flex;align-items:flex-start;gap:10px;font-size:12px;color:#334155'>
+          <span class='ck-icon' style='color:#10b981;font-size:14px;font-weight:700'>✅</span>
+          <span>For interim claims — admission date matches the original admission date from the first claim in the series</span>
+        </li>
+        <li style='display:flex;align-items:flex-start;gap:10px;font-size:12px;color:#334155'>
+          <span class='ck-icon' style='color:#10b981;font-size:14px;font-weight:700'>✅</span>
+          <span>For corrected claims — Condition Code D4 is included and Frequency Code 7 is in the TOB</span>
+        </li>
+        <li style='display:flex;align-items:flex-start;gap:10px;font-size:12px;color:#334155'>
+          <span class='ck-icon' style='color:#10b981;font-size:14px;font-weight:700'>✅</span>
+          <span>Claim run through scrubber with FL12 validation before submission</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
 
       <!-- When to Appeal vs Correct -->
-      <div class="card span-12 card-collapsible">
-        <div class="label">Best Practice — When to Appeal vs. When to Correct</div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px">
-          <div class="decision-box">
-            <h4>✅ Appeal Only When ALL of These Are True</h4>
-            <ul class="info-list" style="margin-top:0">
-              <li>A corrected claim with the verified admission date has already been submitted and denied again</li>
-              <li>The admission date on the corrected claim is confirmed correct against ADT system records</li>
-              <li>The continued denial is due to a payer-side system or date validation error — not a data issue on the claim</li>
-            </ul>
+      <div class='card span-12 card-collapsible' style='border:1px solid var(--border);border-radius:20px;overflow:hidden;background:#fff;box-shadow:0 10px 24px rgba(15,23,42,0.08)'>
+
+  <div class='label' style='background:linear-gradient(90deg,#0f172a,#1e3a8a);color:#fff;padding:14px 18px;font-size:15px;font-weight:700;letter-spacing:.3px'>
+    Best Practice — When to Appeal vs. When to Correct
+  </div>
+
+  <div style='padding:20px'>
+    <div style='display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px'>
+
+      <!-- APPEAL BOX -->
+      <div style='border:1px solid #bbf7d0;border-radius:18px;padding:18px;background:linear-gradient(180deg,#f0fdf4 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(16,185,129,0.08)'>
+
+        <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
+          <div style='width:38px;height:38px;border-radius:50%;background:#10b981;color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;box-shadow:0 2px 8px rgba(16,185,129,0.2)'>
+            ✅
           </div>
-          <div class="deny-box">
-            <h4>🔄 Correct &amp; Resubmit First (Most Cases)</h4>
-            <ul class="info-list" style="margin-top:0">
-              <li>The vast majority of MA40 denials resolve by populating or correcting FL12 and resubmitting</li>
-              <li>Do not appeal as a first step — confirm the admission date from the ADT or face sheet first</li>
-              <li>Use Frequency Code 7 and Condition Code D4 on the corrected claim</li>
-            </ul>
+          <div>
+            <div style='margin:0;font-size:14px;font-weight:700;color:#047857'>
+              Appeal Only When ALL of These Are True
+            </div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>
+              Use only when the claim has already been corrected and still denied
+            </div>
           </div>
+        </div>
+
+        <!-- Highlight -->
+        <div style='background:#ecfdf5;border:1px solid #a7f3d0;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#065f46'>
+          Appeal only when billing data is fully validated and the denial persists due to payer-side processing.
+        </div>
+
+        <div style='background:#ffffff;border:1px solid #d1fae5;border-radius:12px;padding:12px 14px'>
+          <ul class='info-list' style='margin:0;font-size:12px;line-height:1.65;color:#334155'>
+            <li>A corrected claim has already been submitted and denied again</li>
+            <li>All billing data (NDC, J-code, UOM, quantity, manufacturer) has been confirmed correct</li>
+            <li>The denial still cites N846 — indicating a payer-side processing issue</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- CORRECT BOX -->
+      <div style='border:1px solid #bfdbfe;border-radius:18px;padding:18px;background:linear-gradient(180deg,#eff6ff 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(37,99,235,0.08)'>
+
+        <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
+          <div style='width:38px;height:38px;border-radius:50%;background:#2563eb;color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;box-shadow:0 2px 8px rgba(37,99,235,0.2)'>
+            🔄
+          </div>
+          <div>
+            <div style='margin:0;font-size:14px;font-weight:700;color:#1d4ed8'>
+              Correct & Resubmit First (Most Cases)
+            </div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>
+              Recommended first step for most denials
+            </div>
+          </div>
+        </div>
+
+        <!-- Highlight -->
+        <div style='background:#eff6ff;border:1px solid #dbeafe;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#1e3a8a'>
+          Most N846 denials are data-related — correction is almost always required before appeal.
+        </div>
+
+        <div style='background:#ffffff;border:1px solid #dbeafe;border-radius:12px;padding:12px 14px'>
+          <ul class='info-list' style='margin:0;font-size:12px;line-height:1.65;color:#334155'>
+            <li>Most N846 denials resolve by correcting and resubmitting the claim</li>
+            <li>Verify NDC ↔ J-code crosswalk, 11-digit format, N4 qualifier, UOM, and quantity</li>
+            <li>Use Resubmission Code 7 on the corrected claim</li>
+           </ul>
         </div>
       </div>
 
-    </div><!-- end .grid -->
-  </div><!-- end left column -->
+    </div>
+  </div>
+</div>
+
+      </div><!-- end .grid -->
+    </div><!-- end left column --> 
 
    <!-- ════ RIGHT SIDEBAR ════ -->
     <aside>
@@ -10120,61 +10365,99 @@ FL67 — Principal Diagnosis</div>
 </div><!-- end #rarc-section-MA40 -->
 
 <!-- ═══════════════════════════════════ M44 SECTION ═══════════════════════════════════ -->
-<div id="rarc-section-M44" class="rarc-section" style="display:none">
-<div class="layout">
 
-<!-- ════ LEFT COLUMN ════ -->
-<div>
 
-  <!-- Result Header -->
-  <div class="result-header">
-    <div class="result-code-block">
-      <span class="codebox">M44</span>
-      <span class="type-badge supp">REMARK</span>
-      <span class="type-badge warn" style="margin-top:2px">CO-16</span>
+<div id='rarc-section-M44' class='rarc-section' style='background:#ffffff;border:1px solid #dbe4f0;border-radius:14px;padding:20px;margin-bottom:20px;box-shadow:0 2px 8px rgba(0,0,0,0.08);font-family:Segoe UI,Arial,sans-serif;'>
+  <div class='layout'> 
+   <div>
+    <div class='result-header' style='display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap;'>
+      
+      <div class='result-code-block' style='display:flex;gap:10px;align-items:center;flex-wrap:wrap;'>
+        <span class='codebox' style='background:#1f4e78;color:#fff;font-size:18px;font-weight:700;padding:8px 14px;border-radius:8px;'>M44</span>
+        
+        <span class='type-badge supp' style='background:#e2f0d9;color:#2e7d32;font-size:12px;font-weight:700;padding:6px 12px;border-radius:20px;text-transform:uppercase;'>SUPPLEMENTAL</span>
+        
+        <span class='type-badge warn' style='margin-top:2px;background:#fde9d9;color:#c55a11;font-size:12px;font-weight:700;padding:6px 12px;border-radius:20px;'>CO-16</span>
+      </div>
+
+      <div class='result-desc' style='margin-top:16px;width:100%;'>
+        <p style='font-size:20px;font-weight:700;color:#1f1f1f;margin:0 0 12px 0;line-height:1.4;'>Invalid Condition Code</p>
+        
+        <span class='ctx-pill' style='display:inline-block;background:#f3f6fa;color:#44546a;font-size:13px;padding:8px 14px;border-radius:20px;margin-bottom:18px;'>Facility Billing / UB-04 · Inpatient & Outpatient</span>
+
+        <div style='margin-top:14px;border-top:1px solid #e6e6e6;padding-top:14px;'>
+          <div class='label' style='font-size:14px;font-weight:700;color:#1f4e78;margin-bottom:10px;'>Common CARC Pairing</div>
+          
+          <div class='pairs' style='display:flex;flex-wrap:wrap;gap:8px;'>
+            <span class='pair' style='background:#eef4ff;color:#1f4e78;padding:8px 12px;border-radius:20px;font-size:13px;border:1px solid #d6e4ff;'>UB-04 (FL18-FL28)</span>
+            
+            <span class='pair' style='background:#fff4e5;color:#c55a11;padding:8px 12px;border-radius:20px;font-size:13px;border:1px solid #ffd9b3;'>CO-16</span>
+            
+            <span class='pair' style='background:#f5f5f5;color:#444;padding:8px 12px;border-radius:20px;font-size:13px;border:1px solid #dddddd;'>Claim/service lacks information</span>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="result-desc">
-      <p>Missing / Incomplete / Invalid Condition Code</p>
-      <span class="ctx-pill">Facility Billing / UB-04 · Condition Codes (FL18–FL28) · Inpatient &amp; Outpatient</span>
-      <div style="margin-top:14px">
-        <div class="label">Common CARC Pairing</div>
-        <div class="pairs">
-          <span class="pair">CO-16</span>
-            <span class="pair">UB-04</span>
-            <span class="pair">FL18–FL28</span>
-            <span class="pair">Inpatient</span>
-            <span class="pair">Outpatient</span>
-            <span class="pair">SNF</span>
+
+    <div class='grid'>
+
+    <!-- What This Means -->
+    <div class='card span-12 card-collapsible' style='border:1px solid var(--border);border-radius:18px;overflow:hidden;background:#fff;box-shadow:0 6px 18px rgba(0,0,0,0.05)'>
+  <div class='label' style='background:linear-gradient(90deg,#0ea5e9,#2563eb);color:#fff;padding:12px 16px;font-size:14px;font-weight:700'>
+    What This Means
+  </div>
+
+  <div style='padding:18px'>
+    <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:16px'>
+      <div style='width:40px;height:40px;border-radius:50%;background:#dbeafe;color:#2563eb;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700'>
+        💡
+      </div>
+
+      <div style='flex:1'>
+        <div style='font-size:15px;font-weight:700;color:#0f172a;margin-bottom:6px'>
+          What This Means
+        </div>
+        <p class='muted' style='margin:0;font-size:13px;line-height:1.6;color:#475569'>
+          Condition Codes (Form Locators 18–28 on the UB-04) provide supplemental claim-level information that the payer needs to correctly adjudicate the claim — such as whether the claim is a correction, whether the patient had other insurance, whether an accident was involved, or whether a specific regulatory or billing exception applies.
+        </p>
+      </div>
+    </div>
+
+    <div class='alert info' style='margin-top:10px;border-radius:14px;border:1px solid #bfdbfe;background:linear-gradient(180deg,#f8fbff 0%,#eef6ff 100%);padding:14px'>
+      <div style='display:flex;align-items:flex-start;gap:12px'>
+        <div class='alert-icon' style='width:34px;height:34px;border-radius:50%;background:#2563eb;color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px'>
+          ℹ️
+        </div>
+
+        <div style='flex:1'>
+          <div class='alert-title' style='font-size:13px;font-weight:700;color:#1d4ed8;margin-bottom:6px'>
+            Important Distinction
+          </div>
+
+          <div class='alert-text' style='font-size:12px;line-height:1.6;color:#334155'>
+            M44 does not mean the services are not covered. It means the payer's edit system detected a condition code that is missing, invalid, or conflicts with another field on the claim. In most cases this is resolved with a corrected claim — not an appeal. The specific condition code required depends entirely on the claim scenario, payer, and TOB.
+          </div>
+
+          <div style='display:flex;gap:12px;flex-wrap:wrap;margin-top:14px'>
+
+            <button class='thumb-btn' style='border-radius:12px;overflow:hidden;border:1px solid #dbeafe;box-shadow:0 2px 8px rgba(37,99,235,0.12)' onclick="openLB('https://raw.githubusercontent.com/kunalvaish49-cpu/VisualCode_UB-04/b39d3afe093b6896ed72d28928d7932e541acc92/FL-18-28%20%20UB-04.jpg')">
+              <img class='thumb-img' style='display:block;width:120px;height:90px;object-fit:cover' src='https://raw.githubusercontent.com/kunalvaish49-cpu/VisualCode_UB-04/b39d3afe093b6896ed72d28928d7932e541acc92/FL-18-28%20%20UB-04.jpg' />
+            </button>
+
+            <button class='thumb-btn' style='border-radius:12px;overflow:hidden;border:1px solid #dbeafe;box-shadow:0 2px 8px rgba(37,99,235,0.12)' onclick="openLB('https://raw.githubusercontent.com/kunalvaish49-cpu/VisualCode_UB-04/bd01f0bc3e723bc39a6d7c847a0edc3839ea2e89/Common%20Conditoin%20Code%20D4.jpg')">
+              <img class='thumb-img' style='display:block;width:120px;height:90px;object-fit:cover' src='https://raw.githubusercontent.com/kunalvaish49-cpu/VisualCode_UB-04/bd01f0bc3e723bc39a6d7c847a0edc3839ea2e89/Common%20Conditoin%20Code%20D4.jpg' />
+            </button>
+
+            <button class='thumb-btn' style='border-radius:12px;overflow:hidden;border:1px solid #dbeafe;box-shadow:0 2px 8px rgba(37,99,235,0.12)' onclick="openLB('https://raw.githubusercontent.com/kunalvaish49-cpu/VisualCode_UB-04/f82b3dd6a14ab4b7042f40614309bbc59c350fa2/MSP%20COndition%20Code.jpg')">
+              <img class='thumb-img' style='display:block;width:120px;height:90px;object-fit:cover' src='https://raw.githubusercontent.com/kunalvaish49-cpu/VisualCode_UB-04/f82b3dd6a14ab4b7042f40614309bbc59c350fa2/MSP%20COndition%20Code.jpg' />
+            </button>
+
+          </div>
         </div>
       </div>
     </div>
   </div>
-
-  <div class="grid">
-
-    <!-- What This Means -->
-    <div class="card span-12 card-collapsible">
-      <div class="label">What This Means</div>
-      <p class="muted">
-        Condition Codes (Form Locators 18–28 on the UB-04) provide supplemental claim-level information that the payer needs to correctly adjudicate the claim — such as whether the claim is a correction, whether the patient had other insurance, whether an accident was involved, or whether a specific regulatory or billing exception applies. M44 is triggered when a required condition code is missing, an invalid code was submitted, or the code submitted is inconsistent with other claim fields. The claim cannot process correctly until the condition code issue is resolved.
-      </p>
-      <div class="alert info" style="margin-top:14px">
-        <div class="alert-icon">ℹ️</div>
-        <div>
-          <div class="alert-title">Important Distinction</div>
-          <div class="alert-text">
-            M44 does not mean the services are not covered. It means the payer's edit system detected a condition code that is missing, invalid, or conflicts with another field on the claim. In most cases this is resolved with a corrected claim — not an appeal. The specific condition code required depends entirely on the claim scenario, payer, and TOB.
-          </div>
-
-          <br>
-
-          <button class="thumb-btn" onclick="openLB('https://raw.githubusercontent.com/kunalvaish49-cpu/VisualCode_UB-04/b39d3afe093b6896ed72d28928d7932e541acc92/FL-18-28%20%20UB-04.jpg')">
-            <img class="thumb-img"
-              src="https://raw.githubusercontent.com/kunalvaish49-cpu/VisualCode_UB-04/b39d3afe093b6896ed72d28928d7932e541acc92/FL-18-28%20%20UB-04.jpg" />
-          </button>
-        </div>
-      </div>
-    </div>
+</div>
 
 
       <!-- Where Condition Codes Live on the UB-04 -->
