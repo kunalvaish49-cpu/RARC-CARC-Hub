@@ -10460,263 +10460,319 @@ FL67 — Principal Diagnosis</div>
 </div>
 
 
-      <!-- Where Condition Codes Live on the UB-04 -->
-      <div class="card span-12 card-collapsible">
-        <div class="label">Where Condition Codes Live on the UB-04</div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:8px">
-          <div>
-            <div class="nm-h3" style="margin-top:0">UB-04 Form Locators FL18–FL28</div>
-            <ul class="info-list">
-              <li><strong>FL18–FL28:</strong> Up to 11 condition codes can be reported on a single claim — each FL holds one 2-character alphanumeric code</li>
-              <li>Condition codes are always exactly <strong>2 characters</strong> — never 1, never 3</li>
-              <li>EDI 837I equivalent: <strong>Loop 2300 HI segment with qualifier BG</strong> (Condition Code)</li>
-              <li>Codes are defined in the <strong>NUBC UB-04 Data Specifications Manual</strong></li>
-              <li>Certain codes are <strong>required by regulation</strong> for specific claim types (e.g., D4 for corrected claims, 04 for information-only claims)</li>
-              <li>Some payers have <strong>proprietary condition code requirements</strong> beyond the standard NUBC set — always check payer-specific billing guidelines</li>
-            </ul>
+<div class='card span-12 card-collapsible' style='border:1px solid var(--border);border-radius:18px;overflow:hidden;background:#fff;box-shadow:0 6px 18px rgba(0,0,0,0.05)'>
+  <div class='label' style='background:linear-gradient(90deg,#0f172a,#1e3a8a);color:#fff;padding:12px 16px;font-size:14px;font-weight:700'>
+    Where to Report This Information
+  </div>
+
+  <div style='padding:18px'>
+
+    <div style='display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:4px'>
+
+      <div style='border:1px solid #dbeafe;border-radius:16px;padding:16px;background:linear-gradient(180deg,#f8fbff 0%,#ffffff 100%);box-shadow:0 2px 10px rgba(37,99,235,0.08)'>
+        <div style='display:flex;align-items:center;gap:10px;margin-bottom:12px'>
+          <div style='width:38px;height:38px;border-radius:50%;background:#2563eb;color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;box-shadow:0 2px 8px rgba(37,99,235,0.2)'>
+            📄
           </div>
           <div>
-            <div class="nm-h3" style="margin-top:0">Fields That Cross-Validate With Condition Codes</div>
-            <ul class="info-list">
-              <li><strong>FL4 — Type of Bill:</strong> Some condition codes are TOB-specific (e.g., D4 required when correcting FL4)</li>
-              <li><strong>FL12 — Admission Date:</strong> Accident-related codes (OC 01, OC 02) must have occurrence dates on or after admission</li>
-              <li><strong>FL38 — Responsible Party / Guarantor:</strong> MSP-related condition codes must align with coordination of benefits data</li>
-              <li><strong>FL50 — Payer Name:</strong> MSP codes must be consistent with the payer listed in FL50</li>
-              <li><strong>FL58–FL63 — Insured Info:</strong> Insurance-related condition codes must align with FL58–FL63</li>
-              <li><strong>FL17 — Discharge Status:</strong> Hospice or SNF condition codes must be consistent with the discharge status</li>
-              <li><strong>FL66 — DRG / Principal Dx:</strong> Some condition codes interact with DRG assignment edits</li>
-            </ul>
+            <div class='nm-h3' style='margin:0;font-size:14px;font-weight:700;color:#1d4ed8'>CMS-1500 (Professional)</div>
+            <div style='font-size:11px;color:#64748b'>Professional claim reporting guidance</div>
           </div>
+        </div>
+
+        <ul class='info-list' style='font-size:12px;margin-bottom:12px'>
+          <li><strong>Non Billable</strong> Non Billable</li>
+          <li><strong>Non Billable</strong> Non Billable</li>
+        </ul>
+
+        <div class='ndc-example' style='margin-top:8px;padding:10px;border-radius:10px;background:#eff6ff;border:1px solid #bfdbfe'>
+          <div class='ndc-ok' style='margin-bottom:4px;font-size:11px;font-weight:600;color:#166534'>Non Billable</div>
+          <div class='ndc-bad' style='font-size:11px;font-weight:600;color:#b91c1c'>Non Billable</div>
+        </div>
+
+        <div class='thumb-wrap' style='margin-top:14px;text-align:center'>
+          <button class='thumb-btn' style='border:none;background:none;padding:0' onclick="openLB('CMS1500','CMS-1500 (Professional)')">
+            <img class='thumb-img' style='border-radius:12px;border:1px solid #dbeafe;box-shadow:0 3px 10px rgba(0,0,0,0.08);max-height:120px' src='CMS1500' alt='CMS-1500 (Professional)' />
+          </button>
         </div>
       </div>
 
-      <!-- Most Commonly Required Condition Codes -->
-      <div class="card span-12 card-collapsible">
-        <div class="label">Most Commonly Required Condition Codes — M44 Reference Table</div>
-        <p class="muted" style="margin-bottom:12px;font-size:13px">These are the condition codes most frequently involved in M44 denials. Use this as a quick crosscheck before resubmitting.</p>
-        <table class="mod-table">
-          <thead>
-            <tr>
-              <th>Code</th>
-              <th>Description</th>
-              <th>When Required / Common Scenario</th>
-              <th>Claim Types</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><span class="mod-code">D4</span></td>
-              <td>Claim is a correction of a prior claim</td>
-              <td>Required on any replacement (Frequency 7) or corrected UB-04 claim submitted to replace a previously processed claim — signals data correction, not a duplicate</td>
-              <td>All UB-04</td>
-            </tr>
-            <tr>
-              <td><span class="mod-code">04</span></td>
-              <td>Information Only / No-Pay Claim</td>
-              <td>Required when billing a claim for informational purposes only with no payment requested — e.g., Medicare MSP primary payer crossover informational billing</td>
-              <td>All UB-04</td>
-            </tr>
-            <tr>
-              <td><span class="mod-code">01</span></td>
-              <td>Military Service Related Condition</td>
-              <td>Patient condition is related to military service — triggers special MSP considerations</td>
-              <td>Inpatient / Outpatient</td>
-            </tr>
-            <tr>
-              <td><span class="mod-code">02</span></td>
-              <td>Condition is Employment Related</td>
-              <td>Required when the condition or injury is work-related — triggers workers' compensation MSP rules</td>
-              <td>Inpatient / Outpatient</td>
-            </tr>
-            <tr>
-              <td><span class="mod-code">03</span></td>
-              <td>Patient Covered by Insurance Not Reflected Here</td>
-              <td>Patient has other insurance not shown on this claim — required for MSP / COB accuracy</td>
-              <td>Inpatient / Outpatient</td>
-            </tr>
-            <tr>
-              <td><span class="mod-code">05</span></td>
-              <td>Lien Has Been Filed</td>
-              <td>Legal lien filed on behalf of patient for injury-related claim — typically liability or accident</td>
-              <td>Inpatient / Outpatient</td>
-            </tr>
-            <tr>
-              <td><span class="mod-code">06</span></td>
-              <td>ESRD — Patient in First 18 Months of Entitlement</td>
-              <td>Required on ESRD claims for patients still in the Medicare Secondary Payer period (employer group health plan is primary for first 30 months)</td>
-              <td>ESRD / Dialysis TOB 072x</td>
-            </tr>
-            <tr>
-              <td><span class="mod-code">07</span></td>
-              <td>Treatment of Non-terminal Condition for Hospice Patient</td>
-              <td>Required when a hospice patient receives treatment for a condition unrelated to the terminal diagnosis — separate from the hospice benefit</td>
-              <td>Hospice TOB 081x, 082x</td>
-            </tr>
-            <tr>
-              <td><span class="mod-code">08</span></td>
-              <td>Beneficiary Would Not Provide Information Concerning Other Insurance</td>
-              <td>Patient refused to provide information about other coverage — documents due diligence on MSP investigation</td>
-              <td>All UB-04</td>
-            </tr>
-            <tr>
-              <td><span class="mod-code">09</span></td>
-              <td>Neither Patient nor Spouse is Employed</td>
-              <td>Used in MSP/COB situations to document that no employer group health plan applies — neither patient nor spouse currently employed</td>
-              <td>All UB-04</td>
-            </tr>
-            <tr>
-              <td><span class="mod-code">10</span></td>
-              <td>Patient and/or Spouse is Employed but No EGHP Exists</td>
-              <td>Documents that despite employment, no employer group health plan coverage exists — relevant to Medicare MSP</td>
-              <td>All UB-04</td>
-            </tr>
-            <tr>
-              <td><span class="mod-code">11</span></td>
-              <td>Disabled Beneficiary but No Large Group Health Plan</td>
-              <td>Disabled Medicare patient but no LGHP (large group health plan) applies — relevant to MSP working aged / disability rules</td>
-              <td>All UB-04</td>
-            </tr>
-            <tr>
-              <td><span class="mod-code">18</span></td>
-              <td>Maiden Name Retained</td>
-              <td>Patient retains maiden name — name on claim may differ from enrollment records; prevents false identity mismatch denials</td>
-              <td>All UB-04</td>
-            </tr>
-            <tr>
-              <td><span class="mod-code">19</span></td>
-              <td>Child Retains Father's Name</td>
-              <td>Child's surname matches father's — used to clarify patient identity when surname and insured name differ</td>
-              <td>All UB-04</td>
-            </tr>
-            <tr>
-              <td><span class="mod-code">20</span></td>
-              <td>Beneficiary Requested Billing</td>
-              <td>Patient requested the claim be submitted to Medicare even though coverage is not expected — required before issuing an ABN-based denial</td>
-              <td>All UB-04</td>
-            </tr>
-            <tr>
-              <td><span class="mod-code">21</span></td>
-              <td>Billing for Denial Notice</td>
-              <td>Claim submitted to obtain a formal denial (required for secondary billing or ABN-related scenarios) — patient aware services may not be covered</td>
-              <td>All UB-04</td>
-            </tr>
-            <tr>
-              <td><span class="mod-code">26</span></td>
-              <td>VA-Eligible Patient Chose to Receive Services in Non-VA Facility</td>
-              <td>Veteran used a non-VA facility — required to document VA eligibility and patient choice for proper billing</td>
-              <td>Inpatient / Outpatient</td>
-            </tr>
-            <tr>
-              <td><span class="mod-code">27</span></td>
-              <td>Patient Referred to a Sole Community Hospital for a Shortage Area</td>
-              <td>Used to document shortage area referral — may affect payment designation under Medicare</td>
-              <td>Inpatient / Outpatient</td>
-            </tr>
-            <tr>
-              <td><span class="mod-code">30</span></td>
-              <td>Qualifying Clinical Trial</td>
-              <td>Required for Medicare patients enrolled in a qualifying clinical trial — triggers expanded coverage rules</td>
-              <td>Inpatient / Outpatient</td>
-            </tr>
-            <tr>
-              <td><span class="mod-code">38</span></td>
-              <td>Dates of Service Are Before Beneficiary's Medicare Entitlement</td>
-              <td>Claim includes dates of service before Medicare coverage was effective — required to distinguish pre-entitlement dates</td>
-              <td>All UB-04</td>
-            </tr>
-            <tr>
-              <td><span class="mod-code">39</span></td>
-              <td>Private Room Medically Necessary</td>
-              <td>Required when billing for a private room upgrade that is medically necessary — supports medical necessity for upgraded accommodation</td>
-              <td>Inpatient</td>
-            </tr>
-            <tr>
-              <td><span class="mod-code">40</span></td>
-              <td>Same Day Transfer</td>
-              <td>Required when patient was transferred to another facility on the same day as admission — affects payment calculation</td>
-              <td>Inpatient</td>
-            </tr>
-            <tr>
-              <td><span class="mod-code">41</span></td>
-              <td>Partial Hospitalization</td>
-              <td>Required for partial hospitalization program (PHP) claims — triggers PHP-specific payment rules</td>
-              <td>Outpatient / Psych</td>
-            </tr>
-            <tr>
-              <td><span class="mod-code">44</span></td>
-              <td>Inpatient Admission Changed to Outpatient</td>
-              <td>Hospital changed an inpatient admission to an outpatient encounter after the fact — required to prevent duplicate inpatient/outpatient billing</td>
-              <td>Outpatient TOB 013x</td>
-            </tr>
-            <tr>
-              <td><span class="mod-code">55</span></td>
-              <td>Skilled Nursing Facility (SNF) Bed Not Available</td>
-              <td>Required when an inpatient hospital stay is extended because no SNF bed was available on discharge — supports medical necessity of extended stay</td>
-              <td>Inpatient Hospital</td>
-            </tr>
-            <tr>
-              <td><span class="mod-code">56</span></td>
-              <td>Medical Appropriateness of a Shorter Hospital Stay</td>
-              <td>Required in utilization review documentation scenarios where a shorter stay was clinically appropriate but the patient required an extended stay</td>
-              <td>Inpatient</td>
-            </tr>
-            <tr>
-              <td><span class="mod-code">57</span></td>
-              <td>SNF Readmission</td>
-              <td>Required when a patient is readmitted to a SNF within 30 days of discharge — affects benefit period and payment rules</td>
-              <td>SNF TOB 021x</td>
-            </tr>
-            <tr>
-              <td><span class="mod-code">60</span></td>
-              <td>Day Outlier</td>
-              <td>Inpatient stay qualifies for outlier payment based on length of stay exceeding the DRG threshold</td>
-              <td>Inpatient</td>
-            </tr>
-            <tr>
-              <td><span class="mod-code">61</span></td>
-              <td>Cost Outlier</td>
-              <td>Inpatient claim qualifies for cost outlier payment — claim costs significantly exceed the standard DRG payment</td>
-              <td>Inpatient</td>
-            </tr>
-            <tr>
-              <td><span class="mod-code">A1</span></td>
-              <td>UPIN Required — Pacemaker Certification</td>
-              <td>Required for pacemaker-related claims to certify medical necessity of device implant or battery replacement</td>
-              <td>Inpatient / Outpatient</td>
-            </tr>
-            <tr>
-              <td><span class="mod-code">A9</span></td>
-              <td>Second Opinion Surgery</td>
-              <td>Required when a second opinion was obtained before elective surgery — may be required by payer pre-auth rules</td>
-              <td>Inpatient / Outpatient</td>
-            </tr>
-            <tr>
-              <td><span class="mod-code">W2</span></td>
-              <td>Part B Billing Over Part A SNF Stay</td>
-              <td>Required when billing Part B services rendered during an active SNF Part A stay — documents that the services are outside the SNF consolidated billing bundle</td>
-              <td>SNF / Outpatient</td>
-            </tr>
-          </tbody>
-        </table>
+      <div style='border:1px solid #dcfce7;border-radius:16px;padding:16px;background:linear-gradient(180deg,#f7fff8 0%,#ffffff 100%);box-shadow:0 2px 10px rgba(22,163,74,0.08)'>
+        <div style='display:flex;align-items:center;gap:10px;margin-bottom:12px'>
+          <div style='width:38px;height:38px;border-radius:50%;background:#16a34a;color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;box-shadow:0 2px 8px rgba(22,163,74,0.2)'>
+            🏥
+          </div>
+          <div>
+            <div class='nm-h3' style='margin:0;font-size:14px;font-weight:700;color:#15803d'>UB-04 (Facility Claims)</div>
+            <div style='font-size:11px;color:#64748b'>Facility claim reporting guidance</div>
+          </div>
+        </div>
+
+        <ul class='info-list' style='font-size:12px;margin-bottom:12px'>
+          <li><strong>FL18–FL28</strong> Up to 11 condition codes can be reported on a single claim — each FL holds one 2-character alphanumeric code</li>
+          <li><strong>Format</strong> Cross-Validate With Condition Codes</li>
+        </ul>
+
+        <div class='ndc-example' style='margin-top:8px;padding:10px;border-radius:10px;background:#f0fdf4;border:1px solid #bbf7d0'>
+          <div class='ndc-ok' style='margin-bottom:4px;font-size:11px;font-weight:600;color:#166534'>Fields That Cross-Validate With FL18–FL28</div>
+          <div class='ndc-bad' style='font-size:11px;font-weight:600;color:#b91c1c'>FL4: TOB-specific condition codes apply.
+FL12: Accident dates must be ≥ admission date.
+FL38: MSP codes must match COB data.
+FL50: MSP codes must match payer.
+FL58–63: Insurance codes must match insured info.
+FL17: Hospice/SNF codes must match discharge status.
+FL66: Some codes impact DRG edits.</div>
+        </div>
+
+        <div class='thumb-wrap' style='margin-top:14px;text-align:center'>
+          <button class='thumb-btn' style='border:none;background:none;padding:0' onclick="openLB('https://raw.githubusercontent.com/kunalvaish49-cpu/VisualCode_UB-04/2b159eb2bc75f5efd796e4a666bd383f5f2c56f7/Condition%20Code_List_Image.jpg','UB-04 (Facility Claims)')">
+            <img class='thumb-img' style='border-radius:12px;border:1px solid #dcfce7;box-shadow:0 3px 10px rgba(0,0,0,0.08);max-height:120px' src='https://raw.githubusercontent.com/kunalvaish49-cpu/VisualCode_UB-04/2b159eb2bc75f5efd796e4a666bd383f5f2c56f7/Condition%20Code_List_Image.jpg' alt='UB-04 (Facility Claims)' />
+          </button>
+        </div>
       </div>
 
-      <!-- Why This Happens -->
-      <div class="card span-6 card-collapsible">
-        <div class="label">Why This Happens — Most Common Causes</div>
-        <ul class="info-list">
-          <li>Required condition code omitted — most common cause (e.g., D4 missing on a corrected claim)</li>
-          <li>Invalid 2-digit code entered — typo, extra character, or code does not exist in the NUBC code set</li>
-          <li>Condition code is mutually exclusive with another code already on the claim (e.g., two conflicting MSP codes)</li>
-          <li>MSP-related code missing when payer records show another primary payer exists</li>
-          <li>Condition code required by payer-specific policy not included (e.g., payer requires code 20 for ABN billing)</li>
-          <li>Corrected or replacement claim submitted without D4 — payer system interprets it as a duplicate</li>
-          <li>Code submitted does not apply to the TOB on the claim (e.g., hospice-specific code on an inpatient hospital claim)</li>
-          <li>EHR-to-billing system failed to map a required condition code to FL18–FL28</li>
-          <li>Billing template carries a stale or incorrect default condition code not appropriate for the current claim</li>
-          <li>Code submitted is a retired or invalid NUBC condition code no longer accepted by the payer</li>
-          <li>Payer requires a condition code that was added by a recent policy change the billing team was not notified of</li>
-        </ul>
+    </div>
+
+    <div class='alert warn' style='margin-top:18px;margin-bottom:18px;border-radius:14px;background:linear-gradient(180deg,#fff7ed 0%,#fffbeb 100%);border:1px solid #fed7aa'>
+      <div class='alert-icon'>⚠️</div>
+      <div>
+        <div class='alert-title' style='font-size:13px;font-weight:700;color:#c2410c'>Admission Date — Common Sub-Error</div>
+        <div class='alert-text' style='font-size:12px;line-height:1.6;color:#7c2d12'>If Medicare's Common Working File (CWF) shows an MSP record for the patient's date of service but the claim does not include the appropriate MSP condition code.You must either include the correct MSP code confirming Medicare is secondary, or include a code documenting why another insurer does not apply (codes 09, 10, 11, 28, 29).</div>
       </div>
+    </div>
+
+    <div style='border:1px solid #e2e8f0;border-radius:16px;padding:16px;background:linear-gradient(180deg,#f8fafc 0%,#ffffff 100%)'>
+      <div style='display:flex;align-items:center;gap:10px;margin-bottom:12px'>
+        <div style='width:34px;height:34px;border-radius:50%;background:#0f172a;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700'>
+          #
+        </div>
+        <div class='nm-h3' style='margin:0;font-size:14px;font-weight:700;color:#0f172a'>Invalid Condition Code — Common Sub-Errors</div>
+      </div>
+
+      <table class='uom-table' style='font-size:12px'>
+        <thead>
+          <tr>
+            <th>Original Format</th>
+            <th>Condition Name</th>
+            <th>Example </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class='uom-code'>18</span></td>
+            <td>Maiden Name Retained</td>
+            <td>Disabled Medicare patient but no LGHP (large group health plan) applies — relevant to MSP working aged / disability rules</td>
+          </tr>
+          <tr>
+            <td><span class='uom-code'>11</span></td>
+            <td>Disabled Beneficiary but No Large Group Health Plan</td>
+            <td>Patient retains maiden name — name on claim may differ from enrollment records; prevents false identity mismatch denials</td>
+          </tr>
+          <tr>
+            <td><span class='uom-code'>20</span></td>
+            <td>Beneficiary Requested Billing</td>
+            <td>Patient requested the claim be submitted to Medicare even though coverage is not expected — required before issuing an ABN-based denial</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+
+     
+     <!-- Why This Happens -->
+<div class='card span-12 card-collapsible' style='border:1px solid #e2e8f0;border-radius:18px;overflow:hidden;background:#fff;box-shadow:0 8px 24px rgba(15,23,42,0.06)'>
+
+<div class='label' style='background:linear-gradient(90deg,#0f172a,#7c3aed);color:#fff;padding:14px 18px;font-size:15px;font-weight:700;display:flex;align-items:center;justify-content:space-between'>
+<span>Why This Happens</span>
+</div>
+
+<div style='padding:18px'>
+
+<div style='display:flex;align-items:center;gap:12px;margin-bottom:16px'>
+<div style='width:42px;height:42px;border-radius:50%;background:#7c3aed;color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;box-shadow:0 3px 10px rgba(124,58,237,0.25)'>
+⚠️
+</div>
+
+<div>
+<div class='nm-h3' style='margin:0;font-size:18px;font-weight:700;color:#5b21b6'>
+INVALID CONDITION CODE
+</div>
+<div style='font-size:12px;color:#64748b;margin-top:2px'>
+Most common root causes behind this denial
+</div>
+</div>
+</div>
+
+<div style='background:linear-gradient(180deg,#faf5ff 0%,#f3e8ff 100%);border:1px solid #d8b4fe;border-radius:14px;padding:14px 16px;margin-bottom:18px'>
+<div style='display:flex;align-items:flex-start;gap:12px'>
+<div style='width:34px;height:34px;border-radius:50%;background:#7c3aed;color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;flex-shrink:0'>
+ℹ️
+</div>
+
+<div>
+<div style='font-size:13px;font-weight:700;color:#6d28d9;margin-bottom:6px'>
+Quick Reminder
+</div>
+
+<div style='font-size:12px;line-height:1.7;color:#334155'>
+Condition code denials occur when required codes are missing, invalid, outdated, conflicting, or not aligned with payer, TOB, or MSP requirements.
+</div>
+</div>
+</div>
+</div>
+
+<div style='display:grid;grid-template-columns:1fr 1fr;gap:14px'>
+
+<div style='background:#fff;border:1px solid #e9d5ff;border-radius:14px;padding:14px 16px;box-shadow:0 2px 6px rgba(124,58,237,0.06)'>
+<div style='display:flex;align-items:flex-start;gap:10px'>
+<div style='width:32px;height:32px;border-radius:50%;background:#f3e8ff;color:#6d28d9;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0'>
+1
+</div>
+
+<div>
+<div style='font-size:13px;font-weight:700;color:#5b21b6;margin-bottom:4px'>
+Missing Required Code
+</div>
+
+<div style='font-size:12px;line-height:1.7;color:#57534e'>
+Required condition code omitted — for example, D4 missing on a corrected claim.
+</div>
+</div>
+</div>
+</div>
+
+<div style='background:#fff;border:1px solid #e9d5ff;border-radius:14px;padding:14px 16px;box-shadow:0 2px 6px rgba(124,58,237,0.06)'>
+<div style='display:flex;align-items:flex-start;gap:10px'>
+<div style='width:32px;height:32px;border-radius:50%;background:#f3e8ff;color:#6d28d9;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0'>
+2
+</div>
+
+<div>
+<div style='font-size:13px;font-weight:700;color:#5b21b6;margin-bottom:4px'>
+Invalid Code Entry
+</div>
+
+<div style='font-size:12px;line-height:1.7;color:#57534e'>
+Invalid 2-digit code entered due to typo, extra character, or non-existent NUBC code.
+</div>
+</div>
+</div>
+</div>
+
+<div style='background:#fff;border:1px solid #e9d5ff;border-radius:14px;padding:14px 16px;box-shadow:0 2px 6px rgba(124,58,237,0.06)'>
+<div style='display:flex;align-items:flex-start;gap:10px'>
+<div style='width:32px;height:32px;border-radius:50%;background:#f3e8ff;color:#6d28d9;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0'>
+3
+</div>
+
+<div>
+<div style='font-size:13px;font-weight:700;color:#5b21b6;margin-bottom:4px'>
+Conflicting Codes
+</div>
+
+<div style='font-size:12px;line-height:1.7;color:#57534e'>
+Mutually exclusive condition codes submitted together causing payer edit failures.
+</div>
+</div>
+</div>
+</div>
+
+<div style='background:#fff;border:1px solid #e9d5ff;border-radius:14px;padding:14px 16px;box-shadow:0 2px 6px rgba(124,58,237,0.06)'>
+<div style='display:flex;align-items:flex-start;gap:10px'>
+<div style='width:32px;height:32px;border-radius:50%;background:#f3e8ff;color:#6d28d9;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0'>
+4
+</div>
+
+<div>
+<div style='font-size:13px;font-weight:700;color:#5b21b6;margin-bottom:4px'>
+Missing MSP Code
+</div>
+
+<div style='font-size:12px;line-height:1.7;color:#57534e'>
+MSP-related condition code missing when another primary payer exists.
+</div>
+</div>
+</div>
+</div>
+
+<div style='background:#fff;border:1px solid #e9d5ff;border-radius:14px;padding:14px 16px;box-shadow:0 2px 6px rgba(124,58,237,0.06)'>
+<div style='display:flex;align-items:flex-start;gap:10px'>
+<div style='width:32px;height:32px;border-radius:50%;background:#f3e8ff;color:#6d28d9;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0'>
+5
+</div>
+
+<div>
+<div style='font-size:13px;font-weight:700;color:#5b21b6;margin-bottom:4px'>
+Payer Policy Requirement
+</div>
+
+<div style='font-size:12px;line-height:1.7;color:#57534e'>
+Payer-required condition code not added — such as code 20 for ABN billing.
+</div>
+</div>
+</div>
+</div>
+
+<div style='background:#fff;border:1px solid #e9d5ff;border-radius:14px;padding:14px 16px;box-shadow:0 2px 6px rgba(124,58,237,0.06)'>
+<div style='display:flex;align-items:flex-start;gap:10px'>
+<div style='width:32px;height:32px;border-radius:50%;background:#f3e8ff;color:#6d28d9;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0'>
+6
+</div>
+
+<div>
+<div style='font-size:13px;font-weight:700;color:#5b21b6;margin-bottom:4px'>
+Wrong TOB Mapping
+</div>
+
+<div style='font-size:12px;line-height:1.7;color:#57534e'>
+Condition code submitted does not apply to the Type of Bill on the claim.
+</div>
+</div>
+</div>
+</div>
+
+<div style='background:#fff;border:1px solid #e9d5ff;border-radius:14px;padding:14px 16px;box-shadow:0 2px 6px rgba(124,58,237,0.06)'>
+<div style='display:flex;align-items:flex-start;gap:10px'>
+<div style='width:32px;height:32px;border-radius:50%;background:#f3e8ff;color:#6d28d9;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0'>
+7
+</div>
+
+<div>
+<div style='font-size:13px;font-weight:700;color:#5b21b6;margin-bottom:4px'>
+Interface Mapping Failure
+</div>
+
+<div style='font-size:12px;line-height:1.7;color:#57534e'>
+EHR-to-billing interface failed to populate the required condition code into FL18–FL28.
+</div>
+</div>
+</div>
+</div>
+
+<div style='background:#fff;border:1px solid #e9d5ff;border-radius:14px;padding:14px 16px;box-shadow:0 2px 6px rgba(124,58,237,0.06)'>
+<div style='display:flex;align-items:flex-start;gap:10px'>
+<div style='width:32px;height:32px;border-radius:50%;background:#f3e8ff;color:#6d28d9;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0'>
+8
+</div>
+
+<div>
+<div style='font-size:13px;font-weight:700;color:#5b21b6;margin-bottom:4px'>
+Outdated / Retired Code
+</div>
+
+<div style='font-size:12px;line-height:1.7;color:#57534e'>
+Retired or invalid NUBC condition code submitted that is no longer accepted by the payer.
+</div>
+</div>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
 
       <!-- How to Fix It -->
       <div class="card span-6 card-collapsible">
@@ -10742,79 +10798,7 @@ FL67 — Principal Diagnosis</div>
         </div>
       </div>
 
-      <!-- MSP Condition Codes Deep Dive -->
-      <div class="card span-12 card-collapsible">
-        <div class="label">Medicare Secondary Payer (MSP) Condition Codes — Deep Dive</div>
-        <p class="muted" style="margin-bottom:12px;font-size:13px">MSP condition codes are the most common source of M44 denials on Medicare claims. These codes document the patient's insurance status to determine whether Medicare is primary or secondary.</p>
-        <table class="mod-table">
-          <thead>
-            <tr>
-              <th>Code</th>
-              <th>MSP Scenario</th>
-              <th>What It Documents</th>
-              <th>When to Use</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><span class="mod-code">02</span></td>
-              <td>Workers' Compensation</td>
-              <td>Condition is work-related — WC is primary payer</td>
-              <td>Work-related injury or illness — WC has paid or denied; Medicare billed as secondary</td>
-            </tr>
-            <tr>
-              <td><span class="mod-code">03</span></td>
-              <td>Other Insurance Exists</td>
-              <td>Patient has another insurance plan not shown on this claim</td>
-              <td>COB situations where the other payer is not listed as primary on this claim submission</td>
-            </tr>
-            <tr>
-              <td><span class="mod-code">06</span></td>
-              <td>ESRD MSP — First 30 Months</td>
-              <td>ESRD patient in employer group health plan MSP period</td>
-              <td>ESRD dialysis or transplant claims within the first 30 months of Medicare ESRD entitlement</td>
-            </tr>
-            <tr>
-              <td><span class="mod-code">09</span></td>
-              <td>No EGHP — Neither Patient Nor Spouse Employed</td>
-              <td>Documents no employer group health plan exists</td>
-              <td>Working aged / disability MSP screening — used when CWF MSP query exists but EGHP does not apply</td>
-            </tr>
-            <tr>
-              <td><span class="mod-code">10</span></td>
-              <td>No EGHP — Employed but No Plan</td>
-              <td>Patient or spouse employed but no employer group health plan is offered</td>
-              <td>Same MSP screening purpose as 09 when employment exists but no group plan covers patient</td>
-            </tr>
-            <tr>
-              <td><span class="mod-code">11</span></td>
-              <td>No LGHP — Disabled Patient</td>
-              <td>Disabled Medicare patient — no large group health plan applies</td>
-              <td>Disability MSP screening when CWF shows possible LGHP but plan does not cover this patient</td>
-            </tr>
-            <tr>
-              <td><span class="mod-code">28</span></td>
-              <td>Patient and/or Spouse Employer is Small (Under 20 Employees)</td>
-              <td>Employer has fewer than 20 employees — Medicare is primary</td>
-              <td>Working aged situation where Medicare is primary because employer is too small for EGHP MSP rules</td>
-            </tr>
-            <tr>
-              <td><span class="mod-code">29</span></td>
-              <td>Disabled Patient — Employer is Small (Under 100 Employees)</td>
-              <td>Employer has fewer than 100 employees — Medicare is primary for disabled</td>
-              <td>Disability MSP situation where employer size makes Medicare primary</td>
-            </tr>
-          </tbody>
-        </table>
-        <div class="alert warn" style="margin-top:14px;margin-bottom:0">
-          <div class="alert-icon">📌</div>
-          <div>
-            <div class="alert-title">MSP Condition Code Rule</div>
-            <div class="alert-text">If Medicare's Common Working File (CWF) shows an MSP record for the patient's date of service but the claim does not include the appropriate MSP condition code, Medicare will reject the claim with M44. You must either include the correct MSP code confirming Medicare is secondary, or include a code documenting why another insurer does not apply (codes 09, 10, 11, 28, 29).</div>
-          </div>
-        </div>
-      </div>
-
+      
           <!-- What NOT to Do -->
       <div class="card span-6 card-collapsible">
         <div class="label">What NOT to Do</div>
