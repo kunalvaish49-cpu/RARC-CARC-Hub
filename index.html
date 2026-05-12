@@ -11722,7 +11722,8 @@ Retired or invalid NUBC condition code submitted that is no longer accepted by t
 </div>
 </div>
 
-  <!-- ── RARC M44 - Invalid Condition Code ── -->
+ 
+<!-- ── RARC M44 - Invalid Condition Code ── -->
 <div class='card span-12 card-collapsible' style='border:1px solid var(--border);border-radius:20px;overflow:hidden;background:#fff;box-shadow:0 10px 24px rgba(15,23,42,0.08)'>
 
   <!-- Header -->
@@ -11755,7 +11756,24 @@ Retired or invalid NUBC condition code submitted that is no longer accepted by t
         </div>
       </div>
 
-       
+      <!-- Common codes table -->
+      <div style='margin-top:12px;border:1px solid #bae6fd;border-radius:10px;overflow:hidden'>
+        <div style='background:#0284c7;color:#fff;font-size:11px;font-weight:700;padding:7px 12px'>📋 Common Condition Codes That Trigger M44</div>
+        <div style='display:grid;grid-template-columns:60px 1fr;font-size:11px'>
+          <div style='background:#e0f2fe;padding:6px 10px;font-weight:700;color:#0369a1;border-bottom:1px solid #bae6fd'>Code</div>
+          <div style='background:#e0f2fe;padding:6px 10px;font-weight:700;color:#0369a1;border-bottom:1px solid #bae6fd'>Meaning</div>
+          <div style='padding:5px 10px;color:#334155;border-bottom:1px solid #e0f2fe'>04</div>
+          <div style='padding:5px 10px;color:#334155;border-bottom:1px solid #e0f2fe'>Information only claim</div>
+          <div style='padding:5px 10px;color:#334155;background:#f8fbff;border-bottom:1px solid #e0f2fe'>07</div>
+          <div style='padding:5px 10px;color:#334155;background:#f8fbff;border-bottom:1px solid #e0f2fe'>Treatment of non-terminal condition for hospice patient</div>
+          <div style='padding:5px 10px;color:#334155;border-bottom:1px solid #e0f2fe'>08</div>
+          <div style='padding:5px 10px;color:#334155;border-bottom:1px solid #e0f2fe'>Billing for same-day services</div>
+          <div style='padding:5px 10px;color:#334155;background:#f8fbff;border-bottom:1px solid #e0f2fe'>31</div>
+          <div style='padding:5px 10px;color:#334155;background:#f8fbff;border-bottom:1px solid #e0f2fe'>Patient is student (full-time/day)</div>
+          <div style='padding:5px 10px;color:#334155'>78</div>
+          <div style='padding:5px 10px;color:#334155'>New coverage not implemented by HMO</div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -13124,7 +13142,7 @@ Template carried an expired or incorrect CLIA number that was never updated.
 </div>
 </div>
 
-    <!-- ── RARC M34 - Claim Lacks the CLIA Certification Number ── -->
+  <!-- ── RARC M34 - Claim Lacks the CLIA Certification Number ── -->
 <div class='card span-12 card-collapsible' style='border:1px solid var(--border);border-radius:20px;overflow:hidden;background:#fff;box-shadow:0 10px 24px rgba(15,23,42,0.08)'>
 
   <!-- Header -->
@@ -13137,23 +13155,42 @@ Template carried an expired or incorrect CLIA number that was never updated.
     <div style='background:#f0f9ff;border:1px solid #bae6fd;border-radius:14px;padding:14px 16px;margin-bottom:18px'>
       <div style='font-size:13px;font-weight:700;color:#0369a1;margin-bottom:6px'>💡 What is RARC M34?</div>
       <div style='font-size:12px;color:#475569;line-height:1.6'>
-        Your claim was denied because the <strong>CLIA number is missing</strong>. Think of CLIA like a <strong>lab's license plate</strong> — every lab must have one, and it <em>must</em> appear on every claim for lab services billed to Medicare, Medicaid, and most commercial payers.
+        Your claim was denied because a <strong>CLIA Certification Number is missing from the claim</strong>. Think of CLIA like a <strong>lab's operating license number</strong> — any facility that performs lab tests on human specimens must be certified under the Clinical Laboratory Improvement Amendments (CLIA). Payers require this number on lab claims to confirm the lab performing the test is <strong>legally certified</strong> to do so. No number = no payment.
       </div>
       <div style='display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px'>
         <div style='background:#fff;border:1px solid #bae6fd;border-radius:10px;padding:10px;text-align:center'>
           <div style='font-size:11px;font-weight:700;color:#0284c7'>CMS-1500</div>
           <div style='font-size:13px;font-weight:800;color:#0369a1;margin:4px 0'>Box 23</div>
-          <div style='font-size:10px;color:#64748b'>Professional claims</div>
+          <div style='font-size:10px;color:#64748b'>CLIA number field</div>
         </div>
         <div style='background:#fff;border:1px solid #bae6fd;border-radius:10px;padding:10px;text-align:center'>
           <div style='font-size:11px;font-weight:700;color:#0284c7'>UB-04</div>
-          <div style='font-size:13px;font-weight:800;color:#0369a1;margin:4px 0'>FL 81CC</div>
-          <div style='font-size:10px;color:#64748b'>Qualifier "X4" required</div>
+          <div style='font-size:13px;font-weight:800;color:#0369a1;margin:4px 0'>FL 51</div>
+          <div style='font-size:10px;color:#64748b'>Attending physician / CLIA</div>
         </div>
         <div style='background:#fff;border:1px solid #bae6fd;border-radius:10px;padding:10px;text-align:center'>
-          <div style='font-size:11px;font-weight:700;color:#0284c7'>837P/837I</div>
+          <div style='font-size:11px;font-weight:700;color:#0284c7'>837P EDI</div>
           <div style='font-size:13px;font-weight:800;color:#0369a1;margin:4px 0'>Loop 2300</div>
-          <div style='font-size:10px;color:#64748b'>REF segment, qualifier "X4"</div>
+          <div style='font-size:10px;color:#64748b'>REF segment (X4)</div>
+        </div>
+      </div>
+
+      <!-- Common lab tests table -->
+      <div style='margin-top:12px;border:1px solid #bae6fd;border-radius:10px;overflow:hidden'>
+        <div style='background:#0284c7;color:#fff;font-size:11px;font-weight:700;padding:7px 12px'>📋 Common Lab Services That Require a CLIA Number on the Claim</div>
+        <div style='display:grid;grid-template-columns:1fr 1fr;font-size:11px'>
+          <div style='background:#e0f2fe;padding:6px 10px;font-weight:700;color:#0369a1;border-bottom:1px solid #bae6fd'>Test / Service</div>
+          <div style='background:#e0f2fe;padding:6px 10px;font-weight:700;color:#0369a1;border-bottom:1px solid #bae6fd'>Who Needs CLIA</div>
+          <div style='padding:5px 10px;color:#334155;border-bottom:1px solid #e0f2fe'>Blood panels / CBC / metabolic</div>
+          <div style='padding:5px 10px;color:#334155;border-bottom:1px solid #e0f2fe'>Any lab performing the test in-house</div>
+          <div style='padding:5px 10px;color:#334155;background:#f8fbff;border-bottom:1px solid #e0f2fe'>Urinalysis / urine drug screening</div>
+          <div style='padding:5px 10px;color:#334155;background:#f8fbff;border-bottom:1px solid #e0f2fe'>Physician office lab or reference lab</div>
+          <div style='padding:5px 10px;color:#334155;border-bottom:1px solid #e0f2fe'>Pap smears / cytology</div>
+          <div style='padding:5px 10px;color:#334155;border-bottom:1px solid #e0f2fe'>Lab certified for cytology testing</div>
+          <div style='padding:5px 10px;color:#334155;background:#f8fbff;border-bottom:1px solid #e0f2fe'>COVID-19 / infectious disease PCR</div>
+          <div style='padding:5px 10px;color:#334155;background:#f8fbff;border-bottom:1px solid #e0f2fe'>CLIA-certified molecular testing lab</div>
+          <div style='padding:5px 10px;color:#334155'>Glucose / cholesterol (POCT)</div>
+          <div style='padding:5px 10px;color:#334155'>Waived test CLIA certificate required</div>
         </div>
       </div>
     </div>
@@ -13165,148 +13202,109 @@ Template carried an expired or incorrect CLIA number that was never updated.
       <!-- Step 1 -->
       <div style='border:1px solid #dbeafe;border-radius:18px;padding:18px;background:linear-gradient(180deg,#f8fbff 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(37,99,235,0.08)'>
         <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
-          <div style='width:38px;height:38px;border-radius:50%;background:#2563eb;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(37,99,235,0.2);flex-shrink:0'>
-            1
-          </div>
+          <div style='width:38px;height:38px;border-radius:50%;background:#2563eb;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(37,99,235,0.2);flex-shrink:0'>1</div>
           <div>
-            <div style='margin:0;font-size:14px;font-weight:700;color:#1d4ed8'>
-              Verify the CLIA Number
-            </div>
-            <div style='font-size:11px;color:#64748b;margin-top:2px'>
-              Do you even have the right one?
-            </div>
+            <div style='margin:0;font-size:14px;font-weight:700;color:#1d4ed8'>Locate Your CLIA Certification Number</div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>It may already be on file — just not on the claim</div>
           </div>
         </div>
-
         <div style='background:#eff6ff;border:1px solid #dbeafe;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
-          🔍 Before anything else — confirm you have a CLIA number, it's active, and it belongs to the lab that <em>actually ran the test</em> (not just the billing lab).
+          🔍 Before anything else — find the CLIA number. M34 usually means it was simply <strong>left off the claim</strong>, not that the lab isn't certified. Check your records before assuming the certification is missing.
         </div>
-
         <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
-          <li><strong>RARC M34 = missing CLIA.</strong> It's a 10-character federal ID required on every lab claim.</li>
-          <li><strong>Expired = same as missing.</strong> Medicare checks it against its database — outdated certificates get denied too.</li>
-          <li><strong>Referred lab work?</strong> Use the CLIA of the lab that performed the test, not the ordering provider.</li>
-          <li><strong>CLIA-waived tests</strong> (e.g., CPT 87811) also need <strong>Modifier QW</strong> on the claim line — don't forget it.</li>
+          <li>Check your <strong>CLIA certificate</strong> — it is physically issued by CMS and should be posted in your lab area. The 10-digit CLIA number is printed on the certificate.</li>
+          <li>Look up your CLIA number instantly on the <strong>CMS CLIA database</strong> at <em>cms.gov/clia</em> — search by facility name, address, or NPI.</li>
+          <li>Confirm <strong>which lab performed the test</strong> — if specimens were sent to a <strong>reference lab</strong> (e.g., Quest, LabCorp), the reference lab's CLIA number goes on the claim, not yours.</li>
+          <li>If your practice performs <strong>waived tests only</strong> (glucose, strep, flu), you still need a CLIA Certificate of Waiver — confirm you have one and locate that number.</li>
+          <li>⚠️ If you cannot find a valid CLIA certificate for your facility, <strong>stop billing lab claims immediately</strong> and contact CMS to apply — performing lab tests without CLIA certification is a federal compliance violation.</li>
         </ul>
       </div>
 
       <!-- Step 2 -->
       <div style='border:1px solid #dcfce7;border-radius:18px;padding:18px;background:linear-gradient(180deg,#f7fff8 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(22,163,74,0.08)'>
         <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
-          <div style='width:38px;height:38px;border-radius:50%;background:#16a34a;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(22,163,74,0.2);flex-shrink:0'>
-            2
-          </div>
+          <div style='width:38px;height:38px;border-radius:50%;background:#16a34a;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(22,163,74,0.2);flex-shrink:0'>2</div>
           <div>
-            <div style='margin:0;font-size:14px;font-weight:700;color:#15803d'>
-              Fix & Resubmit Corrected Claim
-            </div>
-            <div style='font-size:11px;color:#64748b;margin-top:2px'>
-              Add the CLIA number in the right place
-            </div>
+            <div style='margin:0;font-size:14px;font-weight:700;color:#15803d'>Add the CLIA Number & Resubmit</div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>Corrected claim — fastest path to payment</div>
           </div>
         </div>
-
         <div style='background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
-          ✅ This is a <strong>billing error, not a coverage denial</strong> — it's fixable! Add the CLIA number correctly and resubmit as a corrected claim for the fastest path to payment.
+          ✅ This is a <strong>simple data entry fix</strong>. Add the correct CLIA number in the right field and resubmit as a corrected claim — do not submit as a brand new claim.
         </div>
-
         <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
-          <li><strong>CMS-1500:</strong> Enter CLIA in <strong>Box 23</strong>. If prior auth is also needed, check payer rules — some require one or the other.</li>
-          <li><strong>UB-04:</strong> Enter in <strong>FL 81CC</strong> with qualifier <strong>"X4"</strong> before the number. Skipping the qualifier = another denial.</li>
-          <li><strong>837P/837I:</strong> CLIA goes in Loop 2300, REF segment (REF01 = "X4"). Line-level referred tests also need Loop 2400, REF (REF01 = "F4").</li>
-          <li><strong>Corrected claim codes:</strong> CMS-1500 → Box 22, Code <strong>"7"</strong> + original ICN. UB-04 → TOB frequency digit <strong>"7"</strong> + TCN in Box 64.</li>
-          <li>⚠️ Check <strong>timely filing limits</strong> for corrected claims — they may differ from original submission deadlines.</li>
+          <li><strong>CMS-1500 (paper):</strong> Enter the 10-digit CLIA number in <strong>Box 23</strong> (Prior Authorization Number field — used for CLIA on lab claims). Ensure it is formatted correctly with no spaces or dashes.</li>
+          <li><strong>UB-04:</strong> Enter in <strong>FL 51</strong> per the payer's instructions for institutional lab billing.</li>
+          <li><strong>837P electronic:</strong> Report in <strong>Loop 2300, REF segment</strong> using qualifier <strong>X4</strong> (Clinical Laboratory Improvement Amendment Number).</li>
+          <li><strong>Corrected claim codes:</strong> CMS-1500 → Box 22, Resubmission Code <strong>"7"</strong> + original ICN/claim number. UB-04 → TOB frequency digit <strong>"7"</strong> + original TCN in Box 64.</li>
+          <li>⚠️ Verify <strong>timely filing limits</strong> — payer deadlines for corrected claims vary. Do not delay resubmission while waiting for internal confirmations.</li>
         </ul>
       </div>
 
       <!-- Step 3 -->
       <div style='border:1px solid #fed7aa;border-radius:18px;padding:18px;background:linear-gradient(180deg,#fffaf5 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(234,88,12,0.08)'>
         <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
-          <div style='width:38px;height:38px;border-radius:50%;background:#ea580c;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(234,88,12,0.2);flex-shrink:0'>
-            3
-          </div>
+          <div style='width:38px;height:38px;border-radius:50%;background:#ea580c;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(234,88,12,0.2);flex-shrink:0'>3</div>
           <div>
-            <div style='margin:0;font-size:14px;font-weight:700;color:#c2410c'>
-              Still Denied? Call the Payer
-            </div>
-            <div style='font-size:11px;color:#64748b;margin-top:2px'>
-              Find out why it's still failing
-            </div>
+            <div style='margin:0;font-size:14px;font-weight:700;color:#c2410c'>Still Denied? Call the Payer</div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>Confirm the number is in their system correctly</div>
           </div>
         </div>
-
         <div style='background:#fff7ed;border:1px solid #fed7aa;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
-          📞 If the corrected claim gets denied again with M34, the issue may be on the <strong>payer's side</strong> — their system may not recognize your CLIA number due to an enrollment mismatch or internal registry issue.
+          📞 If the corrected claim still denies with M34, call the payer's provider relations line. The CLIA number may not be <strong>registered in their provider file</strong> or may be in the wrong field on the electronic claim.
         </div>
-
         <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
-          <li><strong>Have ready:</strong> Original + corrected claim numbers, date of service, member ID, CLIA number used, certificate type & expiration, and both remittance advices.</li>
-          <li><strong>Ask the rep:</strong> "Is this CLIA number in your system? Does it match the performing lab's enrollment record?"</li>
-          <li>Ask if they have a <strong>separate internal CLIA registry</strong> beyond CMS — some commercial payers do.</li>
-          <li>If valid in CMS but rejected by payer → <strong>request written documentation</strong> of their CLIA requirements. You'll need it for appeal.</li>
-          <li>📝 Always note: call reference number, rep name, date & time.</li>
+          <li><strong>Have ready:</strong> Claim number, member ID, date of service, HCPCS/CPT lab code billed, the CLIA number submitted, and both remittance advices.</li>
+          <li><strong>Ask the rep:</strong> "Was the CLIA number received on the claim? Is it registered in your provider file for our facility? Which field or segment do you require it in?"</li>
+          <li>Some payers require the CLIA number to be <strong>pre-registered in your provider enrollment file</strong> — even a correctly placed number on the claim will deny if it isn't on file with the payer first.</li>
+          <li>Ask whether the payer requires the <strong>performing lab's CLIA number vs. the billing provider's CLIA number</strong> — for reference lab claims this distinction matters and varies by payer.</li>
+          <li>📝 Document: reference number, rep name, date, time, and the exact field or enrollment step they advise.</li>
         </ul>
       </div>
 
       <!-- Step 4 -->
       <div style='border:1px solid #fecaca;border-radius:18px;padding:18px;background:linear-gradient(180deg,#fff6f6 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(220,38,38,0.08)'>
         <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
-          <div style='width:38px;height:38px;border-radius:50%;background:#dc2626;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(220,38,38,0.2);flex-shrink:0'>
-            4
-          </div>
+          <div style='width:38px;height:38px;border-radius:50%;background:#dc2626;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(220,38,38,0.2);flex-shrink:0'>4</div>
           <div>
-            <div style='margin:0;font-size:14px;font-weight:700;color:#b91c1c'>
-              Payer Won't Budge? File a Formal Appeal
-            </div>
-            <div style='font-size:11px;color:#64748b;margin-top:2px'>
-              Escalate and fight it officially
-            </div>
+            <div style='margin:0;font-size:14px;font-weight:700;color:#b91c1c'>Payer Won't Reprocess? File a Formal Appeal</div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>Escalate with CLIA certification proof attached</div>
           </div>
         </div>
-
         <div style='background:#fef2f2;border:1px solid #fecaca;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
-          ⚖️ If the payer still upholds the denial, file a <strong>formal appeal</strong> proving your CLIA number was valid, active, and correctly placed on the claim.
+          ⚖️ If the payer upholds the M34 denial after a corrected claim and provider relations outreach, file a <strong>formal appeal</strong> attaching proof of active CLIA certification and demonstrating the number was correctly reported on the claim.
         </div>
-
         <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
-          <li><strong>Appeal letter must include:</strong> Provider name, NPI, Tax ID, patient name, member ID, claim number, DOS, billed amount, and the CLIA number in dispute.</li>
-          <li><strong>Key statement:</strong> "CLIA number [XXXXXXXXXX] is valid, active, and appropriate for the test complexity. We appeal the M34 denial as the claim was compliant at submission."</li>
-          <li><strong>Attach:</strong> Original + corrected claim copies, both remittance advices, CLIA certificate copy, and a CMS CLIA portal screenshot confirming active status.</li>
-          <li><strong>Medicare deadline:</strong> File Redetermination with the MAC within <strong>120 days</strong> of denial. Commercial payers: follow EOB appeal instructions (usually 30–60 days).</li>
-          <li>📌 Reference: <em>CMS Medicare Claims Processing Manual, Pub 100-04, Chapter 16 (Laboratory Services)</em>.</li>
+          <li><strong>Appeal letter must include:</strong> Provider name, NPI, Tax ID, facility name, patient name, member ID, claim number, date of service, CPT/HCPCS lab code, and the CLIA number in dispute.</li>
+          <li><strong>Key statement:</strong> "CLIA Certification Number [XXXXXXXXXX] is active and valid for the test type billed. The number was reported in the correct field per payer and CMS billing guidelines. We appeal the M34 denial as the claim was compliant at submission."</li>
+          <li><strong>Attach:</strong> Copy of active CLIA certificate, CMS CLIA database printout confirming active status, original claim, corrected claim, and both remittance advices.</li>
+          <li><strong>Medicare:</strong> File Redetermination with the MAC within <strong>120 days</strong> of denial. Reference <em>CMS Medicare Claims Processing Manual, Pub 100-04, Chapter 16 (Laboratory Services)</em>.</li>
+          <li>Commercial payers: check EOB for appeal deadline — typically <strong>30–180 days</strong>. Cite the payer's own lab billing guidelines if the CLIA field placement was per their provider manual.</li>
         </ul>
       </div>
 
       <!-- Step 5 -->
       <div style='grid-column:1 / -1;border:1px solid #ddd6fe;border-radius:18px;padding:18px;background:linear-gradient(180deg,#f8f7ff 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(124,58,237,0.08)'>
         <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
-          <div style='width:38px;height:38px;border-radius:50%;background:#7c3aed;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(124,58,237,0.2);flex-shrink:0'>
-            5
-          </div>
+          <div style='width:38px;height:38px;border-radius:50%;background:#7c3aed;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(124,58,237,0.2);flex-shrink:0'>5</div>
           <div>
-            <div style='margin:0;font-size:14px;font-weight:700;color:#6d28d9'>
-              Payer Says "Never Received It"? Prove You Sent It
-            </div>
-            <div style='font-size:11px;color:#64748b;margin-top:2px'>
-              A transmission or system error may have dropped your CLIA field
-            </div>
+            <div style='margin:0;font-size:14px;font-weight:700;color:#6d28d9'>Seeing This Repeatedly? Fix Your Lab Billing Templates</div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>One template fix stops M34 across every lab claim</div>
           </div>
         </div>
-
         <div style='background:#f5f3ff;border:1px solid #ddd6fe;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
-          🛰️ This means the payer's system didn't receive or recognize the CLIA field — not that you forgot it. A <strong>clearinghouse error, missing EDI qualifier, or billing system mapping issue</strong> often causes the field to get dropped in transit.
+          🔁 If M34 is appearing on multiple claims, the CLIA number is <strong>not hardcoded into your billing system or claim template</strong> for lab claim types — or it's populating in the wrong field. This is a one-time fix that stops the denial permanently.
         </div>
-
         <div style='display:grid;grid-template-columns:repeat(2,1fr);gap:12px'>
           <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
-            <li><strong>Request the claim image</strong> from the payer as they received it. Compare it to your CMS-1500 (Box 23) or UB-04 (FL 81CC) to spot any dropped fields.</li>
-            <li><strong>Check your 837 EDI file:</strong> CLIA must be in Loop 2300, REF with qualifier "X4". For referred line-level tests, also in Loop 2400, REF with "F4". A missing qualifier = unreadable to the payer's system.</li>
-            <li><strong>Review the 999 Acknowledgment</strong> from your clearinghouse — an interchange-level acceptance doesn't guarantee REF segments passed through intact.</li>
+            <li><strong>Hardcode the CLIA number into your billing system</strong> on all lab claim templates — it should auto-populate in the correct field (Box 23 / REF X4) on every lab claim without manual entry. Manual entry = human error = M34.</li>
+            <li><strong>Set up separate templates by performing lab.</strong> If you use multiple reference labs, each lab's CLIA number must map to the correct claim template — a single generic template with your facility CLIA won't work for reference lab sends.</li>
+            <li><strong>Audit your payer enrollment files annually.</strong> Confirm your CLIA number is on file with every payer you bill lab claims to — re-verify after any facility address change, ownership change, or CLIA renewal.</li>
           </ul>
           <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
-            <li><strong>Appeal with proof:</strong> Claim copy showing CLIA in the correct field + 837 REF segment excerpt with qualifier X4 + clearinghouse acknowledgment + written statement confirming data was present at submission.</li>
-            <li><strong>Ask the payer</strong> to check if a system intake configuration issue caused the CLIA segment to be ignored — a payer-side error may trigger internal reprocessing without a full appeal cycle.</li>
-            <li>🔒 <strong>Prevent recurrence:</strong> Set up a pre-submission edit in your billing system to flag any lab CPT code missing a CLIA number or "X4" qualifier before it goes out the door.</li>
+            <li><strong>Add a pre-submission edit</strong> that flags any claim with a lab CPT code (80000–89999 series) that is missing a value in the CLIA number field before the claim is released to the payer.</li>
+            <li><strong>Track CLIA certificate expiration.</strong> CLIA certificates must be renewed every two years — an expired certificate triggers denials just like a missing number. Put the expiration date in your compliance calendar with a 90-day advance reminder.</li>
+            <li>🔒 <strong>Compliance reminder:</strong> Billing lab claims without a valid CLIA certificate is a federal violation under 42 CFR Part 493. Ensure your certificate is active, posted, and renewed on time — this is not just a billing issue.</li>
           </ul>
         </div>
       </div>
@@ -14771,30 +14769,179 @@ Therapy plan-of-care occurrence dates not included on the claim.
 </div>
 </div>
 
-      <!-- How to Fix It -->
-      <div class="card span-6 card-collapsible">
-        <div class="label">How to Fix It — Step by Step</div>
-        <div class="nm-h3" style="margin-top:4px">Standard Correction Process</div>
-        <ol class="step-list">
-          <li><span class="sn">1</span><span>Pull the original EOB or remittance — confirm M45 is the denial reason and identify whether the issue is a missing code, invalid code, missing date, or conflicting data</span></li>
-          <li><span class="sn">2</span><span>Review the claim scenario against the M45 reference table above — identify which occurrence code(s) are required for the TOB, clinical situation, and payer</span></li>
-          <li><span class="sn">3</span><span>Confirm the correct date to pair with each code — pull source documentation (face sheet, accident report, therapy plan, hospice certification, discharge summary) to verify the date</span></li>
-          <li><span class="sn">4</span><span>Check whether an occurrence code or an occurrence span code is the correct type for the event — single date = FL31–FL34; date range = FL35–FL36</span></li>
-          <li><span class="sn">5</span><span>Verify the date format — MM/DD/YY on the paper UB-04; MMDDYYYY in the EDI 837I HI*BH segment</span></li>
-          <li><span class="sn">6</span><span>Confirm no conflicting occurrence codes are present — remove or replace any code that is mutually exclusive or contradicts other claim fields</span></li>
-          <li><span class="sn">7</span><span>Check payer-specific companion guide — some payers require occurrence codes beyond the standard NUBC set or have specific date rules</span></li>
-          <li><span class="sn">8</span><span>Add Condition Code D4 to FL18–FL28 and use Frequency Code 7 in the TOB to indicate this is a corrected replacement claim</span></li>
-          <li><span class="sn">9</span><span>Run the corrected claim through the scrubber with occurrence code validation active before resubmission</span></li>
-          <li><span class="sn">10</span><span>Submit the corrected claim with Frequency Code 7 (Replacement) in the Type of Bill</span></li>
-        </ol>
-        <div class="alert warn" style="margin-top:14px;margin-bottom:0">
-          <div class="alert-icon">⚠️</div>
-          <div>
-            <div class="alert-title">Call the Payer If the Required Code Is Unclear</div>
-            <div class="alert-text">If the EOB does not specify which occurrence code is missing or why the submitted code was rejected, call the payer's provider services line before resubmitting. Ask specifically which code and date their system requires for this claim type and scenario — this prevents repeated denials from guessing the wrong code.</div>
-          </div>
+
+<!-- ── RARC M45 - Missing / Incomplete / Invalid Occurrence Code(s) ── -->
+<div class='card span-12 card-collapsible' style='border:1px solid var(--border);border-radius:20px;overflow:hidden;background:#fff;box-shadow:0 10px 24px rgba(15,23,42,0.08)'>
+
+  <!-- Header -->
+  <div class='label' style='background:linear-gradient(90deg,#0f172a,#1e3a8a);color:#fff;padding:14px 18px;font-size:15px;font-weight:700;letter-spacing:.3px'>
+    How to Fix It — RARC M45: Missing / Incomplete / Invalid Occurrence Code(s)
+  </div>
+
+  <!-- What is it -->
+  <div style='padding:18px 20px 0'>
+    <div style='background:#f0f9ff;border:1px solid #bae6fd;border-radius:14px;padding:14px 16px;margin-bottom:18px'>
+      <div style='font-size:13px;font-weight:700;color:#0369a1;margin-bottom:6px'>💡 What is RARC M45?</div>
+      <div style='font-size:12px;color:#475569;line-height:1.6'>
+        Your claim was denied because an <strong>Occurrence Code is missing, incomplete, or invalid</strong>. Think of an Occurrence Code like a <strong>date-stamped event note on your claim</strong> — it tells the payer about a specific event that happened (like an accident or insurance change) and <em>when</em> it occurred. Every occurrence code needs <strong>both a code AND a date</strong> — one without the other causes M45.
+      </div>
+      <div style='display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px'>
+        <div style='background:#fff;border:1px solid #bae6fd;border-radius:10px;padding:10px;text-align:center'>
+          <div style='font-size:11px;font-weight:700;color:#0284c7'>UB-04</div>
+          <div style='font-size:13px;font-weight:800;color:#0369a1;margin:4px 0'>FL 31–36</div>
+          <div style='font-size:10px;color:#64748b'>Institutional claims</div>
+        </div>
+        <div style='background:#fff;border:1px solid #bae6fd;border-radius:10px;padding:10px;text-align:center'>
+          <div style='font-size:11px;font-weight:700;color:#0284c7'>CMS-1500</div>
+          <div style='font-size:13px;font-weight:800;color:#0369a1;margin:4px 0'>N/A</div>
+          <div style='font-size:10px;color:#64748b'>Institutional use only</div>
+        </div>
+        <div style='background:#fff;border:1px solid #bae6fd;border-radius:10px;padding:10px;text-align:center'>
+          <div style='font-size:11px;font-weight:700;color:#0284c7'>837I</div>
+          <div style='font-size:13px;font-weight:800;color:#0369a1;margin:4px 0'>Loop 2300</div>
+          <div style='font-size:10px;color:#64748b'>HI segment</div>
         </div>
       </div>
+
+      
+    <!-- Common codes table -->
+      <div style='margin-top:12px;border:1px solid #bae6fd;border-radius:10px;overflow:hidden'>
+        <div style='background:#0284c7;color:#fff;font-size:11px;font-weight:700;padding:7px 12px'>📋 Common Occurrence Codes That Trigger M45</div>
+        <div style='display:grid;grid-template-columns:60px 1fr;font-size:11px'>
+          <div style='background:#e0f2fe;padding:6px 10px;font-weight:700;color:#0369a1;border-bottom:1px solid #bae6fd'>Code</div>
+          <div style='background:#e0f2fe;padding:6px 10px;font-weight:700;color:#0369a1;border-bottom:1px solid #bae6fd'>Meaning</div>
+          <div style='padding:5px 10px;color:#334155;border-bottom:1px solid #e0f2fe'>01</div>
+          <div style='padding:5px 10px;color:#334155;border-bottom:1px solid #e0f2fe'>Auto accident date</div>
+          <div style='padding:5px 10px;color:#334155;background:#f8fbff;border-bottom:1px solid #e0f2fe'>02</div>
+          <div style='padding:5px 10px;color:#334155;background:#f8fbff;border-bottom:1px solid #e0f2fe'>No-fault insurance — accident date</div>
+          <div style='padding:5px 10px;color:#334155;border-bottom:1px solid #e0f2fe'>11</div>
+          <div style='padding:5px 10px;color:#334155;border-bottom:1px solid #e0f2fe'>Onset of symptoms / illness</div>
+          <div style='padding:5px 10px;color:#334155;background:#f8fbff;border-bottom:1px solid #e0f2fe'>17</div>
+          <div style='padding:5px 10px;color:#334155;background:#f8fbff;border-bottom:1px solid #e0f2fe'>Date outpatient occupational therapy plan established</div>
+          <div style='padding:5px 10px;color:#334155;border-bottom:1px solid #e0f2fe'>22</div>
+          <div style='padding:5px 10px;color:#334155;border-bottom:1px solid #e0f2fe'>Date active care ended</div>
+          <div style='padding:5px 10px;color:#334155;background:#f8fbff'>50</div>
+          <div style='padding:5px 10px;color:#334155;background:#f8fbff'>Date of Medicare Part A exhaustion</div>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+  <div style='padding:0 20px 20px'>
+    <div style='display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px'>
+
+      <!-- Step 1 -->
+      <div style='border:1px solid #dbeafe;border-radius:18px;padding:18px;background:linear-gradient(180deg,#f8fbff 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(37,99,235,0.08)'>
+        <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
+          <div style='width:38px;height:38px;border-radius:50%;background:#2563eb;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(37,99,235,0.2);flex-shrink:0'>1</div>
+          <div>
+            <div style='margin:0;font-size:14px;font-weight:700;color:#1d4ed8'>Find the Wrong or Missing Code</div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>Start with the remittance advice</div>
+          </div>
+        </div>
+        <div style='background:#eff6ff;border:1px solid #dbeafe;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
+          🔍 Pull the EOB or 835 remittance. M45 means something is wrong — your job is to figure out whether the code is <strong>missing entirely, has no date, uses an invalid code, or doesn't apply to this claim type</strong>.
+        </div>
+        <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+          <li>Check <strong>FL 31–36</strong> on the UB-04. Each field needs <strong>both a code AND a date</strong> — submitting one without the other triggers M45.</li>
+          <li>Confirm the code is <strong>still active</strong> — CMS retires occurrence codes; an outdated code causes M45 just like a wrong one.</li>
+          <li>Verify the code <strong>matches the claim type</strong> — some codes are inpatient-only, others outpatient-only.</li>
+          <li>Ask a senior coder: "Is an occurrence code required for this visit, and which one?"</li>
+          <li>Reference the <strong>NUBC Official UB-04 Data Specifications Manual</strong> for the current, valid code list.</li>
+        </ul>
+      </div>
+
+      <!-- Step 2 -->
+      <div style='border:1px solid #dcfce7;border-radius:18px;padding:18px;background:linear-gradient(180deg,#f7fff8 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(22,163,74,0.08)'>
+        <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
+          <div style='width:38px;height:38px;border-radius:50%;background:#16a34a;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(22,163,74,0.2);flex-shrink:0'>2</div>
+          <div>
+            <div style='margin:0;font-size:14px;font-weight:700;color:#15803d'>Fix the Code + Date & Resubmit</div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>Corrected claim — not a brand new one</div>
+          </div>
+        </div>
+        <div style='background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
+          ✅ This is a <strong>correctable billing error</strong> — not a coverage denial. Fix the occurrence code and/or date, then resubmit as a corrected claim for the fastest path to payment.
+        </div>
+        <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+          <li><strong>UB-04:</strong> Enter the correct code + date in <strong>FL 31–36</strong>. Both fields are required — code without date (or vice versa) will re-deny.</li>
+          <li><strong>837I electronic:</strong> Update the <strong>Loop 2300, HI segment</strong>. Confirm the correct qualifier precedes the code in the segment.</li>
+          <li>If no occurrence code is needed at all, <strong>leave FL 31–36 blank</strong> — do not substitute a placeholder code.</li>
+          <li><strong>Corrected claim:</strong> UB-04 → set TOB frequency digit to <strong>"7"</strong> + enter original TCN in Box 64.</li>
+          <li>⚠️ Check <strong>timely filing limits</strong> for corrected claims before resubmitting — payer deadlines may differ from original submission windows.</li>
+        </ul>
+      </div>
+
+      <!-- Step 3 -->
+      <div style='border:1px solid #fed7aa;border-radius:18px;padding:18px;background:linear-gradient(180deg,#fffaf5 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(234,88,12,0.08)'>
+        <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
+          <div style='width:38px;height:38px;border-radius:50%;background:#ea580c;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(234,88,12,0.2);flex-shrink:0'>3</div>
+          <div>
+            <div style='margin:0;font-size:14px;font-weight:700;color:#c2410c'>Still Denied? Call the Payer</div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>Find out exactly what they expect</div>
+          </div>
+        </div>
+        <div style='background:#fff7ed;border:1px solid #fed7aa;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
+          📞 If the corrected claim still gets M45, call the payer's provider relations line. The issue may be a <strong>payer-specific requirement</strong> that differs from standard NUBC guidelines.
+        </div>
+        <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+          <li><strong>Have ready:</strong> Original + corrected claim numbers, date of service, member ID, occurrence code(s) used, claim type, and both remittance advices.</li>
+          <li><strong>Ask the rep:</strong> "Which occurrence code and date format is required for this claim type? Is the code I submitted not recognized in your system?"</li>
+          <li>Ask if the denial is due to the code being <strong>invalid, missing a date, or conflicting</strong> with the bill type, revenue code, or diagnosis on the claim.</li>
+          <li>📝 Document the call: reference number, rep name, date, time, and the exact correction advised.</li>
+        </ul>
+      </div>
+
+      <!-- Step 4 -->
+      <div style='border:1px solid #fecaca;border-radius:18px;padding:18px;background:linear-gradient(180deg,#fff6f6 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(220,38,38,0.08)'>
+        <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
+          <div style='width:38px;height:38px;border-radius:50%;background:#dc2626;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(220,38,38,0.2);flex-shrink:0'>4</div>
+          <div>
+            <div style='margin:0;font-size:14px;font-weight:700;color:#b91c1c'>Payer Won't Reprocess? File a Formal Appeal</div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>Escalate and fight it officially</div>
+          </div>
+        </div>
+        <div style='background:#fef2f2;border:1px solid #fecaca;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
+          ⚖️ If the payer upholds the M45 denial after a corrected claim and provider relations outreach, file a <strong>formal appeal</strong> proving the occurrence code and date submitted were valid and compliant with NUBC guidelines.
+        </div>
+        <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+          <li><strong>Appeal letter must include:</strong> Provider name, NPI, Tax ID, patient name, member ID, claim number, date of service, billed amount, and the occurrence code(s) in dispute.</li>
+          <li><strong>Key statement:</strong> "Occurrence Code [XX] with date [MM/DD/YYYY] submitted on this claim is valid per the current NUBC code set and applicable to the claim type and services billed. We appeal the M45 denial as the claim was compliant at submission."</li>
+          <li><strong>Attach:</strong> Original + corrected claim copies, both remittance advices, and NUBC reference confirming the code's validity and applicability.</li>
+          <li><strong>Medicare deadline:</strong> File Redetermination with the MAC within <strong>120 days</strong> of the denial date. Commercial payers: follow appeal instructions on the EOB (typically 30–60 days).</li>
+          <li>📌 Reference: <em>CMS Medicare Claims Processing Manual, Pub 100-04</em> and the <em>NUBC Official UB-04 Data Specifications Manual</em>.</li>
+        </ul>
+      </div>
+
+      <!-- Step 5 -->
+      <div style='grid-column:1 / -1;border:1px solid #ddd6fe;border-radius:18px;padding:18px;background:linear-gradient(180deg,#f8f7ff 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(124,58,237,0.08)'>
+        <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
+          <div style='width:38px;height:38px;border-radius:50%;background:#7c3aed;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(124,58,237,0.2);flex-shrink:0'>5</div>
+          <div>
+            <div style='margin:0;font-size:14px;font-weight:700;color:#6d28d9'>Seeing This Repeatedly? Fix Your Billing Templates</div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>Stop M45 from happening across your entire claim volume</div>
+          </div>
+        </div>
+        <div style='background:#f5f3ff;border:1px solid #ddd6fe;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
+          🔁 If M45 is appearing on multiple claims, this is a <strong>systemic template or configuration issue</strong> — a wrong code is hardcoded, a date field is being skipped, or occurrence codes are auto-populating from an outdated EHR template.
+        </div>
+        <div style='display:grid;grid-template-columns:repeat(2,1fr);gap:12px'>
+          <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+            <li><strong>Audit recent denials</strong> for the same occurrence code error across multiple accounts. If the same mistake repeats, it's in your template — not a one-off.</li>
+            <li><strong>Check claim templates by type</strong> (inpatient, outpatient, SNF, home health). Occurrence codes must always include a date — build that as a required paired field in your system.</li>
+            <li><strong>Update codes annually.</strong> NUBC refreshes occurrence codes each year; a retired code auto-populating from an old template will keep triggering M45 on otherwise clean claims.</li>
+          </ul>
+          <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+            <li><strong>Build a pre-submission edit</strong> that validates occurrence code + date pairs before claims go out — flag any code submitted without a corresponding date.</li>
+            <li><strong>Document payer-specific rules.</strong> If a payer requires a non-standard occurrence code, save it as a payer rule in your billing system so billers apply it consistently.</li>
+            <li>🔒 <strong>Train your team:</strong> Occurrence codes are event-specific — only add them when the real-world event actually happened. Never use them as default fillers.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
 
     
      <!-- What NOT to Do -->
@@ -16074,37 +16221,179 @@ Service performed by a covering or substitute provider not tied to the authoriza
 </div>
 </div>
 
-    <!-- ── HOW TO FIX IT ── -->
-    <div class="card span-6 card-collapsible">
-      <div class="label">How to Fix It — Step-by-Step</div>
-      <div class="nm-h3" style="margin-top:4px">Step 1 — Pull the Authorization Record</div>
-      <ol class="step-list">
-        <li><span class="sn">1</span><span>Go to the payer's provider portal or call the payer's provider services line and look up the authorization for this patient, date of service, and procedure code</span></li>
-        <li><span class="sn">2</span><span>Confirm the authorization <strong>exists and is active</strong> — check the approved date range, approved procedure code(s), approved units, rendering provider NPI, and place of service</span></li>
-        <li><span class="sn">3</span><span>Compare the authorization record to what was submitted on the claim — note any differences</span></li>
-      </ol>
-      <div class="nm-h3">Step 2 — Identify the Specific Mismatch</div>
-      <ol class="step-list">
-        <li><span class="sn">4</span><span>Check Box 23 (CMS-1500) or FL63 (UB-04) on the original claim — was the auth number present? Was it entered correctly character by character?</span></li>
-        <li><span class="sn">5</span><span>Confirm the procedure code, place of service, provider NPI, and dates of service on the claim all match the authorization exactly</span></li>
-        <li><span class="sn">6</span><span>If the auth number was correct and all fields match, escalate to the payer — this may be a payer-side system issue requiring a reprocessing request</span></li>
-      </ol>
-      <div class="nm-h3">Step 3 — Correct and Resubmit</div>
-      <ol class="step-list">
-        <li><span class="sn">7</span><span>Correct the auth number, procedure code, provider, or place of service as needed — then submit a <strong>corrected claim with Resubmission Code 7</strong></span></li>
-        <li><span class="sn">8</span><span>If the authorization itself was never obtained, contact the clinical or authorization team immediately — a retroactive authorization request may be possible depending on the payer and situation</span></li>
-        <li><span class="sn">9</span><span>If the service date is outside the auth period, request an authorization extension from the payer before resubmitting</span></li>
-      </ol>
-      <div class="alert warn" style="margin-top:14px">
-        <div class="alert-icon">⚠️</div>
-        <div>
-          <div class="alert-title">Timely Filing Warning</div>
-          <div class="alert-text">While resolving an M62 denial, keep an eye on your timely filing deadline. Corrected claims and appeals still need to be submitted within the payer's filing window. Do not let the auth research delay the resubmission past the deadline.</div>
+<!-- ── RARC M62 - Missing Treatment Authorization Code ── -->
+<div class='card span-12 card-collapsible' style='border:1px solid var(--border);border-radius:20px;overflow:hidden;background:#fff;box-shadow:0 10px 24px rgba(15,23,42,0.08)'>
+
+  <!-- Header -->
+  <div class='label' style='background:linear-gradient(90deg,#0f172a,#1e3a8a);color:#fff;padding:14px 18px;font-size:15px;font-weight:700;letter-spacing:.3px'>
+    How to Fix It — RARC M62: Missing Treatment Authorization Code
+  </div>
+
+  <!-- What is it -->
+  <div style='padding:18px 20px 0'>
+    <div style='background:#f0f9ff;border:1px solid #bae6fd;border-radius:14px;padding:14px 16px;margin-bottom:18px'>
+      <div style='font-size:13px;font-weight:700;color:#0369a1;margin-bottom:6px'>💡 What is RARC M62?</div>
+      <div style='font-size:12px;color:#475569;line-height:1.6'>
+        Your claim was denied because a <strong>Treatment Authorization Code is missing from the claim</strong>. Think of it like a <strong>permission slip number</strong> — before certain services are performed, the payer must approve them and gives you an authorization number. If that number isn't on the claim, the payer has no proof the service was pre-approved and will not pay.
+      </div>
+      <div style='display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px'>
+        <div style='background:#fff;border:1px solid #bae6fd;border-radius:10px;padding:10px;text-align:center'>
+          <div style='font-size:11px;font-weight:700;color:#0284c7'>UB-04</div>
+          <div style='font-size:13px;font-weight:800;color:#0369a1;margin:4px 0'>FL 63</div>
+          <div style='font-size:10px;color:#64748b'>Treatment Auth. Code</div>
+        </div>
+        <div style='background:#fff;border:1px solid #bae6fd;border-radius:10px;padding:10px;text-align:center'>
+          <div style='font-size:11px;font-weight:700;color:#0284c7'>CMS-1500</div>
+          <div style='font-size:13px;font-weight:800;color:#0369a1;margin:4px 0'>Box 23</div>
+          <div style='font-size:10px;color:#64748b'>Prior Auth. Number</div>
+        </div>
+        <div style='background:#fff;border:1px solid #bae6fd;border-radius:10px;padding:10px;text-align:center'>
+          <div style='font-size:11px;font-weight:700;color:#0284c7'>837I / 837P</div>
+          <div style='font-size:13px;font-weight:800;color:#0369a1;margin:4px 0'>Loop 2300</div>
+          <div style='font-size:10px;color:#64748b'>REF segment (G1)</div>
+        </div>
+      </div>
+
+
+   <!-- Common scenarios table -->
+      <div style='margin-top:12px;border:1px solid #bae6fd;border-radius:10px;overflow:hidden'>
+        <div style='background:#0284c7;color:#fff;font-size:11px;font-weight:700;padding:7px 12px'>📋 Common Services That Require a Treatment Authorization Code</div>
+        <div style='display:grid;grid-template-columns:1fr 1fr;font-size:11px'>
+          <div style='background:#e0f2fe;padding:6px 10px;font-weight:700;color:#0369a1;border-bottom:1px solid #bae6fd'>Service Type</div>
+          <div style='background:#e0f2fe;padding:6px 10px;font-weight:700;color:#0369a1;border-bottom:1px solid #bae6fd'>Why Auth Is Required</div>
+          <div style='padding:5px 10px;color:#334155;border-bottom:1px solid #e0f2fe'>Inpatient admissions</div>
+          <div style='padding:5px 10px;color:#334155;border-bottom:1px solid #e0f2fe'>Payer must approve before or within 24–48 hrs of admit</div>
+          <div style='padding:5px 10px;color:#334155;background:#f8fbff;border-bottom:1px solid #e0f2fe'>Elective surgeries</div>
+          <div style='padding:5px 10px;color:#334155;background:#f8fbff;border-bottom:1px solid #e0f2fe'>Pre-authorization required before procedure date</div>
+          <div style='padding:5px 10px;color:#334155;border-bottom:1px solid #e0f2fe'>Specialty referrals (HMO)</div>
+          <div style='padding:5px 10px;color:#334155;border-bottom:1px solid #e0f2fe'>PCP referral auth needed to see a specialist</div>
+          <div style='padding:5px 10px;color:#334155;background:#f8fbff;border-bottom:1px solid #e0f2fe'>High-cost imaging (MRI, PET)</div>
+          <div style='padding:5px 10px;color:#334155;background:#f8fbff;border-bottom:1px solid #e0f2fe'>Radiology management programs require prior auth</div>
+          <div style='padding:5px 10px;color:#334155'>DME / home health / SNF</div>
+          <div style='padding:5px 10px;color:#334155'>Post-acute services almost always require auth</div>
         </div>
       </div>
     </div>
+  </div>
+ 
+  <div style='padding:0 20px 20px'>
+    <div style='display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px'>
 
+      <!-- Step 1 -->
+      <div style='border:1px solid #dbeafe;border-radius:18px;padding:18px;background:linear-gradient(180deg,#f8fbff 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(37,99,235,0.08)'>
+        <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
+          <div style='width:38px;height:38px;border-radius:50%;background:#2563eb;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(37,99,235,0.2);flex-shrink:0'>1</div>
+          <div>
+            <div style='margin:0;font-size:14px;font-weight:700;color:#1d4ed8'>Check If an Auth Was Obtained</div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>The number may exist — just not on the claim</div>
+          </div>
+        </div>
+        <div style='background:#eff6ff;border:1px solid #dbeafe;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
+          🔍 Before anything else — check whether a prior authorization was actually requested and approved. M62 only means the number is <strong>missing from the claim</strong>. The auth may already exist in your system.
+        </div>
+        <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+          <li>Search your <strong>authorization management system or EHR</strong> for the patient, date of service, and service type — the auth number may already be on file.</li>
+          <li>Check the <strong>original referral or order</strong> — the auth number is often printed on the approval letter or fax from the payer.</li>
+          <li>Confirm the auth covers the <strong>exact service billed</strong> — procedure code, service dates, and facility must all match the approved auth.</li>
+          <li>If no auth was obtained, determine <strong>whether one was actually required</strong> for this specific payer, plan type, and service — not every service requires prior auth on every plan.</li>
+          <li>Check the <strong>payer's online portal</strong> — many payers allow you to look up active authorizations by member ID and service date.</li>
+        </ul>
+      </div>
+
+      <!-- Step 2 -->
+      <div style='border:1px solid #dcfce7;border-radius:18px;padding:18px;background:linear-gradient(180deg,#f7fff8 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(22,163,74,0.08)'>
+        <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
+          <div style='width:38px;height:38px;border-radius:50%;background:#16a34a;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(22,163,74,0.2);flex-shrink:0'>2</div>
+          <div>
+            <div style='margin:0;font-size:14px;font-weight:700;color:#15803d'>Add the Auth Number & Resubmit</div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>Fastest fix if the auth already exists</div>
+          </div>
+        </div>
+        <div style='background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
+          ✅ If the authorization exists but wasn't on the claim, this is a <strong>simple data entry fix</strong>. Add the auth number and resubmit as a corrected claim — do not submit as a new claim.
+        </div>
+        <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+          <li><strong>UB-04:</strong> Enter the authorization number in <strong>Form Locator 63</strong> (Treatment Authorization Code).</li>
+          <li><strong>CMS-1500:</strong> Enter the authorization number in <strong>Box 23</strong> (Prior Authorization Number).</li>
+          <li><strong>837I / 837P:</strong> Report in <strong>Loop 2300, REF segment</strong> using qualifier <strong>G1</strong> (Prior Authorization Number).</li>
+          <li><strong>Corrected claim:</strong> UB-04 → TOB frequency digit <strong>"7"</strong> + original TCN in Box 64. CMS-1500 → Box 22, Resubmission Code <strong>"7"</strong> + original ICN.</li>
+          <li>⚠️ Confirm <strong>timely filing limits</strong> for corrected claims — do not let the deadline pass while tracking down the auth number.</li>
+        </ul>
+      </div>
+
+      <!-- Step 3 -->
+      <div style='border:1px solid #fed7aa;border-radius:18px;padding:18px;background:linear-gradient(180deg,#fffaf5 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(234,88,12,0.08)'>
+        <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
+          <div style='width:38px;height:38px;border-radius:50%;background:#ea580c;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(234,88,12,0.2);flex-shrink:0'>3</div>
+          <div>
+            <div style='margin:0;font-size:14px;font-weight:700;color:#c2410c'>No Auth on File? Request Retro Authorization</div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>Some payers allow backdated approval</div>
+          </div>
+        </div>
+        <div style='background:#fff7ed;border:1px solid #fed7aa;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
+          📞 If the service was performed but no auth was ever obtained, call the payer immediately. Many payers allow a <strong>retroactive authorization</strong> request — especially for urgent, emergent, or clinically necessary services.
+        </div>
+        <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+          <li><strong>Call the payer's prior authorization line</strong> (not provider relations). Explain the service was rendered and request a retroactive auth review.</li>
+          <li><strong>Have ready:</strong> Member ID, date of service, procedure/diagnosis codes, ordering provider NPI, place of service, and clinical notes supporting medical necessity.</li>
+          <li>Ask the payer: <strong>"What is your retro auth policy and deadline?"</strong> Most payers have a strict window (e.g., 30–90 days from date of service) — act fast.</li>
+          <li>If retro auth is approved, <strong>get the authorization number in writing</strong>, then resubmit the corrected claim with the number in the appropriate field.</li>
+          <li>📝 Document everything: call reference number, rep name, date, time, and outcome of the retro auth request.</li>
+        </ul>
+      </div>
+
+      <!-- Step 4 -->
+      <div style='border:1px solid #fecaca;border-radius:18px;padding:18px;background:linear-gradient(180deg,#fff6f6 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(220,38,38,0.08)'>
+        <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
+          <div style='width:38px;height:38px;border-radius:50%;background:#dc2626;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(220,38,38,0.2);flex-shrink:0'>4</div>
+          <div>
+            <div style='margin:0;font-size:14px;font-weight:700;color:#b91c1c'>Retro Auth Denied? File a Formal Appeal</div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>Fight it with medical necessity documentation</div>
+          </div>
+        </div>
+        <div style='background:#fef2f2;border:1px solid #fecaca;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
+          ⚖️ If the payer denies retro auth or upholds the M62 denial, file a <strong>formal appeal</strong> arguing the service was medically necessary and the lack of prior auth should not override the patient's right to covered benefits.
+        </div>
+        <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+          <li><strong>Appeal letter must include:</strong> Provider name, NPI, Tax ID, patient name, member ID, claim number, date of service, billed amount, and procedure/diagnosis codes.</li>
+          <li><strong>Key statement:</strong> "The service billed was medically necessary and covered under the patient's benefit plan. The absence of a prior authorization number on the claim does not negate the medical necessity or coverage of the service rendered."</li>
+          <li><strong>Attach:</strong> Clinical notes, physician orders, medical necessity documentation, original claim, remittance advice, and any retro auth denial letter received.</li>
+          <li><strong>Medicare:</strong> File Redetermination with the MAC within <strong>120 days</strong>. Commercial: check EOB for deadline (typically 30–60 days).</li>
+          <li>📌 For emergent services, cite <strong>EMTALA obligations</strong> and the payer's own plan language — most plans cannot deny emergent care solely for missing prior auth.</li>
+        </ul>
+      </div>
+
+      <!-- Step 5 -->
+      <div style='grid-column:1 / -1;border:1px solid #ddd6fe;border-radius:18px;padding:18px;background:linear-gradient(180deg,#f8f7ff 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(124,58,237,0.08)'>
+        <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
+          <div style='width:38px;height:38px;border-radius:50%;background:#7c3aed;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(124,58,237,0.2);flex-shrink:0'>5</div>
+          <div>
+            <div style='margin:0;font-size:14px;font-weight:700;color:#6d28d9'>Seeing This Repeatedly? Fix Your Auth Workflow</div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>Stop M62 before it hits the payer</div>
+          </div>
+        </div>
+        <div style='background:#f5f3ff;border:1px solid #ddd6fe;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
+          🔁 If M62 is appearing across multiple claims, you have a <strong>front-end authorization workflow gap</strong> — either auths aren't being obtained before service, auth numbers aren't being captured in the patient account, or they're not flowing through to the claim at billing time.
+        </div>
+        <div style='display:grid;grid-template-columns:repeat(2,1fr);gap:12px'>
+          <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+            <li><strong>Build an auth requirement matrix</strong> by payer and service type. Document which payers require auth for which CPT/procedure codes and post it where schedulers and billers can reference it daily.</li>
+            <li><strong>Make auth verification a scheduling checkpoint.</strong> Before any appointment is confirmed for an auth-required service, the auth number must be on file — no auth, no schedule confirmation.</li>
+            <li><strong>Store the auth number in the patient account</strong> at time of approval so it auto-populates onto the claim at billing — never rely on manual entry at claim creation.</li>
+          </ul>
+          <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+            <li><strong>Add a pre-submission claim edit</strong> that flags any claim for an auth-required service type that is missing a value in the auth number field — catch it before it goes out.</li>
+            <li><strong>Audit auth expiration dates.</strong> A valid auth used on a claim after its expiration date will also deny — ensure the auth covers the actual date of service, not just the originally scheduled date.</li>
+            <li>🔒 <strong>Train schedulers and front desk staff:</strong> Auth is a <em>revenue cycle responsibility that starts at scheduling</em> — by the time the claim hits billing, it's too late to prevent the denial.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>    
   
+
    <!-- What NOT to Do -->
 <div class='card span-6 card-collapsible' style='border:1px solid var(--border);border-radius:20px;overflow:hidden;background:#fff;box-shadow:0 10px 24px rgba(15,23,42,0.08)'>
 
@@ -16880,6 +17169,8 @@ Service performed by a covering or substitute provider not tied to the authoriza
 
           </div>
 
+  
+
           <!-- Images -->
           <div style='display:flex;
                       gap:12px;
@@ -17413,36 +17704,177 @@ Primary insurance terminated but claim still billed as a COB claim.
 </div>
 
 
-    <!-- ── HOW TO FIX IT ── -->
-    <div class="card span-6 card-collapsible">
-      <div class="label">How to Fix It — Step-by-Step</div>
-      <div class="nm-h3" style="margin-top:4px">Step 1 — Locate the Primary Payer's EOB</div>
-      <ol class="step-list">
-        <li><span class="sn">1</span><span>Pull the primary payer's EOB or Electronic Remittance Advice (ERA) for this claim — confirm it is for the correct patient, date of service, and service line</span></li>
-        <li><span class="sn">2</span><span>If the primary EOB has not been received yet — <strong>do not submit to the secondary</strong>. Wait until the primary has fully adjudicated the claim before billing secondary</span></li>
-        <li><span class="sn">3</span><span>If the primary denied the claim entirely, obtain the denial EOB — you still need to submit it to the secondary with the denial reason so the secondary can determine their liability</span></li>
-      </ol>
-      <div class="nm-h3">Step 2 — Transfer All EOB Data to the Claim</div>
-      <ol class="step-list">
-        <li><span class="sn">4</span><span>Enter the primary's paid amount exactly as shown on the EOB into <strong>Box 29</strong> (CMS-1500) or <strong>FL54</strong> (UB-04) — verify the dollar figure to the cent</span></li>
-        <li><span class="sn">5</span><span>Confirm the primary payer name (Box 11c / FL50) and payer ID (FL51) are correct and match what the secondary recognizes for that carrier</span></li>
-        <li><span class="sn">6</span><span>Verify the insured information fields (Box 11a–11d / FL58–FL63) match the primary insurance card and EOB exactly — name spelling, member ID, group number</span></li>
-        <li><span class="sn">7</span><span>Enter the primary payer's claim number or document control number into Box 11b (CMS-1500) or FL64 (UB-04)</span></li>
-      </ol>
-      <div class="nm-h3">Step 3 — Correct &amp; Resubmit</div>
-      <ol class="step-list">
-        <li><span class="sn">8</span><span>Submit a <strong>corrected claim with Resubmission Code 7</strong> to the secondary payer with all COB fields fully populated from the primary EOB</span></li>
-        <li><span class="sn">9</span><span>If the secondary payer requires a paper EOB attached, include a clean copy of the primary EOB with the corrected claim — many secondary payers and Medicaid plans require this</span></li>
-        <li><span class="sn">10</span><span>If the COB order was wrong (wrong primary vs. secondary), correct the payer order and resubmit to the correct payer first before billing the other</span></li>
-      </ol>
-      <div class="alert warn" style="margin-top:14px">
-        <div class="alert-icon">⚠️</div>
-        <div>
-          <div class="alert-title">Timely Filing — Both Payers Have Separate Deadlines</div>
-          <div class="alert-text">The secondary payer's timely filing clock typically starts from the primary payer's payment date — not the date of service. Always check the secondary payer's timely filing policy. Some payers allow 12 months from the primary EOB date; others allow only 90 days. Do not delay COB resubmissions.</div>
+<!-- ── RARC N4 - Missing Prior Insurance Carrier(s) EOB ── -->
+<div class='card span-12 card-collapsible' style='border:1px solid var(--border);border-radius:20px;overflow:hidden;background:#fff;box-shadow:0 10px 24px rgba(15,23,42,0.08)'>
+
+  <!-- Header -->
+  <div class='label' style='background:linear-gradient(90deg,#0f172a,#1e3a8a);color:#fff;padding:14px 18px;font-size:15px;font-weight:700;letter-spacing:.3px'>
+    How to Fix It — RARC N4: Missing Prior Insurance Carrier(s) Explanation of Benefits (EOB)
+  </div>
+
+  <!-- What is it -->
+  <div style='padding:18px 20px 0'>
+    <div style='background:#f0f9ff;border:1px solid #bae6fd;border-radius:14px;padding:14px 16px;margin-bottom:18px'>
+      <div style='font-size:13px;font-weight:700;color:#0369a1;margin-bottom:6px'>💡 What is RARC N4?</div>
+      <div style='font-size:12px;color:#475569;line-height:1.6'>
+        Your claim was denied because the <strong>primary (or other prior) insurance carrier's EOB is missing</strong>. Think of it like paying at a restaurant — if someone else is supposed to pay first, the second payer won't cover the bill until they see proof of what the first payer paid (or denied). The EOB is that <strong>proof of what the primary insurance already did</strong>. Without it, the secondary payer won't process your claim.
+      </div>
+      <div style='display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px'>
+        <div style='background:#fff;border:1px solid #bae6fd;border-radius:10px;padding:10px;text-align:center'>
+          <div style='font-size:11px;font-weight:700;color:#0284c7'>UB-04</div>
+          <div style='font-size:13px;font-weight:800;color:#0369a1;margin:4px 0'>FL 50–65</div>
+          <div style='font-size:10px;color:#64748b'>Other payer info fields</div>
+        </div>
+        <div style='background:#fff;border:1px solid #bae6fd;border-radius:10px;padding:10px;text-align:center'>
+          <div style='font-size:11px;font-weight:700;color:#0284c7'>CMS-1500</div>
+          <div style='font-size:13px;font-weight:800;color:#0369a1;margin:4px 0'>Box 11 / 29</div>
+          <div style='font-size:10px;color:#64748b'>Other insurance / amount paid</div>
+        </div>
+        <div style='background:#fff;border:1px solid #bae6fd;border-radius:10px;padding:10px;text-align:center'>
+          <div style='font-size:11px;font-weight:700;color:#0284c7'>837I / 837P</div>
+          <div style='font-size:13px;font-weight:800;color:#0369a1;margin:4px 0'>Loop 2320</div>
+          <div style='font-size:10px;color:#64748b'>Other subscriber info</div>
+        </div>
+      </div>
+
+
+ <!-- COB scenarios table -->
+      <div style='margin-top:12px;border:1px solid #bae6fd;border-radius:10px;overflow:hidden'>
+        <div style='background:#0284c7;color:#fff;font-size:11px;font-weight:700;padding:7px 12px'>📋 Common Situations That Trigger N4</div>
+        <div style='display:grid;grid-template-columns:1fr 1fr;font-size:11px'>
+          <div style='background:#e0f2fe;padding:6px 10px;font-weight:700;color:#0369a1;border-bottom:1px solid #bae6fd'>Situation</div>
+          <div style='background:#e0f2fe;padding:6px 10px;font-weight:700;color:#0369a1;border-bottom:1px solid #bae6fd'>Why EOB Is Required</div>
+          <div style='padding:5px 10px;color:#334155;border-bottom:1px solid #e0f2fe'>Patient has two insurance plans</div>
+          <div style='padding:5px 10px;color:#334155;border-bottom:1px solid #e0f2fe'>Secondary payer needs primary's payment/denial details</div>
+          <div style='padding:5px 10px;color:#334155;background:#f8fbff;border-bottom:1px solid #e0f2fe'>Medicare as secondary (MSP)</div>
+          <div style='padding:5px 10px;color:#334155;background:#f8fbff;border-bottom:1px solid #e0f2fe'>Medicare requires primary payer EOB before processing</div>
+          <div style='padding:5px 10px;color:#334155;border-bottom:1px solid #e0f2fe'>Workers' comp or auto insurance primary</div>
+          <div style='padding:5px 10px;color:#334155;border-bottom:1px solid #e0f2fe'>Liability payer EOB needed before health plan pays</div>
+          <div style='padding:5px 10px;color:#334155;background:#f8fbff;border-bottom:1px solid #e0f2fe'>Medicaid as payer of last resort</div>
+          <div style='padding:5px 10px;color:#334155;background:#f8fbff;border-bottom:1px solid #e0f2fe'>All prior payer EOBs must be submitted with claim</div>
+          <div style='padding:5px 10px;color:#334155'>Tricare / CHAMPVA secondary</div>
+          <div style='padding:5px 10px;color:#334155'>Primary commercial EOB required before Tricare pays</div>
         </div>
       </div>
     </div>
+  </div>
+ 
+  <div style='padding:0 20px 20px'>
+    <div style='display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px'>
+
+      <!-- Step 1 -->
+      <div style='border:1px solid #dbeafe;border-radius:18px;padding:18px;background:linear-gradient(180deg,#f8fbff 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(37,99,235,0.08)'>
+        <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
+          <div style='width:38px;height:38px;border-radius:50%;background:#2563eb;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(37,99,235,0.2);flex-shrink:0'>1</div>
+          <div>
+            <div style='margin:0;font-size:14px;font-weight:700;color:#1d4ed8'>Confirm the Patient's Insurance Order</div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>Who is primary — and did they pay first?</div>
+          </div>
+        </div>
+        <div style='background:#eff6ff;border:1px solid #dbeafe;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
+          🔍 N4 means the payer you billed is <strong>not the primary carrier</strong> — or they believe another payer should have been billed first. Start by confirming the correct coordination of benefits (COB) order for this patient on the date of service.
+        </div>
+        <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+          <li>Review the patient's insurance on file — confirm <strong>which plan is primary and which is secondary</strong> based on COB rules (birthday rule, employer vs. individual plan, Medicare Secondary Payer rules, etc.).</li>
+          <li>Verify the <strong>primary claim was actually submitted and adjudicated</strong> before billing the secondary — N4 often fires simply because the secondary was billed too soon.</li>
+          <li>Confirm the <strong>primary payer's EOB or 835 remittance is on file</strong> for this date of service — check your billing system, patient account, and document storage.</li>
+          <li>If the patient has <strong>Medicare as secondary</strong>, confirm the primary payer adjudicated first per Medicare Secondary Payer (MSP) guidelines — Medicare will not process until the primary EOB is attached.</li>
+          <li>Ask the patient directly if needed — patients sometimes have coverage through a spouse's employer or a secondary plan they didn't mention at registration.</li>
+        </ul>
+      </div>
+
+      <!-- Step 2 -->
+      <div style='border:1px solid #dcfce7;border-radius:18px;padding:18px;background:linear-gradient(180deg,#f7fff8 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(22,163,74,0.08)'>
+        <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
+          <div style='width:38px;height:38px;border-radius:50%;background:#16a34a;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(22,163,74,0.2);flex-shrink:0'>2</div>
+          <div>
+            <div style='margin:0;font-size:14px;font-weight:700;color:#15803d'>Attach the EOB & Resubmit</div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>Include primary payer details on the corrected claim</div>
+          </div>
+        </div>
+        <div style='background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
+          ✅ Once you have the primary EOB, resubmit the claim as a <strong>corrected or crossover claim</strong> with the primary payer's payment details populated in the correct fields — the EOB data goes <em>on</em> the claim, not just attached separately.
+        </div>
+        <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+          <li><strong>UB-04:</strong> Enter primary payer name, paid amount, and adjustment reason codes in <strong>FL 50–65</strong> (Other Payer fields). Attach the primary EOB as a paper attachment if submitting paper.</li>
+          <li><strong>CMS-1500:</strong> Complete <strong>Box 11</strong> (other insurance info) and <strong>Box 29</strong> (amount paid by primary). Attach EOB if submitting paper.</li>
+          <li><strong>837I / 837P electronic:</strong> Populate <strong>Loop 2320</strong> (Other Subscriber Information) with primary payer paid amount, claim adjustment reason codes (CARCs), and payer ID.</li>
+          <li><strong>Medicare crossover claims</strong> often route automatically — if the primary is a Medicare Advantage or major commercial plan, verify the claim crossed over electronically before resubmitting manually.</li>
+          <li>⚠️ Check <strong>timely filing limits</strong> for secondary claims — many payers start the clock from the primary EOB date, not the original date of service.</li>
+        </ul>
+      </div>
+
+      <!-- Step 3 -->
+      <div style='border:1px solid #fed7aa;border-radius:18px;padding:18px;background:linear-gradient(180deg,#fffaf5 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(234,88,12,0.08)'>
+        <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
+          <div style='width:38px;height:38px;border-radius:50%;background:#ea580c;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(234,88,12,0.2);flex-shrink:0'>3</div>
+          <div>
+            <div style='margin:0;font-size:14px;font-weight:700;color:#c2410c'>Can't Get the Primary EOB? Call the Primary Payer</div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>Track down the missing document</div>
+          </div>
+        </div>
+        <div style='background:#fff7ed;border:1px solid #fed7aa;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
+          📞 If the primary EOB isn't in your system, call the <strong>primary payer's provider relations line</strong> to confirm claim status and request a copy of the remittance. Do not wait — timely filing clocks are running on the secondary claim.
+        </div>
+        <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+          <li><strong>Have ready:</strong> Patient name, member ID (primary plan), date of service, claim number if previously submitted, and the procedure/diagnosis codes billed.</li>
+          <li>Ask: <strong>"Was this claim received and adjudicated? Can you send a copy of the remittance or EOB to our provider portal?"</strong></li>
+          <li>If the primary claim was <strong>never received</strong>, submit it immediately — you cannot bill secondary until primary adjudicates. Track the timely filing deadline for the primary payer too.</li>
+          <li>If the primary <strong>denied the claim</strong>, you still need that denial EOB — the secondary payer needs to see the denial reason to determine their own liability.</li>
+          <li>📝 Log the call: reference number, rep name, date, time, and whether the EOB was sent or the claim needs to be resubmitted to primary first.</li>
+        </ul>
+      </div>
+
+      <!-- Step 4 -->
+      <div style='border:1px solid #fecaca;border-radius:18px;padding:18px;background:linear-gradient(180deg,#fff6f6 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(220,38,38,0.08)'>
+        <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
+          <div style='width:38px;height:38px;border-radius:50%;background:#dc2626;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(220,38,38,0.2);flex-shrink:0'>4</div>
+          <div>
+            <div style='margin:0;font-size:14px;font-weight:700;color:#b91c1c'>Still Denied? File a Formal Appeal</div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>Escalate with full COB documentation</div>
+          </div>
+        </div>
+        <div style='background:#fef2f2;border:1px solid #fecaca;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
+          ⚖️ If the secondary payer upholds the N4 denial even after you've provided the primary EOB, file a <strong>formal appeal</strong> with complete coordination of benefits documentation proving primary adjudication occurred before the secondary claim was submitted.
+        </div>
+        <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+          <li><strong>Appeal letter must include:</strong> Provider name, NPI, Tax ID, patient name, both member IDs (primary + secondary), claim numbers, date of service, billed amount, and primary payer paid/denied amount.</li>
+          <li><strong>Key statement:</strong> "Primary carrier [Payer Name] adjudicated this claim on [date], paying $[amount] / issuing denial for [reason]. The attached EOB confirms prior adjudication. We appeal the N4 denial as all required COB documentation has been provided."</li>
+          <li><strong>Attach:</strong> Primary EOB / 835 remittance, original secondary claim, secondary remittance showing N4 denial, and proof of timely filing to both payers.</li>
+          <li><strong>Medicare MSP appeals:</strong> File Redetermination with the MAC within <strong>120 days</strong>. Reference <em>CMS Medicare Secondary Payer Manual, Pub 100-05</em>.</li>
+          <li>Commercial payers: follow appeal deadline on the secondary EOB — typically <strong>30–180 days</strong> depending on the plan.</li>
+        </ul>
+      </div>
+
+      <!-- Step 5 -->
+      <div style='grid-column:1 / -1;border:1px solid #ddd6fe;border-radius:18px;padding:18px;background:linear-gradient(180deg,#f8f7ff 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(124,58,237,0.08)'>
+        <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
+          <div style='width:38px;height:38px;border-radius:50%;background:#7c3aed;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(124,58,237,0.2);flex-shrink:0'>5</div>
+          <div>
+            <div style='margin:0;font-size:14px;font-weight:700;color:#6d28d9'>Seeing This Repeatedly? Fix Your COB Workflow</div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>Stop N4 before it hits the secondary payer</div>
+          </div>
+        </div>
+        <div style='background:#f5f3ff;border:1px solid #ddd6fe;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
+          🔁 If N4 appears across multiple accounts, your <strong>COB (Coordination of Benefits) process has a gap</strong> — secondary claims are going out before primary EOBs are received, or primary payer details aren't being captured and attached correctly at billing.
+        </div>
+        <div style='display:grid;grid-template-columns:repeat(2,1fr);gap:12px'>
+          <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+            <li><strong>Never bill secondary until the primary EOB is in hand.</strong> Build a workflow rule: secondary claim cannot be created or submitted until the primary 835 / EOB is received and posted to the account.</li>
+            <li><strong>Capture COB order at registration.</strong> Front desk staff must identify all active insurance plans and record the correct primary / secondary order before the patient is seen — not at billing time.</li>
+            <li><strong>Verify COB at every visit</strong> for patients with multiple insurances — coverage order can change with life events (job change, Medicare eligibility, new spouse coverage). Never assume last visit's order is still correct.</li>
+          </ul>
+          <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+            <li><strong>Add a pre-submission edit</strong> for secondary claims that checks whether a primary EOB amount is populated in Loop 2320 (837) or FL 54 (UB-04) before the claim is released — missing value = hold for EOB.</li>
+            <li><strong>Track crossover claims separately.</strong> For Medicare/Medicaid crossovers, confirm the claim crossed automatically before manually resubmitting — duplicate submission causes its own denial cascade.</li>
+            <li>🔒 <strong>Train your billing team:</strong> COB order determines <em>who gets billed in what sequence</em> — billing secondary first or simultaneously with primary is one of the most common and avoidable causes of N4.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
 
     
 <!-- What NOT to Do -->
@@ -18801,6 +19233,178 @@ CMN not updated after equipment upgrade or HCPCS code change.
 </div>
 
 </div>
+</div>
+
+
+<!-- ── RARC N227 - Incomplete Certificate of Medical Necessity (CMN) ── -->
+<div class='card span-12 card-collapsible' style='border:1px solid var(--border);border-radius:20px;overflow:hidden;background:#fff;box-shadow:0 10px 24px rgba(15,23,42,0.08)'>
+
+  <!-- Header -->
+  <div class='label' style='background:linear-gradient(90deg,#0f172a,#1e3a8a);color:#fff;padding:14px 18px;font-size:15px;font-weight:700;letter-spacing:.3px'>
+    How to Fix It — RARC N227: Incomplete Certificate of Medical Necessity (CMN)
+  </div>
+
+  <!-- What is it -->
+  <div style='padding:18px 20px 0'>
+    <div style='background:#f0f9ff;border:1px solid #bae6fd;border-radius:14px;padding:14px 16px;margin-bottom:18px'>
+      <div style='font-size:13px;font-weight:700;color:#0369a1;margin-bottom:6px'>💡 What is RARC N227?</div>
+      <div style='font-size:12px;color:#475569;line-height:1.6'>
+        Your claim was denied because the <strong>Certificate of Medical Necessity (CMN) is incomplete</strong>. Think of a CMN like a <strong>doctor's signed permission form</strong> — for certain items like wheelchairs, oxygen, or hospital beds, Medicare and other payers require a physician to certify in writing that the item is medically necessary. If any section of that form is blank, unsigned, or missing, the payer rejects the entire claim.
+      </div>
+      <div style='display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px'>
+        <div style='background:#fff;border:1px solid #bae6fd;border-radius:10px;padding:10px;text-align:center'>
+          <div style='font-size:11px;font-weight:700;color:#0284c7'>Primary Use</div>
+          <div style='font-size:13px;font-weight:800;color:#0369a1;margin:4px 0'>DME Claims</div>
+          <div style='font-size:10px;color:#64748b'>Durable Medical Equipment</div>
+        </div>
+        <div style='background:#fff;border:1px solid #bae6fd;border-radius:10px;padding:10px;text-align:center'>
+          <div style='font-size:11px;font-weight:700;color:#0284c7'>CMS Forms</div>
+          <div style='font-size:13px;font-weight:800;color:#0369a1;margin:4px 0'>484 / 10160</div>
+          <div style='font-size:10px;color:#64748b'>Home health / DME</div>
+        </div>
+        <div style='background:#fff;border:1px solid #bae6fd;border-radius:10px;padding:10px;text-align:center'>
+          <div style='font-size:11px;font-weight:700;color:#0284c7'>Billed On</div>
+          <div style='font-size:13px;font-weight:800;color:#0369a1;margin:4px 0'>837P / 837I</div>
+          <div style='font-size:10px;color:#64748b'>Sent as paper attachment</div>
+        </div>
+      </div>
+
+      <!-- Common CMN-required items table -->
+      <div style='margin-top:12px;border:1px solid #bae6fd;border-radius:10px;overflow:hidden'>
+        <div style='background:#0284c7;color:#fff;font-size:11px;font-weight:700;padding:7px 12px'>📋 Common Items That Require a CMN</div>
+        <div style='display:grid;grid-template-columns:1fr 1fr;font-size:11px'>
+          <div style='background:#e0f2fe;padding:6px 10px;font-weight:700;color:#0369a1;border-bottom:1px solid #bae6fd'>Item / Service</div>
+          <div style='background:#e0f2fe;padding:6px 10px;font-weight:700;color:#0369a1;border-bottom:1px solid #bae6fd'>CMS CMN Form</div>
+          <div style='padding:5px 10px;color:#334155;border-bottom:1px solid #e0f2fe'>Home oxygen therapy</div>
+          <div style='padding:5px 10px;color:#334155;border-bottom:1px solid #e0f2fe'>CMS-484</div>
+          <div style='padding:5px 10px;color:#334155;background:#f8fbff;border-bottom:1px solid #e0f2fe'>Power wheelchairs / scooters</div>
+          <div style='padding:5px 10px;color:#334155;background:#f8fbff;border-bottom:1px solid #e0f2fe'>CMS-10160 (POA / Written Order)</div>
+          <div style='padding:5px 10px;color:#334155;border-bottom:1px solid #e0f2fe'>Hospital beds</div>
+          <div style='padding:5px 10px;color:#334155;border-bottom:1px solid #e0f2fe'>Payer-specific CMN form</div>
+          <div style='padding:5px 10px;color:#334155;background:#f8fbff;border-bottom:1px solid #e0f2fe'>Enteral / parenteral nutrition</div>
+          <div style='padding:5px 10px;color:#334155;background:#f8fbff;border-bottom:1px solid #e0f2fe'>CMS-10126</div>
+          <div style='padding:5px 10px;color:#334155'>CPAP / respiratory equipment</div>
+          <div style='padding:5px 10px;color:#334155'>Sleep study + written order required</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style='padding:0 20px 20px'>
+    <div style='display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px'>
+
+      <!-- Step 1 -->
+      <div style='border:1px solid #dbeafe;border-radius:18px;padding:18px;background:linear-gradient(180deg,#f8fbff 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(37,99,235,0.08)'>
+        <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
+          <div style='width:38px;height:38px;border-radius:50%;background:#2563eb;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(37,99,235,0.2);flex-shrink:0'>1</div>
+          <div>
+            <div style='margin:0;font-size:14px;font-weight:700;color:#1d4ed8'>Pull the CMN & Find What's Incomplete</div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>Every blank field is a denial reason</div>
+          </div>
+        </div>
+        <div style='background:#eff6ff;border:1px solid #dbeafe;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
+          🔍 Retrieve the CMN that was submitted with the claim and go section by section. N227 means something is missing or incomplete — your job is to find exactly which field(s) are blank, unsigned, or incorrectly completed.
+        </div>
+        <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+          <li>Check <strong>all four sections</strong> of the CMN: Section A (supplier info), Section B (physician answers to clinical questions), Section C (narrative justification if required), and Section D (physician signature + date).</li>
+          <li>The most common incomplete fields are <strong>Section B clinical answers left blank</strong> and <strong>Section D missing physician signature or date</strong> — check these first.</li>
+          <li>Confirm the <strong>correct CMS CMN form version</strong> was used for the item billed — using an outdated form version triggers N227 just like a blank field.</li>
+          <li>Verify the <strong>ordering physician's NPI and UPIN</strong> are correctly populated — missing or mismatched provider identifiers are a common N227 cause on DME claims.</li>
+          <li>Check that the CMN <strong>covers the correct date range</strong> — a CMN signed after the service date or with an expiration date before the service date will be rejected as incomplete.</li>
+        </ul>
+      </div>
+
+      <!-- Step 2 -->
+      <div style='border:1px solid #dcfce7;border-radius:18px;padding:18px;background:linear-gradient(180deg,#f7fff8 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(22,163,74,0.08)'>
+        <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
+          <div style='width:38px;height:38px;border-radius:50%;background:#16a34a;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(22,163,74,0.2);flex-shrink:0'>2</div>
+          <div>
+            <div style='margin:0;font-size:14px;font-weight:700;color:#15803d'>Complete the CMN & Resubmit</div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>Go back to the physician — get every field filled</div>
+          </div>
+        </div>
+        <div style='background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
+          ✅ This is a <strong>correctable documentation error</strong>. Return the CMN to the ordering physician to complete all blank sections, then resubmit as a corrected claim with the fully completed CMN attached.
+        </div>
+        <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+          <li><strong>Never alter a CMN yourself.</strong> Only the ordering physician (or their clinical staff under physician supervision) can complete Section B and sign Section D — supplier staff completing clinical sections is a compliance violation.</li>
+          <li>Return the CMN to the physician with a <strong>clear cover note</strong> marking exactly which fields are incomplete and the deadline to return it — be specific, not generic.</li>
+          <li>Once fully completed and signed, <strong>resubmit as a corrected claim</strong> with the completed CMN attached. For electronic claims (837), the CMN is a paper or portal attachment — confirm the payer's preferred submission method.</li>
+          <li><strong>Medicare DMEPOS:</strong> Resubmit to your <strong>DME MAC</strong> (not the A/B MAC). Attach the completed CMN per the DME MAC's documentation submission instructions.</li>
+          <li>⚠️ Watch <strong>timely filing deadlines</strong> — the clock doesn't stop while you're chasing the physician signature. Act within days, not weeks.</li>
+        </ul>
+      </div>
+
+      <!-- Step 3 -->
+      <div style='border:1px solid #fed7aa;border-radius:18px;padding:18px;background:linear-gradient(180deg,#fffaf5 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(234,88,12,0.08)'>
+        <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
+          <div style='width:38px;height:38px;border-radius:50%;background:#ea580c;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(234,88,12,0.2);flex-shrink:0'>3</div>
+          <div>
+            <div style='margin:0;font-size:14px;font-weight:700;color:#c2410c'>Still Denied? Call the Payer</div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>Confirm exactly which section they flagged</div>
+          </div>
+        </div>
+        <div style='background:#fff7ed;border:1px solid #fed7aa;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
+          📞 If the claim denies again with N227 after resubmission, call the payer's provider relations or DME claims line. The payer may have received the CMN but flagged a <strong>specific field or format issue</strong> that isn't obvious from the denial alone.
+        </div>
+        <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+          <li><strong>Have ready:</strong> Claim number, member ID, date of service, item billed (HCPCS code), CMN form version used, and both remittance advices.</li>
+          <li><strong>Ask the rep:</strong> "Which specific section or field on the CMN was flagged as incomplete? Was the CMN received with the claim or is it missing entirely from your system?"</li>
+          <li>Ask whether a <strong>payer-specific CMN format</strong> is required — some commercial payers do not accept CMS standard CMN forms and require their own proprietary version.</li>
+          <li>For <strong>Medicare DME MAC</strong>: ask if the issue is with the CMN itself or with the <strong>detailed written order (DWO)</strong> — these are separate documents and both may be required depending on the item.</li>
+          <li>📝 Document: reference number, rep name, date, time, and the exact field or section the payer says is incomplete.</li>
+        </ul>
+      </div>
+
+      <!-- Step 4 -->
+      <div style='border:1px solid #fecaca;border-radius:18px;padding:18px;background:linear-gradient(180deg,#fff6f6 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(220,38,38,0.08)'>
+        <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
+          <div style='width:38px;height:38px;border-radius:50%;background:#dc2626;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(220,38,38,0.2);flex-shrink:0'>4</div>
+          <div>
+            <div style='margin:0;font-size:14px;font-weight:700;color:#b91c1c'>Payer Won't Reprocess? File a Formal Appeal</div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>Appeal with the fully completed CMN as evidence</div>
+          </div>
+        </div>
+        <div style='background:#fef2f2;border:1px solid #fecaca;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
+          ⚖️ If the payer upholds the N227 denial after a corrected claim and provider relations outreach, file a <strong>formal appeal</strong> demonstrating the CMN is fully complete, properly signed, and meets all payer and CMS requirements for the item billed.
+        </div>
+        <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+          <li><strong>Appeal letter must include:</strong> Provider/supplier name, NPI, Tax ID, patient name, member ID, claim number, date of service, HCPCS code billed, and CMN form version used.</li>
+          <li><strong>Key statement:</strong> "The Certificate of Medical Necessity submitted with this claim is fully completed per CMS guidelines, including all required clinical sections and ordering physician signature. We appeal the N227 denial as the CMN was compliant at submission."</li>
+          <li><strong>Attach:</strong> Completed CMN (all sections), ordering physician's signed detailed written order (if applicable), original claim, both remittance advices, and any supporting clinical documentation confirming medical necessity.</li>
+          <li><strong>Medicare DME MAC:</strong> File Redetermination within <strong>120 days</strong> of the denial date. Reference <em>CMS Medicare Benefit Policy Manual, Pub 100-02, Chapter 15</em> and the applicable <em>Local Coverage Determination (LCD)</em> for the item billed.</li>
+          <li>Commercial payers: follow appeal deadline on the EOB — typically <strong>30–180 days</strong>. Cite the payer's own CMN requirements from the provider manual if the form was completed correctly per their guidelines.</li>
+        </ul>
+      </div>
+
+      <!-- Step 5 -->
+      <div style='grid-column:1 / -1;border:1px solid #ddd6fe;border-radius:18px;padding:18px;background:linear-gradient(180deg,#f8f7ff 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(124,58,237,0.08)'>
+        <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
+          <div style='width:38px;height:38px;border-radius:50%;background:#7c3aed;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(124,58,237,0.2);flex-shrink:0'>5</div>
+          <div>
+            <div style='margin:0;font-size:14px;font-weight:700;color:#6d28d9'>Seeing This Repeatedly? Fix Your CMN Intake Process</div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>Stop N227 before the claim ever leaves your office</div>
+          </div>
+        </div>
+        <div style='background:#f5f3ff;border:1px solid #ddd6fe;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
+          🔁 If N227 appears across multiple claims, your <strong>CMN intake and review process has a gap</strong> — CMNs are leaving the physician's office incomplete, or no one is checking them for completeness before the claim is submitted.
+        </div>
+        <div style='display:grid;grid-template-columns:repeat(2,1fr);gap:12px'>
+          <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+            <li><strong>Never submit a claim with an incomplete CMN.</strong> Build a mandatory CMN completeness check into your billing workflow — every section must be reviewed before the claim is released. No signature = no submission.</li>
+            <li><strong>Create a CMN checklist</strong> for each item type (oxygen, wheelchair, hospital bed, etc.) that maps every required field for that specific form. Use it as a sign-off before sending the CMN to the physician and again when it's returned.</li>
+            <li><strong>Set physician follow-up reminders.</strong> If a CMN is sent to a physician for completion, put a 48–72 hour follow-up in your workflow. Waiting passively costs you timely filing days.</li>
+          </ul>
+          <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+            <li><strong>Keep CMN form versions current.</strong> CMS updates CMN forms periodically — using a superseded version triggers N227 even when every field is filled. Audit your templates at least annually against the CMS DMEPOS website.</li>
+            <li><strong>Separate the CMN from the detailed written order (DWO).</strong> Many billers confuse these — Medicare requires both for certain items. Confirm which documents are required per the applicable LCD before submission.</li>
+            <li>🔒 <strong>Train your team:</strong> A CMN is a <em>legal medical document</em> — only the ordering physician completes the clinical sections. Supplier staff filling in clinical answers on behalf of a physician is a False Claims Act risk, not just a billing error.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </div>
 
 
