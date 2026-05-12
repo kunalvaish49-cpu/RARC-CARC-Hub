@@ -13129,162 +13129,191 @@ Template carried an expired or incorrect CLIA number that was never updated.
 </div>
 </div>
 
-     <!-- ── HOW TO FIX IT ── -->
+    <!-- ── RARC M34 - Claim Lacks the CLIA Certification Number ── -->
 <div class='card span-12 card-collapsible' style='border:1px solid var(--border);border-radius:20px;overflow:hidden;background:#fff;box-shadow:0 10px 24px rgba(15,23,42,0.08)'>
 
+  <!-- Header -->
   <div class='label' style='background:linear-gradient(90deg,#0f172a,#1e3a8a);color:#fff;padding:14px 18px;font-size:15px;font-weight:700;letter-spacing:.3px'>
-    How to Fix It
+    How to Fix It — RARC M34: Claim Lacks the CLIA Certification Number
   </div>
 
-  <div style='padding:20px'>
+  <!-- What is it -->
+  <div style='padding:18px 20px 0'>
+    <div style='background:#f0f9ff;border:1px solid #bae6fd;border-radius:14px;padding:14px 16px;margin-bottom:18px'>
+      <div style='font-size:13px;font-weight:700;color:#0369a1;margin-bottom:6px'>💡 What is RARC M34?</div>
+      <div style='font-size:12px;color:#475569;line-height:1.6'>
+        Your claim was denied because the <strong>CLIA number is missing</strong>. Think of CLIA like a <strong>lab's license plate</strong> — every lab must have one, and it <em>must</em> appear on every claim for lab services billed to Medicare, Medicaid, and most commercial payers.
+      </div>
+      <div style='display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px'>
+        <div style='background:#fff;border:1px solid #bae6fd;border-radius:10px;padding:10px;text-align:center'>
+          <div style='font-size:11px;font-weight:700;color:#0284c7'>CMS-1500</div>
+          <div style='font-size:13px;font-weight:800;color:#0369a1;margin:4px 0'>Box 23</div>
+          <div style='font-size:10px;color:#64748b'>Professional claims</div>
+        </div>
+        <div style='background:#fff;border:1px solid #bae6fd;border-radius:10px;padding:10px;text-align:center'>
+          <div style='font-size:11px;font-weight:700;color:#0284c7'>UB-04</div>
+          <div style='font-size:13px;font-weight:800;color:#0369a1;margin:4px 0'>FL 81CC</div>
+          <div style='font-size:10px;color:#64748b'>Qualifier "X4" required</div>
+        </div>
+        <div style='background:#fff;border:1px solid #bae6fd;border-radius:10px;padding:10px;text-align:center'>
+          <div style='font-size:11px;font-weight:700;color:#0284c7'>837P/837I</div>
+          <div style='font-size:13px;font-weight:800;color:#0369a1;margin:4px 0'>Loop 2300</div>
+          <div style='font-size:10px;color:#64748b'>REF segment, qualifier "X4"</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style='padding:0 20px 20px'>
     <div style='display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px'>
 
       <!-- Step 1 -->
       <div style='border:1px solid #dbeafe;border-radius:18px;padding:18px;background:linear-gradient(180deg,#f8fbff 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(37,99,235,0.08)'>
         <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
-          <div style='width:38px;height:38px;border-radius:50%;background:#2563eb;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(37,99,235,0.2)'>
+          <div style='width:38px;height:38px;border-radius:50%;background:#2563eb;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(37,99,235,0.2);flex-shrink:0'>
             1
           </div>
           <div>
-            <div class='nm-h3' style='margin:0;font-size:14px;font-weight:700;color:#1d4ed8'>
-              Coding Escalation - Step 1
+            <div style='margin:0;font-size:14px;font-weight:700;color:#1d4ed8'>
+              Verify the CLIA Number
             </div>
             <div style='font-size:11px;color:#64748b;margin-top:2px'>
-              Initial review and CLIA number validation
+              Do you even have the right one?
             </div>
           </div>
         </div>
 
         <div style='background:#eff6ff;border:1px solid #dbeafe;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
-          Escalate to a coder or senior biller to confirm whether a CLIA number is required for the services billed, whether it was included on the claim, and whether the number on file is active and valid for the test complexity performed.
+          🔍 Before anything else — confirm you have a CLIA number, it's active, and it belongs to the lab that <em>actually ran the test</em> (not just the billing lab).
         </div>
 
-        <ul class='info-list' style='font-size:12px;line-height:1.65;margin:0'>
-          <li>RARC M34 means the claim is missing the CLIA (Clinical Laboratory Improvement Amendments) certification number. CLIA is a 10-character alphanumeric federal identifier required on all lab service claims billed to Medicare, Medicaid, and most commercial payers.</li>
-          <li>Confirm the correct field placement: On the CMS-1500 (professional claims), the CLIA number goes in Box 23. On the UB-04 (institutional claims), it is reported in Form Locator 81CC with the qualifier "X4" preceding the number.</li>
-          <li>Verify the CLIA number is active and has not expired. Medicare cross-references the CLIA number against its enrollment database — an expired or inactive certificate will trigger the same denial as a missing one.</li>
-          <li>For referred lab work, confirm whether the billing lab's CLIA number or the reference lab's CLIA number applies. The CLIA number of the laboratory that actually performed the test — not necessarily the billing lab — must be reported on the claim.</li>
-          <li>For CLIA-waived tests (e.g., CPT 87811), confirm that Modifier QW is also present on the claim line. Missing the QW modifier alongside a CLIA number is a common secondary cause of waived test denials.</li>
+        <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+          <li><strong>RARC M34 = missing CLIA.</strong> It's a 10-character federal ID required on every lab claim.</li>
+          <li><strong>Expired = same as missing.</strong> Medicare checks it against its database — outdated certificates get denied too.</li>
+          <li><strong>Referred lab work?</strong> Use the CLIA of the lab that performed the test, not the ordering provider.</li>
+          <li><strong>CLIA-waived tests</strong> (e.g., CPT 87811) also need <strong>Modifier QW</strong> on the claim line — don't forget it.</li>
         </ul>
       </div>
 
       <!-- Step 2 -->
       <div style='border:1px solid #dcfce7;border-radius:18px;padding:18px;background:linear-gradient(180deg,#f7fff8 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(22,163,74,0.08)'>
         <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
-          <div style='width:38px;height:38px;border-radius:50%;background:#16a34a;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(22,163,74,0.2)'>
+          <div style='width:38px;height:38px;border-radius:50%;background:#16a34a;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(22,163,74,0.2);flex-shrink:0'>
             2
           </div>
           <div>
-            <div class='nm-h3' style='margin:0;font-size:14px;font-weight:700;color:#15803d'>
-              Corrected Claim Resubmission - Step 2
+            <div style='margin:0;font-size:14px;font-weight:700;color:#15803d'>
+              Fix & Resubmit Corrected Claim
             </div>
             <div style='font-size:11px;color:#64748b;margin-top:2px'>
-              Add the valid CLIA number and resubmit as a corrected claim
+              Add the CLIA number in the right place
             </div>
           </div>
         </div>
 
         <div style='background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
-          Add or correct the CLIA number in the appropriate field before resubmitting. This is a correctable billing error — not a coverage determination — and a corrected claim is the fastest path to payment.
+          ✅ This is a <strong>billing error, not a coverage denial</strong> — it's fixable! Add the CLIA number correctly and resubmit as a corrected claim for the fastest path to payment.
         </div>
 
-        <ul class='info-list' style='font-size:12px;line-height:1.65;margin:0'>
-          <li>CMS-1500: Enter the valid, active CLIA number in Box 23. If a prior authorization number is also required on the same claim, follow payer-specific instructions, as some payers require one or the other; a few require a separate attachment.</li>
-          <li>UB-04: Enter the CLIA number in Form Locator 81CC with qualifier "X4" immediately preceding the number. Do not omit the qualifier — it identifies the value as a CLIA certification number to the payer's claim system.</li>
-          <li>Electronic 837P/837I: Confirm the CLIA number is present in Loop 2300, REF segment with REF01 = "X4". For referred line-level tests, it must also appear in Loop 2400, REF segment with REF01 = "F4".</li>
-          <li>For corrected claim resubmission on the CMS-1500: mark Box 22 with Resubmission Code "7" (Replacement) and enter the original claim/ICN number. On the UB-04: set the TOB frequency digit to "7" and enter the original TCN in Box 64.</li>
-          <li>Run a full pre-submission scrub to confirm the CLIA number format is correct (10 alphanumeric characters, no spaces or hyphens unless payer-required), the certificate is active, and the test complexity matches the certificate type on file.</li>
-          <li>Verify payer-specific timely filing limits for corrected claims before resubmitting, as deadlines may differ from original submission windows.</li>
+        <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+          <li><strong>CMS-1500:</strong> Enter CLIA in <strong>Box 23</strong>. If prior auth is also needed, check payer rules — some require one or the other.</li>
+          <li><strong>UB-04:</strong> Enter in <strong>FL 81CC</strong> with qualifier <strong>"X4"</strong> before the number. Skipping the qualifier = another denial.</li>
+          <li><strong>837P/837I:</strong> CLIA goes in Loop 2300, REF segment (REF01 = "X4"). Line-level referred tests also need Loop 2400, REF (REF01 = "F4").</li>
+          <li><strong>Corrected claim codes:</strong> CMS-1500 → Box 22, Code <strong>"7"</strong> + original ICN. UB-04 → TOB frequency digit <strong>"7"</strong> + TCN in Box 64.</li>
+          <li>⚠️ Check <strong>timely filing limits</strong> for corrected claims — they may differ from original submission deadlines.</li>
         </ul>
       </div>
 
       <!-- Step 3 -->
       <div style='border:1px solid #fed7aa;border-radius:18px;padding:18px;background:linear-gradient(180deg,#fffaf5 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(234,88,12,0.08)'>
         <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
-          <div style='width:38px;height:38px;border-radius:50%;background:#ea580c;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(234,88,12,0.2)'>
+          <div style='width:38px;height:38px;border-radius:50%;background:#ea580c;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(234,88,12,0.2);flex-shrink:0'>
             3
           </div>
           <div>
-            <div class='nm-h3' style='margin:0;font-size:14px;font-weight:700;color:#c2410c'>
-              Calling Required - Step 3
+            <div style='margin:0;font-size:14px;font-weight:700;color:#c2410c'>
+              Still Denied? Call the Payer
             </div>
             <div style='font-size:11px;color:#64748b;margin-top:2px'>
-              Contact payer to investigate continued denial after correction
+              Find out why it's still failing
             </div>
           </div>
         </div>
 
         <div style='background:#fff7ed;border:1px solid #fed7aa;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
-          If the corrected claim is denied again with M34, call the payer's provider relations line to determine whether the CLIA number is failing a payer-side enrollment edit, registry mismatch, or system configuration issue.
+          📞 If the corrected claim gets denied again with M34, the issue may be on the <strong>payer's side</strong> — their system may not recognize your CLIA number due to an enrollment mismatch or internal registry issue.
         </div>
 
-        <ul class='info-list' style='font-size:12px;line-height:1.65;margin:0'>
-          <li>Have ready: original claim number, corrected claim number, date of service, member ID, the CLIA number used, its certificate type, expiration date, and the remittance advice for both denials.</li>
-          <li>Ask the representative: Is the CLIA number on file in your system? Does it match the performing lab's enrollment record? Is there a location mismatch between the CLIA-certified site and the billing provider's enrolled address?</li>
-          <li>Ask whether the payer's internal CLIA registry requires a separate enrollment or credentialing step beyond the CMS CLIA database — some commercial payers maintain independent CLIA validation systems.</li>
-          <li>If the CLIA number is valid in CMS's system but rejected by the payer, request written documentation of the payer's specific CLIA validation requirements. This is critical evidence for a subsequent appeal.</li>
-          <li>Document the call reference number, representative name, and date/time of the call in the claim notes before escalating.</li>
+        <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+          <li><strong>Have ready:</strong> Original + corrected claim numbers, date of service, member ID, CLIA number used, certificate type & expiration, and both remittance advices.</li>
+          <li><strong>Ask the rep:</strong> "Is this CLIA number in your system? Does it match the performing lab's enrollment record?"</li>
+          <li>Ask if they have a <strong>separate internal CLIA registry</strong> beyond CMS — some commercial payers do.</li>
+          <li>If valid in CMS but rejected by payer → <strong>request written documentation</strong> of their CLIA requirements. You'll need it for appeal.</li>
+          <li>📝 Always note: call reference number, rep name, date & time.</li>
         </ul>
       </div>
 
       <!-- Step 4 -->
       <div style='border:1px solid #fecaca;border-radius:18px;padding:18px;background:linear-gradient(180deg,#fff6f6 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(220,38,38,0.08)'>
         <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
-          <div style='width:38px;height:38px;border-radius:50%;background:#dc2626;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(220,38,38,0.2)'>
+          <div style='width:38px;height:38px;border-radius:50%;background:#dc2626;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(220,38,38,0.2);flex-shrink:0'>
             4
           </div>
           <div>
-            <div class='nm-h3' style='margin:0;font-size:14px;font-weight:700;color:#b91c1c'>
-              Payer Denied Reprocessing — Appeal Required - Step 4
+            <div style='margin:0;font-size:14px;font-weight:700;color:#b91c1c'>
+              Payer Won't Budge? File a Formal Appeal
             </div>
             <div style='font-size:11px;color:#64748b;margin-top:2px'>
-              Escalate through the formal appeal process
+              Escalate and fight it officially
             </div>
           </div>
         </div>
 
         <div style='background:#fef2f2;border:1px solid #fecaca;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
-          If the payer upholds the M34 denial after a corrected claim and provider relations outreach, file a formal appeal demonstrating that a valid, active CLIA number was present on the submission and applies to the services billed.
+          ⚖️ If the payer still upholds the denial, file a <strong>formal appeal</strong> proving your CLIA number was valid, active, and correctly placed on the claim.
         </div>
 
-        <ul class='info-list' style='font-size:12px;line-height:1.65;margin:0'>
-          <li>Draft a formal appeal letter including provider name, NPI, Tax ID, patient name, member ID, claim number, date of service, billed amount, and the specific CLIA number in dispute.</li>
-          <li>Clearly state the basis for appeal: "The CLIA certification number [XXXXXXXXXX] reported on this claim is valid, active, and appropriate for the test complexity performed. We are appealing the M34 denial as the claim was complete and compliant at the time of submission."</li>
-          <li>Attach supporting documentation: both original and corrected UB-04 or CMS-1500 copies, both remittance advices, a copy of the current CLIA certificate showing the certificate type and expiration date, and a screenshot or printout from the CMS CLIA Laboratory Search portal confirming active status.</li>
-          <li>Reference CMS Medicare Claims Processing Manual, Publication 100-04, Chapter 16 (Laboratory Services) as the governing authority for CLIA number placement and billing requirements on Medicare claims.</li>
-          <li>For Medicare: file a Redetermination with the MAC within 120 days of the initial denial. For commercial payers: submit per the appeal instructions on the EOB and document the submission channel, date, and tracking information.</li>
-          <li>Track the appeal deadline and follow up if no decision is received within the payer's standard adjudication window (60 days for Medicare MACs; 30–60 days for most commercial payers).</li>
+        <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+          <li><strong>Appeal letter must include:</strong> Provider name, NPI, Tax ID, patient name, member ID, claim number, DOS, billed amount, and the CLIA number in dispute.</li>
+          <li><strong>Key statement:</strong> "CLIA number [XXXXXXXXXX] is valid, active, and appropriate for the test complexity. We appeal the M34 denial as the claim was compliant at submission."</li>
+          <li><strong>Attach:</strong> Original + corrected claim copies, both remittance advices, CLIA certificate copy, and a CMS CLIA portal screenshot confirming active status.</li>
+          <li><strong>Medicare deadline:</strong> File Redetermination with the MAC within <strong>120 days</strong> of denial. Commercial payers: follow EOB appeal instructions (usually 30–60 days).</li>
+          <li>📌 Reference: <em>CMS Medicare Claims Processing Manual, Pub 100-04, Chapter 16 (Laboratory Services)</em>.</li>
         </ul>
       </div>
 
       <!-- Step 5 -->
       <div style='grid-column:1 / -1;border:1px solid #ddd6fe;border-radius:18px;padding:18px;background:linear-gradient(180deg,#f8f7ff 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(124,58,237,0.08)'>
         <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
-          <div style='width:38px;height:38px;border-radius:50%;background:#7c3aed;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(124,58,237,0.2)'>
+          <div style='width:38px;height:38px;border-radius:50%;background:#7c3aed;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(124,58,237,0.2);flex-shrink:0'>
             5
           </div>
           <div>
-            <div class='nm-h3' style='margin:0;font-size:14px;font-weight:700;color:#6d28d9'>
-              Payer Says Information Not Received on Form — Appeal Required - Step 5
+            <div style='margin:0;font-size:14px;font-weight:700;color:#6d28d9'>
+              Payer Says "Never Received It"? Prove You Sent It
             </div>
             <div style='font-size:11px;color:#64748b;margin-top:2px'>
-              Verify CLIA number transmission in the correct field and prove original submission
+              A transmission or system error may have dropped your CLIA field
             </div>
           </div>
         </div>
 
         <div style='background:#f5f3ff;border:1px solid #ddd6fe;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
-          This scenario means the payer's system did not receive or recognize the CLIA number as submitted — not necessarily that it was absent. This is frequently caused by a billing system mapping error, a missing EDI qualifier, or a clearinghouse transmission issue that dropped or misrouted the CLIA field.
+          🛰️ This means the payer's system didn't receive or recognize the CLIA field — not that you forgot it. A <strong>clearinghouse error, missing EDI qualifier, or billing system mapping issue</strong> often causes the field to get dropped in transit.
         </div>
 
-        <ul class='info-list' style='font-size:12px;line-height:1.65;margin:0'>
-          <li>Request a copy of the claim image from the payer as they received it. Compare it to your original CMS-1500 (Box 23) or UB-04 (FL 81CC) to determine whether the CLIA number field was present or dropped during transmission.</li>
-          <li>Pull the original 837P or 837I EDI file and confirm the CLIA number was submitted in Loop 2300, REF segment with REF01 qualifier "X4". For referred tests billed at the line level, confirm it also appears in Loop 2400, REF with REF01 = "F4". A missing qualifier is the most common cause of this scenario — the CLIA number may be in the file but flagged as unidentifiable by the payer's system.</li>
-          <li>Review the 999 Functional Acknowledgment from your clearinghouse. Confirm no segment-level rejection occurred in the REF segment that carries the CLIA data. An interchange-level acceptance does not guarantee all REF segments were passed through intact.</li>
-          <li>File the appeal with proof of original submission: include a printed copy of the claim showing the CLIA number in the correct field, the EDI 837 REF segment excerpt with qualifier X4, the clearinghouse acknowledgment, and a written statement confirming the data was present at the time of original submission.</li>
-          <li>Ask the payer to investigate whether a system intake configuration issue caused the CLIA REF segment to be ignored or dropped during adjudication. Identifying a payer-side intake error may result in internal reprocessing without requiring a full appeal cycle.</li>
-          <li>After resolution, configure your billing system or clearinghouse to run an automatic pre-submission edit that flags any lab CPT/HCPCS code submitted without a CLIA number in Box 23 (CMS-1500) or FL 81CC (UB-04), and that validates the qualifier "X4" is present in all 837 electronic submissions. This prevents recurrence across your entire lab claim volume.</li>
-        </ul>
+        <div style='display:grid;grid-template-columns:repeat(2,1fr);gap:12px'>
+          <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+            <li><strong>Request the claim image</strong> from the payer as they received it. Compare it to your CMS-1500 (Box 23) or UB-04 (FL 81CC) to spot any dropped fields.</li>
+            <li><strong>Check your 837 EDI file:</strong> CLIA must be in Loop 2300, REF with qualifier "X4". For referred line-level tests, also in Loop 2400, REF with "F4". A missing qualifier = unreadable to the payer's system.</li>
+            <li><strong>Review the 999 Acknowledgment</strong> from your clearinghouse — an interchange-level acceptance doesn't guarantee REF segments passed through intact.</li>
+          </ul>
+          <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+            <li><strong>Appeal with proof:</strong> Claim copy showing CLIA in the correct field + 837 REF segment excerpt with qualifier X4 + clearinghouse acknowledgment + written statement confirming data was present at submission.</li>
+            <li><strong>Ask the payer</strong> to check if a system intake configuration issue caused the CLIA segment to be ignored — a payer-side error may trigger internal reprocessing without a full appeal cycle.</li>
+            <li>🔒 <strong>Prevent recurrence:</strong> Set up a pre-submission edit in your billing system to flag any lab CPT code missing a CLIA number or "X4" qualifier before it goes out the door.</li>
+          </ul>
+        </div>
       </div>
 
     </div>
