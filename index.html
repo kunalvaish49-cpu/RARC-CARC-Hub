@@ -11722,158 +11722,148 @@ Retired or invalid NUBC condition code submitted that is no longer accepted by t
 </div>
 </div>
 
-     <!-- ── HOW TO FIX IT ── -->
+     <!-- ── RARC M44 - Invalid Condition Code ── -->
 <div class='card span-12 card-collapsible' style='border:1px solid var(--border);border-radius:20px;overflow:hidden;background:#fff;box-shadow:0 10px 24px rgba(15,23,42,0.08)'>
 
+  <!-- Header -->
   <div class='label' style='background:linear-gradient(90deg,#0f172a,#1e3a8a);color:#fff;padding:14px 18px;font-size:15px;font-weight:700;letter-spacing:.3px'>
-    How to Fix It
+    How to Fix It — RARC M44: Invalid Condition Code
   </div>
 
-  <div style='padding:20px'>
-    <div style='display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px'>
+  <!-- What is it -->
+  <div style='padding:18px 20px 0'>
+    <div style='background:#f0f9ff;border:1px solid #bae6fd;border-radius:14px;padding:14px 16px;margin-bottom:18px'>
+      <div style='font-size:13px;font-weight:700;color:#0369a1;margin-bottom:6px'>💡 What is RARC M44?</div>
+      <div style='font-size:12px;color:#475569;line-height:1.6'>
+        Your claim was denied because a <strong>Condition Code is missing, wrong, or doesn't apply</strong> to the services billed. Think of a Condition Code like a <strong>special flag on your claim</strong> — it tells the payer about unusual circumstances (like a patient having other insurance or a specific billing situation) that affect how the claim should be processed.
+      </div>
+      <div style='display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px'>
+        <div style='background:#fff;border:1px solid #bae6fd;border-radius:10px;padding:10px;text-align:center'>
+          <div style='font-size:11px;font-weight:700;color:#0284c7'>UB-04</div>
+          <div style='font-size:13px;font-weight:800;color:#0369a1;margin:4px 0'>FL 18–28</div>
+          <div style='font-size:10px;color:#64748b'>Institutional claims</div>
+        </div>
+        <div style='background:#fff;border:1px solid #bae6fd;border-radius:10px;padding:10px;text-align:center'>
+          <div style='font-size:11px;font-weight:700;color:#0284c7'>CMS-1500</div>
+          <div style='font-size:13px;font-weight:800;color:#0369a1;margin:4px 0'>N/A</div>
+          <div style='font-size:10px;color:#64748b'>Mostly institutional use</div>
+        </div>
+        <div style='background:#fff;border:1px solid #bae6fd;border-radius:10px;padding:10px;text-align:center'>
+          <div style='font-size:11px;font-weight:700;color:#0284c7'>837I</div>
+          <div style='font-size:13px;font-weight:800;color:#0369a1;margin:4px 0'>Loop 2300</div>
+          <div style='font-size:10px;color:#64748b'>HI segment</div>
+        </div>
+      </div>
 
+   
       <!-- Step 1 -->
       <div style='border:1px solid #dbeafe;border-radius:18px;padding:18px;background:linear-gradient(180deg,#f8fbff 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(37,99,235,0.08)'>
         <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
-          <div style='width:38px;height:38px;border-radius:50%;background:#2563eb;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(37,99,235,0.2)'>
-            1
-          </div>
+          <div style='width:38px;height:38px;border-radius:50%;background:#2563eb;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(37,99,235,0.2);flex-shrink:0'>1</div>
           <div>
-            <div class='nm-h3' style='margin:0;font-size:14px;font-weight:700;color:#1d4ed8'>
-              Coding Escalation - Step 1
-            </div>
-            <div style='font-size:11px;color:#64748b;margin-top:2px'>
-              Initial review and condition code validation
-            </div>
+            <div style='margin:0;font-size:14px;font-weight:700;color:#1d4ed8'>Review the Condition Code Used</div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>Did you use the right flag?</div>
           </div>
         </div>
-
         <div style='background:#eff6ff;border:1px solid #dbeafe;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
-          Escalate to a coder or senior biller to identify whether a condition code is missing, incorrect, or not supported by documentation before taking any action with the payer.
+          🔍 First — confirm whether a condition code was actually required, which code was used, and whether it matches the claim type and situation being billed.
         </div>
-
-        <ul class='info-list' style='font-size:12px;line-height:1.65;margin:0'>
-          <li>Condition codes are two-character alphanumeric codes reported in Form Locators 18–28 on the UB-04 (CMS-1450). Up to 11 codes can be reported when multiple circumstances apply.</li>
-          <li>Cross-reference the claim against the patient's medical record to determine whether a special billing circumstance exists — such as a hospice exclusion, observation status, MSP situation, or disaster-related billing.</li>
-          <li>Verify that the condition code used is valid for the payer, the type of bill, and the services rendered. Some codes are Medicare-specific (e.g., G0 for Observation Stay) and may not apply to commercial payers.</li>
-          <li>Check payer-specific guidelines: Medicaid, TRICARE, and certain commercial plans have unique condition code requirements that differ from standard NUBC definitions.</li>
+        <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+          <li><strong>RARC M44 = wrong or invalid condition code.</strong> The code submitted either doesn't exist, is outdated, or doesn't apply to the service type billed.</li>
+          <li><strong>Condition codes are claim-type specific.</strong> A code valid on an inpatient UB-04 may be completely invalid on an outpatient or professional claim.</li>
+          <li>Check if the code is <strong>still active</strong> — CMS periodically retires condition codes; using a retired code triggers M44 just like using the wrong one.</li>
+          <li>Escalate to a senior biller or coder to confirm whether any condition code is required for this claim at all — not every claim needs one.</li>
+          <li>Reference the <strong>NUBC (National Uniform Billing Committee)</strong> official code set for current, valid condition codes and their applicable claim types.</li>
         </ul>
       </div>
 
       <!-- Step 2 -->
       <div style='border:1px solid #dcfce7;border-radius:18px;padding:18px;background:linear-gradient(180deg,#f7fff8 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(22,163,74,0.08)'>
         <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
-          <div style='width:38px;height:38px;border-radius:50%;background:#16a34a;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(22,163,74,0.2)'>
-            2
-          </div>
+          <div style='width:38px;height:38px;border-radius:50%;background:#16a34a;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(22,163,74,0.2);flex-shrink:0'>2</div>
           <div>
-            <div class='nm-h3' style='margin:0;font-size:14px;font-weight:700;color:#15803d'>
-              Corrected Claim Resubmission - Step 2
-            </div>
-            <div style='font-size:11px;color:#64748b;margin-top:2px'>
-              Add, correct, or remove the condition code and resubmit
-            </div>
+            <div style='margin:0;font-size:14px;font-weight:700;color:#15803d'>Correct the Code & Resubmit</div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>Fix the flag and resend the claim</div>
           </div>
         </div>
-
         <div style='background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
-          Update Form Locators 18–28 on the UB-04 with the correct, complete, and documented condition code before resubmitting as a corrected claim.
+          ✅ This is a <strong>correctable billing error</strong> — not a coverage denial. Replace or remove the invalid condition code and resubmit as a corrected claim for the fastest path to payment.
         </div>
-
-        <ul class='info-list' style='font-size:12px;line-height:1.65;margin:0'>
-          <li>Add or correct the condition code in FL 18–28. Only include codes that are directly supported by the patient's medical records or the billing circumstance — avoid adding codes speculatively.</li>
-          <li>Set the last digit of the Type of Bill (TOB) to '7' (Replacement) in Box 4 to indicate this is a corrected claim submission.</li>
-          <li>Enter the original claim number or TCN in Box 64 to link the corrected claim to the original submission.</li>
-          <li>Run a full pre-submission scrub to confirm all other UB-04 fields are accurate, including revenue codes, diagnosis codes, NPIs, and service dates, before resubmitting.</li>
-          <li>Verify the payer's corrected claim timely filing limit — it may differ from the original submission deadline.</li>
+        <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+          <li><strong>UB-04:</strong> Enter the corrected condition code in <strong>Form Locators 18–28</strong>. If no condition code is needed, leave those fields blank — do not substitute a placeholder.</li>
+          <li><strong>837I electronic:</strong> Report the corrected condition code in <strong>Loop 2300, HI segment</strong>. Confirm the correct qualifier precedes the code in the segment.</li>
+          <li>If the code was entered in error and no condition code applies, <strong>remove it entirely</strong> rather than replacing it with another code that may also not apply.</li>
+          <li><strong>Corrected claim codes:</strong> UB-04 → set TOB frequency digit to <strong>"7"</strong> + enter original TCN in Box 64. CMS-1500 → Box 22, Resubmission Code <strong>"7"</strong> + original ICN.</li>
+          <li>⚠️ Verify <strong>timely filing limits</strong> for corrected claims before resubmitting — payer deadlines for corrections may differ from original submission windows.</li>
         </ul>
       </div>
 
       <!-- Step 3 -->
       <div style='border:1px solid #fed7aa;border-radius:18px;padding:18px;background:linear-gradient(180deg,#fffaf5 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(234,88,12,0.08)'>
         <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
-          <div style='width:38px;height:38px;border-radius:50%;background:#ea580c;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(234,88,12,0.2)'>
-            3
-          </div>
+          <div style='width:38px;height:38px;border-radius:50%;background:#ea580c;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(234,88,12,0.2);flex-shrink:0'>3</div>
           <div>
-            <div class='nm-h3' style='margin:0;font-size:14px;font-weight:700;color:#c2410c'>
-              Calling Required - Step 3
-            </div>
-            <div style='font-size:11px;color:#64748b;margin-top:2px'>
-              Contact payer to clarify condition code requirements
-            </div>
+            <div style='margin:0;font-size:14px;font-weight:700;color:#c2410c'>Still Denied? Call the Payer</div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>Find out exactly what code they expect</div>
           </div>
         </div>
-
         <div style='background:#fff7ed;border:1px solid #fed7aa;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
-          If the corrected claim is denied again with M44, call provider relations to determine whether there is a payer-specific condition code requirement or a system-level edit blocking the claim.
+          📞 If the corrected claim is denied again with M44, call the payer's provider relations line. The issue may be a <strong>payer-specific code requirement</strong> that differs from standard NUBC guidelines.
         </div>
-
-        <ul class='info-list' style='font-size:12px;line-height:1.65;margin:0'>
-          <li>Have ready: original claim number, corrected claim number, date of service, member ID, the condition code(s) used, and the remittance advice for both denials.</li>
-          <li>Ask the representative: Is a specific condition code required for this service type or facility? Does the payer have a code crosswalk or policy document that overrides NUBC standards?</li>
-          <li>Ask whether the claim can be reprocessed on the call or whether a formal corrected claim resubmission is required by the payer.</li>
-          <li>Document the call reference number, representative name, date, and time. This is required evidence if the denial escalates to a formal appeal.</li>
+        <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+          <li><strong>Have ready:</strong> Original + corrected claim numbers, date of service, member ID, the condition code(s) used, claim type (inpatient/outpatient), and both remittance advices.</li>
+          <li><strong>Ask the rep:</strong> "Which condition code is required for this claim type and service? Is the code I submitted not recognized in your system?"</li>
+          <li>Ask if the payer has a <strong>payer-specific condition code requirement</strong> that overrides the standard NUBC code set — some payers require proprietary codes.</li>
+          <li>Ask whether the denial is due to the code being <strong>invalid, inapplicable, or conflicting</strong> with another element on the claim (e.g., bill type, revenue code, or diagnosis).</li>
+          <li>📝 Document the call: reference number, rep name, date, time, and the exact code or correction they advise.</li>
         </ul>
       </div>
 
       <!-- Step 4 -->
       <div style='border:1px solid #fecaca;border-radius:18px;padding:18px;background:linear-gradient(180deg,#fff6f6 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(220,38,38,0.08)'>
         <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
-          <div style='width:38px;height:38px;border-radius:50%;background:#dc2626;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(220,38,38,0.2)'>
-            4
-          </div>
+          <div style='width:38px;height:38px;border-radius:50%;background:#dc2626;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(220,38,38,0.2);flex-shrink:0'>4</div>
           <div>
-            <div class='nm-h3' style='margin:0;font-size:14px;font-weight:700;color:#b91c1c'>
-              Payer Denied Reprocessing — Appeal Required - Step 4
-            </div>
-            <div style='font-size:11px;color:#64748b;margin-top:2px'>
-              Escalate through the formal appeal process
-            </div>
+            <div style='margin:0;font-size:14px;font-weight:700;color:#b91c1c'>Payer Won't Reprocess? File a Formal Appeal</div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>Escalate and fight it officially</div>
           </div>
         </div>
-
         <div style='background:#fef2f2;border:1px solid #fecaca;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
-          If the payer upholds the M44 denial after a corrected claim and provider relations outreach, submit a formal appeal demonstrating that the condition code is clinically and administratively supported.
+          ⚖️ If the payer upholds the M44 denial after a corrected claim and provider relations outreach, file a <strong>formal appeal</strong> demonstrating that the condition code submitted was valid, appropriate, and compliant with NUBC guidelines for the claim type billed.
         </div>
-
-        <ul class='info-list' style='font-size:12px;line-height:1.65;margin:0'>
-          <li>Draft a formal appeal letter including provider name, NPI, Tax ID, patient name, member ID, claim number, date of service, and billed amount.</li>
-          <li>Clearly state the reason for appeal: "The condition code(s) reported in FL 18–28 are correct, complete, and supported by the patient's medical record and applicable NUBC guidelines."</li>
-          <li>Attach supporting documentation: original and corrected UB-04 copies, both EOBs/ERAs, relevant medical record excerpts confirming the billing circumstance, and the call reference from Step 3.</li>
-          <li>Reference the NUBC UB-04 Data Specifications Manual or CMS Medicare Claims Processing Manual, Chapter 25, as authority for the condition code's validity and required use.</li>
-          <li>Submit through the payer's designated appeal channel and document the submission date, delivery method, and tracking information. For Medicare, file a Redetermination with the MAC within 120 days of the initial denial.</li>
+        <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+          <li><strong>Appeal letter must include:</strong> Provider name, NPI, Tax ID, patient name, member ID, claim number, date of service, billed amount, and the condition code(s) in dispute.</li>
+          <li><strong>Key statement:</strong> "Condition Code [XX] submitted on this claim is valid per the current NUBC code set and is applicable to the claim type and services billed. We appeal the M44 denial as the claim was compliant at submission."</li>
+          <li><strong>Attach:</strong> Original + corrected claim copies, both remittance advices, NUBC reference documentation confirming the code's validity and applicability, and payer policy if obtained during the provider relations call.</li>
+          <li><strong>Medicare deadline:</strong> File Redetermination with the MAC within <strong>120 days</strong> of the denial date. Commercial payers: follow the appeal instructions on the EOB (typically 30–60 days).</li>
+          <li>📌 Reference: <em>CMS Medicare Claims Processing Manual, Pub 100-04, applicable chapter for the service type</em>, and the <em>NUBC Official UB-04 Data Specifications Manual</em>.</li>
         </ul>
       </div>
 
       <!-- Step 5 -->
       <div style='grid-column:1 / -1;border:1px solid #ddd6fe;border-radius:18px;padding:18px;background:linear-gradient(180deg,#f8f7ff 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(124,58,237,0.08)'>
         <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
-          <div style='width:38px;height:38px;border-radius:50%;background:#7c3aed;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(124,58,237,0.2)'>
-            5
-          </div>
+          <div style='width:38px;height:38px;border-radius:50%;background:#7c3aed;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(124,58,237,0.2);flex-shrink:0'>5</div>
           <div>
-            <div class='nm-h3' style='margin:0;font-size:14px;font-weight:700;color:#6d28d9'>
-              Payer Says Information Not Received on Form — Appeal Required - Step 5
-            </div>
-            <div style='font-size:11px;color:#64748b;margin-top:2px'>
-              Verify condition code transmission in FL 18–28 and prove original submission
-            </div>
+            <div style='margin:0;font-size:14px;font-weight:700;color:#6d28d9'>Seeing This Repeatedly? Fix Your Billing Edits</div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>Stop M44 from happening across your entire claim volume</div>
           </div>
         </div>
-
         <div style='background:#f5f3ff;border:1px solid #ddd6fe;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
-          This scenario means the payer did not receive the condition code fields (FL 18–28) as submitted — not necessarily that the codes were wrong. This is often a clearinghouse mapping error, an EDI transmission gap, or a payer intake failure.
+          🔁 If M44 is appearing on multiple claims, this is a <strong>systemic billing configuration issue</strong> — not a one-off mistake. A condition code may be hardcoded incorrectly in your billing system, auto-populated by your EHR, or required by specific payers but missing from your templates.
         </div>
-
-        <ul class='info-list' style='font-size:12px;line-height:1.65;margin:0'>
-          <li>Request a copy of the claim image from the payer as received on their end. Compare it to your original UB-04 to identify whether FL 18–28 values were present or dropped in transmission.</li>
-          <li>Pull the original 837I EDI file and confirm the condition code was submitted in Loop 2300, CLM11 (Condition Codes) or the appropriate segment per your clearinghouse's 837I mapping. A missing or misaligned segment is the most common cause.</li>
-          <li>Review the 999 Functional Acknowledgment or TA1 Interchange Acknowledgment from your clearinghouse. Acceptance at the interchange level does not guarantee all segments were passed through correctly — check for loop-level rejections.</li>
-          <li>File the appeal with proof of original submission: include a printed UB-04 showing the condition code in FL 18–28, the relevant 837I EDI segment excerpt, the clearinghouse acknowledgment, and a written statement confirming the data was present on submission.</li>
-          <li>Ask the payer to investigate whether a system intake configuration issue caused the FL 18–28 segment to be dropped or ignored during adjudication. This may trigger internal reprocessing without requiring a full appeal cycle.</li>
-          <li>After resolution, implement a clearinghouse pre-submission scrub rule to flag any UB-04 institutional claim where FL 18–28 is blank when a known billing circumstance applies, preventing recurrence across your claim volume.</li>
-        </ul>
+        <div style='display:grid;grid-template-columns:repeat(2,1fr);gap:12px'>
+          <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+            <li><strong>Audit recent claims</strong> for the same condition code across multiple accounts. If the same invalid code is appearing repeatedly, it is likely hardcoded or auto-populated incorrectly in your billing system or EHR templates.</li>
+            <li><strong>Review your claim templates</strong> by claim type (inpatient, outpatient, SNF, home health, etc.) and confirm condition codes are only populated when applicable — not defaulted on every claim.</li>
+            <li><strong>Cross-reference the NUBC code set annually.</strong> Condition codes are updated periodically; a code valid last year may be retired or reassigned this year, triggering M44 on otherwise clean claims.</li>
+          </ul>
+          <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+            <li><strong>Build a pre-submission edit</strong> in your billing system that validates condition codes against the current NUBC-approved list and flags any code that does not match the claim type before submission.</li>
+            <li><strong>Check payer-specific requirements.</strong> Some payers require condition codes not in the standard NUBC set — document these as payer-specific rules in your billing system so coders apply them consistently.</li>
+            <li>🔒 <strong>Train your team:</strong> Ensure coders and billers understand that condition codes are situational — they should only be added when a specific circumstance applies, never as a default or filler field.</li>
+          </ul>
+        </div>
       </div>
 
     </div>
