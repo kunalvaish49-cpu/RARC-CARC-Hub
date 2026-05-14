@@ -1116,6 +1116,7 @@ body.dark-mode .toast {
         <span style="font:600 10px/1 'DM Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:rgba(175,210,255,.5);align-self:center;margin-right:2px;">Recent:</span>
        
         <span class="rarc-chip active" onclick="rarcChipClick('N846')">N846</span>
+	
         <span class="rarc-chip" onclick="rarcChipClick('N816')">N816</span>
 	<span class="rarc-chip" onclick="rarcChipClick('N60')">N60</span>
 	<span class="rarc-chip" onclick="rarcChipClick('N815')">N815</span>
@@ -1692,115 +1693,178 @@ body.dark-mode .toast {
   </div>
 </div>
 
+<!-- ── RARC N846 - NDC Does Not Correspond to HCPCS/CPT Billed ── -->
+<div class='card span-12 card-collapsible' style='border:1px solid var(--border);border-radius:20px;overflow:hidden;background:#fff;box-shadow:0 10px 24px rgba(15,23,42,0.08)'>
 
-        <!-- ── HOW TO FIX IT ── -->
-
-<div class='card span-12 card-collapsible' style='border:1px solid var(--border);border-radius:18px;overflow:hidden;background:#fff;box-shadow:0 6px 18px rgba(0,0,0,0.05)'>
-  <div class='label' style='background:linear-gradient(90deg,#0f172a,#1e3a8a);color:#fff;padding:12px 16px;font-size:14px;font-weight:700'>
-    How to Fix It
+  <!-- Header -->
+  <div class='label' style='background:linear-gradient(90deg,#0f172a,#1e3a8a);color:#fff;padding:14px 18px;font-size:15px;font-weight:700;letter-spacing:.3px'>
+    How to Fix It — RARC N846: NDC Does Not Correspond to HCPCS/CPT Billed
   </div>
 
-  <div style='padding:18px'>
+  <!-- What is it -->
+  <div style='padding:18px 20px 0'>
+    <div style='background:#f0f9ff;border:1px solid #bae6fd;border-radius:14px;padding:14px 16px;margin-bottom:18px'>
+      <div style='font-size:13px;font-weight:700;color:#0369a1;margin-bottom:6px'>💡 What is RARC N846?</div>
+      <div style='font-size:12px;color:#475569;line-height:1.6'>
+        Your claim was denied because the <strong>NDC (National Drug Code) on the claim does not match the HCPCS or CPT drug code billed</strong>. Think of it like ordering a specific product by catalog number — the <strong>NDC is the exact barcode of the drug vial</strong> administered, and the HCPCS/CPT is the billing code for that drug. If the barcode and the catalog number describe two different drugs, the payer flags the mismatch and denies the claim. Both codes must point to the <strong>exact same drug, strength, and form</strong>.
+      </div>
+      <div style='display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px'>
+        <div style='background:#fff;border:1px solid #bae6fd;border-radius:10px;padding:10px;text-align:center'>
+          <div style='font-size:11px;font-weight:700;color:#0284c7'>CMS-1500</div>
+          <div style='font-size:13px;font-weight:800;color:#0369a1;margin:4px 0'>Box 24A–J</div>
+          <div style='font-size:10px;color:#64748b'>NDC in shaded area</div>
+        </div>
+        <div style='background:#fff;border:1px solid #bae6fd;border-radius:10px;padding:10px;text-align:center'>
+          <div style='font-size:11px;font-weight:700;color:#0284c7'>837P EDI</div>
+          <div style='font-size:13px;font-weight:800;color:#0369a1;margin:4px 0'>Loop 2410</div>
+          <div style='font-size:10px;color:#64748b'>LIN / CTP segments</div>
+        </div>
+        <div style='background:#fff;border:1px solid #bae6fd;border-radius:10px;padding:10px;text-align:center'>
+          <div style='font-size:11px;font-weight:700;color:#0284c7'>NDC Format</div>
+          <div style='font-size:13px;font-weight:800;color:#0369a1;margin:4px 0'>11 Digits</div>
+          <div style='font-size:10px;color:#64748b'>5-4-2 or 5-3-2 padded</div>
+        </div>
+      </div>
+
+      <!-- Common mismatch scenarios -->
+      <div style='margin-top:12px;border:1px solid #bae6fd;border-radius:10px;overflow:hidden'>
+        <div style='background:#0284c7;color:#fff;font-size:11px;font-weight:700;padding:7px 12px'>📋 Common Reasons NDC and HCPCS/CPT Don't Match</div>
+        <div style='display:grid;grid-template-columns:1fr 1fr;font-size:11px'>
+          <div style='background:#e0f2fe;padding:6px 10px;font-weight:700;color:#0369a1;border-bottom:1px solid #bae6fd'>Root Cause</div>
+          <div style='background:#e0f2fe;padding:6px 10px;font-weight:700;color:#0369a1;border-bottom:1px solid #bae6fd'>What Happened</div>
+          <div style='padding:5px 10px;color:#334155;border-bottom:1px solid #e0f2fe'>Wrong NDC entered</div>
+          <div style='padding:5px 10px;color:#334155;border-bottom:1px solid #e0f2fe'>A different drug's NDC was typed in — the HCPCS maps to a different molecule</div>
+          <div style='padding:5px 10px;color:#334155;background:#f8fbff;border-bottom:1px solid #e0f2fe'>Generic vs. brand NDC</div>
+          <div style='padding:5px 10px;color:#334155;background:#f8fbff;border-bottom:1px solid #e0f2fe'>Generic administered but brand HCPCS billed (or vice versa)</div>
+          <div style='padding:5px 10px;color:#334155;border-bottom:1px solid #e0f2fe'>Different strength / concentration</div>
+          <div style='padding:5px 10px;color:#334155;border-bottom:1px solid #e0f2fe'>NDC is 10mg vial but HCPCS maps to 20mg — same drug, wrong dose</div>
+          <div style='padding:5px 10px;color:#334155;background:#f8fbff;border-bottom:1px solid #e0f2fe'>Wrong dosage form</div>
+          <div style='padding:5px 10px;color:#334155;background:#f8fbff;border-bottom:1px solid #e0f2fe'>NDC is oral tablet but HCPCS is for injectable — different forms of same drug</div>
+          <div style='padding:5px 10px;color:#334155'>Stale NDC in billing system</div>
+          <div style='padding:5px 10px;color:#334155'>Drug repackaged / reformulated — old NDC no longer maps to the HCPCS</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style='padding:0 20px 20px'>
     <div style='display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px'>
 
-      <div class='sub-card' style='border:1px solid #dbeafe;border-radius:16px;padding:16px;background:linear-gradient(180deg,#f8fbff 0%,#ffffff 100%);box-shadow:0 2px 10px rgba(37,99,235,0.08)'>
-        <div style='display:flex;align-items:center;gap:10px;margin-bottom:10px'>
-          <div style='width:36px;height:36px;border-radius:50%;background:#2563eb;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(37,99,235,0.2)'>1</div>
+      <!-- Step 1 -->
+      <div style='border:1px solid #dbeafe;border-radius:18px;padding:18px;background:linear-gradient(180deg,#f8fbff 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(37,99,235,0.08)'>
+        <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
+          <div style='width:38px;height:38px;border-radius:50%;background:#2563eb;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(37,99,235,0.2);flex-shrink:0'>1</div>
           <div>
-            <div class='nm-h3' style='margin:0;font-size:14px;font-weight:700;color:#1d4ed8'>Coding Escalation - Step 1</div>
-            <div style='font-size:11px;color:#64748b'>Initial review and coding validation</div>
+            <div style='margin:0;font-size:14px;font-weight:700;color:#1d4ed8'>Verify What Was Actually Administered</div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>Go back to the medication record first</div>
           </div>
         </div>
-
-        <div class='muted' style='margin-bottom:12px;font-size:12px;line-height:1.5;color:#475569'>Before Escalating, you must verify the NDC yourself first. Through www.aapc.com or Verify MR which Drug has been given to the Patient.</div>
-
-        <ul class='info-list' style='font-size:12px'>
-          <li>Checked the medical record — confirmed the drug name and NDC of what was actually given to the patient.</li>
-          <li>Confirmed the NDC is 11 digits with no dashes — and matches exactly what was submitted on the claim. CMS Box-24  & UB-04 FL-43-44</li>
-          <li>Looked up the NDC-to-HCPCS crosswalk — confirmed the billed HCPCS/CPT does not match the drug administered or NDC Expired.</li>
+        <div style='background:#eff6ff;border:1px solid #dbeafe;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
+          🔍 Pull the <strong>medication administration record (MAR)</strong> or drug log for the date of service. The NDC on the claim must match the <strong>exact vial or package administered</strong> — not the drug name, not the order — the actual product given to the patient.
+        </div>
+        <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+          <li>Check the <strong>drug label / vial barcode</strong> scanned or recorded at administration — the 10- or 11-digit NDC is printed on every drug package.</li>
+          <li>Confirm the NDC on the claim matches the <strong>exact manufacturer, strength, and dosage form</strong> administered — same drug name is not enough if the NDC points to a different concentration or route.</li>
+          <li>Cross-reference the NDC against the HCPCS code billed using the <strong>FDA NDC Directory</strong> (ndclist.com or fda.gov/drugs) — confirm the NDC maps to the drug described by the HCPCS code.</li>
+          <li>Check if the drug was <strong>substituted at dispensing</strong> — pharmacy may have dispensed a different manufacturer's NDC than what was ordered, and the billing system still carries the original NDC.</li>
+          <li>If a <strong>compounded drug</strong> was administered, note that compounded drugs do not have FDA-assigned NDCs — confirm with the payer how they require compounded drug reporting.</li>
         </ul>
       </div>
 
-      <div class='sub-card' style='border:1px solid #dcfce7;border-radius:16px;padding:16px;background:linear-gradient(180deg,#f7fff8 0%,#ffffff 100%);box-shadow:0 2px 10px rgba(22,163,74,0.08)'>
-        <div style='display:flex;align-items:center;gap:10px;margin-bottom:10px'>
-          <div style='width:36px;height:36px;border-radius:50%;background:#16a34a;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(22,163,74,0.2)'>2</div>
+      <!-- Step 2 -->
+      <div style='border:1px solid #dcfce7;border-radius:18px;padding:18px;background:linear-gradient(180deg,#f7fff8 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(22,163,74,0.08)'>
+        <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
+          <div style='width:38px;height:38px;border-radius:50%;background:#16a34a;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(22,163,74,0.2);flex-shrink:0'>2</div>
           <div>
-            <div class='nm-h3' style='margin:0;font-size:14px;font-weight:700;color:#15803d'>Corrected Claim Resubmission - Step 2</div>
-            <div style='font-size:11px;color:#64748b'>Correct and resubmit the claim</div>
+            <div style='margin:0;font-size:14px;font-weight:700;color:#15803d'>Correct the NDC or HCPCS & Resubmit</div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>Fix the mismatch — then send corrected claim</div>
           </div>
         </div>
-
-        <div class='muted' style='margin-bottom:12px;font-size:12px;line-height:1.5;color:#475569'>Only do this after coding gives you the correct code or Verfied by CPC Coder NDC & UOB is Valid - Never resubmit without it or Always confirm about the Timely Filling.</div>
-
-        <ul class='info-list' style='font-size:12px'>
-          <li>Coding has confirmed and assigned the correct NDC or HCPCS/CPT code.</li>
-          <li>NDC is 11 digits, no dashes, with qualifier "N4" before it (example: N412345678901).</li>
-          <li>Unit of measure is included — UN (units), ML (milliliters), or GR (grams).</li>
-          <li>Still within the payer's resubmission deadline & Claim is marked as a corrected claim (frequency code 7 or as payer requires).</li>
+        <div style='background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
+          ✅ Once you confirm what was administered, correct whichever side of the pair is wrong — the NDC, the HCPCS, or both — and resubmit as a <strong>corrected claim</strong>. Never submit as a new claim.
+        </div>
+        <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+          <li><strong>CMS-1500 (paper):</strong> Enter the corrected 11-digit NDC in the <strong>shaded portion of Box 24A</strong> using the qualifier <strong>N4</strong> followed by the NDC, unit of measure qualifier, and quantity administered.</li>
+          <li><strong>837P electronic:</strong> Update <strong>Loop 2410, LIN segment</strong> (qualifier N4 + NDC) and <strong>CTP segment</strong> (NDC unit price, unit of measure, and quantity). All three fields must be correct — a partial fix re-denies.</li>
+          <li><strong>NDC must be 11 digits</strong> — if the package shows a 10-digit NDC, add a leading zero to the correct segment (5-4-2 format). Never use hyphens in electronic submission.</li>
+          <li><strong>Corrected claim:</strong> CMS-1500 → Box 22, Resubmission Code <strong>"7"</strong> + original ICN. UB-04 → TOB frequency digit <strong>"7"</strong> + original TCN in Box 64.</li>
+          <li>⚠️ Check <strong>timely filing limits</strong> before resubmitting — do not lose the claim window while resolving the NDC discrepancy internally.</li>
         </ul>
       </div>
 
-      <div class='sub-card' style='border:1px solid #fed7aa;border-radius:16px;padding:16px;background:linear-gradient(180deg,#fffaf5 0%,#ffffff 100%);box-shadow:0 2px 10px rgba(234,88,12,0.08)'>
-        <div style='display:flex;align-items:center;gap:10px;margin-bottom:10px'>
-          <div style='width:36px;height:36px;border-radius:50%;background:#ea580c;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(234,88,12,0.2)'>3</div>
+      <!-- Step 3 -->
+      <div style='border:1px solid #fed7aa;border-radius:18px;padding:18px;background:linear-gradient(180deg,#fffaf5 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(234,88,12,0.08)'>
+        <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
+          <div style='width:38px;height:38px;border-radius:50%;background:#ea580c;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(234,88,12,0.2);flex-shrink:0'>3</div>
           <div>
-            <div class='nm-h3' style='margin:0;font-size:14px;font-weight:700;color:#c2410c'>Calling Required - Step 3</div>
-            <div style='font-size:11px;color:#64748b'>Contact payer for clarification</div>
+            <div style='margin:0;font-size:14px;font-weight:700;color:#c2410c'>Still Denied? Call the Payer</div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>Payer crosswalk may not recognize the NDC</div>
           </div>
         </div>
-
-        <div class='muted' style='margin-bottom:12px;font-size:12px;line-height:1.5;color:#475569'>This is a payer error. Call and ask them to reprocess the claim manually. Before this make everything Handy.</div>
-
-        <ul class='info-list' style='font-size:12px'>
-          <li>Have the original claim number, denial date, and corrected claim number ready.</li>
-          <li>Bring proof: NDC-to-HCPCS match, drug administration record, and the EOB.</li>
-          <li>Write down the rep's name, call reference number, and promised action.</li>
+        <div style='background:#fff7ed;border:1px solid #fed7aa;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
+          📞 If the corrected claim still gets N846, call the payer's provider relations or pharmacy/drug billing line. The payer's internal <strong>NDC-to-HCPCS crosswalk</strong> may not include your drug's NDC — especially for newer drugs, repackaged products, or specialty biologics.
+        </div>
+        <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+          <li><strong>Have ready:</strong> Claim number, member ID, date of service, NDC submitted, HCPCS code billed, drug name, strength, manufacturer, and both remittance advices.</li>
+          <li><strong>Ask the rep:</strong> "Is NDC [XXXXXXXXXXX] in your crosswalk for HCPCS [XXXXX]? If not, what NDC or alternate HCPCS code does your system recognize for [drug name / strength]?"</li>
+          <li>Ask if the payer requires a <strong>specific NDC from an approved formulary or contracted manufacturer</strong> — some payers only accept NDCs from preferred suppliers even when the drug is the same molecule.</li>
+          <li>Ask if the denial is a <strong>crosswalk gap vs. a true mismatch</strong> — if the payer's table simply hasn't been updated to include a newer NDC, they may reprocess manually or advise a workaround HCPCS.</li>
+          <li>📝 Document: reference number, rep name, date, time, and any alternate NDC or HCPCS they advise using.</li>
         </ul>
       </div>
 
-      <div class='sub-card' style='border:1px solid #fecaca;border-radius:16px;padding:16px;background:linear-gradient(180deg,#fff6f6 0%,#ffffff 100%);box-shadow:0 2px 10px rgba(220,38,38,0.08)'>
-        <div style='display:flex;align-items:center;gap:10px;margin-bottom:10px'>
-          <div style='width:36px;height:36px;border-radius:50%;background:#dc2626;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(220,38,38,0.2)'>4</div>
+      <!-- Step 4 -->
+      <div style='border:1px solid #fecaca;border-radius:18px;padding:18px;background:linear-gradient(180deg,#fff6f6 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(220,38,38,0.08)'>
+        <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
+          <div style='width:38px;height:38px;border-radius:50%;background:#dc2626;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(220,38,38,0.2);flex-shrink:0'>4</div>
           <div>
-            <div class='nm-h3' style='margin:0;font-size:14px;font-weight:700;color:#b91c1c'>Payer denied Reprocessing — Appeal required - Step 4</div>
-            <div style='font-size:11px;color:#64748b'>Escalate through the appeal process</div>
+            <div style='margin:0;font-size:14px;font-weight:700;color:#b91c1c'>Payer Won't Reprocess? File a Formal Appeal</div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>Prove NDC and HCPCS describe the same drug</div>
           </div>
         </div>
-
-        <div class='muted' style='margin-bottom:12px;font-size:12px;line-height:1.5;color:#475569'>If the payer refuses to reprocess and tells you to appeal — do this. Confrim Appeal TFL Days</div>
-
-        <ul class='info-list' style='font-size:12px'>
-          <li>Get the Denial | Appeal | Dispute letter or If there is no Specific Letter than make Cover Letter— note the appeal deadline (usually 30–180 days). Do not miss it.</li>
-          <li>Write an appeal letter stating: the correct NDC was billed, it matches the HCPCS/CPT, and the denial was incorrect.</li>
-          <li>Attach MR: drug administration record, physician order, NDC crosswalk, and original claim.</li>
-          <li>Send via Web Portal or Fax or Mailing or certified mail — keep a copy and the delivery confirmation.</li>
-          <li>Follow up after 30 days if no response received.</li>
+        <div style='background:#fef2f2;border:1px solid #fecaca;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
+          ⚖️ If the payer upholds the N846 denial, file a <strong>formal appeal</strong> with FDA drug labeling and crosswalk documentation proving the NDC submitted correctly corresponds to the HCPCS code billed.
+        </div>
+        <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+          <li><strong>Appeal letter must include:</strong> Provider name, NPI, Tax ID, patient name, member ID, claim number, date of service, NDC submitted, HCPCS code billed, drug name, strength, route, and manufacturer.</li>
+          <li><strong>Key statement:</strong> "NDC [XXXXXXXXXXX] is the FDA-assigned National Drug Code for [Drug Name, Strength, Form] manufactured by [Manufacturer]. This NDC correctly corresponds to HCPCS [XXXXX] per the FDA NDC Directory and [CMS / payer] drug crosswalk. We appeal the N846 denial as the NDC-to-HCPCS pairing was accurate at submission."</li>
+          <li><strong>Attach:</strong> FDA NDC Directory printout for the NDC, drug package label or insert confirming drug name/strength, medication administration record confirming what was given, original and corrected claims, and both remittance advices.</li>
+          <li><strong>Medicare:</strong> File Redetermination with the MAC within <strong>120 days</strong>. Reference <em>CMS Medicare Claims Processing Manual, Pub 100-04, Chapter 17 (Drugs and Biologicals)</em>.</li>
+          <li>Commercial: check EOB for appeal deadline — typically <strong>30–180 days</strong>. Include the payer's own NDC crosswalk reference if the drug is listed there under the HCPCS billed.</li>
         </ul>
       </div>
 
-      <div class='sub-card' style='grid-column:1 / -1;border:1px solid #ddd6fe;border-radius:16px;padding:16px;background:linear-gradient(180deg,#f8f7ff 0%,#ffffff 100%);box-shadow:0 2px 10px rgba(124,58,237,0.08)'>
-        <div style='display:flex;align-items:center;gap:10px;margin-bottom:10px'>
-          <div style='width:36px;height:36px;border-radius:50%;background:#7c3aed;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(124,58,237,0.2)'>5</div>
+      <!-- Step 5 -->
+      <div style='grid-column:1 / -1;border:1px solid #ddd6fe;border-radius:18px;padding:18px;background:linear-gradient(180deg,#f8f7ff 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(124,58,237,0.08)'>
+        <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
+          <div style='width:38px;height:38px;border-radius:50%;background:#7c3aed;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(124,58,237,0.2);flex-shrink:0'>5</div>
           <div>
-            <div class='nm-h3' style='margin:0;font-size:14px;font-weight:700;color:#6d28d9'>Payer says info not received on Form — Appeal required - Step 5</div>
-            <div style='font-size:11px;color:#64748b'>Verify placement of NDC information</div>
+            <div style='margin:0;font-size:14px;font-weight:700;color:#6d28d9'>Seeing This Repeatedly? Fix Your Drug Crosswalk & Templates</div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>One crosswalk update stops N846 across your entire drug claim volume</div>
           </div>
         </div>
-
-        <div class='muted' style='margin-bottom:12px;font-size:12px;line-height:1.5;color:#475569'>The payer says they never received NDC details — even though you submitted them. Check these. CMS Box#23 & UB FL-43-44</div>
-
-        <ul class='info-list' style='font-size:12px'>
-          <li>On a paper claim (CMS-1500) — NDC must be in Box 24, shaded area.</li>
-          <li>On an electronic claim — NDC goes in the LIN/CTP segment.</li>
-          <li>Unit of measure must be included — UN, ML, or GR.</li>
-          <li>If all fields look correct — call the payer and ask exactly which field they require for NDC. Some payers have custom rules.</li>
-          <li>Resubmit with the correction and confirm the payer received it.</li>
-        </ul>
+        <div style='background:#f5f3ff;border:1px solid #ddd6fe;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
+          🔁 If N846 is appearing on multiple claims, your <strong>NDC-to-HCPCS crosswalk table in your billing system is outdated, incomplete, or incorrectly mapped</strong>. Drug NDCs change when manufacturers repackage or reformulate — a crosswalk that was correct last quarter may already be stale.
+        </div>
+        <div style='display:grid;grid-template-columns:repeat(2,1fr);gap:12px'>
+          <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+            <li><strong>Audit your NDC-to-HCPCS crosswalk table quarterly.</strong> For every drug billed, verify the NDC in your system still maps to the correct HCPCS — especially after formulary changes, new supplier contracts, or manufacturer switches.</li>
+            <li><strong>Capture the NDC at point of administration, not at billing.</strong> The actual vial barcode scanned by nursing or pharmacy at administration time is the source of truth — build a workflow that passes that NDC directly into the claim, not a pre-set billing system value.</li>
+            <li><strong>Maintain a drug substitution log.</strong> When pharmacy substitutes a different manufacturer's NDC at dispensing, that change must flow through to the claim. A silent substitution with no billing update is the #1 cause of repeat N846 denials.</li>
+          </ul>
+          <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+            <li><strong>Add a pre-submission edit</strong> that validates each NDC against its paired HCPCS code before the claim is released — flag any pair where the NDC does not appear in the FDA directory under the drug described by the HCPCS.</li>
+            <li><strong>Update crosswalks for new drugs immediately upon formulary addition.</strong> When a new drug or biosimilar is added to your formulary, map its NDC to the correct HCPCS before the first claim is submitted — not after the first denial.</li>
+            <li>🔒 <strong>Train your billing and nursing teams:</strong> NDC reporting is a <em>clinical accuracy requirement</em>, not just a billing field. The NDC must reflect the exact product administered — substituting a similar drug's NDC because it's "close enough" is a false claims risk.</li>
+          </ul>
+        </div>
       </div>
 
     </div>
   </div>
-</div>        
+</div>
+
+  
         <!-- ── MODIFIERS TO KNOW ── -->
     
 <div class='card span-12 card-collapsible' style='border:1px solid var(--border);border-radius:18px;overflow:hidden;background:#fff;box-shadow:0 6px 18px rgba(0,0,0,0.05)'>
@@ -2110,8 +2174,8 @@ NDC captured directly from the administered vial or package label</span>
           <a class="res-link" href="https://www.aapc.com/codes/ndc-lookup/?msockid=10d768fa819667b711de7e398053669f" target="_blank" rel="noopener">
             <span class="res-icon" style="background:#e8f0ff;color:#1847cc">💊</span>
             <span class="res-body">
-              <span class="res-name">DailyMed NDC Lookup</span>
-              <span class="res-desc">Search drug labels &amp; National Drug Codes via NLM DailyMed</span>
+              <span class="res-name">AAPC Codify NDC Lookup</span>
+              <span class="res-desc">Search drug labels &amp; National Drug Codes via NLM AAPC Codify</span>
             </span>
             <span class="res-arrow">↗</span>
           </a>
@@ -2799,109 +2863,171 @@ NDC - Drug Look Reference Image
   </div>
 </div>
 
-        <!-- How to Fix It -->
+        <!-- ── RARC N816 - Unit of Measure (UOM) Does Not Match ── -->
+<div class='card span-12 card-collapsible' style='border:1px solid var(--border);border-radius:20px;overflow:hidden;background:#fff;box-shadow:0 10px 24px rgba(15,23,42,0.08)'>
 
-<div class='card span-12 card-collapsible' style='border:1px solid var(--border);border-radius:18px;overflow:hidden;background:#fff;box-shadow:0 6px 18px rgba(0,0,0,0.05)'>
-  <div class='label' style='background:linear-gradient(90deg,#0f172a,#1e3a8a);color:#fff;padding:12px 16px;font-size:14px;font-weight:700'>
-    How to Fix It
+  <div class='label' style='background:linear-gradient(90deg,#0f172a,#1e3a8a);color:#fff;padding:14px 18px;font-size:15px;font-weight:700;letter-spacing:.3px'>
+    How to Fix It — RARC N816: Unit of Measure (UOM) Does Not Match
   </div>
 
-  <div style='padding:18px'>
+  <div style='padding:18px 20px 0'>
+    <div style='background:#f0f9ff;border:1px solid #bae6fd;border-radius:14px;padding:14px 16px;margin-bottom:18px'>
+      <div style='font-size:13px;font-weight:700;color:#0369a1;margin-bottom:6px'>💡 What is RARC N816?</div>
+      <div style='font-size:12px;color:#475569;line-height:1.6'>
+        Your claim was denied because the <strong>Unit of Measure (UOM) on the claim does not match what the payer expects</strong> for the drug or service billed. Think of it like ordering coffee — if the menu prices it <strong>per ounce</strong> but you bill <strong>per cup</strong>, the register won't process it. Every drug HCPCS code has a CMS-defined UOM (mL, mg, units, grams) and your quantity must be reported in <strong>that exact unit</strong> — wrong UOM = wrong quantity = denial.
+      </div>
+      <div style='display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px'>
+        <div style='background:#fff;border:1px solid #bae6fd;border-radius:10px;padding:10px;text-align:center'>
+          <div style='font-size:11px;font-weight:700;color:#0284c7'>CMS-1500</div>
+          <div style='font-size:13px;font-weight:800;color:#0369a1;margin:4px 0'>Box 24G</div>
+          <div style='font-size:10px;color:#64748b'>Units / quantity field</div>
+        </div>
+        <div style='background:#fff;border:1px solid #bae6fd;border-radius:10px;padding:10px;text-align:center'>
+          <div style='font-size:11px;font-weight:700;color:#0284c7'>837P EDI</div>
+          <div style='font-size:13px;font-weight:800;color:#0369a1;margin:4px 0'>Loop 2410</div>
+          <div style='font-size:10px;color:#64748b'>CTP segment</div>
+        </div>
+        <div style='background:#fff;border:1px solid #bae6fd;border-radius:10px;padding:10px;text-align:center'>
+          <div style='font-size:11px;font-weight:700;color:#0284c7'>Reference</div>
+          <div style='font-size:13px;font-weight:800;color:#0369a1;margin:4px 0'>HCPCS Book</div>
+          <div style='font-size:10px;color:#64748b'>Each code defines its UOM</div>
+        </div>
+      </div>
+
+      <div style='margin-top:12px;border:1px solid #bae6fd;border-radius:10px;overflow:hidden'>
+        <div style='background:#0284c7;color:#fff;font-size:11px;font-weight:700;padding:7px 12px'>📋 Common UOM Qualifiers &amp; What They Mean</div>
+        <div style='display:grid;grid-template-columns:50px 90px 1fr;font-size:11px'>
+          <div style='background:#e0f2fe;padding:6px 10px;font-weight:700;color:#0369a1;border-bottom:1px solid #bae6fd'>Code</div>
+          <div style='background:#e0f2fe;padding:6px 10px;font-weight:700;color:#0369a1;border-bottom:1px solid #bae6fd'>Meaning</div>
+          <div style='background:#e0f2fe;padding:6px 10px;font-weight:700;color:#0369a1;border-bottom:1px solid #bae6fd'>Example Use</div>
+          <div style='padding:5px 10px;color:#334155;border-bottom:1px solid #e0f2fe'>UN</div>
+          <div style='padding:5px 10px;color:#334155;border-bottom:1px solid #e0f2fe'>Unit(s)</div>
+          <div style='padding:5px 10px;color:#334155;border-bottom:1px solid #e0f2fe'>Biologics, vaccines, insulin</div>
+          <div style='padding:5px 10px;color:#334155;background:#f8fbff;border-bottom:1px solid #e0f2fe'>ML</div>
+          <div style='padding:5px 10px;color:#334155;background:#f8fbff;border-bottom:1px solid #e0f2fe'>Milliliter(s)</div>
+          <div style='padding:5px 10px;color:#334155;background:#f8fbff;border-bottom:1px solid #e0f2fe'>IV solutions, injectable drugs by volume</div>
+          <div style='padding:5px 10px;color:#334155;border-bottom:1px solid #e0f2fe'>GR</div>
+          <div style='padding:5px 10px;color:#334155;border-bottom:1px solid #e0f2fe'>Gram(s)</div>
+          <div style='padding:5px 10px;color:#334155;border-bottom:1px solid #e0f2fe'>Topical agents, some antibiotics</div>
+          <div style='padding:5px 10px;color:#334155;background:#f8fbff;border-bottom:1px solid #e0f2fe'>ME</div>
+          <div style='padding:5px 10px;color:#334155;background:#f8fbff;border-bottom:1px solid #e0f2fe'>Milligram(s)</div>
+          <div style='padding:5px 10px;color:#334155;background:#f8fbff;border-bottom:1px solid #e0f2fe'>Chemo, specialty drugs dosed by mg</div>
+          <div style='padding:5px 10px;color:#334155'>F2</div>
+          <div style='padding:5px 10px;color:#334155'>Intl. Unit(s)</div>
+          <div style='padding:5px 10px;color:#334155'>Clotting factors, some vitamins</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style='padding:0 20px 20px'>
     <div style='display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px'>
 
-      <div class='sub-card' style='border:1px solid #dbeafe;border-radius:16px;padding:16px;background:linear-gradient(180deg,#f8fbff 0%,#ffffff 100%);box-shadow:0 2px 10px rgba(37,99,235,0.08)'>
-        <div style='display:flex;align-items:center;gap:10px;margin-bottom:10px'>
-          <div style='width:36px;height:36px;border-radius:50%;background:#2563eb;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(37,99,235,0.2)'>1</div>
+      <!-- Step 1 -->
+      <div style='border:1px solid #dbeafe;border-radius:18px;padding:18px;background:linear-gradient(180deg,#f8fbff 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(37,99,235,0.08)'>
+        <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
+          <div style='width:38px;height:38px;border-radius:50%;background:#2563eb;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(37,99,235,0.2);flex-shrink:0'>1</div>
           <div>
-            <div class='nm-h3' style='margin:0;font-size:14px;font-weight:700;color:#1d4ed8'>Coding Escalation - Step 1</div>
-            <div style='font-size:11px;color:#64748b'>Initial review and coding validation</div>
+            <div style='margin:0;font-size:14px;font-weight:700;color:#1d4ed8'>Look Up the Correct UOM for the HCPCS Billed</div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>UOM is defined by the code — not your choice</div>
           </div>
         </div>
-
-        <div class='muted' style='margin-bottom:12px;font-size:12px;line-height:1.5;color:#475569'>Before Escalating, you must verify the NDC & UOM yourself first. Through www.aapc.com or Verify MR which Drug has been given to the Patient.</div>
-
-        <ul class='info-list' style='font-size:12px'>
-          <li>Checked the medical record — confirmed the drug name and NDC with UOM of what was actually given to the patient.</li>
-          <li>Confirmed the UOM is UL, ML, GR — and matches exactly what was submitted on the claim. CMS Box-24  & UB-04 FL-43-44</li>
-          <li>Looked up the NDC-to-HCPCS crosswalk — confirmed the billed HCPCS/CPT does not match the drug administered or NDC Expired.</li>
+        <div style='background:#eff6ff;border:1px solid #dbeafe;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
+          🔍 The UOM is <strong>not a free choice</strong> — every HCPCS drug code has a CMS-assigned billing unit. Look it up in the HCPCS Level II code book or CMS ASP Drug Pricing File before correcting anything.
+        </div>
+        <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+          <li>Look up the HCPCS code in the <strong>CMS HCPCS Level II Drug Table or ASP Pricing File</strong> — each entry shows the billing unit descriptor (e.g., "per 10 mg", "per 0.5 mL").</li>
+          <li>Confirm the <strong>UOM qualifier in your claim matches</strong> exactly — UN, ML, GR, ME, or F2. A correct NDC with the wrong qualifier still fires N816.</li>
+          <li>Recalculate the <strong>quantity using the CMS formula</strong>: Total dose administered ÷ HCPCS billing unit = billable units. Round up to the nearest whole unit per CMS guidance.</li>
+          <li>For <strong>weight-based dosing (mg/kg)</strong>, bill total dose given ÷ billing unit — not the per-kg amount alone.</li>
+          <li>For <strong>multi-dose vials</strong>, bill only the quantity actually administered unless the payer's policy allows wastage billing.</li>
         </ul>
       </div>
 
-      <div class='sub-card' style='border:1px solid #dcfce7;border-radius:16px;padding:16px;background:linear-gradient(180deg,#f7fff8 0%,#ffffff 100%);box-shadow:0 2px 10px rgba(22,163,74,0.08)'>
-        <div style='display:flex;align-items:center;gap:10px;margin-bottom:10px'>
-          <div style='width:36px;height:36px;border-radius:50%;background:#16a34a;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(22,163,74,0.2)'>2</div>
+      <!-- Step 2 -->
+      <div style='border:1px solid #dcfce7;border-radius:18px;padding:18px;background:linear-gradient(180deg,#f7fff8 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(22,163,74,0.08)'>
+        <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
+          <div style='width:38px;height:38px;border-radius:50%;background:#16a34a;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(22,163,74,0.2);flex-shrink:0'>2</div>
           <div>
-            <div class='nm-h3' style='margin:0;font-size:14px;font-weight:700;color:#15803d'>Corrected Claim Resubmission</div>
-            <div style='font-size:11px;color:#64748b'>Correct and resubmit the claim</div>
+            <div style='margin:0;font-size:14px;font-weight:700;color:#15803d'>Correct UOM + Quantity Together & Resubmit</div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>Fix both in the same corrected claim — one without the other re-denies</div>
           </div>
         </div>
-
-        <div class='muted' style='margin-bottom:12px;font-size:12px;line-height:1.5;color:#475569'>Only do this after coding gives you the correct code or Verfied by CPC Coder NDC & UOB is Valid - Never resubmit without it or Always confirm about the Timely Filling.</div>
-
-        <ul class='info-list' style='font-size:12px'>
-          <li>Coding has confirmed and assigned the correct NDC with UOM or HCPCS/CPT code.</li>
-          <li>NDC is 11 digits with UOM, no dashes, with qualifier "N4" before it (example: N412345678901).</li>
-          <li>Unit of measure is included — UN (units), ML (milliliters), or GR (grams).</li>
-          <li>Still within the payer's resubmission deadline & Claim is marked as a corrected claim (frequency code 7 or as payer requires).</li>
+        <div style='background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
+          ✅ UOM and quantity are a <strong>linked pair</strong>. Changing the UOM always means recalculating the quantity too. Fix both in the same corrected claim submission.
+        </div>
+        <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+          <li><strong>CMS-1500:</strong> Correct quantity in <strong>Box 24G</strong>. For NDC claims, update UOM qualifier + quantity in the <strong>shaded area of Box 24A</strong> (format: N4 + NDC + UOM + quantity).</li>
+          <li><strong>837P EDI:</strong> Update <strong>Loop 2410, CTP segment</strong> — fix CTP05-1 (UOM qualifier) and CTP04 (quantity). Both must be corrected in the same transaction.</li>
+          <li><strong>Corrected claim:</strong> CMS-1500 → Box 22, Resubmission Code <strong>"7"</strong> + original ICN. UB-04 → TOB frequency digit <strong>"7"</strong> + original TCN in Box 64.</li>
+          <li>⚠️ Check <strong>timely filing limits</strong> — act within days of receiving N816, not weeks.</li>
         </ul>
       </div>
 
-      <div class='sub-card' style='border:1px solid #fed7aa;border-radius:16px;padding:16px;background:linear-gradient(180deg,#fffaf5 0%,#ffffff 100%);box-shadow:0 2px 10px rgba(234,88,12,0.08)'>
-        <div style='display:flex;align-items:center;gap:10px;margin-bottom:10px'>
-          <div style='width:36px;height:36px;border-radius:50%;background:#ea580c;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(234,88,12,0.2)'>3</div>
+      <!-- Step 3 -->
+      <div style='border:1px solid #fed7aa;border-radius:18px;padding:18px;background:linear-gradient(180deg,#fffaf5 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(234,88,12,0.08)'>
+        <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
+          <div style='width:38px;height:38px;border-radius:50%;background:#ea580c;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(234,88,12,0.2);flex-shrink:0'>3</div>
           <div>
-            <div class='nm-h3' style='margin:0;font-size:14px;font-weight:700;color:#c2410c'>Calling Required</div>
-            <div style='font-size:11px;color:#64748b'>Contact payer for clarification</div>
+            <div style='margin:0;font-size:14px;font-weight:700;color:#c2410c'>Still Denied? Call the Payer</div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>Payer may require a different UOM than CMS</div>
           </div>
         </div>
-
-        <div class='muted' style='margin-bottom:12px;font-size:12px;line-height:1.5;color:#475569'>This is a payer error. Call and ask them to reprocess the claim manually. Before this make everything Handy.</div>
-
-        <ul class='info-list' style='font-size:12px'>
-          <li>Have the original claim number, denial date, and corrected claim number ready.</li>
-          <li>Bring proof: NDC-to-HCPCS with UOM match, drug administration record, and the EOB.</li>
-          <li>Write down the rep's name, call reference number, and promised action.</li>
+        <div style='background:#fff7ed;border:1px solid #fed7aa;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
+          📞 If the corrected claim still gets N816, call the payer's pharmacy or drug billing line. Some payers have <strong>UOM requirements that differ from CMS</strong> — especially for specialty drugs, biosimilars, and infusion services.
+        </div>
+        <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+          <li><strong>Have ready:</strong> Claim number, member ID, date of service, HCPCS billed, NDC, UOM qualifier used, quantity billed, drug name, total dose administered, and both remittance advices.</li>
+          <li><strong>Ask:</strong> "Which UOM qualifier and quantity do you require for HCPCS [XXXXX]? Does your requirement differ from the CMS HCPCS billing unit definition?"</li>
+          <li>Ask whether they want <strong>dispensed vial quantity vs. administered dose</strong> — payers differ on this for multi-dose vials.</li>
+          <li>📝 Document: reference number, rep name, date, time, and the exact UOM and quantity format required.</li>
         </ul>
       </div>
 
-      <div class='sub-card' style='border:1px solid #fecaca;border-radius:16px;padding:16px;background:linear-gradient(180deg,#fff6f6 0%,#ffffff 100%);box-shadow:0 2px 10px rgba(220,38,38,0.08)'>
-        <div style='display:flex;align-items:center;gap:10px;margin-bottom:10px'>
-          <div style='width:36px;height:36px;border-radius:50%;background:#dc2626;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(220,38,38,0.2)'>4</div>
+      <!-- Step 4 -->
+      <div style='border:1px solid #fecaca;border-radius:18px;padding:18px;background:linear-gradient(180deg,#fff6f6 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(220,38,38,0.08)'>
+        <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
+          <div style='width:38px;height:38px;border-radius:50%;background:#dc2626;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(220,38,38,0.2);flex-shrink:0'>4</div>
           <div>
-            <div class='nm-h3' style='margin:0;font-size:14px;font-weight:700;color:#b91c1c'>Payer denied Reprocessing — Appeal required</div>
-            <div style='font-size:11px;color:#64748b'>Escalate through the appeal process</div>
+            <div style='margin:0;font-size:14px;font-weight:700;color:#b91c1c'>Payer Won't Reprocess? File a Formal Appeal</div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>Prove UOM and quantity were correct per CMS</div>
           </div>
         </div>
-
-        <div class='muted' style='margin-bottom:12px;font-size:12px;line-height:1.5;color:#475569'>If the payer refuses to reprocess and tells you to appeal — do this. Confrim Appeal TFL Days</div>
-
-        <ul class='info-list' style='font-size:12px'>
-          <li>Get the Denial | Appeal | Dispute letter or If there is no Specific Letter than make Cover Letter— note the appeal deadline (usually 30–180 days). Do not miss it.</li>
-          <li>Write an appeal letter stating: the correct NDC with UOM was billed, it matches the HCPCS/CPT, and the denial was incorrect.</li>
-          <li>Attach MR: drug administration record, physician order, NDC crosswalk, and original claim.</li>
-          <li>Send via Web Portal or Fax or Mailing or certified mail — keep a copy and the delivery confirmation.</li>
-          <li>Follow up after 30 days if no response received.</li>
+        <div style='background:#fef2f2;border:1px solid #fecaca;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
+          ⚖️ If the payer upholds N816, file a <strong>formal appeal</strong> proving the UOM qualifier and quantity were correct per the CMS HCPCS billing unit definition and the actual dose administered.
+        </div>
+        <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+          <li><strong>Appeal must include:</strong> Provider NPI, Tax ID, patient name, member ID, claim number, date of service, HCPCS, NDC, UOM used, quantity billed, drug name, total dose administered, and dosage calculation.</li>
+          <li><strong>Key statement:</strong> "HCPCS [XXXXX] is defined as [billing unit per CMS]. Quantity of [X] billed with UOM [XX] correctly reflects the [total dose] administered per the CMS billing unit formula. We appeal the N816 denial as UOM and quantity were compliant."</li>
+          <li><strong>Attach:</strong> CMS HCPCS drug table entry, MAR confirming dose given, dosage calculation worksheet, original + corrected claims, both remittance advices.</li>
+          <li><strong>Medicare:</strong> File Redetermination with MAC within <strong>120 days</strong>. Reference <em>CMS Pub 100-04, Chapter 17</em>. Commercial: check EOB — typically <strong>30–180 days</strong>.</li>
         </ul>
       </div>
 
-      <div class='sub-card' style='grid-column:1 / -1;border:1px solid #ddd6fe;border-radius:16px;padding:16px;background:linear-gradient(180deg,#f8f7ff 0%,#ffffff 100%);box-shadow:0 2px 10px rgba(124,58,237,0.08)'>
-        <div style='display:flex;align-items:center;gap:10px;margin-bottom:10px'>
-          <div style='width:36px;height:36px;border-radius:50%;background:#7c3aed;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(124,58,237,0.2)'>5</div>
+      <!-- Step 5 -->
+      <div style='grid-column:1 / -1;border:1px solid #ddd6fe;border-radius:18px;padding:18px;background:linear-gradient(180deg,#f8f7ff 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(124,58,237,0.08)'>
+        <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
+          <div style='width:38px;height:38px;border-radius:50%;background:#7c3aed;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(124,58,237,0.2);flex-shrink:0'>5</div>
           <div>
-            <div class='nm-h3' style='margin:0;font-size:14px;font-weight:700;color:#6d28d9'>Payer says info not received on Form — Appeal required - Step 5</div>
-            <div style='font-size:11px;color:#64748b'>Verify placement of NDC information</div>
+            <div style='margin:0;font-size:14px;font-weight:700;color:#6d28d9'>Seeing This Repeatedly? Fix Your Drug Billing Templates</div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>Hardcode UOM per HCPCS — stop N816 at the source</div>
           </div>
         </div>
-
-        <div class='muted' style='margin-bottom:12px;font-size:12px;line-height:1.5;color:#475569'>The payer says they never received NDC or UOB details — even though you submitted them. Check these. CMS Box#23 & UB FL-43-44</div>
-
-        <ul class='info-list' style='font-size:12px'>
-          <li>On a paper claim (CMS-1500) — UOM & NDC must be in Box 24, shaded area.</li>
-          <li>On an electronic claim — NDC & UOM goes in the LIN/CTP segment.</li>
-          <li>Unit of measure must be included — UN, ML, or GR.</li>
-          <li>If all fields look correct — call the payer and ask exactly which field they require for NDC & UOM. Some payers have custom rules.</li>
-          <li>Resubmit with the correction and confirm the payer received it.</li>
-        </ul>
+        <div style='background:#f5f3ff;border:1px solid #ddd6fe;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
+          🔁 If N816 recurs across multiple claims, your <strong>drug billing templates have incorrect or missing UOM mappings</strong>. The UOM qualifier for each HCPCS should be hardcoded — never manually entered by a biller who may not know the CMS billing unit definition.
+        </div>
+        <div style='display:grid;grid-template-columns:repeat(2,1fr);gap:12px'>
+          <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+            <li><strong>Hardcode UOM per HCPCS in your billing system.</strong> For every drug code you bill, the correct UOM qualifier should auto-populate — billers should never select it manually from a dropdown.</li>
+            <li><strong>Build a quantity calculation rule per HCPCS.</strong> Configure the system to auto-calculate billable units from the administered dose using the CMS formula — eliminate manual math that introduces N816.</li>
+            <li><strong>Review templates every January.</strong> CMS updates drug HCPCS codes and billing unit definitions annually — a UOM correct under last year's code may be wrong under the new descriptor.</li>
+          </ul>
+          <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+            <li><strong>Add a pre-submission edit</strong> that validates the UOM qualifier against the expected value for each HCPCS code before the claim is released — flag any mismatch before it reaches the payer.</li>
+            <li><strong>Document payer-specific UOM rules.</strong> If a payer requires a different UOM than CMS standard, save that as a payer rule in your system so it overrides the default for that payer's claims.</li>
+            <li>🔒 <strong>Train your billing team:</strong> UOM is not a formatting detail — it directly drives the <em>reimbursement calculation</em>. A wrong UOM can cause overpayment, underpayment, or denial on every drug claim it touches.</li>
+          </ul>
+        </div>
       </div>
 
     </div>
@@ -3215,8 +3341,8 @@ NDC & UOM captured directly from the administered vial or package label</span>
           <a class="res-link" href="https://dailymed.nlm.nih.gov/dailymed/" target="_blank" rel="noopener">
             <span class="res-icon" style="background:#e8f0ff;color:#1847cc">💊</span>
             <span class="res-body">
-              <span class="res-name">DailyMed NDC Lookup</span>
-              <span class="res-desc">Search drug labels &amp; National Drug Codes via NLM DailyMed</span>
+              <span class="res-name">AAPC Codify NDC Lookup</span>
+              <span class="res-desc">Search drug labels &amp; National Drug Codes via NLM AAPC Codify</span>
             </span>
             <span class="res-arrow">↗</span>
           </a>
@@ -3904,95 +4030,189 @@ NDC & UOM captured directly from the administered vial or package label</span>
   </div>
 </div>
 
-        <!-- How to Fix It -->
-       <div class='card span-12 card-collapsible'>
-  <div class='label'>How to Fix It</div>
 
-  <div style='display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:12px'>
+<!-- ── RARC M119 - Missing / Deactivated / Withdrawn NDC ── -->
+<div class='card span-12 card-collapsible' style='border:1px solid var(--border);border-radius:20px;overflow:hidden;background:#fff;box-shadow:0 10px 24px rgba(15,23,42,0.08)'>
 
-    <div class='sub-card' style='border:1px solid var(--border);border-radius:16px;padding:16px;background:linear-gradient(180deg,#f8fbff 0%,#ffffff 100%)'>
-      <div style='display:flex;align-items:center;gap:10px;margin-bottom:10px'>
-        <div style='width:34px;height:34px;border-radius:50%;background:#2563eb;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700'>1</div>
-        <div class='nm-h3' style='margin:0'>Coding Escalation - Step 1</div>
+  <div class='label' style='background:linear-gradient(90deg,#0f172a,#1e3a8a);color:#fff;padding:14px 18px;font-size:15px;font-weight:700;letter-spacing:.3px'>
+    How to Fix It — RARC M119: Missing / Deactivated / Withdrawn NDC
+  </div>
+
+  <div style='padding:18px 20px 0'>
+    <div style='background:#f0f9ff;border:1px solid #bae6fd;border-radius:14px;padding:14px 16px;margin-bottom:18px'>
+
+      <div style='font-size:13px;font-weight:700;color:#0369a1;margin-bottom:6px'>💡 What is RARC M119?</div>
+      <div style='font-size:12px;color:#475569;line-height:1.6'>
+        Your claim was denied because the <strong>NDC is either missing, deactivated, or withdrawn</strong> from the payer’s recognized drug database or FDA NDC Directory. This means either <strong>no NDC was submitted</strong>, or the submitted NDC is no longer valid for billing due to being <strong>inactive, discontinued, or removed from use</strong>. Payers require an <strong>active and valid NDC tied to the exact administered product</strong> — anything missing or inactive will result in denial.
       </div>
 
-      <div class='muted' style='margin-bottom:12px'>Before Escalating, you must verify the NDC & UOM yourself first. Through www.aapc.com or Verify MR which Drug has been given to the Patient.</div>
-
-      <ul class='info-list'>
-        <li>Checked the medical record — confirmed the drug name and NDC with UOM of what was actually given to the patient.</li>
-        <li>Confirmed the UOM is UL, ML, GR — and matches exactly what was submitted on the claim. CMS Box-24  & UB-04 FL-43-44</li>
-        <li>NDC was deactivated before DOS and no replacement NDC existed at that time</li>
-      </ul>
-    </div>
-
-    <div class='sub-card' style='border:1px solid var(--border);border-radius:16px;padding:16px;background:linear-gradient(180deg,#f7fff8 0%,#ffffff 100%)'>
-      <div style='display:flex;align-items:center;gap:10px;margin-bottom:10px'>
-        <div style='width:34px;height:34px;border-radius:50%;background:#16a34a;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700'>2</div>
-        <div class='nm-h3' style='margin:0'>Corrected Claim Resubmission</div>
+      <div style='display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px'>
+        <div style='background:#fff;border:1px solid #bae6fd;border-radius:10px;padding:10px;text-align:center'>
+          <div style='font-size:11px;font-weight:700;color:#0284c7'>CMS-1500</div>
+          <div style='font-size:13px;font-weight:800;color:#0369a1;margin:4px 0'>Box 24A</div>
+          <div style='font-size:10px;color:#64748b'>Shaded area — NDC required</div>
+        </div>
+        <div style='background:#fff;border:1px solid #bae6fd;border-radius:10px;padding:10px;text-align:center'>
+          <div style='font-size:11px;font-weight:700;color:#0284c7'>837P EDI</div>
+          <div style='font-size:13px;font-weight:800;color:#0369a1;margin:4px 0'>Loop 2410</div>
+          <div style='font-size:10px;color:#64748b'>LIN segment — qualifier N4</div>
+        </div>
+        <div style='background:#fff;border:1px solid #bae6fd;border-radius:10px;padding:10px;text-align:center'>
+          <div style='font-size:11px;font-weight:700;color:#0284c7'>NDC Status</div>
+          <div style='font-size:13px;font-weight:800;color:#0369a1;margin:4px 0'>Active Only</div>
+          <div style='font-size:10px;color:#64748b'>Inactive = denial</div>
+        </div>
       </div>
 
-      <div class='muted' style='margin-bottom:12px'>Only do this after coding gives you the correct code or Verfied by CPC Coder NDC & UOB is Valid - Never resubmit without it or Always confirm about the Timely Filling.</div>
+      <div style='margin-top:12px;border:1px solid #bae6fd;border-radius:10px;overflow:hidden'>
+        <div style='background:#0284c7;color:#fff;font-size:11px;font-weight:700;padding:7px 12px'>
+          📋 Common Reasons M119 Fires
+        </div>
 
-      <ul class='info-list'>
-        <li>Coding has confirmed and assigned the correct NDC with UOM or HCPCS/CPT code.</li>
-        <li>NDC is 11 digits with UOM, no dashes, with qualifier "N4" before it (example: N412345678901).</li>
-        <li>Unit of measure is included — UN (units), ML (milliliters), or GR (grams).</li>
-        <li>Still within the payer's resubmission deadline & Claim is marked as a corrected claim (frequency code 7 or as payer requires).</li>
-      </ul>
-    </div>
+        <div style='display:grid;grid-template-columns:1fr 1fr;font-size:11px'>
 
-    <div class='sub-card' style='border:1px solid var(--border);border-radius:16px;padding:16px;background:linear-gradient(180deg,#fffaf5 0%,#ffffff 100%)'>
-      <div style='display:flex;align-items:center;gap:10px;margin-bottom:10px'>
-        <div style='width:34px;height:34px;border-radius:50%;background:#ea580c;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700'>3</div>
-        <div class='nm-h3' style='margin:0'>Calling Required</div>
+          <div style='background:#e0f2fe;padding:6px 10px;font-weight:700;color:#0369a1'>Root Cause</div>
+          <div style='background:#e0f2fe;padding:6px 10px;font-weight:700;color:#0369a1'>What Happened</div>
+
+          <div style='padding:5px 10px'>NDC missing</div>
+          <div style='padding:5px 10px'>Drug billed without any NDC value</div>
+
+          <div style='padding:5px 10px;background:#f8fbff'>Inactive NDC used</div>
+          <div style='padding:5px 10px;background:#f8fbff'>Code no longer active in FDA directory</div>
+
+          <div style='padding:5px 10px'>Withdrawn product</div>
+          <div style='padding:5px 10px'>Drug discontinued or removed from market</div>
+
+          <div style='padding:5px 10px;background:#f8fbff'>Repackaged drug</div>
+          <div style='padding:5px 10px;background:#f8fbff'>Old NDC used instead of updated one</div>
+
+          <div style='padding:5px 10px'>System default issues</div>
+          <div style='padding:5px 10px'>Billing system storing outdated or blank NDC</div>
+
+        </div>
       </div>
 
-      <div class='muted' style='margin-bottom:12px'>This is a payer error. Call and ask them to reprocess the claim manually. Before this make everything Handy.</div>
-
-      <ul class='info-list'>
-        <li>Have the original claim number, denial date, and corrected claim number ready.</li>
-        <li>Bring proof: NDC-to-HCPCS with UOM match, drug administration record, and the EOB.</li>
-        <li>Write down the rep's name, call reference number, and promised action.</li>
-      </ul>
     </div>
+  </div>
 
-    <div class='sub-card' style='border:1px solid var(--border);border-radius:16px;padding:16px;background:linear-gradient(180deg,#fff6f6 0%,#ffffff 100%)'>
-      <div style='display:flex;align-items:center;gap:10px;margin-bottom:10px'>
-        <div style='width:34px;height:34px;border-radius:50%;background:#dc2626;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700'>4</div>
-        <div class='nm-h3' style='margin:0'>Payer denied Reprocessing — Appeal required</div>
+  <div style='padding:0 20px 20px'>
+    <div style='display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px'>
+
+      <!-- Step 1 -->
+      <div style='border:1px solid #dbeafe;border-radius:18px;padding:18px;background:linear-gradient(180deg,#f8fbff 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(37,99,235,0.08)'>
+        <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
+          <div style='width:38px;height:38px;border-radius:50%;background:#2563eb;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(37,99,235,0.2);flex-shrink:0'>1</div>
+          <div>
+            <div style='margin:0;font-size:14px;font-weight:700;color:#1d4ed8'>Find the Correct NDC for the Drug Administered</div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>Go back to the actual vial or package label</div>
+          </div>
+        </div>
+        <div style='background:#eff6ff;border:1px solid #dbeafe;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
+          🔍 Pull the <strong>medication administration record (MAR)</strong> or drug log for the date of service. The valid NDC must come from the <strong>exact vial or package administered</strong> — not the drug name, not the order, not a lookup table guess.
+        </div>
+        <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+          <li>Check the <strong>drug label or barcode scanned at administration</strong> — the NDC is printed on every FDA-regulated drug package in a 10- or 11-digit format.</li>
+          <li>Verify the NDC is <strong>active and valid</strong> in the FDA NDC Directory at <em>fda.gov/drugs</em> or <em>ndclist.com</em> — search by NDC number and confirm the listing is not inactive or retired.</li>
+          <li>If the package shows a <strong>10-digit NDC</strong>, pad it to 11 digits by adding a leading zero to the correct segment. The three NDC formats are 4-4-2, 5-3-2, and 5-4-1 — each pads differently to reach 11 digits (5-4-2).</li>
+          <li>Confirm the NDC is for the <strong>exact manufacturer and package size</strong> dispensed — same drug from a different manufacturer has a different NDC and must be reported correctly.</li>
+          <li>If a <strong>reference lab or specialty pharmacy</strong> provided the drug, obtain the NDC from them directly — do not guess or substitute a similar product's NDC.</li>
+        </ul>
       </div>
-
-      <div class='muted' style='margin-bottom:12px'>If the payer refuses to reprocess and tells you to appeal — do this. Confrim Appeal TFL Days</div>
-
-      <ul class='info-list'>
-        <li>Get the Denial | Appeal | Dispute letter or If there is no Specific Letter than make Cover Letter— note the appeal deadline (usually 30–180 days). Do not miss it.</li>
-        <li>Write an appeal letter stating: the correct NDC with UOM was billed, it matches the HCPCS/CPT, and the denial was incorrect.</li>
-        <li>Attach MR: drug administration record, physician order, NDC crosswalk, and original claim.</li>
-        <li>Send via Web Portal or Fax or Mailing or certified mail — keep a copy and the delivery confirmation.</li>
-        <li>Follow up after 30 days if no response received.</li>
-      </ul>
-    </div>
-
-    <div class='sub-card' style='grid-column:1 / -1;border:1px solid var(--border);border-radius:16px;padding:16px;background:linear-gradient(180deg,#f8f7ff 0%,#ffffff 100%)'>
-      <div style='display:flex;align-items:center;gap:10px;margin-bottom:10px'>
-        <div style='width:34px;height:34px;border-radius:50%;background:#7c3aed;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700'>5</div>
-        <div class='nm-h3' style='margin:0'>Payer denied Reprocessing — Appeal required</div>
+ 
+      <!-- Step 2 -->
+      <div style='border:1px solid #dcfce7;border-radius:18px;padding:18px;background:linear-gradient(180deg,#f7fff8 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(22,163,74,0.08)'>
+        <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
+          <div style='width:38px;height:38px;border-radius:50%;background:#16a34a;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(22,163,74,0.2);flex-shrink:0'>2</div>
+          <div>
+            <div style='margin:0;font-size:14px;font-weight:700;color:#15803d'>Add the Valid NDC & Resubmit</div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>Correct format is critical — not just the number</div>
+          </div>
+        </div>
+        <div style='background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
+          ✅ Once you have the valid 11-digit NDC, add it in the correct field and format, then resubmit as a <strong>corrected claim</strong>. Format errors are just as likely to re-deny as a missing NDC.
+        </div>
+        <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+          <li><strong>CMS-1500 (paper):</strong> Enter in the <strong>shaded area of Box 24A</strong> using format: qualifier <strong>N4</strong> + 11-digit NDC + UOM qualifier + quantity administered (e.g., N4 12345678900 ML 10).</li>
+          <li><strong>837P electronic:</strong> Report in <strong>Loop 2410, LIN segment</strong> — LIN03 qualifier must be <strong>N4</strong>, LIN04 is the 11-digit NDC. Also populate the <strong>CTP segment</strong> with UOM qualifier and quantity. All three are required.</li>
+          <li><strong>No hyphens in EDI</strong> — submit NDC as a plain 11-digit number (12345678900), never as 12345-678-90.</li>
+          <li><strong>Corrected claim:</strong> CMS-1500 → Box 22, Resubmission Code <strong>"7"</strong> + original ICN. UB-04 → TOB frequency <strong>"7"</strong> + original TCN in Box 64.</li>
+          <li>⚠️ Check <strong>timely filing limits</strong> before resubmitting — deadlines don't pause while tracking down NDC details.</li>
+        </ul>
       </div>
-
-      <div class='muted' style='margin-bottom:12px'>The payer says they never received NDC or UOB details — even though you submitted them. Check these. CMS Box#23 & UB FL-43-44</div>
-
-      <ul class='info-list'>
-        <li>On a paper claim (CMS-1500) — UOM & NDC must be in Box 24, shaded area.</li>
-        <li>On an electronic claim — NDC & UOM goes in the LIN/CTP segment.</li>
-        <li>Unit of measure must be included — UN, ML, or GR.</li>
-        <li>If all fields look correct — call the payer and ask exactly which field they require for NDC & UOM. Some payers have custom rules.</li>
-        <li>Resubmit with the correction and confirm the payer received it.</li>
-      </ul>
+ 
+      <!-- Step 3 -->
+      <div style='border:1px solid #fed7aa;border-radius:18px;padding:18px;background:linear-gradient(180deg,#fffaf5 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(234,88,12,0.08)'>
+        <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
+          <div style='width:38px;height:38px;border-radius:50%;background:#ea580c;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(234,88,12,0.2);flex-shrink:0'>3</div>
+          <div>
+            <div style='margin:0;font-size:14px;font-weight:700;color:#c2410c'>Still Denied? Call the Payer</div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>NDC may not be in their drug file</div>
+          </div>
+        </div>
+        <div style='background:#fff7ed;border:1px solid #fed7aa;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
+          📞 If the corrected claim still gets N60, the payer's internal drug file may not recognize the NDC — especially for newer drugs, biosimilars, or recently repackaged products.
+        </div>
+        <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+          <li><strong>Have ready:</strong> Claim number, member ID, date of service, HCPCS billed, NDC submitted, drug name, strength, manufacturer, and both remittance advices.</li>
+          <li><strong>Ask:</strong> "Is NDC [XXXXXXXXXXX] recognized in your drug file for HCPCS [XXXXX]? If not, is there an alternate NDC or updated code your system requires for this drug?"</li>
+          <li>Ask if the payer requires <strong>NDC registration or pre-loading</strong> in their formulary system before claims with that NDC will process.</li>
+          <li>Ask if the denial is a <strong>formatting issue</strong> — confirm whether they received the NDC with or without hyphens and whether the LIN/CTP segments were both present.</li>
+          <li>📝 Document: reference number, rep name, date, time, and exactly what they say is wrong or missing.</li>
+        </ul>
+      </div>
+ 
+      <!-- Step 4 -->
+      <div style='border:1px solid #fecaca;border-radius:18px;padding:18px;background:linear-gradient(180deg,#fff6f6 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(220,38,38,0.08)'>
+        <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
+          <div style='width:38px;height:38px;border-radius:50%;background:#dc2626;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(220,38,38,0.2);flex-shrink:0'>4</div>
+          <div>
+            <div style='margin:0;font-size:14px;font-weight:700;color:#b91c1c'>Payer Won't Reprocess? File a Formal Appeal</div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>Attach FDA proof the NDC is valid and active</div>
+          </div>
+        </div>
+        <div style='background:#fef2f2;border:1px solid #fecaca;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
+          ⚖️ If the payer upholds N60 after a corrected claim and call, file a <strong>formal appeal</strong> with FDA documentation proving the NDC is valid, active, and correctly reported on the claim.
+        </div>
+        <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+          <li><strong>Appeal must include:</strong> Provider NPI, Tax ID, patient name, member ID, claim number, date of service, HCPCS, NDC submitted, drug name, strength, manufacturer, and MAR confirming administration.</li>
+          <li><strong>Key statement:</strong> "NDC [XXXXXXXXXXX] is an active, FDA-registered National Drug Code for [Drug Name, Strength] manufactured by [Manufacturer], as confirmed by the FDA NDC Directory. The NDC was correctly reported in Loop 2410 / Box 24A per CMS billing guidelines. We appeal the N60 denial."</li>
+          <li><strong>Attach:</strong> FDA NDC Directory printout confirming active status, drug package label, MAR, original + corrected claims, both remittance advices.</li>
+          <li><strong>Medicare:</strong> File Redetermination with MAC within <strong>120 days</strong>. Reference <em>CMS Pub 100-04, Chapter 17</em>. Commercial: check EOB — typically <strong>30–180 days</strong>.</li>
+        </ul>
+      </div>
+ 
+      <!-- Step 5 -->
+      <div style='grid-column:1 / -1;border:1px solid #ddd6fe;border-radius:18px;padding:18px;background:linear-gradient(180deg,#f8f7ff 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(124,58,237,0.08)'>
+        <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
+          <div style='width:38px;height:38px;border-radius:50%;background:#7c3aed;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(124,58,237,0.2);flex-shrink:0'>5</div>
+          <div>
+            <div style='margin:0;font-size:14px;font-weight:700;color:#6d28d9'>Seeing This Repeatedly? Fix Your NDC Capture Workflow</div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>NDC must flow from administration directly to the claim</div>
+          </div>
+        </div>
+        <div style='background:#f5f3ff;border:1px solid #ddd6fe;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
+          🔁 If N60 appears across multiple claims, your <strong>NDC is not being captured at the point of administration and passed to billing</strong>. Billers should never be manually looking up or typing NDCs — the drug barcode scanned at admin time must auto-populate into the claim.
+        </div>
+        <div style='display:grid;grid-template-columns:repeat(2,1fr);gap:12px'>
+          <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+            <li><strong>Capture NDC at point of administration.</strong> Build a workflow where nursing or pharmacy scans the drug barcode at administration time — that scan should push the NDC directly into the patient's medication record and then to the claim. Manual entry at billing time is the #1 cause of N60.</li>
+            <li><strong>Validate NDC format in your billing system.</strong> Add a field-level validation that confirms the NDC is exactly 11 digits with no hyphens before the claim can be submitted — reject any entry that doesn't match the format.</li>
+            <li><strong>Keep your NDC master file current.</strong> When a drug is repackaged or a new manufacturer is added to your formulary, update the NDC in your billing system immediately — stale NDCs trigger N60 even when the drug itself hasn't changed.</li>
+          </ul>
+          <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+            <li><strong>Add a pre-submission edit</strong> for all drug HCPCS codes (J-codes and chemotherapy codes) that flags any claim line missing a value in the NDC field before the claim is released to the payer.</li>
+            <li><strong>Verify NDC against the FDA directory quarterly.</strong> Cross-check every NDC in your drug master file against the FDA NDC Directory to confirm active status — flag any inactive NDC for immediate update before it causes a denial cascade.</li>
+            <li>🔒 <strong>Compliance reminder:</strong> Reporting an incorrect or fabricated NDC on a drug claim is a <em>False Claims Act risk</em> — the NDC must reflect the exact product administered, not a similar or substitute drug's code.</li>
+          </ul>
+        </div>
+      </div>
+ 
     </div>
-
   </div>
 </div>
 
+
+        
              <!-- Modifiers -->
   <div class='card span-12 card-collapsible' style='border:1px solid var(--border);border-radius:18px;overflow:hidden;background:#fff;box-shadow:0 6px 18px rgba(0,0,0,0.05)'>
   <div class='label' style='background:linear-gradient(90deg,#0f172a,#1e3a8a);color:#fff;padding:12px 16px;font-size:14px;font-weight:700'>
@@ -4284,8 +4504,8 @@ NDC & UOM captured directly from the administered vial or package label</span>
       <a class='res-link' href='https://www.aapc.com/codes/ndc-lookup/?msockid=10d768fa819667b711de7e398053669f' target='_blank' rel='noopener'>
         <span class='res-icon' style='background:#fdf0f0;color:#be2a2a'>📅</span>
         <span class='res-body'>
-          <span class='res-name'>AAPC Codify NDC Lookup</span>
-          <span class='res-desc'>Search drug labels &amp; National Drug Codes via NLM AAPC</span>
+          <span class='res-name'>AAPC Codify Codify NDC Lookup</span>
+          <span class='res-desc'>Search drug labels &amp; National Drug Codes via NLM AAPC Codify</span>
         </span>
         <span class='res-arrow'>↗</span>
       </a>
@@ -4404,6 +4624,9 @@ NDC & UOM captured directly from the administered vial or package label</span>
 
 </div><!-- end .layout -->
 </div><!-- end #rarc-section-M119 -->
+
+
+
 
 
 <!-- ═══════════════════════════════════ N60 SECTION ═══════════════════════════════════ -->
@@ -4958,110 +5181,167 @@ NDC & UOM captured directly from the administered vial or package label</span>
   </div>
 </div>
 
-        <!-- How to Fix It -->
-      
+       <!-- ── RARC N60 - Valid NDC is Required for Payment of Drug Claims ── -->
+<div class='card span-12 card-collapsible' style='border:1px solid var(--border);border-radius:20px;overflow:hidden;background:#fff;box-shadow:0 10px 24px rgba(15,23,42,0.08)'>
 
-<div class='card span-12 card-collapsible' style='border:1px solid var(--border);border-radius:18px;overflow:hidden;background:#fff;box-shadow:0 6px 18px rgba(0,0,0,0.05)'>
-  <div class='label' style='background:linear-gradient(90deg,#0f172a,#1e3a8a);color:#fff;padding:12px 16px;font-size:14px;font-weight:700'>
-    How to Fix It
+  <div class='label' style='background:linear-gradient(90deg,#0f172a,#1e3a8a);color:#fff;padding:14px 18px;font-size:15px;font-weight:700;letter-spacing:.3px'>
+    How to Fix It — RARC N60: Valid NDC is Required for Payment of Drug Claims
   </div>
 
-  <div style='padding:18px'>
+  <div style='padding:18px 20px 0'>
+    <div style='background:#f0f9ff;border:1px solid #bae6fd;border-radius:14px;padding:14px 16px;margin-bottom:18px'>
+      <div style='font-size:13px;font-weight:700;color:#0369a1;margin-bottom:6px'>💡 What is RARC N60?</div>
+      <div style='font-size:12px;color:#475569;line-height:1.6'>
+        Your claim was denied because a <strong>valid NDC (National Drug Code) is missing or invalid</strong> on the drug claim. Think of the NDC like a drug's <strong>fingerprint</strong> — it is the FDA-assigned 11-digit number that identifies the exact drug, manufacturer, strength, and package size administered. Payers require it on every drug claim to confirm <strong>what was actually given to the patient</strong>. No valid NDC = no payment.
+      </div>
+      <div style='display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px'>
+        <div style='background:#fff;border:1px solid #bae6fd;border-radius:10px;padding:10px;text-align:center'>
+          <div style='font-size:11px;font-weight:700;color:#0284c7'>CMS-1500</div>
+          <div style='font-size:13px;font-weight:800;color:#0369a1;margin:4px 0'>Box 24A</div>
+          <div style='font-size:10px;color:#64748b'>Shaded area — NDC field</div>
+        </div>
+        <div style='background:#fff;border:1px solid #bae6fd;border-radius:10px;padding:10px;text-align:center'>
+          <div style='font-size:11px;font-weight:700;color:#0284c7'>837P EDI</div>
+          <div style='font-size:13px;font-weight:800;color:#0369a1;margin:4px 0'>Loop 2410</div>
+          <div style='font-size:10px;color:#64748b'>LIN segment — qualifier N4</div>
+        </div>
+        <div style='background:#fff;border:1px solid #bae6fd;border-radius:10px;padding:10px;text-align:center'>
+          <div style='font-size:11px;font-weight:700;color:#0284c7'>NDC Format</div>
+          <div style='font-size:13px;font-weight:800;color:#0369a1;margin:4px 0'>11 Digits</div>
+          <div style='font-size:10px;color:#64748b'>No hyphens in EDI</div>
+        </div>
+      </div>
+
+      <div style='margin-top:12px;border:1px solid #bae6fd;border-radius:10px;overflow:hidden'>
+        <div style='background:#0284c7;color:#fff;font-size:11px;font-weight:700;padding:7px 12px'>📋 Common Reasons N60 Fires on Drug Claims</div>
+        <div style='display:grid;grid-template-columns:1fr 1fr;font-size:11px'>
+          <div style='background:#e0f2fe;padding:6px 10px;font-weight:700;color:#0369a1;border-bottom:1px solid #bae6fd'>Root Cause</div>
+          <div style='background:#e0f2fe;padding:6px 10px;font-weight:700;color:#0369a1;border-bottom:1px solid #bae6fd'>What Happened</div>
+          <div style='padding:5px 10px;color:#334155;border-bottom:1px solid #e0f2fe'>NDC field left blank</div>
+          <div style='padding:5px 10px;color:#334155;border-bottom:1px solid #e0f2fe'>Biller submitted HCPCS only — NDC never entered</div>
+          <div style='padding:5px 10px;color:#334155;background:#f8fbff;border-bottom:1px solid #e0f2fe'>10-digit NDC submitted</div>
+          <div style='padding:5px 10px;color:#334155;background:#f8fbff;border-bottom:1px solid #e0f2fe'>Package shows 10 digits — leading zero not added</div>
+          <div style='padding:5px 10px;color:#334155;border-bottom:1px solid #e0f2fe'>Hyphens included in EDI</div>
+          <div style='padding:5px 10px;color:#334155;border-bottom:1px solid #e0f2fe'>NDC submitted as 12345-678-90 instead of 12345678900</div>
+          <div style='padding:5px 10px;color:#334155;background:#f8fbff;border-bottom:1px solid #e0f2fe'>Inactive / retired NDC</div>
+          <div style='padding:5px 10px;color:#334155;background:#f8fbff;border-bottom:1px solid #e0f2fe'>Drug repackaged — old NDC no longer active in FDA directory</div>
+          <div style='padding:5px 10px;color:#334155'>Wrong qualifier used</div>
+          <div style='padding:5px 10px;color:#334155'>LIN segment missing N4 qualifier before NDC in 837P</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style='padding:0 20px 20px'>
     <div style='display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px'>
 
-      <div class='sub-card' style='border:1px solid #dbeafe;border-radius:16px;padding:16px;background:linear-gradient(180deg,#f8fbff 0%,#ffffff 100%);box-shadow:0 2px 10px rgba(37,99,235,0.08)'>
-        <div style='display:flex;align-items:center;gap:10px;margin-bottom:10px'>
-          <div style='width:36px;height:36px;border-radius:50%;background:#2563eb;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(37,99,235,0.2)'>1</div>
+      <!-- Step 1 -->
+      <div style='border:1px solid #dbeafe;border-radius:18px;padding:18px;background:linear-gradient(180deg,#f8fbff 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(37,99,235,0.08)'>
+        <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
+          <div style='width:38px;height:38px;border-radius:50%;background:#2563eb;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(37,99,235,0.2);flex-shrink:0'>1</div>
           <div>
-            <div class='nm-h3' style='margin:0;font-size:14px;font-weight:700;color:#1d4ed8'>Coding Escalation - Step 1</div>
-            <div style='font-size:11px;color:#64748b'>Initial review and coding validation</div>
+            <div style='margin:0;font-size:14px;font-weight:700;color:#1d4ed8'>Find the Correct NDC for the Drug Administered</div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>Go back to the actual vial or package label</div>
           </div>
         </div>
-
-        <div class='muted' style='margin-bottom:12px;font-size:12px;line-height:1.5;color:#475569'>Before Escalating, you must verify the NDC & UOM yourself first. Through www.aapc.com or Verify MR which Drug has been given to the Patient.</div>
-
-        <ul class='info-list' style='font-size:12px'>
-          <li>Checked the medical record — confirmed the drug name and NDC with UOM of what was actually given to the patient.</li>
-          <li>Confirmed the UOM is UL, ML, GR — and matches exactly what was submitted on the claim. CMS Box-24  & UB-04 FL-43-44</li>
-          <li>Looked up the NDC-to-HCPCS crosswalk — confirmed the billed HCPCS/CPT does not match the drug administered or NDC Expired.</li>
+        <div style='background:#eff6ff;border:1px solid #dbeafe;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
+          🔍 Pull the <strong>medication administration record (MAR)</strong> or drug log for the date of service. The valid NDC must come from the <strong>exact vial or package administered</strong> — not the drug name, not the order, not a lookup table guess.
+        </div>
+        <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+          <li>Check the <strong>drug label or barcode scanned at administration</strong> — the NDC is printed on every FDA-regulated drug package in a 10- or 11-digit format.</li>
+          <li>Verify the NDC is <strong>active and valid</strong> in the FDA NDC Directory at <em>fda.gov/drugs</em> or <em>ndclist.com</em> — search by NDC number and confirm the listing is not inactive or retired.</li>
+          <li>If the package shows a <strong>10-digit NDC</strong>, pad it to 11 digits by adding a leading zero to the correct segment. The three NDC formats are 4-4-2, 5-3-2, and 5-4-1 — each pads differently to reach 11 digits (5-4-2).</li>
+          <li>Confirm the NDC is for the <strong>exact manufacturer and package size</strong> dispensed — same drug from a different manufacturer has a different NDC and must be reported correctly.</li>
+          <li>If a <strong>reference lab or specialty pharmacy</strong> provided the drug, obtain the NDC from them directly — do not guess or substitute a similar product's NDC.</li>
         </ul>
       </div>
 
-      <div class='sub-card' style='border:1px solid #dcfce7;border-radius:16px;padding:16px;background:linear-gradient(180deg,#f7fff8 0%,#ffffff 100%);box-shadow:0 2px 10px rgba(22,163,74,0.08)'>
-        <div style='display:flex;align-items:center;gap:10px;margin-bottom:10px'>
-          <div style='width:36px;height:36px;border-radius:50%;background:#16a34a;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(22,163,74,0.2)'>2</div>
+      <!-- Step 2 -->
+      <div style='border:1px solid #dcfce7;border-radius:18px;padding:18px;background:linear-gradient(180deg,#f7fff8 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(22,163,74,0.08)'>
+        <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
+          <div style='width:38px;height:38px;border-radius:50%;background:#16a34a;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(22,163,74,0.2);flex-shrink:0'>2</div>
           <div>
-            <div class='nm-h3' style='margin:0;font-size:14px;font-weight:700;color:#15803d'>Corrected Claim Resubmission - Step 2</div>
-            <div style='font-size:11px;color:#64748b'>Correct and resubmit the claim</div>
+            <div style='margin:0;font-size:14px;font-weight:700;color:#15803d'>Add the Valid NDC & Resubmit</div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>Correct format is critical — not just the number</div>
           </div>
         </div>
-
-        <div class='muted' style='margin-bottom:12px;font-size:12px;line-height:1.5;color:#475569'>Only do this after coding gives you the correct code or Verfied by CPC Coder NDC & UOB is Valid - Never resubmit without it or Always confirm about the Timely Filling.</div>
-
-        <ul class='info-list' style='font-size:12px'>
-          <li>Coding has confirmed and assigned the correct NDC with UOM or HCPCS/CPT code.</li>
-          <li>NDC is 11 digits with UOM, no dashes, with qualifier "N4" before it (example: N412345678901).</li>
-          <li>Unit of measure is included — UN (units), ML (milliliters), or GR (grams).</li>
-          <li>Still within the payer's resubmission deadline & Claim is marked as a corrected claim (frequency code 7 or as payer requires).</li>
+        <div style='background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
+          ✅ Once you have the valid 11-digit NDC, add it in the correct field and format, then resubmit as a <strong>corrected claim</strong>. Format errors are just as likely to re-deny as a missing NDC.
+        </div>
+        <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+          <li><strong>CMS-1500 (paper):</strong> Enter in the <strong>shaded area of Box 24A</strong> using format: qualifier <strong>N4</strong> + 11-digit NDC + UOM qualifier + quantity administered (e.g., N4 12345678900 ML 10).</li>
+          <li><strong>837P electronic:</strong> Report in <strong>Loop 2410, LIN segment</strong> — LIN03 qualifier must be <strong>N4</strong>, LIN04 is the 11-digit NDC. Also populate the <strong>CTP segment</strong> with UOM qualifier and quantity. All three are required.</li>
+          <li><strong>No hyphens in EDI</strong> — submit NDC as a plain 11-digit number (12345678900), never as 12345-678-90.</li>
+          <li><strong>Corrected claim:</strong> CMS-1500 → Box 22, Resubmission Code <strong>"7"</strong> + original ICN. UB-04 → TOB frequency <strong>"7"</strong> + original TCN in Box 64.</li>
+          <li>⚠️ Check <strong>timely filing limits</strong> before resubmitting — deadlines don't pause while tracking down NDC details.</li>
         </ul>
       </div>
 
-      <div class='sub-card' style='border:1px solid #fed7aa;border-radius:16px;padding:16px;background:linear-gradient(180deg,#fffaf5 0%,#ffffff 100%);box-shadow:0 2px 10px rgba(234,88,12,0.08)'>
-        <div style='display:flex;align-items:center;gap:10px;margin-bottom:10px'>
-          <div style='width:36px;height:36px;border-radius:50%;background:#ea580c;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(234,88,12,0.2)'>3</div>
+      <!-- Step 3 -->
+      <div style='border:1px solid #fed7aa;border-radius:18px;padding:18px;background:linear-gradient(180deg,#fffaf5 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(234,88,12,0.08)'>
+        <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
+          <div style='width:38px;height:38px;border-radius:50%;background:#ea580c;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(234,88,12,0.2);flex-shrink:0'>3</div>
           <div>
-            <div class='nm-h3' style='margin:0;font-size:14px;font-weight:700;color:#c2410c'>Calling Required - Step 3</div>
-            <div style='font-size:11px;color:#64748b'>Contact payer for clarification</div>
+            <div style='margin:0;font-size:14px;font-weight:700;color:#c2410c'>Still Denied? Call the Payer</div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>NDC may not be in their drug file</div>
           </div>
         </div>
-
-        <div class='muted' style='margin-bottom:12px;font-size:12px;line-height:1.5;color:#475569'>This is a payer error. Call and ask them to reprocess the claim manually. Before this make everything Handy.</div>
-
-        <ul class='info-list' style='font-size:12px'>
-          <li>Have the original claim number, denial date, and corrected claim number ready.</li>
-          <li>Bring proof: NDC-to-HCPCS with UOM match, drug administration record, and the EOB.</li>
-          <li>Write down the rep's name, call reference number, and promised action.</li>
+        <div style='background:#fff7ed;border:1px solid #fed7aa;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
+          📞 If the corrected claim still gets N60, the payer's internal drug file may not recognize the NDC — especially for newer drugs, biosimilars, or recently repackaged products.
+        </div>
+        <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+          <li><strong>Have ready:</strong> Claim number, member ID, date of service, HCPCS billed, NDC submitted, drug name, strength, manufacturer, and both remittance advices.</li>
+          <li><strong>Ask:</strong> "Is NDC [XXXXXXXXXXX] recognized in your drug file for HCPCS [XXXXX]? If not, is there an alternate NDC or updated code your system requires for this drug?"</li>
+          <li>Ask if the payer requires <strong>NDC registration or pre-loading</strong> in their formulary system before claims with that NDC will process.</li>
+          <li>Ask if the denial is a <strong>formatting issue</strong> — confirm whether they received the NDC with or without hyphens and whether the LIN/CTP segments were both present.</li>
+          <li>📝 Document: reference number, rep name, date, time, and exactly what they say is wrong or missing.</li>
         </ul>
       </div>
 
-      <div class='sub-card' style='border:1px solid #fecaca;border-radius:16px;padding:16px;background:linear-gradient(180deg,#fff6f6 0%,#ffffff 100%);box-shadow:0 2px 10px rgba(220,38,38,0.08)'>
-        <div style='display:flex;align-items:center;gap:10px;margin-bottom:10px'>
-          <div style='width:36px;height:36px;border-radius:50%;background:#dc2626;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(220,38,38,0.2)'>4</div>
+      <!-- Step 4 -->
+      <div style='border:1px solid #fecaca;border-radius:18px;padding:18px;background:linear-gradient(180deg,#fff6f6 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(220,38,38,0.08)'>
+        <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
+          <div style='width:38px;height:38px;border-radius:50%;background:#dc2626;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(220,38,38,0.2);flex-shrink:0'>4</div>
           <div>
-            <div class='nm-h3' style='margin:0;font-size:14px;font-weight:700;color:#b91c1c'>Payer denied Reprocessing — Appeal required - Step 4</div>
-            <div style='font-size:11px;color:#64748b'>Escalate through the appeal process</div>
+            <div style='margin:0;font-size:14px;font-weight:700;color:#b91c1c'>Payer Won't Reprocess? File a Formal Appeal</div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>Attach FDA proof the NDC is valid and active</div>
           </div>
         </div>
-
-        <div class='muted' style='margin-bottom:12px;font-size:12px;line-height:1.5;color:#475569'>If the payer refuses to reprocess and tells you to appeal — do this. Confrim Appeal TFL Days</div>
-
-        <ul class='info-list' style='font-size:12px'>
-          <li>Get the Denial | Appeal | Dispute letter or If there is no Specific Letter than make Cover Letter— note the appeal deadline (usually 30–180 days). Do not miss it.</li>
-          <li>Write an appeal letter stating: the correct NDC with UOM was billed, it matches the HCPCS/CPT, and the denial was incorrect.</li>
-          <li>Attach MR: drug administration record, physician order, NDC crosswalk, and original claim.</li>
-          <li>Send via Web Portal or Fax or Mailing or certified mail — keep a copy and the delivery confirmation.</li>
-          <li>Follow up after 30 days if no response received.</li>
+        <div style='background:#fef2f2;border:1px solid #fecaca;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
+          ⚖️ If the payer upholds N60 after a corrected claim and call, file a <strong>formal appeal</strong> with FDA documentation proving the NDC is valid, active, and correctly reported on the claim.
+        </div>
+        <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+          <li><strong>Appeal must include:</strong> Provider NPI, Tax ID, patient name, member ID, claim number, date of service, HCPCS, NDC submitted, drug name, strength, manufacturer, and MAR confirming administration.</li>
+          <li><strong>Key statement:</strong> "NDC [XXXXXXXXXXX] is an active, FDA-registered National Drug Code for [Drug Name, Strength] manufactured by [Manufacturer], as confirmed by the FDA NDC Directory. The NDC was correctly reported in Loop 2410 / Box 24A per CMS billing guidelines. We appeal the N60 denial."</li>
+          <li><strong>Attach:</strong> FDA NDC Directory printout confirming active status, drug package label, MAR, original + corrected claims, both remittance advices.</li>
+          <li><strong>Medicare:</strong> File Redetermination with MAC within <strong>120 days</strong>. Reference <em>CMS Pub 100-04, Chapter 17</em>. Commercial: check EOB — typically <strong>30–180 days</strong>.</li>
         </ul>
       </div>
 
-      <div class='sub-card' style='grid-column:1 / -1;border:1px solid #ddd6fe;border-radius:16px;padding:16px;background:linear-gradient(180deg,#f8f7ff 0%,#ffffff 100%);box-shadow:0 2px 10px rgba(124,58,237,0.08)'>
-        <div style='display:flex;align-items:center;gap:10px;margin-bottom:10px'>
-          <div style='width:36px;height:36px;border-radius:50%;background:#7c3aed;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(124,58,237,0.2)'>5</div>
+      <!-- Step 5 -->
+      <div style='grid-column:1 / -1;border:1px solid #ddd6fe;border-radius:18px;padding:18px;background:linear-gradient(180deg,#f8f7ff 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(124,58,237,0.08)'>
+        <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
+          <div style='width:38px;height:38px;border-radius:50%;background:#7c3aed;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(124,58,237,0.2);flex-shrink:0'>5</div>
           <div>
-            <div class='nm-h3' style='margin:0;font-size:14px;font-weight:700;color:#6d28d9'>Payer says info not received on Form — Appeal required - Step 5</div>
-            <div style='font-size:11px;color:#64748b'>Verify placement of NDC information</div>
+            <div style='margin:0;font-size:14px;font-weight:700;color:#6d28d9'>Seeing This Repeatedly? Fix Your NDC Capture Workflow</div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>NDC must flow from administration directly to the claim</div>
           </div>
         </div>
-
-        <div class='muted' style='margin-bottom:12px;font-size:12px;line-height:1.5;color:#475569'>The payer says they never received NDC or UOB details — even though you submitted them. Check these. CMS Box#23 & UB FL-43-44</div>
-
-        <ul class='info-list' style='font-size:12px'>
-          <li>On a paper claim (CMS-1500) — UOM & NDC must be in Box 24, shaded area.</li>
-          <li>On an electronic claim — NDC & UOM goes in the LIN/CTP segment.</li>
-          <li>Unit of measure must be included — UN, ML, or GR.</li>
-          <li>If all fields look correct — call the payer and ask exactly which field they require for NDC & UOM. Some payers have custom rules.</li>
-          <li>Resubmit with the correction and confirm the payer received it.</li>
-        </ul>
+        <div style='background:#f5f3ff;border:1px solid #ddd6fe;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
+          🔁 If N60 appears across multiple claims, your <strong>NDC is not being captured at the point of administration and passed to billing</strong>. Billers should never be manually looking up or typing NDCs — the drug barcode scanned at admin time must auto-populate into the claim.
+        </div>
+        <div style='display:grid;grid-template-columns:repeat(2,1fr);gap:12px'>
+          <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+            <li><strong>Capture NDC at point of administration.</strong> Build a workflow where nursing or pharmacy scans the drug barcode at administration time — that scan should push the NDC directly into the patient's medication record and then to the claim. Manual entry at billing time is the #1 cause of N60.</li>
+            <li><strong>Validate NDC format in your billing system.</strong> Add a field-level validation that confirms the NDC is exactly 11 digits with no hyphens before the claim can be submitted — reject any entry that doesn't match the format.</li>
+            <li><strong>Keep your NDC master file current.</strong> When a drug is repackaged or a new manufacturer is added to your formulary, update the NDC in your billing system immediately — stale NDCs trigger N60 even when the drug itself hasn't changed.</li>
+          </ul>
+          <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+            <li><strong>Add a pre-submission edit</strong> for all drug HCPCS codes (J-codes and chemotherapy codes) that flags any claim line missing a value in the NDC field before the claim is released to the payer.</li>
+            <li><strong>Verify NDC against the FDA directory quarterly.</strong> Cross-check every NDC in your drug master file against the FDA NDC Directory to confirm active status — flag any inactive NDC for immediate update before it causes a denial cascade.</li>
+            <li>🔒 <strong>Compliance reminder:</strong> Reporting an incorrect or fabricated NDC on a drug claim is a <em>False Claims Act risk</em> — the NDC must reflect the exact product administered, not a similar or substitute drug's code.</li>
+          </ul>
+        </div>
       </div>
 
     </div>
@@ -5370,8 +5650,8 @@ NDC & UOM captured directly from the administered vial or package label</span>
           <a class="res-link" href="https://dailymed.nlm.nih.gov/dailymed/" target="_blank" rel="noopener">
             <span class="res-icon" style="background:#e8f0ff;color:#1847cc">💊</span>
             <span class="res-body">
-              <span class="res-name">DailyMed NDC Lookup</span>
-              <span class="res-desc">Search drug labels &amp; National Drug Codes via NLM DailyMed</span>
+              <span class="res-name">AAPC Codify NDC Lookup</span>
+              <span class="res-desc">Search drug labels &amp; National Drug Codes via NLM AAPC Codify</span>
             </span>
             <span class="res-arrow">↗</span>
           </a>
@@ -6056,110 +6336,183 @@ NDC & UOM captured directly from the administered vial or package label</span>
 
   </div>
 </div>
-        <!-- How to Fix It -->
-       <div class='card span-12 card-collapsible' style='border:1px solid var(--border);border-radius:18px;overflow:hidden;background:#fff;box-shadow:0 6px 18px rgba(0,0,0,0.05)'>
-  <div class='label' style='background:linear-gradient(90deg,#0f172a,#1e3a8a);color:#fff;padding:12px 16px;font-size:14px;font-weight:700'>
-    How to Fix It
+        
+
+<!-- ── RARC N815 - Invalid NDC Unit Count ── -->
+<div class='card span-12 card-collapsible' style='border:1px solid var(--border);border-radius:20px;overflow:hidden;background:#fff;box-shadow:0 10px 24px rgba(15,23,42,0.08)'>
+
+  <div class='label' style='background:linear-gradient(90deg,#0f172a,#1e3a8a);color:#fff;padding:14px 18px;font-size:15px;font-weight:700;letter-spacing:.3px'>
+    How to Fix It — RARC N815: Invalid NDC Unit Count
   </div>
 
-  <div style='padding:18px'>
+  <div style='padding:18px 20px 0'>
+    <div style='background:#f0f9ff;border:1px solid #bae6fd;border-radius:14px;padding:14px 16px;margin-bottom:18px'>
+
+      <div style='font-size:13px;font-weight:700;color:#0369a1;margin-bottom:6px'>💡 What is RARC N815?</div>
+      <div style='font-size:12px;color:#475569;line-height:1.6'>
+        Your claim was denied because the <strong>NDC unit count (quantity administered) is missing, incorrect, or does not align with the billed drug</strong>. While the NDC identifies <strong>what drug was given</strong>, the NDC quantity tells the payer <strong>how much of that drug was actually administered</strong>. If the unit count is wrong, payers cannot validate dosing accuracy — resulting in denial. Even with a valid NDC, <strong>incorrect units will trigger N815</strong>.
+      </div>
+
+      <!-- same info boxes -->
+      <div style='display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px'>
+        <div style='background:#fff;border:1px solid #bae6fd;border-radius:10px;padding:10px;text-align:center'>
+          <div style='font-size:11px;font-weight:700;color:#0284c7'>CMS-1500</div>
+          <div style='font-size:13px;font-weight:800;color:#0369a1;margin:4px 0'>Box 24A</div>
+          <div style='font-size:10px;color:#64748b'>NDC + UOM + Qty</div>
+        </div>
+        <div style='background:#fff;border:1px solid #bae6fd;border-radius:10px;padding:10px;text-align:center'>
+          <div style='font-size:11px;font-weight:700;color:#0284c7'>837P EDI</div>
+          <div style='font-size:13px;font-weight:800;color:#0369a1;margin:4px 0'>Loop 2410</div>
+          <div style='font-size:10px;color:#64748b'>CTP segment required</div>
+        </div>
+        <div style='background:#fff;border:1px solid #bae6fd;border-radius:10px;padding:10px;text-align:center'>
+          <div style='font-size:11px;font-weight:700;color:#0284c7'>UOM</div>
+          <div style='font-size:13px;font-weight:800;color:#0369a1;margin:4px 0'>ML / UN / GR</div>
+          <div style='font-size:10px;color:#64748b'>Must match drug form</div>
+        </div>
+      </div>
+
+      <!-- reasons table (kept detailed) -->
+      <div style='margin-top:12px;border:1px solid #bae6fd;border-radius:10px;overflow:hidden'>
+        <div style='background:#0284c7;color:#fff;font-size:11px;font-weight:700;padding:7px 12px'>📋 Common Reasons N815 Fires</div>
+        <div style='display:grid;grid-template-columns:1fr 1fr;font-size:11px'>
+
+          <div style='background:#e0f2fe;padding:6px 10px;font-weight:700;color:#0369a1'>Root Cause</div>
+          <div style='background:#e0f2fe;padding:6px 10px;font-weight:700;color:#0369a1'>What Happened</div>
+
+          <div style='padding:5px 10px'>Missing NDC quantity</div>
+          <div style='padding:5px 10px'>NDC reported but quantity field left blank</div>
+
+          <div style='padding:5px 10px;background:#f8fbff'>Wrong unit of measure</div>
+          <div style='padding:5px 10px;background:#f8fbff'>ML used instead of UN or GR</div>
+
+          <div style='padding:5px 10px'>Mismatch with HCPCS units</div>
+          <div style='padding:5px 10px'>NDC units don’t align with billed dosage</div>
+
+          <div style='padding:5px 10px;background:#f8fbff'>Incorrect conversion</div>
+          <div style='padding:5px 10px;background:#f8fbff'>Dose not converted from vial strength</div>
+
+          <div style='padding:5px 10px'>Rounded incorrectly</div>
+          <div style='padding:5px 10px'>Decimals dropped causing wrong quantity</div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div style='padding:0 20px 20px'>
     <div style='display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px'>
 
-      <div class='sub-card' style='border:1px solid #dbeafe;border-radius:16px;padding:16px;background:linear-gradient(180deg,#f8fbff 0%,#ffffff 100%);box-shadow:0 2px 10px rgba(37,99,235,0.08)'>
-        <div style='display:flex;align-items:center;gap:10px;margin-bottom:10px'>
-          <div style='width:36px;height:36px;border-radius:50%;background:#2563eb;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(37,99,235,0.2)'>1</div>
+     <!-- Step 1 -->
+      <div style='border:1px solid #dbeafe;border-radius:18px;padding:18px;background:linear-gradient(180deg,#f8fbff 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(37,99,235,0.08)'>
+        <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
+          <div style='width:38px;height:38px;border-radius:50%;background:#2563eb;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(37,99,235,0.2);flex-shrink:0'>1</div>
           <div>
-            <div class='nm-h3' style='margin:0;font-size:14px;font-weight:700;color:#1d4ed8'>Coding Escalation - Step 1</div>
-            <div style='font-size:11px;color:#64748b'>Initial review and coding validation</div>
+            <div style='margin:0;font-size:14px;font-weight:700;color:#1d4ed8'>Find the Correct NDC for the Drug Administered</div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>Go back to the actual vial or package label</div>
           </div>
         </div>
-
-        <div class='muted' style='margin-bottom:12px;font-size:12px;line-height:1.5;color:#475569'>Before Escalating, you must verify the NDC & UOM yourself first. Through www.aapc.com or Verify MR which Drug has been given to the Patient.</div>
-
-        <ul class='info-list' style='font-size:12px'>
-          <li>Checked the medical record — confirmed the drug name and NDC with UOM of what was actually given to the patient.</li>
-          <li>Confirmed the UOM is UL, ML, GR — and matches exactly what was submitted on the claim. CMS Box-24  & UB-04 FL-43-44</li>
-          <li>Looked up the NDC-to-HCPCS crosswalk — confirmed the billed HCPCS/CPT does not match the drug administered or NDC Expired.</li>
+        <div style='background:#eff6ff;border:1px solid #dbeafe;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
+          🔍 Pull the <strong>medication administration record (MAR)</strong> or drug log for the date of service. The valid NDC must come from the <strong>exact vial or package administered</strong> — not the drug name, not the order, not a lookup table guess.
+        </div>
+        <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+          <li>Check the <strong>drug label or barcode scanned at administration</strong> — the NDC is printed on every FDA-regulated drug package in a 10- or 11-digit format.</li>
+          <li>Verify the NDC is <strong>active and valid</strong> in the FDA NDC Directory at <em>fda.gov/drugs</em> or <em>ndclist.com</em> — search by NDC number and confirm the listing is not inactive or retired.</li>
+          <li>If the package shows a <strong>10-digit NDC</strong>, pad it to 11 digits by adding a leading zero to the correct segment. The three NDC formats are 4-4-2, 5-3-2, and 5-4-1 — each pads differently to reach 11 digits (5-4-2).</li>
+          <li>Confirm the NDC is for the <strong>exact manufacturer and package size</strong> dispensed — same drug from a different manufacturer has a different NDC and must be reported correctly.</li>
+          <li>If a <strong>reference lab or specialty pharmacy</strong> provided the drug, obtain the NDC from them directly — do not guess or substitute a similar product's NDC.</li>
         </ul>
       </div>
-
-      <div class='sub-card' style='border:1px solid #dcfce7;border-radius:16px;padding:16px;background:linear-gradient(180deg,#f7fff8 0%,#ffffff 100%);box-shadow:0 2px 10px rgba(22,163,74,0.08)'>
-        <div style='display:flex;align-items:center;gap:10px;margin-bottom:10px'>
-          <div style='width:36px;height:36px;border-radius:50%;background:#16a34a;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(22,163,74,0.2)'>2</div>
+ 
+      <!-- Step 2 -->
+      <div style='border:1px solid #dcfce7;border-radius:18px;padding:18px;background:linear-gradient(180deg,#f7fff8 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(22,163,74,0.08)'>
+        <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
+          <div style='width:38px;height:38px;border-radius:50%;background:#16a34a;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(22,163,74,0.2);flex-shrink:0'>2</div>
           <div>
-            <div class='nm-h3' style='margin:0;font-size:14px;font-weight:700;color:#15803d'>Corrected Claim Resubmission - Step 2</div>
-            <div style='font-size:11px;color:#64748b'>Correct and resubmit the claim</div>
+            <div style='margin:0;font-size:14px;font-weight:700;color:#15803d'>Add the Valid NDC & Resubmit</div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>Correct format is critical — not just the number</div>
           </div>
         </div>
-
-        <div class='muted' style='margin-bottom:12px;font-size:12px;line-height:1.5;color:#475569'>Only do this after coding gives you the correct code or Verfied by CPC Coder NDC & UOB is Valid - Never resubmit without it or Always confirm about the Timely Filling.</div>
-
-        <ul class='info-list' style='font-size:12px'>
-          <li>Coding has confirmed and assigned the correct NDC with UOM or HCPCS/CPT code.</li>
-          <li>NDC is 11 digits with UOM, no dashes, with qualifier "N4" before it (example: N412345678901).</li>
-          <li>Unit of measure is included — UN (units), ML (milliliters), or GR (grams).</li>
-          <li>Still within the payer's resubmission deadline & Claim is marked as a corrected claim (frequency code 7 or as payer requires).</li>
+        <div style='background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
+          ✅ Once you have the valid 11-digit NDC, add it in the correct field and format, then resubmit as a <strong>corrected claim</strong>. Format errors are just as likely to re-deny as a missing NDC.
+        </div>
+        <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+          <li><strong>CMS-1500 (paper):</strong> Enter in the <strong>shaded area of Box 24A</strong> using format: qualifier <strong>N4</strong> + 11-digit NDC + UOM qualifier + quantity administered (e.g., N4 12345678900 ML 10).</li>
+          <li><strong>837P electronic:</strong> Report in <strong>Loop 2410, LIN segment</strong> — LIN03 qualifier must be <strong>N4</strong>, LIN04 is the 11-digit NDC. Also populate the <strong>CTP segment</strong> with UOM qualifier and quantity. All three are required.</li>
+          <li><strong>No hyphens in EDI</strong> — submit NDC as a plain 11-digit number (12345678900), never as 12345-678-90.</li>
+          <li><strong>Corrected claim:</strong> CMS-1500 → Box 22, Resubmission Code <strong>"7"</strong> + original ICN. UB-04 → TOB frequency <strong>"7"</strong> + original TCN in Box 64.</li>
+          <li>⚠️ Check <strong>timely filing limits</strong> before resubmitting — deadlines don't pause while tracking down NDC details.</li>
         </ul>
       </div>
-
-      <div class='sub-card' style='border:1px solid #fed7aa;border-radius:16px;padding:16px;background:linear-gradient(180deg,#fffaf5 0%,#ffffff 100%);box-shadow:0 2px 10px rgba(234,88,12,0.08)'>
-        <div style='display:flex;align-items:center;gap:10px;margin-bottom:10px'>
-          <div style='width:36px;height:36px;border-radius:50%;background:#ea580c;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(234,88,12,0.2)'>3</div>
+ 
+      <!-- Step 3 -->
+      <div style='border:1px solid #fed7aa;border-radius:18px;padding:18px;background:linear-gradient(180deg,#fffaf5 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(234,88,12,0.08)'>
+        <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
+          <div style='width:38px;height:38px;border-radius:50%;background:#ea580c;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(234,88,12,0.2);flex-shrink:0'>3</div>
           <div>
-            <div class='nm-h3' style='margin:0;font-size:14px;font-weight:700;color:#c2410c'>Calling Required - Step 3</div>
-            <div style='font-size:11px;color:#64748b'>Contact payer for clarification</div>
+            <div style='margin:0;font-size:14px;font-weight:700;color:#c2410c'>Still Denied? Call the Payer</div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>NDC may not be in their drug file</div>
           </div>
         </div>
-
-        <div class='muted' style='margin-bottom:12px;font-size:12px;line-height:1.5;color:#475569'>This is a payer error. Call and ask them to reprocess the claim manually. Before this make everything Handy.</div>
-
-        <ul class='info-list' style='font-size:12px'>
-          <li>Have the original claim number, denial date, and corrected claim number ready.</li>
-          <li>Bring proof: NDC-to-HCPCS with UOM match, drug administration record, and the EOB.</li>
-          <li>Write down the rep's name, call reference number, and promised action.</li>
+        <div style='background:#fff7ed;border:1px solid #fed7aa;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
+          📞 If the corrected claim still gets N60, the payer's internal drug file may not recognize the NDC — especially for newer drugs, biosimilars, or recently repackaged products.
+        </div>
+        <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+          <li><strong>Have ready:</strong> Claim number, member ID, date of service, HCPCS billed, NDC submitted, drug name, strength, manufacturer, and both remittance advices.</li>
+          <li><strong>Ask:</strong> "Is NDC [XXXXXXXXXXX] recognized in your drug file for HCPCS [XXXXX]? If not, is there an alternate NDC or updated code your system requires for this drug?"</li>
+          <li>Ask if the payer requires <strong>NDC registration or pre-loading</strong> in their formulary system before claims with that NDC will process.</li>
+          <li>Ask if the denial is a <strong>formatting issue</strong> — confirm whether they received the NDC with or without hyphens and whether the LIN/CTP segments were both present.</li>
+          <li>📝 Document: reference number, rep name, date, time, and exactly what they say is wrong or missing.</li>
         </ul>
       </div>
-
-      <div class='sub-card' style='border:1px solid #fecaca;border-radius:16px;padding:16px;background:linear-gradient(180deg,#fff6f6 0%,#ffffff 100%);box-shadow:0 2px 10px rgba(220,38,38,0.08)'>
-        <div style='display:flex;align-items:center;gap:10px;margin-bottom:10px'>
-          <div style='width:36px;height:36px;border-radius:50%;background:#dc2626;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(220,38,38,0.2)'>4</div>
+ 
+      <!-- Step 4 -->
+      <div style='border:1px solid #fecaca;border-radius:18px;padding:18px;background:linear-gradient(180deg,#fff6f6 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(220,38,38,0.08)'>
+        <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
+          <div style='width:38px;height:38px;border-radius:50%;background:#dc2626;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(220,38,38,0.2);flex-shrink:0'>4</div>
           <div>
-            <div class='nm-h3' style='margin:0;font-size:14px;font-weight:700;color:#b91c1c'>Payer denied Reprocessing — Appeal required - Step 4</div>
-            <div style='font-size:11px;color:#64748b'>Escalate through the appeal process</div>
+            <div style='margin:0;font-size:14px;font-weight:700;color:#b91c1c'>Payer Won't Reprocess? File a Formal Appeal</div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>Attach FDA proof the NDC is valid and active</div>
           </div>
         </div>
-
-        <div class='muted' style='margin-bottom:12px;font-size:12px;line-height:1.5;color:#475569'>If the payer refuses to reprocess and tells you to appeal — do this. Confrim Appeal TFL Days</div>
-
-        <ul class='info-list' style='font-size:12px'>
-          <li>Get the Denial | Appeal | Dispute letter or If there is no Specific Letter than make Cover Letter— note the appeal deadline (usually 30–180 days). Do not miss it.</li>
-          <li>Write an appeal letter stating: the correct NDC with UOM was billed, it matches the HCPCS/CPT, and the denial was incorrect.</li>
-          <li>Attach MR: drug administration record, physician order, NDC crosswalk, and original claim.</li>
-          <li>Send via Web Portal or Fax or Mailing or certified mail — keep a copy and the delivery confirmation.</li>
-          <li>Follow up after 30 days if no response received.</li>
+        <div style='background:#fef2f2;border:1px solid #fecaca;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
+          ⚖️ If the payer upholds N60 after a corrected claim and call, file a <strong>formal appeal</strong> with FDA documentation proving the NDC is valid, active, and correctly reported on the claim.
+        </div>
+        <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+          <li><strong>Appeal must include:</strong> Provider NPI, Tax ID, patient name, member ID, claim number, date of service, HCPCS, NDC submitted, drug name, strength, manufacturer, and MAR confirming administration.</li>
+          <li><strong>Key statement:</strong> "NDC [XXXXXXXXXXX] is an active, FDA-registered National Drug Code for [Drug Name, Strength] manufactured by [Manufacturer], as confirmed by the FDA NDC Directory. The NDC was correctly reported in Loop 2410 / Box 24A per CMS billing guidelines. We appeal the N60 denial."</li>
+          <li><strong>Attach:</strong> FDA NDC Directory printout confirming active status, drug package label, MAR, original + corrected claims, both remittance advices.</li>
+          <li><strong>Medicare:</strong> File Redetermination with MAC within <strong>120 days</strong>. Reference <em>CMS Pub 100-04, Chapter 17</em>. Commercial: check EOB — typically <strong>30–180 days</strong>.</li>
         </ul>
       </div>
-
-      <div class='sub-card' style='grid-column:1 / -1;border:1px solid #ddd6fe;border-radius:16px;padding:16px;background:linear-gradient(180deg,#f8f7ff 0%,#ffffff 100%);box-shadow:0 2px 10px rgba(124,58,237,0.08)'>
-        <div style='display:flex;align-items:center;gap:10px;margin-bottom:10px'>
-          <div style='width:36px;height:36px;border-radius:50%;background:#7c3aed;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(124,58,237,0.2)'>5</div>
+ 
+      <!-- Step 5 -->
+      <div style='grid-column:1 / -1;border:1px solid #ddd6fe;border-radius:18px;padding:18px;background:linear-gradient(180deg,#f8f7ff 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(124,58,237,0.08)'>
+        <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
+          <div style='width:38px;height:38px;border-radius:50%;background:#7c3aed;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(124,58,237,0.2);flex-shrink:0'>5</div>
           <div>
-            <div class='nm-h3' style='margin:0;font-size:14px;font-weight:700;color:#6d28d9'>Payer says info not received on Form — Appeal required - Step 5</div>
-            <div style='font-size:11px;color:#64748b'>Verify placement of NDC information</div>
+            <div style='margin:0;font-size:14px;font-weight:700;color:#6d28d9'>Seeing This Repeatedly? Fix Your NDC Capture Workflow</div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>NDC must flow from administration directly to the claim</div>
           </div>
         </div>
-
-        <div class='muted' style='margin-bottom:12px;font-size:12px;line-height:1.5;color:#475569'>The payer says they never received NDC or UOB details — even though you submitted them. Check these. CMS Box#23 & UB FL-43-44</div>
-
-        <ul class='info-list' style='font-size:12px'>
-          <li>On a paper claim (CMS-1500) — UOM & NDC must be in Box 24, shaded area.</li>
-          <li>On an electronic claim — NDC & UOM goes in the LIN/CTP segment.</li>
-          <li>Unit of measure must be included — UN, ML, or GR.</li>
-          <li>If all fields look correct — call the payer and ask exactly which field they require for NDC & UOM. Some payers have custom rules.</li>
-          <li>Resubmit with the correction and confirm the payer received it.</li>
-        </ul>
+        <div style='background:#f5f3ff;border:1px solid #ddd6fe;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
+          🔁 If N60 appears across multiple claims, your <strong>NDC is not being captured at the point of administration and passed to billing</strong>. Billers should never be manually looking up or typing NDCs — the drug barcode scanned at admin time must auto-populate into the claim.
+        </div>
+        <div style='display:grid;grid-template-columns:repeat(2,1fr);gap:12px'>
+          <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+            <li><strong>Capture NDC at point of administration.</strong> Build a workflow where nursing or pharmacy scans the drug barcode at administration time — that scan should push the NDC directly into the patient's medication record and then to the claim. Manual entry at billing time is the #1 cause of N60.</li>
+            <li><strong>Validate NDC format in your billing system.</strong> Add a field-level validation that confirms the NDC is exactly 11 digits with no hyphens before the claim can be submitted — reject any entry that doesn't match the format.</li>
+            <li><strong>Keep your NDC master file current.</strong> When a drug is repackaged or a new manufacturer is added to your formulary, update the NDC in your billing system immediately — stale NDCs trigger N60 even when the drug itself hasn't changed.</li>
+          </ul>
+          <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+            <li><strong>Add a pre-submission edit</strong> for all drug HCPCS codes (J-codes and chemotherapy codes) that flags any claim line missing a value in the NDC field before the claim is released to the payer.</li>
+            <li><strong>Verify NDC against the FDA directory quarterly.</strong> Cross-check every NDC in your drug master file against the FDA NDC Directory to confirm active status — flag any inactive NDC for immediate update before it causes a denial cascade.</li>
+            <li>🔒 <strong>Compliance reminder:</strong> Reporting an incorrect or fabricated NDC on a drug claim is a <em>False Claims Act risk</em> — the NDC must reflect the exact product administered, not a similar or substitute drug's code.</li>
+          </ul>
+        </div>
       </div>
-
+ 
     </div>
   </div>
 </div>
@@ -6466,8 +6819,8 @@ NDC & UOM captured directly from the administered vial or package label</span>
           <a class="res-link" href="https://dailymed.nlm.nih.gov/dailymed/" target="_blank" rel="noopener">
             <span class="res-icon" style="background:#e8f0ff;color:#1847cc">💊</span>
             <span class="res-body">
-              <span class="res-name">DailyMed NDC Lookup</span>
-              <span class="res-desc">Search drug labels &amp; National Drug Codes via NLM DailyMed</span>
+              <span class="res-name">AAPC Codify NDC Lookup</span>
+              <span class="res-desc">Search drug labels &amp; National Drug Codes via NLM AAPC Codify</span>
             </span>
             <span class="res-arrow">↗</span>
           </a>
@@ -7159,110 +7512,182 @@ NDC & UOM captured directly from the administered vial or package label</span>
 
 
 
-        <!-- How to Fix It -->
-       <div class='card span-12 card-collapsible' style='border:1px solid var(--border);border-radius:18px;overflow:hidden;background:#fff;box-shadow:0 6px 18px rgba(0,0,0,0.05)'>
-  <div class='label' style='background:linear-gradient(90deg,#0f172a,#1e3a8a);color:#fff;padding:12px 16px;font-size:14px;font-weight:700'>
-    How to Fix It
+       <!-- ── RARC N847 - NDC Billed Is Obsolete ── -->
+<div class='card span-12 card-collapsible' style='border:1px solid var(--border);border-radius:20px;overflow:hidden;background:#fff;box-shadow:0 10px 24px rgba(15,23,42,0.08)'>
+
+  <div class='label' style='background:linear-gradient(90deg,#0f172a,#1e3a8a);color:#fff;padding:14px 18px;font-size:15px;font-weight:700;letter-spacing:.3px'>
+    How to Fix It — RARC N847: NDC Billed Is Obsolete
   </div>
 
-  <div style='padding:18px'>
+  <div style='padding:18px 20px 0'>
+    <div style='background:#f0f9ff;border:1px solid #bae6fd;border-radius:14px;padding:14px 16px;margin-bottom:18px'>
+
+      <div style='font-size:13px;font-weight:700;color:#0369a1;margin-bottom:6px'>💡 What is RARC N847?</div>
+      <div style='font-size:12px;color:#475569;line-height:1.6'>
+        Your claim was denied because the <strong>NDC submitted on the claim is obsolete (inactive, retired, or no longer valid)</strong> in the payer’s drug database or FDA NDC Directory. Even though the drug may still exist, the specific NDC used has been <strong>replaced, discontinued, or repackaged</strong>. Payers only accept <strong>active NDCs tied to the exact product administered</strong> — using an outdated code results in denial.
+      </div>
+
+      <div style='display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px'>
+        <div style='background:#fff;border:1px solid #bae6fd;border-radius:10px;padding:10px;text-align:center'>
+          <div style='font-size:11px;font-weight:700;color:#0284c7'>CMS-1500</div>
+          <div style='font-size:13px;font-weight:800;color:#0369a1;margin:4px 0'>Box 24A</div>
+          <div style='font-size:10px;color:#64748b'>Shaded area — NDC field</div>
+        </div>
+        <div style='background:#fff;border:1px solid #bae6fd;border-radius:10px;padding:10px;text-align:center'>
+          <div style='font-size:11px;font-weight:700;color:#0284c7'>837P EDI</div>
+          <div style='font-size:13px;font-weight:800;color:#0369a1;margin:4px 0'>Loop 2410</div>
+          <div style='font-size:10px;color:#64748b'>LIN segment — qualifier N4</div>
+        </div>
+        <div style='background:#fff;border:1px solid #bae6fd;border-radius:10px;padding:10px;text-align:center'>
+          <div style='font-size:11px;font-weight:700;color:#0284c7'>NDC Status</div>
+          <div style='font-size:13px;font-weight:800;color:#0369a1;margin:4px 0'>Active Only</div>
+          <div style='font-size:10px;color:#64748b'>Inactive codes deny</div>
+        </div>
+      </div>
+
+      <div style='margin-top:12px;border:1px solid #bae6fd;border-radius:10px;overflow:hidden'>
+        <div style='background:#0284c7;color:#fff;font-size:11px;font-weight:700;padding:7px 12px'>
+          📋 Common Reasons N847 Fires
+        </div>
+
+        <div style='display:grid;grid-template-columns:1fr 1fr;font-size:11px'>
+
+          <div style='background:#e0f2fe;padding:6px 10px;font-weight:700;color:#0369a1'>Root Cause</div>
+          <div style='background:#e0f2fe;padding:6px 10px;font-weight:700;color:#0369a1'>What Happened</div>
+
+          <div style='padding:5px 10px'>Retired NDC used</div>
+          <div style='padding:5px 10px'>Drug manufacturer discontinued that specific NDC</div>
+
+          <div style='padding:5px 10px;background:#f8fbff'>Repackaged drug</div>
+          <div style='padding:5px 10px;background:#f8fbff'>Same drug now assigned a new NDC</div>
+
+          <div style='padding:5px 10px'>Outdated billing system</div>
+          <div style='padding:5px 10px'>Old NDC stored in charge master or EMR</div>
+
+          <div style='padding:5px 10px;background:#f8fbff'>Copied from prior claim</div>
+          <div style='padding:5px 10px;background:#f8fbff'>Reused historical NDC without validation</div>
+
+          <div style='padding:5px 10px'>Payer drug file mismatch</div>
+          <div style='padding:5px 10px'>NDC not recognized in payer formulary</div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div style='padding:0 20px 20px'>
     <div style='display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px'>
 
-      <div class='sub-card' style='border:1px solid #dbeafe;border-radius:16px;padding:16px;background:linear-gradient(180deg,#f8fbff 0%,#ffffff 100%);box-shadow:0 2px 10px rgba(37,99,235,0.08)'>
-        <div style='display:flex;align-items:center;gap:10px;margin-bottom:10px'>
-          <div style='width:36px;height:36px;border-radius:50%;background:#2563eb;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(37,99,235,0.2)'>1</div>
+ <!-- Step 1 -->
+      <div style='border:1px solid #dbeafe;border-radius:18px;padding:18px;background:linear-gradient(180deg,#f8fbff 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(37,99,235,0.08)'>
+        <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
+          <div style='width:38px;height:38px;border-radius:50%;background:#2563eb;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(37,99,235,0.2);flex-shrink:0'>1</div>
           <div>
-            <div class='nm-h3' style='margin:0;font-size:14px;font-weight:700;color:#1d4ed8'>Coding Escalation - Step 1</div>
-            <div style='font-size:11px;color:#64748b'>Initial review and coding validation</div>
+            <div style='margin:0;font-size:14px;font-weight:700;color:#1d4ed8'>Find the Correct NDC for the Drug Administered</div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>Go back to the actual vial or package label</div>
           </div>
         </div>
-
-        <div class='muted' style='margin-bottom:12px;font-size:12px;line-height:1.5;color:#475569'>Before Escalating, you must verify the NDC & UOM yourself first. Through www.aapc.com or Verify MR which Drug has been given to the Patient.</div>
-
-        <ul class='info-list' style='font-size:12px'>
-          <li>Checked the medical record — confirmed the drug name and NDC with UOM of what was actually given to the patient.</li>
-          <li>Confirmed the UOM is UL, ML, GR — and matches exactly what was submitted on the claim. CMS Box-24  & UB-04 FL-43-44</li>
-          <li>Looked up the NDC-to-HCPCS crosswalk — confirmed the billed HCPCS/CPT does not match the drug administered or NDC Expired.</li>
+        <div style='background:#eff6ff;border:1px solid #dbeafe;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
+          🔍 Pull the <strong>medication administration record (MAR)</strong> or drug log for the date of service. The valid NDC must come from the <strong>exact vial or package administered</strong> — not the drug name, not the order, not a lookup table guess.
+        </div>
+        <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+          <li>Check the <strong>drug label or barcode scanned at administration</strong> — the NDC is printed on every FDA-regulated drug package in a 10- or 11-digit format.</li>
+          <li>Verify the NDC is <strong>active and valid</strong> in the FDA NDC Directory at <em>fda.gov/drugs</em> or <em>ndclist.com</em> — search by NDC number and confirm the listing is not inactive or retired.</li>
+          <li>If the package shows a <strong>10-digit NDC</strong>, pad it to 11 digits by adding a leading zero to the correct segment. The three NDC formats are 4-4-2, 5-3-2, and 5-4-1 — each pads differently to reach 11 digits (5-4-2).</li>
+          <li>Confirm the NDC is for the <strong>exact manufacturer and package size</strong> dispensed — same drug from a different manufacturer has a different NDC and must be reported correctly.</li>
+          <li>If a <strong>reference lab or specialty pharmacy</strong> provided the drug, obtain the NDC from them directly — do not guess or substitute a similar product's NDC.</li>
         </ul>
       </div>
-
-      <div class='sub-card' style='border:1px solid #dcfce7;border-radius:16px;padding:16px;background:linear-gradient(180deg,#f7fff8 0%,#ffffff 100%);box-shadow:0 2px 10px rgba(22,163,74,0.08)'>
-        <div style='display:flex;align-items:center;gap:10px;margin-bottom:10px'>
-          <div style='width:36px;height:36px;border-radius:50%;background:#16a34a;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(22,163,74,0.2)'>2</div>
+ 
+      <!-- Step 2 -->
+      <div style='border:1px solid #dcfce7;border-radius:18px;padding:18px;background:linear-gradient(180deg,#f7fff8 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(22,163,74,0.08)'>
+        <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
+          <div style='width:38px;height:38px;border-radius:50%;background:#16a34a;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(22,163,74,0.2);flex-shrink:0'>2</div>
           <div>
-            <div class='nm-h3' style='margin:0;font-size:14px;font-weight:700;color:#15803d'>Corrected Claim Resubmission - Step 2</div>
-            <div style='font-size:11px;color:#64748b'>Correct and resubmit the claim</div>
+            <div style='margin:0;font-size:14px;font-weight:700;color:#15803d'>Add the Valid NDC & Resubmit</div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>Correct format is critical — not just the number</div>
           </div>
         </div>
-
-        <div class='muted' style='margin-bottom:12px;font-size:12px;line-height:1.5;color:#475569'>Only do this after coding gives you the correct code or Verfied by CPC Coder NDC & UOB is Valid - Never resubmit without it or Always confirm about the Timely Filling.</div>
-
-        <ul class='info-list' style='font-size:12px'>
-          <li>Coding has confirmed and assigned the correct NDC with UOM or HCPCS/CPT code.</li>
-          <li>NDC is 11 digits with UOM, no dashes, with qualifier "N4" before it (example: N412345678901).</li>
-          <li>Unit of measure is included — UN (units), ML (milliliters), or GR (grams).</li>
-          <li>Still within the payer's resubmission deadline & Claim is marked as a corrected claim (frequency code 7 or as payer requires).</li>
+        <div style='background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
+          ✅ Once you have the valid 11-digit NDC, add it in the correct field and format, then resubmit as a <strong>corrected claim</strong>. Format errors are just as likely to re-deny as a missing NDC.
+        </div>
+        <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+          <li><strong>CMS-1500 (paper):</strong> Enter in the <strong>shaded area of Box 24A</strong> using format: qualifier <strong>N4</strong> + 11-digit NDC + UOM qualifier + quantity administered (e.g., N4 12345678900 ML 10).</li>
+          <li><strong>837P electronic:</strong> Report in <strong>Loop 2410, LIN segment</strong> — LIN03 qualifier must be <strong>N4</strong>, LIN04 is the 11-digit NDC. Also populate the <strong>CTP segment</strong> with UOM qualifier and quantity. All three are required.</li>
+          <li><strong>No hyphens in EDI</strong> — submit NDC as a plain 11-digit number (12345678900), never as 12345-678-90.</li>
+          <li><strong>Corrected claim:</strong> CMS-1500 → Box 22, Resubmission Code <strong>"7"</strong> + original ICN. UB-04 → TOB frequency <strong>"7"</strong> + original TCN in Box 64.</li>
+          <li>⚠️ Check <strong>timely filing limits</strong> before resubmitting — deadlines don't pause while tracking down NDC details.</li>
         </ul>
       </div>
-
-      <div class='sub-card' style='border:1px solid #fed7aa;border-radius:16px;padding:16px;background:linear-gradient(180deg,#fffaf5 0%,#ffffff 100%);box-shadow:0 2px 10px rgba(234,88,12,0.08)'>
-        <div style='display:flex;align-items:center;gap:10px;margin-bottom:10px'>
-          <div style='width:36px;height:36px;border-radius:50%;background:#ea580c;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(234,88,12,0.2)'>3</div>
+ 
+      <!-- Step 3 -->
+      <div style='border:1px solid #fed7aa;border-radius:18px;padding:18px;background:linear-gradient(180deg,#fffaf5 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(234,88,12,0.08)'>
+        <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
+          <div style='width:38px;height:38px;border-radius:50%;background:#ea580c;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(234,88,12,0.2);flex-shrink:0'>3</div>
           <div>
-            <div class='nm-h3' style='margin:0;font-size:14px;font-weight:700;color:#c2410c'>Calling Required - Step 3</div>
-            <div style='font-size:11px;color:#64748b'>Contact payer for clarification</div>
+            <div style='margin:0;font-size:14px;font-weight:700;color:#c2410c'>Still Denied? Call the Payer</div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>NDC may not be in their drug file</div>
           </div>
         </div>
-
-        <div class='muted' style='margin-bottom:12px;font-size:12px;line-height:1.5;color:#475569'>This is a payer error. Call and ask them to reprocess the claim manually. Before this make everything Handy.</div>
-
-        <ul class='info-list' style='font-size:12px'>
-          <li>Have the original claim number, denial date, and corrected claim number ready.</li>
-          <li>Bring proof: NDC-to-HCPCS with UOM match, drug administration record, and the EOB.</li>
-          <li>Write down the rep's name, call reference number, and promised action.</li>
+        <div style='background:#fff7ed;border:1px solid #fed7aa;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
+          📞 If the corrected claim still gets N60, the payer's internal drug file may not recognize the NDC — especially for newer drugs, biosimilars, or recently repackaged products.
+        </div>
+        <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+          <li><strong>Have ready:</strong> Claim number, member ID, date of service, HCPCS billed, NDC submitted, drug name, strength, manufacturer, and both remittance advices.</li>
+          <li><strong>Ask:</strong> "Is NDC [XXXXXXXXXXX] recognized in your drug file for HCPCS [XXXXX]? If not, is there an alternate NDC or updated code your system requires for this drug?"</li>
+          <li>Ask if the payer requires <strong>NDC registration or pre-loading</strong> in their formulary system before claims with that NDC will process.</li>
+          <li>Ask if the denial is a <strong>formatting issue</strong> — confirm whether they received the NDC with or without hyphens and whether the LIN/CTP segments were both present.</li>
+          <li>📝 Document: reference number, rep name, date, time, and exactly what they say is wrong or missing.</li>
         </ul>
       </div>
-
-      <div class='sub-card' style='border:1px solid #fecaca;border-radius:16px;padding:16px;background:linear-gradient(180deg,#fff6f6 0%,#ffffff 100%);box-shadow:0 2px 10px rgba(220,38,38,0.08)'>
-        <div style='display:flex;align-items:center;gap:10px;margin-bottom:10px'>
-          <div style='width:36px;height:36px;border-radius:50%;background:#dc2626;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(220,38,38,0.2)'>4</div>
+ 
+      <!-- Step 4 -->
+      <div style='border:1px solid #fecaca;border-radius:18px;padding:18px;background:linear-gradient(180deg,#fff6f6 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(220,38,38,0.08)'>
+        <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
+          <div style='width:38px;height:38px;border-radius:50%;background:#dc2626;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(220,38,38,0.2);flex-shrink:0'>4</div>
           <div>
-            <div class='nm-h3' style='margin:0;font-size:14px;font-weight:700;color:#b91c1c'>Payer denied Reprocessing — Appeal required - Step 4</div>
-            <div style='font-size:11px;color:#64748b'>Escalate through the appeal process</div>
+            <div style='margin:0;font-size:14px;font-weight:700;color:#b91c1c'>Payer Won't Reprocess? File a Formal Appeal</div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>Attach FDA proof the NDC is valid and active</div>
           </div>
         </div>
-
-        <div class='muted' style='margin-bottom:12px;font-size:12px;line-height:1.5;color:#475569'>If the payer refuses to reprocess and tells you to appeal — do this. Confrim Appeal TFL Days</div>
-
-        <ul class='info-list' style='font-size:12px'>
-          <li>Get the Denial | Appeal | Dispute letter or If there is no Specific Letter than make Cover Letter— note the appeal deadline (usually 30–180 days). Do not miss it.</li>
-          <li>Write an appeal letter stating: the correct NDC with UOM was billed, it matches the HCPCS/CPT, and the denial was incorrect.</li>
-          <li>Attach MR: drug administration record, physician order, NDC crosswalk, and original claim.</li>
-          <li>Send via Web Portal or Fax or Mailing or certified mail — keep a copy and the delivery confirmation.</li>
-          <li>Follow up after 30 days if no response received.</li>
+        <div style='background:#fef2f2;border:1px solid #fecaca;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
+          ⚖️ If the payer upholds N60 after a corrected claim and call, file a <strong>formal appeal</strong> with FDA documentation proving the NDC is valid, active, and correctly reported on the claim.
+        </div>
+        <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+          <li><strong>Appeal must include:</strong> Provider NPI, Tax ID, patient name, member ID, claim number, date of service, HCPCS, NDC submitted, drug name, strength, manufacturer, and MAR confirming administration.</li>
+          <li><strong>Key statement:</strong> "NDC [XXXXXXXXXXX] is an active, FDA-registered National Drug Code for [Drug Name, Strength] manufactured by [Manufacturer], as confirmed by the FDA NDC Directory. The NDC was correctly reported in Loop 2410 / Box 24A per CMS billing guidelines. We appeal the N60 denial."</li>
+          <li><strong>Attach:</strong> FDA NDC Directory printout confirming active status, drug package label, MAR, original + corrected claims, both remittance advices.</li>
+          <li><strong>Medicare:</strong> File Redetermination with MAC within <strong>120 days</strong>. Reference <em>CMS Pub 100-04, Chapter 17</em>. Commercial: check EOB — typically <strong>30–180 days</strong>.</li>
         </ul>
       </div>
-
-      <div class='sub-card' style='grid-column:1 / -1;border:1px solid #ddd6fe;border-radius:16px;padding:16px;background:linear-gradient(180deg,#f8f7ff 0%,#ffffff 100%);box-shadow:0 2px 10px rgba(124,58,237,0.08)'>
-        <div style='display:flex;align-items:center;gap:10px;margin-bottom:10px'>
-          <div style='width:36px;height:36px;border-radius:50%;background:#7c3aed;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(124,58,237,0.2)'>5</div>
+ 
+      <!-- Step 5 -->
+      <div style='grid-column:1 / -1;border:1px solid #ddd6fe;border-radius:18px;padding:18px;background:linear-gradient(180deg,#f8f7ff 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(124,58,237,0.08)'>
+        <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
+          <div style='width:38px;height:38px;border-radius:50%;background:#7c3aed;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(124,58,237,0.2);flex-shrink:0'>5</div>
           <div>
-            <div class='nm-h3' style='margin:0;font-size:14px;font-weight:700;color:#6d28d9'>Payer says info not received on Form — Appeal required - Step 5</div>
-            <div style='font-size:11px;color:#64748b'>Verify placement of NDC information</div>
+            <div style='margin:0;font-size:14px;font-weight:700;color:#6d28d9'>Seeing This Repeatedly? Fix Your NDC Capture Workflow</div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>NDC must flow from administration directly to the claim</div>
           </div>
         </div>
-
-        <div class='muted' style='margin-bottom:12px;font-size:12px;line-height:1.5;color:#475569'>The payer says they never received NDC or UOB details — even though you submitted them. Check these. CMS Box#23 & UB FL-43-44</div>
-
-        <ul class='info-list' style='font-size:12px'>
-          <li>On a paper claim (CMS-1500) — UOM & NDC must be in Box 24, shaded area.</li>
-          <li>On an electronic claim — NDC & UOM goes in the LIN/CTP segment.</li>
-          <li>Unit of measure must be included — UN, ML, or GR.</li>
-          <li>If all fields look correct — call the payer and ask exactly which field they require for NDC & UOM. Some payers have custom rules.</li>
-          <li>Resubmit with the correction and confirm the payer received it.</li>
-        </ul>
+        <div style='background:#f5f3ff;border:1px solid #ddd6fe;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
+          🔁 If N60 appears across multiple claims, your <strong>NDC is not being captured at the point of administration and passed to billing</strong>. Billers should never be manually looking up or typing NDCs — the drug barcode scanned at admin time must auto-populate into the claim.
+        </div>
+        <div style='display:grid;grid-template-columns:repeat(2,1fr);gap:12px'>
+          <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+            <li><strong>Capture NDC at point of administration.</strong> Build a workflow where nursing or pharmacy scans the drug barcode at administration time — that scan should push the NDC directly into the patient's medication record and then to the claim. Manual entry at billing time is the #1 cause of N60.</li>
+            <li><strong>Validate NDC format in your billing system.</strong> Add a field-level validation that confirms the NDC is exactly 11 digits with no hyphens before the claim can be submitted — reject any entry that doesn't match the format.</li>
+            <li><strong>Keep your NDC master file current.</strong> When a drug is repackaged or a new manufacturer is added to your formulary, update the NDC in your billing system immediately — stale NDCs trigger N60 even when the drug itself hasn't changed.</li>
+          </ul>
+          <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+            <li><strong>Add a pre-submission edit</strong> for all drug HCPCS codes (J-codes and chemotherapy codes) that flags any claim line missing a value in the NDC field before the claim is released to the payer.</li>
+            <li><strong>Verify NDC against the FDA directory quarterly.</strong> Cross-check every NDC in your drug master file against the FDA NDC Directory to confirm active status — flag any inactive NDC for immediate update before it causes a denial cascade.</li>
+            <li>🔒 <strong>Compliance reminder:</strong> Reporting an incorrect or fabricated NDC on a drug claim is a <em>False Claims Act risk</em> — the NDC must reflect the exact product administered, not a similar or substitute drug's code.</li>
+          </ul>
+        </div>
       </div>
-
+ 
     </div>
   </div>
 </div>
@@ -7568,8 +7993,8 @@ NDC & UOM captured directly from the administered vial or package label</span>
           <a class="res-link" href="https://dailymed.nlm.nih.gov/dailymed/" target="_blank" rel="noopener">
             <span class="res-icon" style="background:#e8f0ff;color:#1847cc">💊</span>
             <span class="res-body">
-              <span class="res-name">DailyMed NDC Lookup</span>
-              <span class="res-desc">Search drug labels &amp; National Drug Codes via NLM DailyMed</span>
+              <span class="res-name">AAPC Codify NDC Lookup</span>
+              <span class="res-desc">Search drug labels &amp; National Drug Codes via NLM AAPC Codify</span>
             </span>
             <span class="res-arrow">↗</span>
           </a>
@@ -8256,110 +8681,182 @@ NDC & UOM captured directly from the administered vial or package label</span>
 </div>
 
 
-        <!-- How to Fix It -->
-       <div class='card span-12 card-collapsible' style='border:1px solid var(--border);border-radius:18px;overflow:hidden;background:#fff;box-shadow:0 6px 18px rgba(0,0,0,0.05)'>
-  <div class='label' style='background:linear-gradient(90deg,#0f172a,#1e3a8a);color:#fff;padding:12px 16px;font-size:14px;font-weight:700'>
-    How to Fix It
+       <!-- ── RARC N848 - NDC Billed Cannot Be Associated With a Product ── -->
+<div class='card span-12 card-collapsible' style='border:1px solid var(--border);border-radius:20px;overflow:hidden;background:#fff;box-shadow:0 10px 24px rgba(15,23,42,0.08)'>
+
+  <div class='label' style='background:linear-gradient(90deg,#0f172a,#1e3a8a);color:#fff;padding:14px 18px;font-size:15px;font-weight:700;letter-spacing:.3px'>
+    How to Fix It — RARC N848: NDC Billed Cannot Be Associated With a Product
   </div>
 
-  <div style='padding:18px'>
+  <div style='padding:18px 20px 0'>
+    <div style='background:#f0f9ff;border:1px solid #bae6fd;border-radius:14px;padding:14px 16px;margin-bottom:18px'>
+
+      <div style='font-size:13px;font-weight:700;color:#0369a1;margin-bottom:6px'>💡 What is RARC N848?</div>
+      <div style='font-size:12px;color:#475569;line-height:1.6'>
+        Your claim was denied because the <strong>NDC submitted cannot be matched to a recognizable drug product</strong> in the payer’s system or FDA NDC Directory. Unlike obsolete codes (N847), this denial means the NDC <strong>does not map to any valid or identifiable drug product</strong> — often due to incorrect entry, invalid structure, or mismatch between the NDC and the billed service. If the payer can't tie the NDC to a real product, they cannot validate the claim.
+      </div>
+
+      <div style='display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px'>
+        <div style='background:#fff;border:1px solid #bae6fd;border-radius:10px;padding:10px;text-align:center'>
+          <div style='font-size:11px;font-weight:700;color:#0284c7'>CMS-1500</div>
+          <div style='font-size:13px;font-weight:800;color:#0369a1;margin:4px 0'>Box 24A</div>
+          <div style='font-size:10px;color:#64748b'>Shaded area — NDC field</div>
+        </div>
+        <div style='background:#fff;border:1px solid #bae6fd;border-radius:10px;padding:10px;text-align:center'>
+          <div style='font-size:11px;font-weight:700;color:#0284c7'>837P EDI</div>
+          <div style='font-size:13px;font-weight:800;color:#0369a1;margin:4px 0'>Loop 2410</div>
+          <div style='font-size:10px;color:#64748b'>LIN segment — qualifier N4</div>
+        </div>
+        <div style='background:#fff;border:1px solid #bae6fd;border-radius:10px;padding:10px;text-align:center'>
+          <div style='font-size:11px;font-weight:700;color:#0284c7'>Validation</div>
+          <div style='font-size:13px;font-weight:800;color:#0369a1;margin:4px 0'>Product Match</div>
+          <div style='font-size:10px;color:#64748b'>NDC must map to drug</div>
+        </div>
+      </div>
+
+      <div style='margin-top:12px;border:1px solid #bae6fd;border-radius:10px;overflow:hidden'>
+        <div style='background:#0284c7;color:#fff;font-size:11px;font-weight:700;padding:7px 12px'>
+          📋 Common Reasons N848 Fires
+        </div>
+
+        <div style='display:grid;grid-template-columns:1fr 1fr;font-size:11px'>
+
+          <div style='background:#e0f2fe;padding:6px 10px;font-weight:700;color:#0369a1'>Root Cause</div>
+          <div style='background:#e0f2fe;padding:6px 10px;font-weight:700;color:#0369a1'>What Happened</div>
+
+          <div style='padding:5px 10px'>Invalid NDC entered</div>
+          <div style='padding:5px 10px'>Typing error or wrong digit sequence</div>
+
+          <div style='padding:5px 10px;background:#f8fbff'>Incorrect 11-digit format</div>
+          <div style='padding:5px 10px;background:#f8fbff'>Improper zero-padding creates non-existent code</div>
+
+          <div style='padding:5px 10px'>NDC does not match drug billed</div>
+          <div style='padding:5px 10px'>Mismatch between HCPCS and NDC product</div>
+
+          <div style='padding:5px 10px;background:#f8fbff'>Dummy/test NDC used</div>
+          <div style='padding:5px 10px;background:#f8fbff'>System default or placeholder code submitted</div>
+
+          <div style='padding:5px 10px'>Corrupted EDI data</div>
+          <div style='padding:5px 10px'>LIN segment incorrectly formatted or missing elements</div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div style='padding:0 20px 20px'>
     <div style='display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px'>
 
-      <div class='sub-card' style='border:1px solid #dbeafe;border-radius:16px;padding:16px;background:linear-gradient(180deg,#f8fbff 0%,#ffffff 100%);box-shadow:0 2px 10px rgba(37,99,235,0.08)'>
-        <div style='display:flex;align-items:center;gap:10px;margin-bottom:10px'>
-          <div style='width:36px;height:36px;border-radius:50%;background:#2563eb;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(37,99,235,0.2)'>1</div>
+     <!-- Step 1 -->
+      <div style='border:1px solid #dbeafe;border-radius:18px;padding:18px;background:linear-gradient(180deg,#f8fbff 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(37,99,235,0.08)'>
+        <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
+          <div style='width:38px;height:38px;border-radius:50%;background:#2563eb;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(37,99,235,0.2);flex-shrink:0'>1</div>
           <div>
-            <div class='nm-h3' style='margin:0;font-size:14px;font-weight:700;color:#1d4ed8'>Coding Escalation - Step 1</div>
-            <div style='font-size:11px;color:#64748b'>Initial review and coding validation</div>
+            <div style='margin:0;font-size:14px;font-weight:700;color:#1d4ed8'>Find the Correct NDC for the Drug Administered</div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>Go back to the actual vial or package label</div>
           </div>
         </div>
-
-        <div class='muted' style='margin-bottom:12px;font-size:12px;line-height:1.5;color:#475569'>Before Escalating, you must verify the NDC & UOM yourself first. Through www.aapc.com or Verify MR which Drug has been given to the Patient.</div>
-
-        <ul class='info-list' style='font-size:12px'>
-          <li>Checked the medical record — confirmed the drug name and NDC with UOM of what was actually given to the patient.</li>
-          <li>Confirmed the UOM is UL, ML, GR — and matches exactly what was submitted on the claim. CMS Box-24  & UB-04 FL-43-44</li>
-          <li>Looked up the NDC-to-HCPCS crosswalk — confirmed the billed HCPCS/CPT does not match the drug administered or NDC Expired.</li>
+        <div style='background:#eff6ff;border:1px solid #dbeafe;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
+          🔍 Pull the <strong>medication administration record (MAR)</strong> or drug log for the date of service. The valid NDC must come from the <strong>exact vial or package administered</strong> — not the drug name, not the order, not a lookup table guess.
+        </div>
+        <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+          <li>Check the <strong>drug label or barcode scanned at administration</strong> — the NDC is printed on every FDA-regulated drug package in a 10- or 11-digit format.</li>
+          <li>Verify the NDC is <strong>active and valid</strong> in the FDA NDC Directory at <em>fda.gov/drugs</em> or <em>ndclist.com</em> — search by NDC number and confirm the listing is not inactive or retired.</li>
+          <li>If the package shows a <strong>10-digit NDC</strong>, pad it to 11 digits by adding a leading zero to the correct segment. The three NDC formats are 4-4-2, 5-3-2, and 5-4-1 — each pads differently to reach 11 digits (5-4-2).</li>
+          <li>Confirm the NDC is for the <strong>exact manufacturer and package size</strong> dispensed — same drug from a different manufacturer has a different NDC and must be reported correctly.</li>
+          <li>If a <strong>reference lab or specialty pharmacy</strong> provided the drug, obtain the NDC from them directly — do not guess or substitute a similar product's NDC.</li>
         </ul>
       </div>
-
-      <div class='sub-card' style='border:1px solid #dcfce7;border-radius:16px;padding:16px;background:linear-gradient(180deg,#f7fff8 0%,#ffffff 100%);box-shadow:0 2px 10px rgba(22,163,74,0.08)'>
-        <div style='display:flex;align-items:center;gap:10px;margin-bottom:10px'>
-          <div style='width:36px;height:36px;border-radius:50%;background:#16a34a;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(22,163,74,0.2)'>2</div>
+ 
+      <!-- Step 2 -->
+      <div style='border:1px solid #dcfce7;border-radius:18px;padding:18px;background:linear-gradient(180deg,#f7fff8 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(22,163,74,0.08)'>
+        <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
+          <div style='width:38px;height:38px;border-radius:50%;background:#16a34a;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(22,163,74,0.2);flex-shrink:0'>2</div>
           <div>
-            <div class='nm-h3' style='margin:0;font-size:14px;font-weight:700;color:#15803d'>Corrected Claim Resubmission - Step 2</div>
-            <div style='font-size:11px;color:#64748b'>Correct and resubmit the claim</div>
+            <div style='margin:0;font-size:14px;font-weight:700;color:#15803d'>Add the Valid NDC & Resubmit</div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>Correct format is critical — not just the number</div>
           </div>
         </div>
-
-        <div class='muted' style='margin-bottom:12px;font-size:12px;line-height:1.5;color:#475569'>Only do this after coding gives you the correct code or Verfied by CPC Coder NDC & UOB is Valid - Never resubmit without it or Always confirm about the Timely Filling.</div>
-
-        <ul class='info-list' style='font-size:12px'>
-          <li>Coding has confirmed and assigned the correct NDC with UOM or HCPCS/CPT code.</li>
-          <li>NDC is 11 digits with UOM, no dashes, with qualifier "N4" before it (example: N412345678901).</li>
-          <li>Unit of measure is included — UN (units), ML (milliliters), or GR (grams).</li>
-          <li>Still within the payer's resubmission deadline & Claim is marked as a corrected claim (frequency code 7 or as payer requires).</li>
+        <div style='background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
+          ✅ Once you have the valid 11-digit NDC, add it in the correct field and format, then resubmit as a <strong>corrected claim</strong>. Format errors are just as likely to re-deny as a missing NDC.
+        </div>
+        <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+          <li><strong>CMS-1500 (paper):</strong> Enter in the <strong>shaded area of Box 24A</strong> using format: qualifier <strong>N4</strong> + 11-digit NDC + UOM qualifier + quantity administered (e.g., N4 12345678900 ML 10).</li>
+          <li><strong>837P electronic:</strong> Report in <strong>Loop 2410, LIN segment</strong> — LIN03 qualifier must be <strong>N4</strong>, LIN04 is the 11-digit NDC. Also populate the <strong>CTP segment</strong> with UOM qualifier and quantity. All three are required.</li>
+          <li><strong>No hyphens in EDI</strong> — submit NDC as a plain 11-digit number (12345678900), never as 12345-678-90.</li>
+          <li><strong>Corrected claim:</strong> CMS-1500 → Box 22, Resubmission Code <strong>"7"</strong> + original ICN. UB-04 → TOB frequency <strong>"7"</strong> + original TCN in Box 64.</li>
+          <li>⚠️ Check <strong>timely filing limits</strong> before resubmitting — deadlines don't pause while tracking down NDC details.</li>
         </ul>
       </div>
-
-      <div class='sub-card' style='border:1px solid #fed7aa;border-radius:16px;padding:16px;background:linear-gradient(180deg,#fffaf5 0%,#ffffff 100%);box-shadow:0 2px 10px rgba(234,88,12,0.08)'>
-        <div style='display:flex;align-items:center;gap:10px;margin-bottom:10px'>
-          <div style='width:36px;height:36px;border-radius:50%;background:#ea580c;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(234,88,12,0.2)'>3</div>
+ 
+      <!-- Step 3 -->
+      <div style='border:1px solid #fed7aa;border-radius:18px;padding:18px;background:linear-gradient(180deg,#fffaf5 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(234,88,12,0.08)'>
+        <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
+          <div style='width:38px;height:38px;border-radius:50%;background:#ea580c;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(234,88,12,0.2);flex-shrink:0'>3</div>
           <div>
-            <div class='nm-h3' style='margin:0;font-size:14px;font-weight:700;color:#c2410c'>Calling Required - Step 3</div>
-            <div style='font-size:11px;color:#64748b'>Contact payer for clarification</div>
+            <div style='margin:0;font-size:14px;font-weight:700;color:#c2410c'>Still Denied? Call the Payer</div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>NDC may not be in their drug file</div>
           </div>
         </div>
-
-        <div class='muted' style='margin-bottom:12px;font-size:12px;line-height:1.5;color:#475569'>This is a payer error. Call and ask them to reprocess the claim manually. Before this make everything Handy.</div>
-
-        <ul class='info-list' style='font-size:12px'>
-          <li>Have the original claim number, denial date, and corrected claim number ready.</li>
-          <li>Bring proof: NDC-to-HCPCS with UOM match, drug administration record, and the EOB.</li>
-          <li>Write down the rep's name, call reference number, and promised action.</li>
+        <div style='background:#fff7ed;border:1px solid #fed7aa;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
+          📞 If the corrected claim still gets N60, the payer's internal drug file may not recognize the NDC — especially for newer drugs, biosimilars, or recently repackaged products.
+        </div>
+        <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+          <li><strong>Have ready:</strong> Claim number, member ID, date of service, HCPCS billed, NDC submitted, drug name, strength, manufacturer, and both remittance advices.</li>
+          <li><strong>Ask:</strong> "Is NDC [XXXXXXXXXXX] recognized in your drug file for HCPCS [XXXXX]? If not, is there an alternate NDC or updated code your system requires for this drug?"</li>
+          <li>Ask if the payer requires <strong>NDC registration or pre-loading</strong> in their formulary system before claims with that NDC will process.</li>
+          <li>Ask if the denial is a <strong>formatting issue</strong> — confirm whether they received the NDC with or without hyphens and whether the LIN/CTP segments were both present.</li>
+          <li>📝 Document: reference number, rep name, date, time, and exactly what they say is wrong or missing.</li>
         </ul>
       </div>
-
-      <div class='sub-card' style='border:1px solid #fecaca;border-radius:16px;padding:16px;background:linear-gradient(180deg,#fff6f6 0%,#ffffff 100%);box-shadow:0 2px 10px rgba(220,38,38,0.08)'>
-        <div style='display:flex;align-items:center;gap:10px;margin-bottom:10px'>
-          <div style='width:36px;height:36px;border-radius:50%;background:#dc2626;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(220,38,38,0.2)'>4</div>
+ 
+      <!-- Step 4 -->
+      <div style='border:1px solid #fecaca;border-radius:18px;padding:18px;background:linear-gradient(180deg,#fff6f6 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(220,38,38,0.08)'>
+        <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
+          <div style='width:38px;height:38px;border-radius:50%;background:#dc2626;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(220,38,38,0.2);flex-shrink:0'>4</div>
           <div>
-            <div class='nm-h3' style='margin:0;font-size:14px;font-weight:700;color:#b91c1c'>Payer denied Reprocessing — Appeal required - Step 4</div>
-            <div style='font-size:11px;color:#64748b'>Escalate through the appeal process</div>
+            <div style='margin:0;font-size:14px;font-weight:700;color:#b91c1c'>Payer Won't Reprocess? File a Formal Appeal</div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>Attach FDA proof the NDC is valid and active</div>
           </div>
         </div>
-
-        <div class='muted' style='margin-bottom:12px;font-size:12px;line-height:1.5;color:#475569'>If the payer refuses to reprocess and tells you to appeal — do this. Confrim Appeal TFL Days</div>
-
-        <ul class='info-list' style='font-size:12px'>
-          <li>Get the Denial | Appeal | Dispute letter or If there is no Specific Letter than make Cover Letter— note the appeal deadline (usually 30–180 days). Do not miss it.</li>
-          <li>Write an appeal letter stating: the correct NDC with UOM was billed, it matches the HCPCS/CPT, and the denial was incorrect.</li>
-          <li>Attach MR: drug administration record, physician order, NDC crosswalk, and original claim.</li>
-          <li>Send via Web Portal or Fax or Mailing or certified mail — keep a copy and the delivery confirmation.</li>
-          <li>Follow up after 30 days if no response received.</li>
+        <div style='background:#fef2f2;border:1px solid #fecaca;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
+          ⚖️ If the payer upholds N60 after a corrected claim and call, file a <strong>formal appeal</strong> with FDA documentation proving the NDC is valid, active, and correctly reported on the claim.
+        </div>
+        <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+          <li><strong>Appeal must include:</strong> Provider NPI, Tax ID, patient name, member ID, claim number, date of service, HCPCS, NDC submitted, drug name, strength, manufacturer, and MAR confirming administration.</li>
+          <li><strong>Key statement:</strong> "NDC [XXXXXXXXXXX] is an active, FDA-registered National Drug Code for [Drug Name, Strength] manufactured by [Manufacturer], as confirmed by the FDA NDC Directory. The NDC was correctly reported in Loop 2410 / Box 24A per CMS billing guidelines. We appeal the N60 denial."</li>
+          <li><strong>Attach:</strong> FDA NDC Directory printout confirming active status, drug package label, MAR, original + corrected claims, both remittance advices.</li>
+          <li><strong>Medicare:</strong> File Redetermination with MAC within <strong>120 days</strong>. Reference <em>CMS Pub 100-04, Chapter 17</em>. Commercial: check EOB — typically <strong>30–180 days</strong>.</li>
         </ul>
       </div>
-
-      <div class='sub-card' style='grid-column:1 / -1;border:1px solid #ddd6fe;border-radius:16px;padding:16px;background:linear-gradient(180deg,#f8f7ff 0%,#ffffff 100%);box-shadow:0 2px 10px rgba(124,58,237,0.08)'>
-        <div style='display:flex;align-items:center;gap:10px;margin-bottom:10px'>
-          <div style='width:36px;height:36px;border-radius:50%;background:#7c3aed;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(124,58,237,0.2)'>5</div>
+ 
+      <!-- Step 5 -->
+      <div style='grid-column:1 / -1;border:1px solid #ddd6fe;border-radius:18px;padding:18px;background:linear-gradient(180deg,#f8f7ff 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(124,58,237,0.08)'>
+        <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
+          <div style='width:38px;height:38px;border-radius:50%;background:#7c3aed;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(124,58,237,0.2);flex-shrink:0'>5</div>
           <div>
-            <div class='nm-h3' style='margin:0;font-size:14px;font-weight:700;color:#6d28d9'>Payer says info not received on Form — Appeal required - Step 5</div>
-            <div style='font-size:11px;color:#64748b'>Verify placement of NDC information</div>
+            <div style='margin:0;font-size:14px;font-weight:700;color:#6d28d9'>Seeing This Repeatedly? Fix Your NDC Capture Workflow</div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>NDC must flow from administration directly to the claim</div>
           </div>
         </div>
-
-        <div class='muted' style='margin-bottom:12px;font-size:12px;line-height:1.5;color:#475569'>The payer says they never received NDC or UOB details — even though you submitted them. Check these. CMS Box#23 & UB FL-43-44</div>
-
-        <ul class='info-list' style='font-size:12px'>
-          <li>On a paper claim (CMS-1500) — UOM & NDC must be in Box 24, shaded area.</li>
-          <li>On an electronic claim — NDC & UOM goes in the LIN/CTP segment.</li>
-          <li>Unit of measure must be included — UN, ML, or GR.</li>
-          <li>If all fields look correct — call the payer and ask exactly which field they require for NDC & UOM. Some payers have custom rules.</li>
-          <li>Resubmit with the correction and confirm the payer received it.</li>
-        </ul>
+        <div style='background:#f5f3ff;border:1px solid #ddd6fe;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
+          🔁 If N60 appears across multiple claims, your <strong>NDC is not being captured at the point of administration and passed to billing</strong>. Billers should never be manually looking up or typing NDCs — the drug barcode scanned at admin time must auto-populate into the claim.
+        </div>
+        <div style='display:grid;grid-template-columns:repeat(2,1fr);gap:12px'>
+          <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+            <li><strong>Capture NDC at point of administration.</strong> Build a workflow where nursing or pharmacy scans the drug barcode at administration time — that scan should push the NDC directly into the patient's medication record and then to the claim. Manual entry at billing time is the #1 cause of N60.</li>
+            <li><strong>Validate NDC format in your billing system.</strong> Add a field-level validation that confirms the NDC is exactly 11 digits with no hyphens before the claim can be submitted — reject any entry that doesn't match the format.</li>
+            <li><strong>Keep your NDC master file current.</strong> When a drug is repackaged or a new manufacturer is added to your formulary, update the NDC in your billing system immediately — stale NDCs trigger N60 even when the drug itself hasn't changed.</li>
+          </ul>
+          <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+            <li><strong>Add a pre-submission edit</strong> for all drug HCPCS codes (J-codes and chemotherapy codes) that flags any claim line missing a value in the NDC field before the claim is released to the payer.</li>
+            <li><strong>Verify NDC against the FDA directory quarterly.</strong> Cross-check every NDC in your drug master file against the FDA NDC Directory to confirm active status — flag any inactive NDC for immediate update before it causes a denial cascade.</li>
+            <li>🔒 <strong>Compliance reminder:</strong> Reporting an incorrect or fabricated NDC on a drug claim is a <em>False Claims Act risk</em> — the NDC must reflect the exact product administered, not a similar or substitute drug's code.</li>
+          </ul>
+        </div>
       </div>
-
+ 
     </div>
   </div>
 </div>
@@ -8513,7 +9010,7 @@ NDC & UOM captured directly from the administered vial or package label</span>
       <ul class='checklist' style='margin:0;display:flex;flex-direction:column;gap:10px'>
         <li style='display:flex;align-items:flex-start;gap:10px;font-size:12px;color:#334155'>
           <span class='ck-icon' style='color:#10b981;font-size:14px;font-weight:700'>✅</span>
-          <span>NDC verified in FDA OpenFDA or DailyMed database — confirms it resolves to a real, identifiable product</span>
+          <span>NDC verified in FDA OpenFDA or AAPC Codify database — confirms it resolves to a real, identifiable product</span>
         </li>
         <li style='display:flex;align-items:flex-start;gap:10px;font-size:12px;color:#334155'>
           <span class='ck-icon' style='color:#10b981;font-size:14px;font-weight:700'>✅</span>
@@ -8658,8 +9155,8 @@ NDC & UOM captured directly from the administered vial or package label</span>
           <a class="res-link" href="https://dailymed.nlm.nih.gov/dailymed/" target="_blank" rel="noopener">
             <span class="res-icon" style="background:#e8f0ff;color:#1847cc">💊</span>
             <span class="res-body">
-              <span class="res-name">DailyMed NDC Lookup</span>
-              <span class="res-desc">Search drug labels &amp; National Drug Codes via NLM DailyMed</span>
+              <span class="res-name">AAPC Codify NDC Lookup</span>
+              <span class="res-desc">Search drug labels &amp; National Drug Codes via NLM AAPC Codify</span>
             </span>
             <span class="res-arrow">↗</span>
           </a>
@@ -9973,8 +10470,8 @@ NDC & UOM captured directly from the administered vial or package label</span>
           <a class="res-link" href="https://dailymed.nlm.nih.gov/dailymed/" target="_blank" rel="noopener">
             <span class="res-icon" style="background:#e8f0ff;color:#1847cc">💊</span>
             <span class="res-body">
-              <span class="res-name">DailyMed NDC Lookup</span>
-              <span class="res-desc">Search drug labels &amp; National Drug Codes via NLM DailyMed</span>
+              <span class="res-name">AAPC Codify NDC Lookup</span>
+              <span class="res-desc">Search drug labels &amp; National Drug Codes via NLM AAPC Codify</span>
             </span>
             <span class="res-arrow">↗</span>
           </a>
@@ -11100,8 +11597,8 @@ NDC & UOM captured directly from the administered vial or package label</span>
           <a class="res-link" href="https://dailymed.nlm.nih.gov/dailymed/" target="_blank" rel="noopener">
             <span class="res-icon" style="background:#e8f0ff;color:#1847cc">💊</span>
             <span class="res-body">
-              <span class="res-name">DailyMed NDC Lookup</span>
-              <span class="res-desc">Search drug labels &amp; National Drug Codes via NLM DailyMed</span>
+              <span class="res-name">AAPC Codify NDC Lookup</span>
+              <span class="res-desc">Search drug labels &amp; National Drug Codes via NLM AAPC Codify</span>
             </span>
             <span class="res-arrow">↗</span>
           </a>
@@ -12340,8 +12837,8 @@ Retired or invalid NUBC condition code submitted that is no longer accepted by t
           <a class="res-link" href="https://dailymed.nlm.nih.gov/dailymed/" target="_blank" rel="noopener">
             <span class="res-icon" style="background:#e8f0ff;color:#1847cc">💊</span>
             <span class="res-body">
-              <span class="res-name">DailyMed NDC Lookup</span>
-              <span class="res-desc">Search drug labels &amp; National Drug Codes via NLM DailyMed</span>
+              <span class="res-name">AAPC Codify NDC Lookup</span>
+              <span class="res-desc">Search drug labels &amp; National Drug Codes via NLM AAPC Codify</span>
             </span>
             <span class="res-arrow">↗</span>
           </a>
@@ -13951,8 +14448,8 @@ Template carried an expired or incorrect CLIA number that was never updated.
           <a class="res-link" href="https://dailymed.nlm.nih.gov/dailymed/" target="_blank" rel="noopener">
             <span class="res-icon" style="background:#e8f0ff;color:#1847cc">💊</span>
             <span class="res-body">
-              <span class="res-name">DailyMed NDC Lookup</span>
-              <span class="res-desc">Search drug labels &amp; National Drug Codes via NLM DailyMed</span>
+              <span class="res-name">AAPC Codify NDC Lookup</span>
+              <span class="res-desc">Search drug labels &amp; National Drug Codes via NLM AAPC Codify</span>
             </span>
             <span class="res-arrow">↗</span>
           </a>
@@ -15377,8 +15874,8 @@ Therapy plan-of-care occurrence dates not included on the claim.
           <a class="res-link" href="https://dailymed.nlm.nih.gov/dailymed/" target="_blank" rel="noopener">
             <span class="res-icon" style="background:#e8f0ff;color:#1847cc">💊</span>
             <span class="res-body">
-              <span class="res-name">DailyMed NDC Lookup</span>
-              <span class="res-desc">Search drug labels &amp; National Drug Codes via NLM DailyMed</span>
+              <span class="res-name">AAPC Codify NDC Lookup</span>
+              <span class="res-desc">Search drug labels &amp; National Drug Codes via NLM AAPC Codify</span>
             </span>
             <span class="res-arrow">↗</span>
           </a>
@@ -16834,8 +17331,8 @@ Service performed by a covering or substitute provider not tied to the authoriza
           <a class="res-link" href="https://dailymed.nlm.nih.gov/dailymed/" target="_blank" rel="noopener">
             <span class="res-icon" style="background:#e8f0ff;color:#1847cc">💊</span>
             <span class="res-body">
-              <span class="res-name">DailyMed NDC Lookup</span>
-              <span class="res-desc">Search drug labels &amp; National Drug Codes via NLM DailyMed</span>
+              <span class="res-name">AAPC Codify NDC Lookup</span>
+              <span class="res-desc">Search drug labels &amp; National Drug Codes via NLM AAPC Codify</span>
             </span>
             <span class="res-arrow">↗</span>
           </a>
@@ -18312,8 +18809,8 @@ Primary insurance terminated but claim still billed as a COB claim.
           <a class="res-link" href="https://dailymed.nlm.nih.gov/dailymed/" target="_blank" rel="noopener">
             <span class="res-icon" style="background:#e8f0ff;color:#1847cc">💊</span>
             <span class="res-body">
-              <span class="res-name">DailyMed NDC Lookup</span>
-              <span class="res-desc">Search drug labels &amp; National Drug Codes via NLM DailyMed</span>
+              <span class="res-name">AAPC Codify NDC Lookup</span>
+              <span class="res-desc">Search drug labels &amp; National Drug Codes via NLM AAPC Codify</span>
             </span>
             <span class="res-arrow">↗</span>
           </a>
@@ -19867,8 +20364,8 @@ CMN not updated after equipment upgrade or HCPCS code change.
           <a class="res-link" href="https://dailymed.nlm.nih.gov/dailymed/" target="_blank" rel="noopener">
             <span class="res-icon" style="background:#e8f0ff;color:#1847cc">💊</span>
             <span class="res-body">
-              <span class="res-name">DailyMed NDC Lookup</span>
-              <span class="res-desc">Search drug labels &amp; National Drug Codes via NLM DailyMed</span>
+              <span class="res-name">AAPC Codify NDC Lookup</span>
+              <span class="res-desc">Search drug labels &amp; National Drug Codes via NLM AAPC Codify</span>
             </span>
             <span class="res-arrow">↗</span>
           </a>
@@ -20619,7 +21116,7 @@ CMN not updated after equipment upgrade or HCPCS code change.
   "resolution_steps": [
     "Pull the actual vial or package label from the date of service",
     "Compare the billed NDC digit by digit against the label — identify transposition, missing digit, or extra digit",
-    "Enter the corrected NDC into FDA OpenFDA or DailyMed to confirm it resolves to a real product",
+    "Enter the corrected NDC into FDA OpenFDA or AAPC Codify to confirm it resolves to a real product",
     "Convert 10-digit NDC to 11-digit (5-4-2) format if needed",
     "Verify N4 qualifier is attached with no space before the corrected NDC",
     "Confirm the corrected NDC maps to the billed J-code using a current crosswalk",
@@ -20631,7 +21128,7 @@ CMN not updated after equipment upgrade or HCPCS code change.
   "noc_codes": ["J3490", "J3590"],
   "prevention_checklist": [
     "NDC captured character by character from the actual administered vial label",
-    "NDC verified in FDA OpenFDA or DailyMed — confirms it resolves to a real identifiable product",
+    "NDC verified in FDA OpenFDA or AAPC Codify — confirms it resolves to a real identifiable product",
     "NDC is exactly 11 digits in 5-4-2 format — no missing, extra, or transposed digits",
     "N4 qualifier present with no space before the NDC",
     "NDC resolves to the same product as the billed J-code via current crosswalk",
@@ -21607,7 +22104,7 @@ async function renderRxNavJCodeInfo(jcode) {
     <div class="drug-detail-card" style="margin-top:14px">
       <div style="font-weight:700;color:#0d1830;margin-bottom:8px">🔗 Recommended Manual Lookup Steps</div>
       <ol style="color:#566080;font-size:13.5px;line-height:1.9;padding-left:18px">
-        <li>Search <a href="https://dailymed.nlm.nih.gov/dailymed/" target="_blank" style="color:#1847cc">DailyMed</a> by drug name to find active NDCs</li>
+        <li>Search <a href="https://dailymed.nlm.nih.gov/dailymed/" target="_blank" style="color:#1847cc">AAPC Codify</a> by drug name to find active NDCs</li>
         <li>Use <a href="https://www.accessdata.fda.gov/scripts/cder/ndc/" target="_blank" style="color:#1847cc">FDA NDC Directory</a> to validate format</li>
         <li>Cross-reference with CMS HCPCS J-code descriptor for the correct drug</li>
         <li>Try searching by <strong>Drug Name</strong> in the tab above for FDA results</li>
