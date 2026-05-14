@@ -10096,153 +10096,173 @@ NDC & UOM captured directly from the administered vial or package label</span>
 
 
  
-        <!-- ── HOW TO FIX IT ── -->
-  <div class='card span-12 card-collapsible' style='border:1px solid var(--border);border-radius:20px;overflow:hidden;background:#fff;box-shadow:0 10px 24px rgba(15,23,42,0.08)'>
+       <!-- ── RARC MA30 - Invalid Type of Bill ── -->
+<div class='card span-12 card-collapsible' style='border:1px solid var(--border);border-radius:20px;overflow:hidden;background:#fff;box-shadow:0 10px 24px rgba(15,23,42,0.08)'>
 
+  <!-- Header -->
   <div class='label' style='background:linear-gradient(90deg,#0f172a,#1e3a8a);color:#fff;padding:14px 18px;font-size:15px;font-weight:700;letter-spacing:.3px'>
-    How to Fix It
+    How to Fix It — RARC MA30: Missing / Incomplete / Invalid Type of Bill
   </div>
 
-  <div style='padding:20px'>
+  <!-- What is it -->
+  <div style='padding:18px 20px 0'>
+    <div style='background:#f0f9ff;border:1px solid #bae6fd;border-radius:14px;padding:14px 16px;margin-bottom:18px'>
+      <div style='font-size:13px;font-weight:700;color:#0369a1;margin-bottom:6px'>💡 What is RARC MA30?</div>
+      <div style='font-size:12px;color:#475569;line-height:1.6'>
+        Your claim was denied because the <strong>Type of Bill (TOB) in Form Locator 4 (FL-4) of the UB-04 (CMS-1450) is missing, incomplete, or does not match the services, facility type, or billing period on the claim</strong>. Think of the TOB as the routing address for your claim — it tells the payer what kind of facility billed, what type of service was rendered, and whether this is an original, replacement, or void submission. If that address is wrong or blank, the payer cannot adjudicate the claim. This is a <strong>pure administrative billing error</strong> — not a medical necessity or coverage denial — and it is fully correctable.
+      </div>
+      <div style='display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px'>
+        <div style='background:#fff;border:1px solid #bae6fd;border-radius:10px;padding:10px;text-align:center'>
+          <div style='font-size:11px;font-weight:700;color:#0284c7'>Claim Form</div>
+          <div style='font-size:13px;font-weight:800;color:#0369a1;margin:4px 0'>UB-04</div>
+          <div style='font-size:10px;color:#64748b'>CMS-1450 institutional</div>
+        </div>
+        <div style='background:#fff;border:1px solid #bae6fd;border-radius:10px;padding:10px;text-align:center'>
+          <div style='font-size:11px;font-weight:700;color:#0284c7'>Field</div>
+          <div style='font-size:13px;font-weight:800;color:#0369a1;margin:4px 0'>FL-4 (Box 4)</div>
+          <div style='font-size:10px;color:#64748b'>Type of Bill — 4 digits</div>
+        </div>
+        <div style='background:#fff;border:1px solid #bae6fd;border-radius:10px;padding:10px;text-align:center'>
+          <div style='font-size:11px;font-weight:700;color:#0284c7'>Denial Type</div>
+          <div style='font-size:13px;font-weight:800;color:#0369a1;margin:4px 0'>Administrative</div>
+          <div style='font-size:10px;color:#64748b'>Correctable — Resubmit</div>
+        </div>
+      </div>
+
+      <!-- Common mismatch scenarios -->
+      <div style='margin-top:12px;border:1px solid #bae6fd;border-radius:10px;overflow:hidden'>
+        <div style='background:#0284c7;color:#fff;font-size:11px;font-weight:700;padding:7px 12px'>📋 Common Reasons MA30 Is Triggered — TOB Digit Breakdown</div>
+        <div style='display:grid;grid-template-columns:1fr 1fr;font-size:11px'>
+          <div style='background:#e0f2fe;padding:6px 10px;font-weight:700;color:#0369a1;border-bottom:1px solid #bae6fd'>Root Cause</div>
+          <div style='background:#e0f2fe;padding:6px 10px;font-weight:700;color:#0369a1;border-bottom:1px solid #bae6fd'>What Happened</div>
+          <div style='padding:5px 10px;color:#334155;border-bottom:1px solid #e0f2fe'>TOB field left blank</div>
+          <div style='padding:5px 10px;color:#334155;border-bottom:1px solid #e0f2fe'>FL-4 was empty — claim rejected at intake before adjudication</div>
+          <div style='padding:5px 10px;color:#334155;background:#f8fbff;border-bottom:1px solid #e0f2fe'>Wrong facility type digit (2nd digit)</div>
+          <div style='padding:5px 10px;color:#334155;background:#f8fbff;border-bottom:1px solid #e0f2fe'>e.g., SNF (2XX) billed instead of Hospital (1XX) for the service rendered</div>
+          <div style='padding:5px 10px;color:#334155;border-bottom:1px solid #e0f2fe'>Wrong type of care digit (3rd digit)</div>
+          <div style='padding:5px 10px;color:#334155;border-bottom:1px solid #e0f2fe'>e.g., outpatient digit on an inpatient admission — 131 used instead of 111</div>
+          <div style='padding:5px 10px;color:#334155;background:#f8fbff;border-bottom:1px solid #e0f2fe'>Wrong frequency digit (4th digit)</div>
+          <div style='padding:5px 10px;color:#334155;background:#f8fbff;border-bottom:1px solid #e0f2fe'>Replacement claim submitted with digit "1" instead of "7"</div>
+          <div style='padding:5px 10px;color:#334155'>CAH billed with wrong TOB</div>
+          <div style='padding:5px 10px;color:#334155'>Critical Access Hospital must use 85X — not 13X used for general outpatient</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style='padding:0 20px 20px'>
     <div style='display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px'>
 
       <!-- Step 1 -->
       <div style='border:1px solid #dbeafe;border-radius:18px;padding:18px;background:linear-gradient(180deg,#f8fbff 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(37,99,235,0.08)'>
         <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
-          <div style='width:38px;height:38px;border-radius:50%;background:#2563eb;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(37,99,235,0.2)'>
-            1
-          </div>
+          <div style='width:38px;height:38px;border-radius:50%;background:#2563eb;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(37,99,235,0.2);flex-shrink:0'>1</div>
           <div>
-            <div class='nm-h3' style='margin:0;font-size:14px;font-weight:700;color:#1d4ed8'>
-              Coding Escalation - Step 1
-            </div>
-            <div style='font-size:11px;color:#64748b;margin-top:2px'>
-              Initial review and coding validation
-            </div>
+            <div style='margin:0;font-size:14px;font-weight:700;color:#1d4ed8'>Coding Escalation — Validate the TOB</div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>Internal review and root cause identification</div>
           </div>
         </div>
-
         <div style='background:#eff6ff;border:1px solid #dbeafe;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
-          Escalating to a coder or senior biller ensures the root cause is correctly identified.
+          🔍 Pull the original claim and remittance. Before contacting the payer, the billing team must own the investigation internally — escalate to a coder or senior biller to confirm the exact TOB error and the correct replacement code.
         </div>
-
-        <ul class='info-list' style='font-size:12px;line-height:1.65;margin:0'>
-          <li>The TOB is a 3- or 4-digit code on the UB-04 (CMS-1450) in Box 4. It must be complete with no blanks or missing digits.</li>
-          <li>Validate all TOB digits: Facility type, Type of care, and Frequency/Sequence code.</li>
-          <li>Medicare, Medicaid, and commercial payers may have unique TOB requirements. Example: Medicare Part B inpatient may require TOB 121 instead of 111.</li>
+        <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+          <li>Retrieve the 835 remittance or paper EOB and confirm RARC MA30 is present. The TOB is a <strong>4-digit code in Box 4 (FL-4) of the UB-04</strong> — no blanks, no zeros where digits are required.</li>
+          <li>Validate all four TOB digits: <strong>Digit 1</strong> = leading zero (ignored by CMS); <strong>Digit 2</strong> = Facility type (1=Hospital, 2=SNF, 3=Home Health, 7=Clinic); <strong>Digit 3</strong> = Type of care (1=Inpatient, 3=Outpatient); <strong>Digit 4</strong> = Frequency (1=Admit-Discharge, 7=Replacement, 8=Void).</li>
+          <li>Cross-check the TOB against services rendered — common mismatches: outpatient billed as inpatient (<strong>131 vs. 111</strong>), SNF billed with hospital TOB, or a replacement claim missing the frequency digit "7".</li>
+          <li>Verify <strong>payer-specific TOB rules</strong> — Medicare Part B inpatient must use TOB 121, not 111. Critical Access Hospitals must use <strong>85X</strong>, not 13X. These are not universal defaults.</li>
+          <li>If the correct TOB cannot be determined with certainty, <strong>escalate to a Senior Coder or Compliance Officer</strong> before resubmitting — patching the wrong digit causes a second denial.</li>
         </ul>
       </div>
 
       <!-- Step 2 -->
       <div style='border:1px solid #dcfce7;border-radius:18px;padding:18px;background:linear-gradient(180deg,#f7fff8 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(22,163,74,0.08)'>
         <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
-          <div style='width:38px;height:38px;border-radius:50%;background:#16a34a;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(22,163,74,0.2)'>
-            2
-          </div>
+          <div style='width:38px;height:38px;border-radius:50%;background:#16a34a;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(22,163,74,0.2);flex-shrink:0'>2</div>
           <div>
-            <div class='nm-h3' style='margin:0;font-size:14px;font-weight:700;color:#15803d'>
-              Corrected Claim Resubmission - Step 2
-            </div>
-            <div style='font-size:11px;color:#64748b;margin-top:2px'>
-              Correct and resubmit the claim
-            </div>
+            <div style='margin:0;font-size:14px;font-weight:700;color:#15803d'>Corrected Claim Resubmission</div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>Fix the TOB and resubmit as a replacement claim</div>
           </div>
         </div>
-
         <div style='background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
-          Update the Type of Bill to the verified correct TOB code before resubmission.
+          ✅ MA30 is a correctable billing error — not a coverage determination. A corrected claim with the accurate TOB is the fastest path to payment. Do not submit as a new claim.
         </div>
-
-        <ul class='info-list' style='font-size:12px;line-height:1.65;margin:0'>
-          <li>The last TOB digit must be '7' for corrected or replacement claims.</li>
-          <li>Box 64 on the UB-04 must include the original payer claim number or TCN.</li>
-          <li>Run a pre-submission scrub to validate demographics, revenue codes, NPIs, diagnosis codes, and dates of service.</li>
-          <li>Always verify payer-specific corrected claim filing limits before resubmitting.</li>
+        <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+          <li>Update <strong>Box 4 (FL-4)</strong> on the UB-04 with the verified, correct 4-digit TOB (e.g., 0131 = Hospital Outpatient, 0111 = Hospital Inpatient Admit-Discharge).</li>
+          <li>Set the <strong>last digit (frequency) to "7" (Replacement)</strong> — for example, 0137 = Hospital Outpatient Replacement Claim. A corrected claim without digit "7" may process as a duplicate and deny again.</li>
+          <li>Enter the <strong>original claim number / TCN in Box 64</strong> to link the corrected claim to the original submission. Missing this field causes the payer to treat the claim as new rather than corrected.</li>
+          <li>Add a note in <strong>Box 80 (Remarks)</strong>: "Corrected Type of Bill. Original TOB [XXX]. Correct TOB [YYY]. Resubmitting per RARC MA30 denial."</li>
+          <li>Run a full <strong>pre-submission scrub</strong> before resubmitting — verify patient demographics, revenue codes, NPIs, diagnosis codes, and service dates are all accurate.</li>
+          <li>⚠️ <strong>Check timely filing limits</strong> — Medicare: 12 months from date of service. Most commercial payers: 90–180 days. Corrected claim deadlines may differ from original submission windows.</li>
         </ul>
       </div>
 
       <!-- Step 3 -->
       <div style='border:1px solid #fed7aa;border-radius:18px;padding:18px;background:linear-gradient(180deg,#fffaf5 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(234,88,12,0.08)'>
         <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
-          <div style='width:38px;height:38px;border-radius:50%;background:#ea580c;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(234,88,12,0.2)'>
-            3
-          </div>
+          <div style='width:38px;height:38px;border-radius:50%;background:#ea580c;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(234,88,12,0.2);flex-shrink:0'>3</div>
           <div>
-            <div class='nm-h3' style='margin:0;font-size:14px;font-weight:700;color:#c2410c'>
-              Calling Required - Step 3
-            </div>
-            <div style='font-size:11px;color:#64748b;margin-top:2px'>
-              Contact payer for clarification
-            </div>
+            <div style='margin:0;font-size:14px;font-weight:700;color:#c2410c'>Still Denied? Call Provider Relations</div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>Diagnose payer-side system or policy issues</div>
           </div>
         </div>
-
         <div style='background:#fff7ed;border:1px solid #fed7aa;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
-          If the corrected claim is denied again, call provider relations before filing an appeal.
+          📞 If the corrected claim is denied again with MA30 — or shows no movement after 30+ days — call the payer's <strong>Provider Relations line (not general member services)</strong> to determine if there is a payer-side configuration issue, system edit, or policy nuance blocking the TOB.
         </div>
-
-        <ul class='info-list' style='font-size:12px;line-height:1.65;margin:0'>
-          <li>Have the original claim number, corrected claim number, DOS, member ID, and remittance available.</li>
-          <li>Ask whether the TOB is valid for the provider type and whether a payer-specific crosswalk applies.</li>
-          <li>Document the call reference number, representative name, and date/time of the discussion.</li>
+        <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+          <li><strong>Have ready:</strong> Original claim number, corrected claim number, date of service, member ID, TOB used on both submissions, and remittance advice for both denials.</li>
+          <li><strong>Ask the rep:</strong> "Is TOB [XXX] valid for this provider type and service? Does your system require a specific TOB for this revenue code or place of service?"</li>
+          <li>Ask whether the corrected claim was <strong>received as a replacement (frequency digit 7)</strong> — if the payer's system processed it as a duplicate instead, it may have auto-denied without human review.</li>
+          <li>Ask if the payer has a <strong>TOB crosswalk or policy document</strong> that differs from NUBC standards — request it in writing or ask for a portal link for future reference.</li>
+          <li>If the rep cannot resolve it, <strong>escalate on the call</strong> to a Claims Supervisor or Provider Relations Specialist with UB-04 expertise. Do not end the call without a resolution path.</li>
+          <li>📝 <strong>Document:</strong> Call reference number, representative name, date, and time. This is required evidence if the denial escalates to a formal appeal.</li>
         </ul>
       </div>
 
       <!-- Step 4 -->
       <div style='border:1px solid #fecaca;border-radius:18px;padding:18px;background:linear-gradient(180deg,#fff6f6 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(220,38,38,0.08)'>
         <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
-          <div style='width:38px;height:38px;border-radius:50%;background:#dc2626;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(220,38,38,0.2)'>
-            4
-          </div>
+          <div style='width:38px;height:38px;border-radius:50%;background:#dc2626;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(220,38,38,0.2);flex-shrink:0'>4</div>
           <div>
-            <div class='nm-h3' style='margin:0;font-size:14px;font-weight:700;color:#b91c1c'>
-              Appeal Required - Step 4
-            </div>
-            <div style='font-size:11px;color:#64748b;margin-top:2px'>
-              Escalate through the formal appeal process
-            </div>
+            <div style='margin:0;font-size:14px;font-weight:700;color:#b91c1c'>Payer Denied Reprocessing — Appeal Required</div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>Formal appeal proving the TOB is correct</div>
           </div>
         </div>
-
         <div style='background:#fef2f2;border:1px solid #fecaca;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
-          If the payer continues to deny after correction and outreach, submit a formal appeal.
+          ⚖️ If the payer upholds the MA30 denial after a corrected claim and provider relations outreach, file a <strong>formal appeal</strong>. Since MA30 is an administrative denial — not a medical necessity denial — the appeal focuses entirely on demonstrating the TOB was correct and the payer's denial is in error.
         </div>
-
-        <ul class='info-list' style='font-size:12px;line-height:1.65;margin:0'>
-          <li>Include provider details, patient information, claim number, DOS, and billed amount.</li>
-          <li>Clearly explain why the TOB used is correct for the services rendered.</li>
-          <li>Attach original and corrected claim copies, remittance advice, and supporting documentation.</li>
-          <li>Track the submission date, delivery method, and follow-up deadline.</li>
+        <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+          <li><strong>Appeal letter must include:</strong> Provider name, NPI, Tax ID, patient name, member ID, claim number, date of service, billed amount, and the specific TOB in dispute on both the original and corrected submissions.</li>
+          <li><strong>Key statement:</strong> "We are appealing the MA30 denial on the basis that Type of Bill [XXX] is correct and appropriate for the facility type and services rendered. The TOB was complete and valid at submission per NUBC and CMS standards."</li>
+          <li><strong>Attach:</strong> Original and corrected UB-04 copies, both EOBs/ERAs, clinical documentation confirming the place and type of service, and the call reference number from Step 3.</li>
+          <li>Reference <strong>CMS Medicare Claims Processing Manual, Publication 100-04, Chapter 25</strong> (Completing and Processing the Form UB-04 Data Set) or the <strong>AHA UB-04 Data Specifications Manual</strong> as authority for the correct TOB.</li>
+          <li><strong>Medicare:</strong> File a Redetermination with the MAC within <strong>120 days</strong> of the initial denial date. <strong>Commercial:</strong> Submit per the payer's appeal instructions on the EOB — typically 30–60 days per state regulation.</li>
         </ul>
       </div>
 
       <!-- Step 5 -->
       <div style='grid-column:1 / -1;border:1px solid #ddd6fe;border-radius:18px;padding:18px;background:linear-gradient(180deg,#f8f7ff 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(124,58,237,0.08)'>
         <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
-          <div style='width:38px;height:38px;border-radius:50%;background:#7c3aed;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(124,58,237,0.2)'>
-            5
-          </div>
+          <div style='width:38px;height:38px;border-radius:50%;background:#7c3aed;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(124,58,237,0.2);flex-shrink:0'>5</div>
           <div>
-            <div class='nm-h3' style='margin:0;font-size:14px;font-weight:700;color:#6d28d9'>
-              Payer Says Information Not Received - Step 5
-            </div>
-            <div style='font-size:11px;color:#64748b;margin-top:2px'>
-              Verify the claim transmission and field placement
-            </div>
+            <div style='margin:0;font-size:14px;font-weight:700;color:#6d28d9'>Payer Says Information Not Received on Form — Appeal Required</div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>Prove the TOB was present on the original submission — EDI transmission audit</div>
           </div>
         </div>
-
         <div style='background:#f5f3ff;border:1px solid #ddd6fe;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
-          This usually means the payer did not receive the TOB field correctly, not that the TOB itself was invalid.
+          🔁 This scenario is distinct from Step 4. Here the payer is not saying the TOB was wrong — they are saying the <strong>TOB field was blank, missing, or not received on the submitted form</strong>. This is frequently a clearinghouse mapping error, a billing system configuration gap, or a payer claims intake failure that dropped the FL-4 data in transit.
         </div>
-
-        <ul class='info-list' style='font-size:12px;line-height:1.65;margin:0'>
-          <li>Request a copy of the claim image from the payer to compare against your original submission.</li>
-          <li>Review the 837I file and confirm the TOB was present in Loop 2300 CLM05-1.</li>
-          <li>Include screenshots, clearinghouse acknowledgments, and claim images as proof.</li>
-          <li>Ask the payer to investigate whether a system intake issue removed the field.</li>
-          <li>Resubmit only after confirming the TOB field is transmitting correctly.</li>
-        </ul>
+        <div style='display:grid;grid-template-columns:repeat(2,1fr);gap:12px'>
+          <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+            <li><strong>Request a claim image from the payer</strong> as they received it. Compare it side-by-side with your original UB-04 to confirm whether FL-4 was present or dropped during transmission. This is your right as a provider and shifts the burden of proof.</li>
+            <li>Pull the <strong>original 837I EDI transmission file</strong> and confirm the TOB was submitted in <strong>Loop 2300, CLM05-1</strong> (Type of Bill). If absent or blank in the 837I, the issue is internal — fix at the billing system level before resubmitting.</li>
+            <li>Review the <strong>999 Functional Acknowledgment or TA1 Interchange Acknowledgment</strong> from your clearinghouse. An interchange-level "Accepted" does not guarantee all segments passed through correctly — check for CLM-segment-level rejections that may have silently dropped FL-4.</li>
+          </ul>
+          <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+            <li><strong>File the appeal with proof of original submission:</strong> Include a printed UB-04 showing the TOB in FL-4, the 837I CLM05-1 segment excerpt with the TOB value, the clearinghouse acknowledgment, and a written statement confirming the data was present at the time of submission.</li>
+            <li>Ask the payer to <strong>investigate whether a system intake configuration error</strong> caused the CLM05-1 segment to be dropped or ignored during adjudication — identifying a payer-side intake failure may trigger internal reprocessing without a full appeal cycle.</li>
+            <li>🔒 <strong>After resolution:</strong> Work with your clearinghouse to add a <strong>pre-submission scrub rule</strong> that flags any UB-04 institutional claim where FL-4 (TOB) is blank or malformed before release — preventing recurrence across your entire institutional claim volume.</li>
+          </ul>
+        </div>
       </div>
 
     </div>
@@ -11061,142 +11081,177 @@ NDC & UOM captured directly from the administered vial or package label</span>
   </div>
 </div>
 
-      <div class='card span-12 card-collapsible' style='border:1px solid var(--border);border-radius:20px;overflow:hidden;background:#fff;box-shadow:0 10px 24px rgba(15,23,42,0.08)'>
+   
+<!-- ── RARC MA40 - Missing / Incomplete / Invalid Admission Date ── -->
+<div class='card span-12 card-collapsible' style='border:1px solid var(--border);border-radius:20px;overflow:hidden;background:#fff;box-shadow:0 10px 24px rgba(15,23,42,0.08)'>
 
+  <!-- Header -->
   <div class='label' style='background:linear-gradient(90deg,#0f172a,#1e3a8a);color:#fff;padding:14px 18px;font-size:15px;font-weight:700;letter-spacing:.3px'>
-    How to Fix It
+    How to Fix It — RARC MA40: Missing / Incomplete / Invalid Admission Date
   </div>
 
-  <div style='padding:20px'>
+  <!-- What is it -->
+  <div style='padding:18px 20px 0'>
+    <div style='background:#f0f9ff;border:1px solid #bae6fd;border-radius:14px;padding:14px 16px;margin-bottom:18px'>
+      <div style='font-size:13px;font-weight:700;color:#0369a1;margin-bottom:6px'>💡 What is RARC MA40?</div>
+      <div style='font-size:12px;color:#475569;line-height:1.6'>
+        Your claim was denied because the <strong>Admission Date in Form Locator 12 (FL-12) of the UB-04 (CMS-1450) is missing, incorrectly formatted, logically invalid, or conflicts with other dates on the claim</strong>. Think of the admission date as the anchor point of the entire claim — every other date on an inpatient bill (statement period, discharge date, occurrence dates) is cross-validated against it by the payer's adjudication system. If that anchor is wrong, blank, or inconsistent, the claim cannot be processed. This is a <strong>pure administrative billing error</strong> — not a medical necessity or coverage denial — and is fully correctable with a corrected claim resubmission.
+      </div>
+      <div style='display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px'>
+        <div style='background:#fff;border:1px solid #bae6fd;border-radius:10px;padding:10px;text-align:center'>
+          <div style='font-size:11px;font-weight:700;color:#0284c7'>Claim Form</div>
+          <div style='font-size:13px;font-weight:800;color:#0369a1;margin:4px 0'>UB-04</div>
+          <div style='font-size:10px;color:#64748b'>CMS-1450 institutional</div>
+        </div>
+        <div style='background:#fff;border:1px solid #bae6fd;border-radius:10px;padding:10px;text-align:center'>
+          <div style='font-size:11px;font-weight:700;color:#0284c7'>Field</div>
+          <div style='font-size:13px;font-weight:800;color:#0369a1;margin:4px 0'>FL-12</div>
+          <div style='font-size:10px;color:#64748b'>Admission / Start of Care Date</div>
+        </div>
+        <div style='background:#fff;border:1px solid #bae6fd;border-radius:10px;padding:10px;text-align:center'>
+          <div style='font-size:11px;font-weight:700;color:#0284c7'>Required Format</div>
+          <div style='font-size:13px;font-weight:800;color:#0369a1;margin:4px 0'>MMDDYY</div>
+          <div style='font-size:10px;color:#64748b'>6-digit numeric — no separators</div>
+        </div>
+      </div>
+
+      <!-- Common error scenarios -->
+      <div style='margin-top:12px;border:1px solid #bae6fd;border-radius:10px;overflow:hidden'>
+        <div style='background:#0284c7;color:#fff;font-size:11px;font-weight:700;padding:7px 12px'>📋 Common Reasons MA40 Is Triggered — Admission Date Errors on the UB-04</div>
+        <div style='display:grid;grid-template-columns:1fr 1fr;font-size:11px'>
+          <div style='background:#e0f2fe;padding:6px 10px;font-weight:700;color:#0369a1;border-bottom:1px solid #bae6fd'>Root Cause</div>
+          <div style='background:#e0f2fe;padding:6px 10px;font-weight:700;color:#0369a1;border-bottom:1px solid #bae6fd'>What Happened</div>
+          <div style='padding:5px 10px;color:#334155;border-bottom:1px solid #e0f2fe'>FL-12 left blank</div>
+          <div style='padding:5px 10px;color:#334155;border-bottom:1px solid #e0f2fe'>Field was empty — required for all inpatient TOB types (11X, 12X, 21X, 22X, etc.)</div>
+          <div style='padding:5px 10px;color:#334155;background:#f8fbff;border-bottom:1px solid #e0f2fe'>Wrong date format</div>
+          <div style='padding:5px 10px;color:#334155;background:#f8fbff;border-bottom:1px solid #e0f2fe'>Date entered as MM/DD/YYYY or with separators — must be MMDDYY (6 digits, no slashes)</div>
+          <div style='padding:5px 10px;color:#334155;border-bottom:1px solid #e0f2fe'>Admission date after "From" date in FL-6</div>
+          <div style='padding:5px 10px;color:#334155;border-bottom:1px solid #e0f2fe'>FL-12 date is later than the statement period start — payer's logic check fails immediately</div>
+          <div style='padding:5px 10px;color:#334155;background:#f8fbff;border-bottom:1px solid #e0f2fe'>Transposed digits / data entry error</div>
+          <div style='padding:5px 10px;color:#334155;background:#f8fbff;border-bottom:1px solid #e0f2fe'>e.g., 013124 entered instead of 013124 — month/day swap creates an invalid or future date</div>
+          <div style='padding:5px 10px;color:#334155'>Admission date conflicts with FL-6 "From" date</div>
+          <div style='padding:5px 10px;color:#334155'>For inpatient claims, FL-12 must match or precede FL-6 "From" — a mismatch fails cross-field edits</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style='padding:0 20px 20px'>
     <div style='display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px'>
 
       <!-- Step 1 -->
       <div style='border:1px solid #dbeafe;border-radius:18px;padding:18px;background:linear-gradient(180deg,#f8fbff 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(37,99,235,0.08)'>
         <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
-          <div style='width:38px;height:38px;border-radius:50%;background:#2563eb;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(37,99,235,0.2)'>1</div>
+          <div style='width:38px;height:38px;border-radius:50%;background:#2563eb;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(37,99,235,0.2);flex-shrink:0'>1</div>
           <div>
-            <div class='nm-h3' style='margin:0;font-size:14px;font-weight:700;color:#1d4ed8'>
-              Coding Escalation - Step 1
-            </div>
-            <div style='font-size:11px;color:#64748b;margin-top:2px'>
-              Initial review and coding validation
-            </div>
+            <div style='margin:0;font-size:14px;font-weight:700;color:#1d4ed8'>Coding Escalation — Verify the True Admission Date</div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>Go back to the source record before touching the claim</div>
           </div>
         </div>
-
         <div style='background:#eff6ff;border:1px solid #dbeafe;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
-          Admission date in FL 12 is missing, invalid, or conflicts with other dates on the claim.
+          🔍 Pull the patient's medical record and registration documentation. The admission date in FL-12 must reflect the <strong>actual date the patient was admitted to the facility</strong> — not the order date, not the pre-admission date, and not the first date of service in a different setting.
         </div>
-
-        <ul class='info-list' style='font-size:12px;line-height:1.65;margin:0'>
-          <li>FL 12 is blank → Pull face sheet immediately & populate the admission date</li>
-          <li>Wrong date format (YYYY instead of MMDDYY) → Correct to MMDDYY format and resubmit</li>
-          <li>Admission date is after FL 6 From date → Fix FL 12 to be equal to or before FL 6 From date</li>
+        <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+          <li>Retrieve the <strong>admission/registration record or face sheet</strong> for the encounter — this is the authoritative source for the true admission date for inpatient claims.</li>
+          <li>Confirm the <strong>FL-12 format is MMDDYY</strong> (6 numeric digits, no slashes or separators). Per CMS Medicare Claims Processing Manual, Chapter 25, the admission date field cannot exceed 8 positions and must be valid if present. Example: January 31, 2025 = <strong>013125</strong>.</li>
+          <li>Cross-validate FL-12 against <strong>FL-6 (Statement Covers Period From/Through)</strong> — the admission date in FL-12 must equal or precede the "From" date in FL-6. A mismatch between these two fields is a leading cause of MA40 denials on inpatient claims.</li>
+          <li>Confirm the <strong>TOB in FL-4 requires an admission date</strong> — FL-12 is required when the Type of Bill is <strong>11X, 12X, 18X, 21X, 22X, 32X, 33X, 41X, 81X, or 82X</strong>. Outpatient TOBs (13X) do not require FL-12, so the denial may also signal a TOB issue.</li>
+          <li>For <strong>SNF, home health, or rehab claims</strong>, confirm FL-12 reflects the start-of-care date for the episode, not the date of the physician's order — these dates are frequently confused at registration, producing systematic MA40 denials.</li>
+          <li>Escalate to a <strong>Senior Coder or Health Information Management (HIM)</strong> staff member if the medical record and billing system show conflicting dates before resubmitting.</li>
         </ul>
       </div>
 
       <!-- Step 2 -->
       <div style='border:1px solid #dcfce7;border-radius:18px;padding:18px;background:linear-gradient(180deg,#f7fff8 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(22,163,74,0.08)'>
         <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
-          <div style='width:38px;height:38px;border-radius:50%;background:#16a34a;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(22,163,74,0.2)'>2</div>
+          <div style='width:38px;height:38px;border-radius:50%;background:#16a34a;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(22,163,74,0.2);flex-shrink:0'>2</div>
           <div>
-            <div class='nm-h3' style='margin:0;font-size:14px;font-weight:700;color:#15803d'>
-              Corrected Claim Resubmission - Step 2
-            </div>
-            <div style='font-size:11px;color:#64748b;margin-top:2px'>
-              Correct and resubmit the claim
-            </div>
+            <div style='margin:0;font-size:14px;font-weight:700;color:#15803d'>Corrected Claim Resubmission</div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>Correct FL-12 and resubmit as a replacement claim</div>
           </div>
         </div>
-
         <div style='background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
-          Original claim had an admission date error — corrected claim must be sent with FL 12 fixed.
+          ✅ MA40 is a correctable billing error — not a coverage or medical necessity denial. Once the true admission date is confirmed, correct FL-12 and resubmit as a corrected claim. Do not submit as a new claim.
         </div>
-
-        <ul class='info-list' style='font-size:12px;line-height:1.65;margin:0'>
-          <li>FL 12 blank on original claim → Add correct admission date and resubmit as Frequency Type 7</li>
-          <li>FL 6 From date earlier than FL 12 → Align FL 6 From date to match or come after FL 12</li>
-          <li>Corrected claim missing Condition Code → Add Condition Code D1 to avoid duplicate denial</li>
-          <li>Resubmission past timely filing limit → Attach original submission record as timely filing proof</li>
+        <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+          <li>Update <strong>FL-12 (Admission/Start of Care Date)</strong> with the verified correct date in <strong>MMDDYY format</strong> (6 numeric digits, no slashes or separators). Confirm the date is not a future date and is not later than the "Through" date in FL-6.</li>
+          <li>Simultaneously review and correct <strong>FL-6 (Statement Covers Period)</strong> if needed — for inpatient claims, the "From" date in FL-6 must align with or follow FL-12. A corrected FL-12 that still conflicts with FL-6 will trigger a second denial.</li>
+          <li>Set the <strong>TOB frequency digit (4th digit in FL-4) to "7" (Replacement)</strong> to indicate this is a corrected claim — e.g., 0117 = Hospital Inpatient Replacement Claim. A corrected claim without digit "7" may process as a duplicate and auto-deny.</li>
+          <li>Enter the <strong>original claim number / TCN in Box 64</strong> to link the corrected claim to the original. Missing this reference causes the payer to treat the claim as a new submission rather than a correction.</li>
+          <li>Add a note in <strong>Box 80 (Remarks)</strong>: "Corrected Admission Date in FL-12. Original date [MMDDYY]. Correct date [MMDDYY]. Resubmitting per RARC MA40 denial."</li>
+          <li>Run a full <strong>pre-submission cross-field validation</strong>: confirm FL-12 ≤ FL-6 From date ≤ FL-6 Through date ≤ current date, and that occurrence code dates in FL-31 through FL-34 are also consistent with the corrected admission date.</li>
+          <li>⚠️ <strong>Check timely filing limits</strong> before resubmitting — Medicare: 12 months from date of service. Most commercial payers: 90–180 days. Corrected claim deadlines may differ from original submission windows.</li>
         </ul>
       </div>
 
       <!-- Step 3 -->
       <div style='border:1px solid #fed7aa;border-radius:18px;padding:18px;background:linear-gradient(180deg,#fffaf5 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(234,88,12,0.08)'>
         <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
-          <div style='width:38px;height:38px;border-radius:50%;background:#ea580c;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(234,88,12,0.2)'>3</div>
+          <div style='width:38px;height:38px;border-radius:50%;background:#ea580c;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(234,88,12,0.2);flex-shrink:0'>3</div>
           <div>
-            <div class='nm-h3' style='margin:0;font-size:14px;font-weight:700;color:#c2410c'>
-              Calling Required - Step 3
-            </div>
-            <div style='font-size:11px;color:#64748b;margin-top:2px'>
-              Contact payer for clarification
-            </div>
+            <div style='margin:0;font-size:14px;font-weight:700;color:#c2410c'>Still Denied? Call Provider Relations</div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>Diagnose payer-side system edits or date conflict logic</div>
           </div>
         </div>
-
         <div style='background:#fff7ed;border:1px solid #fed7aa;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
-          Corrected claim status is unknown or payer shows no record of receipt.
+          📞 If the corrected claim is denied again with MA40 — or shows no movement after 30+ days — call the payer's <strong>Provider Relations or Claims department (not general member services)</strong> to identify whether the date is failing a payer-side cross-field edit, enrollment validation, or system configuration rule.
         </div>
-
-        <ul class='info-list' style='font-size:12px;line-height:1.65;margin:0'>
-          <li>Corrected claim not in payer system → Confirm receipt & request manual entry or retransmission</li>
-          <li>Payer unsure why MA40 triggered → Ask rep to specify — missing vs invalid vs conflicting date</li>
-          <li>Payer shows original claim only → Provide corrected claim # and date, request escalation to supervisor</li>
+        <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+          <li><strong>Have ready:</strong> Original claim number, corrected claim number, date of service, member ID, the admission date submitted on both claims, and both remittance advices showing MA40.</li>
+          <li><strong>Ask the rep:</strong> "Is the admission date [MMDDYY] in FL-12 failing a specific cross-field edit? Is it being compared against a coverage effective date, a prior authorization start date, or an eligibility record in your system?"</li>
+          <li>Ask whether the payer's system is flagging a <strong>conflict between FL-12 and the member's eligibility period</strong> — if coverage was not yet active on the admission date, MA40 may be a proxy denial for an eligibility issue that needs separate resolution.</li>
+          <li>Ask whether the payer requires the admission date to be reported in a <strong>specific alternate format</strong> (some older payer systems still require MMDDYYYY — 8 digits — rather than the standard MMDDYY — 6 digits) despite CMS guidance.</li>
+          <li>If the rep confirms the date is correct but the system still rejects it, ask for <strong>manual reprocessing on the call</strong> or escalate to a Claims Supervisor with authority to override the system edit.</li>
+          <li>📝 <strong>Document:</strong> Call reference number, representative name, date, and time. This is mandatory evidence if the denial escalates to a formal appeal.</li>
         </ul>
       </div>
 
       <!-- Step 4 -->
       <div style='border:1px solid #fecaca;border-radius:18px;padding:18px;background:linear-gradient(180deg,#fff6f6 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(220,38,38,0.08)'>
         <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
-          <div style='width:38px;height:38px;border-radius:50%;background:#dc2626;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(220,38,38,0.2)'>4</div>
+          <div style='width:38px;height:38px;border-radius:50%;background:#dc2626;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(220,38,38,0.2);flex-shrink:0'>4</div>
           <div>
-            <div class='nm-h3' style='margin:0;font-size:14px;font-weight:700;color:#b91c1c'>
-              Appeal Required - Step 4
-            </div>
-            <div style='font-size:11px;color:#64748b;margin-top:2px'>
-              Escalate through the appeal process
-            </div>
+            <div style='margin:0;font-size:14px;font-weight:700;color:#b91c1c'>Payer Denied Reprocessing — Appeal Required</div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>Formal appeal proving the admission date is accurate and documented</div>
           </div>
         </div>
-
         <div style='background:#fef2f2;border:1px solid #fecaca;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
-          Payer refuses to reprocess corrected claim despite valid admission date.
+          ⚖️ If the payer upholds the MA40 denial after a corrected claim and provider relations outreach, file a <strong>formal appeal</strong> with medical record documentation proving the admission date submitted is accurate and supported by the clinical record.
         </div>
-
-        <ul class='info-list' style='font-size:12px;line-height:1.65;margin:0'>
-          <li>Corrected claim denied without reason → File appeal attaching face sheet and H&P confirming admission date</li>
-          <li>Payer claims admission date is medically invalid → Attach physician admission orders</li>
-          <li>Appeal deadline approaching → File immediately and supplement later if needed</li>
-          <li>Payer applies wrong benefit period → Include admission date proof</li>
+        <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+          <li><strong>Appeal letter must include:</strong> Provider name, NPI, Tax ID, patient name, member ID, claim number, date of service, billed amount, and the specific admission date in dispute on both the original and corrected submissions.</li>
+          <li><strong>Key statement:</strong> "We are appealing the MA40 denial on the basis that the admission date [MMDDYY] reported in FL-12 is accurate, valid, and directly supported by the patient's admission documentation and medical record. This is an administrative billing denial and the admission date was correct and complete at submission."</li>
+          <li><strong>Attach supporting documentation:</strong> Original and corrected UB-04 copies, both EOBs/ERAs, the patient's <strong>admission/face sheet or registration record</strong> confirming the actual admission date, relevant medical record pages documenting the date of admission, and the call reference number from Step 3.</li>
+          <li>Reference <strong>CMS Medicare Claims Processing Manual, Publication 100-04, Chapter 25</strong> — which defines FL-12 (Admission/Start of Care Date) requirements — as the governing authority for admission date placement and format on institutional claims.</li>
+          <li><strong>Medicare:</strong> File a Redetermination with the MAC within <strong>120 days</strong> of the initial denial date on the remittance. <strong>Commercial:</strong> Submit per the payer's appeal instructions on the EOB — typically <strong>30–60 days</strong> per state regulation. Document submission channel, date, and tracking number.</li>
+          <li>Track the appeal deadline and <strong>follow up if no decision is received</strong> within the payer's standard adjudication window — 60 days for Medicare MACs, 30–60 days for most commercial payers.</li>
         </ul>
       </div>
 
       <!-- Step 5 -->
       <div style='grid-column:1 / -1;border:1px solid #ddd6fe;border-radius:18px;padding:18px;background:linear-gradient(180deg,#f8f7ff 0%,#ffffff 100%);box-shadow:0 3px 10px rgba(124,58,237,0.08)'>
         <div style='display:flex;align-items:flex-start;gap:12px;margin-bottom:12px'>
-          <div style='width:38px;height:38px;border-radius:50%;background:#7c3aed;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(124,58,237,0.2)'>5</div>
+          <div style='width:38px;height:38px;border-radius:50%;background:#7c3aed;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(124,58,237,0.2);flex-shrink:0'>5</div>
           <div>
-            <div class='nm-h3' style='margin:0;font-size:14px;font-weight:700;color:#6d28d9'>
-              Payer says info not received - Step 5
-            </div>
-            <div style='font-size:11px;color:#64748b;margin-top:2px'>
-              Verify claim transmission and field placement
-            </div>
+            <div style='margin:0;font-size:14px;font-weight:700;color:#6d28d9'>Payer Says Information Not Received on Form — Appeal Required</div>
+            <div style='font-size:11px;color:#64748b;margin-top:2px'>Prove FL-12 was present on the original submission — EDI transmission audit</div>
           </div>
         </div>
-
         <div style='background:#f5f3ff;border:1px solid #ddd6fe;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#475569'>
-          Payer claims FL 12 was not present on the submitted claim form.
+          🔁 This scenario is distinct from Step 4. Here the payer is not saying the admission date was wrong — they are saying <strong>FL-12 was blank, missing, or not received on the submitted form</strong>. This is frequently caused by a billing system field-mapping error, a clearinghouse transmission gap, or a payer claims intake failure that dropped the FL-12 data in transit rather than an error made by the biller.
         </div>
-
-        <ul class='info-list' style='font-size:12px;line-height:1.65;margin:0'>
-          <li>Pull clearinghouse claim image and compare with original</li>
-          <li>Check 837I file (Loop 2300) for missing admission date</li>
-          <li>Confirm clearinghouse transmission logs</li>
-          <li>Request payer-side claim image for validation</li>
-          <li>Fix mapping issue before resubmission</li>
-        </ul>
+        <div style='display:grid;grid-template-columns:repeat(2,1fr);gap:12px'>
+          <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+            <li><strong>Request a claim image from the payer</strong> as they received it — this is your right as a provider. Compare it side-by-side with your original UB-04 to confirm whether FL-12 was populated or dropped during transmission. A blank FL-12 on the payer's image despite it being populated on your submission is definitive proof of a transmission or intake failure.</li>
+            <li>Pull the <strong>original 837I EDI file</strong> and confirm the admission date was submitted in <strong>Loop 2300, DTP segment with qualifier "435" (Admission Date/Hour)</strong>. If the DTP*435 segment is absent or contains an invalid value, the issue is internal — correct the billing system mapping before resubmitting.</li>
+            <li>Review the <strong>999 Functional Acknowledgment or TA1 Interchange Acknowledgment</strong> from your clearinghouse. An interchange-level "Accepted" response does not guarantee all DTP segments transmitted correctly — check specifically for DTP loop-level rejections that may have silently dropped FL-12 data.</li>
+          </ul>
+          <ul style='font-size:12px;line-height:1.7;margin:0;padding-left:16px;color:#334155'>
+            <li><strong>File the appeal with proof of original submission:</strong> Include a printed UB-04 showing the admission date in FL-12, the 837I DTP*435 segment excerpt confirming the date was present in the EDI file, the clearinghouse acknowledgment confirming transmission, and a written statement confirming the data was present and valid at the time of original submission.</li>
+            <li>Ask the payer to <strong>investigate whether a system intake configuration error</strong> caused the DTP*435 segment to be dropped or ignored during adjudication. Identifying a payer-side intake failure may trigger internal reprocessing without a full appeal cycle — this is worth requesting explicitly before allowing the appeal to run its full timeline.</li>
+            <li>🔒 <strong>After resolution:</strong> Work with your clearinghouse or billing system vendor to add a <strong>pre-submission scrub rule</strong> that flags any 837I institutional claim where the DTP*435 (Admission Date) segment is missing or malformed for inpatient TOB types — preventing the same transmission failure from recurring across your claim volume.</li>
+          </ul>
+        </div>
       </div>
 
     </div>
