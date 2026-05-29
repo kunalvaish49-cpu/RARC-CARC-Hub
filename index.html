@@ -1019,7 +1019,7 @@ body.dark-mode .toast {
        
   <span class="rarc-chip active" onclick="rarcChipClick('N846')">N846</span>
 	<span class="rarc-chip" onclick="rarcChipClick('M15')">M15</span>
-  <span class="rarc-chip" onclick="rarcChipClick('C11')">C11</span>
+  <span class="rarc-chip" onclick="rarcChipClick('11')">11</span>
   <span class="rarc-chip" onclick="rarcChipClick('119')">119</span>
   <span class="rarc-chip" onclick="rarcChipClick('M57')">M57</span>
   <span class="rarc-chip" onclick="rarcChipClick('M77')">M77</span>
@@ -3908,7 +3908,7 @@ NDC captured directly from the administered vial or package label</span>
 
 <!-- ═══════════════════════════════════ CARC 11 SECTION ═══════════════════════════════════ -->
 
-<div id='rarc-section-C11' class='rarc-section' style='background:#ffffff;border:1px solid #dbe4f0;border-radius:14px;padding:20px;margin-bottom:20px;box-shadow:0 2px 8px rgba(0,0,0,0.08);font-family:Segoe UI,Arial,sans-serif;'>
+<div id='rarc-section-11' class='rarc-section' style='background:#ffffff;border:1px solid #dbe4f0;border-radius:14px;padding:20px;margin-bottom:20px;box-shadow:0 2px 8px rgba(0,0,0,0.08);font-family:Segoe UI,Arial,sans-serif;'>
   <div class='layout'>
     <div>
 
@@ -4984,7 +4984,7 @@ NDC captured directly from the administered vial or package label</span>
     </aside>
 
   </div><!-- end .layout -->
-  </div><!-- end #rarc-section-C11->
+  </div><!-- end #rarc-section-11->
 
 
 <!-- ═══════════════════════════════════ CARC 119 SECTION ═══════════════════════════════════ -->
@@ -29638,7 +29638,7 @@ function runRarcAnalyze() {
   });
 
   // Switch section visibility
-  const known = ['N846', 'M15', 'C11', '119', 'M57', 'M77', 'N335','MA75','N816', 'M119', 'N60', 'N815', 'N847', 'N848', 'MA30', 'MA40',  'M44', 'M34', 'M45', 'N4', 'M62', 'N227'];
+  const known = ['N846', 'M15', '11', '119', 'M57', 'M77', 'N335','MA75','N816', 'M119', 'N60', 'N815', 'N847', 'N848', 'MA30', 'MA40',  'M44', 'M34', 'M45', 'N4', 'M62', 'N227'];
   const msg = document.getElementById('rarcSearchResults');
 
   if (known.includes(code)) {
@@ -30328,7 +30328,7 @@ function collapseAllCards() {
 const SM_SECTIONS = [
   { icon:'📋', label:'N846 — NDC/HCPCS Mismatch', code:'N846'},
   { icon:'📋', label:'M15 — Bundled / Inclusive Service', code:'M15'},
-  { icon:'📋', label:'C11 — Diagnosis Is Inconsistent with the Procedure', code:'C11'},
+  { icon:'📋', label:'11 — Diagnosis Is Inconsistent with the Procedure', code:'11'},
   { icon:'📋', label:'119 — Benefit Maximum for This Time Period', code:'119'},
   { icon:'📋', label:'M57 | Invalid provider identifier.', code:'M57'},
   { icon:'📋', label:'M77 | Missing place of service..', code:'M77'},
