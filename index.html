@@ -476,58 +476,6 @@ footer { margin-top: 60px; text-align: center; color: var(--muted2); font-size: 
 /* ══ SEARCH HIGHLIGHT ══ */
 .search-hl { background:#fff3a0; color:#0d1830; border-radius:3px; padding:0 2px; }
 
-/* ══ STATUS BADGE ROWS (Note Maker Step 6) ══ */
-.nm-status-row {
-  display:grid; grid-template-columns:1fr 1fr;
-  gap:12px; margin-top:16px;
-}
-@media(max-width:600px){ .nm-status-row { grid-template-columns:1fr; } }
-
-.nm-status-field {
-  background:var(--surface2); border:1.5px solid var(--border);
-  border-radius:var(--r-sm); padding:10px 13px;
-  cursor:pointer; position:relative; transition:border-color .16s, box-shadow .16s;
-  user-select:none;
-}
-.nm-status-field:hover { border-color:var(--accent); box-shadow:0 0 0 3px rgba(24,71,204,.07); }
-.nm-status-field.dbl-copied {
-  border-color:var(--teal); background:var(--teal-bg);
-  animation:copyFlash .5s ease;
-}
-@keyframes copyFlash { 0%,100%{opacity:1} 50%{opacity:.6} }
-
-.nm-sf-label {
-  font:700 10px/1 'DM Mono',monospace; letter-spacing:.14em; text-transform:uppercase;
-  color:var(--muted2); margin-bottom:6px; display:flex; align-items:center; gap:6px;
-}
-.nm-sf-label .sf-copy-hint {
-  font:400 9.5px/1 'DM Mono',monospace; letter-spacing:.06em;
-  color:var(--muted2); opacity:.55; text-transform:none;
-}
-.nm-sf-select {
-  width:100%; border:1.5px solid var(--border); border-radius:var(--r-xs);
-  background:var(--surface); color:var(--text);
-  font:14px 'DM Sans',sans-serif; padding:7px 10px; outline:none;
-  transition:border-color .16s; cursor:pointer;
-  -webkit-appearance:none; appearance:none;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238896b5' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-  background-repeat:no-repeat; background-position:right 10px center;
-  padding-right:32px;
-}
-.nm-sf-select:focus { border-color:var(--accent); }
-.nm-sf-value-display {
-  font:600 13.5px/1.4 'DM Mono',monospace; color:var(--navy);
-  margin-top:6px; min-height:20px; word-break:break-word;
-}
-.nm-sf-copied-badge {
-  position:absolute; top:8px; right:10px;
-  background:var(--teal); color:#fff;
-  font:700 10px/1 'DM Mono',monospace; letter-spacing:.08em;
-  padding:3px 8px; border-radius:999px;
-  opacity:0; transition:opacity .2s; pointer-events:none;
-}
-.nm-status-field.dbl-copied .nm-sf-copied-badge { opacity:1; }
-
 /* ══ COLLAPSIBLE CARD SECTIONS ══ */
 .card-collapsible .label {
   display: flex;
@@ -990,7 +938,7 @@ body.dark-mode .toast {
     <span class="pill"><em>Powered by Kunal Vaish)</em></span>
       </div>
       <h1>RARC & CARC — <em>Intelligence</em> Hub</h1>
-      <p class="sub">Complete reference guide for RARC & CARC denials: root causes, step-by-step correction workflow, modifier usage, payer-specific rules, and the built-in Note Maker for billing teams and AR automation.</p>
+      <p class="sub">Complete reference guide for RARC & CARC denials: root causes, step-by-step correction workflow, modifier usage, payer-specific rules for billing teams and AR automation.</p>
 
       <!-- RARC Search Bar -->
       <div id="rarcSearchBar" style="margin-top:22px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
@@ -28242,6 +28190,12 @@ CMN not updated after equipment upgrade or HCPCS code change.
     <hr class="sep">
     Powered by RARC & CARC Reference Library CMS & X12· Verify all field placements against the NUCC CMS‑1500 (02/12) manual and CMS/NUBC UB‑04 specifications before submitting claims.<br>
     <span style="font-size:11px;opacity:.7">This page is structured for AI &amp; Python automation — see the embedded <code>By</code> Kunal Vaish.</span>
+    <div style="margin-top:16px;padding-top:16px;border-top:1px solid rgba(175,210,255,.15);display:flex;justify-content:center;gap:24px;flex-wrap:wrap;">
+      <a href="https://kunalvaish49-cpu.github.io/RARC-CARC-Hub/about.html" style="color:var(--accent);text-decoration:none;font-size:12px;">About</a>
+      <a href="https://kunalvaish49-cpu.github.io/RARC-CARC-Hub/contact.html" style="color:var(--accent);text-decoration:none;font-size:12px;">Contact</a>
+      <a href="https://kunalvaish49-cpu.github.io/RARC-CARC-Hub/privacy-policy.html" style="color:var(--accent);text-decoration:none;font-size:12px;">Privacy Policy</a>
+      <a href="https://kunalvaish49-cpu.github.io/RARC-CARC-Hub/terms.html" style="color:var(--accent);text-decoration:none;font-size:12px;">Terms of Service</a>
+    </div>
   </footer>
 
 </div><!-- end .page -->
