@@ -228,6 +228,21 @@ h1 em {
 .span-12 { grid-column: span 12; }
 @media (max-width: 900px) { .span-4, .span-6, .span-8 { grid-column: span 12; } }
 
+/* ══ MOBILE (≤640px) ══ */
+@media (max-width: 640px) {
+  .page { padding: 16px 14px 72px; }
+  .header { padding: 26px 20px 22px; border-radius: 16px; }
+  .card, .result-header { padding: 16px 16px; }
+
+  /* Floating topbar: keep brand + search, hide breadcrumb & text-heavy buttons */
+  #floatingTopbar { height: auto; min-height: 52px; padding: 8px 12px; flex-wrap: wrap; gap: 8px; }
+  .ftb-breadcrumb { display: none; }
+  .ftb-search-wrap { max-width: none; min-width: 0; order: 3; flex-basis: 100%; }
+  .ftb-right { gap: 6px; }
+  .ftb-btn span { display: none; }
+  .ftb-btn { padding: 0 10px; }
+}
+
 /* ══ TEXT UTILITIES ══ */
 .muted { color: var(--muted); font-size: 14.5px; line-height: 1.75; }
 .proc {
@@ -772,7 +787,7 @@ body.dark-mode .toast {
   display: none;
   align-items: flex-start;
   justify-content: center;
-  padding-top: 10vh;
+  padding: 10vh 16px 16px;
   background: rgba(8,18,46,.72);
   backdrop-filter: blur(8px);
 }
