@@ -31139,7 +31139,7 @@ function clearSearchHighlights() {
   });
 }
 
-function runRarcAnalyze() {
+function runRarcAnalyze(skipScroll) {
   const code = document.getElementById('rarcSearchInput').value.trim().toUpperCase() || 'M15';
   const ctx  = document.getElementById('rarcContextInput').value.trim();
   // Update badge
@@ -31160,10 +31160,11 @@ function runRarcAnalyze() {
     const target = document.getElementById('rarc-section-' + code);
     if (target) {
       target.style.display = '';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      if (!skipScroll) window.scrollTo({ top: 0, behavior: 'smooth' });
     }
     if (ctx) { rarcSearch(ctx); }
     msg.style.display = 'none';
+    localStorage.setItem('rarc-last-code', code);
   } else {
     // Unknown code — show toast
     msg.innerHTML = `<span>🔍 Analyzing <strong>${code}</strong>${ctx ? ' — Context: ' + ctx : ''}</span><span style="margin-left:10px;opacity:.6;font-size:12px">Currently loaded: M15 &amp; N816. Switch to the AR Denial Hub to search all RARC codes.</span>`;
@@ -31810,6 +31811,18 @@ function toggleDarkMode() {
     document.body.classList.add('dark-mode');
     const btn = document.getElementById('darkModeBtn');
     if (btn) { btn.classList.add('dark-active'); btn.innerHTML = '☀️ <span>Light</span>'; }
+  }
+})();
+
+// Restore last-viewed RARC/CARC code on page load
+(function() {
+  const lastCode = localStorage.getItem('rarc-last-code');
+  if (lastCode && lastCode !== 'N846') {
+    const input = document.getElementById('rarcSearchInput');
+    if (input) {
+      input.value = lastCode;
+      runRarcAnalyze(true);
+    }
   }
 })();
 
